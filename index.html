@@ -786,18 +786,30 @@
                     </div>
 
                     <!-- Billetterie & Hôtels Section -->
-<div class="offer-card" data-cat="billet">
+<div class="offer-card" data-cat="billet" style="display: flex; flex-direction: column; height: 100%; border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
+    
     <div class="image-container" style="display: flex; flex-direction: column;">
         <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1768417735/Reservation_Bi_nmvtg2.jpg" alt="Réservation Billet 1" style="width: 100%; height: auto; display: block;">
-        
         <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771094/HAJZ_cpo63j.jpg" alt="Réservation Billet 2" style="width: 100%; height: auto; display: block;">
     </div>
     
-    <div class="p-8">
-        <h3 class="text-xl font-black mb-4">Réservation Billet</h3>
-        <a href="https://wa.me/p/9734168360040574/212623945729" target="_blank" class="btn-action" data-i18n="offers.learn_more">Réserver</a>
+    <div class="p-8" style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="content-top">
+            <h3 class="text-xl font-black mb-4" style="margin-bottom: 15px; font-size: 1.25rem; font-weight: 900;">
+                Réservation Billet
+            </h3>
+        </div>
+        
+        <div class="content-bottom">
+            <a href="https://wa.me/p/9734168360040574/212623945729" 
+               target="_blank" 
+               class="btn-action" 
+               style="display: block; text-align: center; width: 100%; padding: 10px 0; text-decoration: none;"
+               data-i18n="offers.learn_more">
+               Réserver
+            </a>
+        </div>
     </div>
-</div>
                     <div class="offer-card" data-cat="billet">
                         <div class="image-container">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1768417879/Reservation_Hotel_nsrotm.jpg" alt="Réservation Hôtel">
