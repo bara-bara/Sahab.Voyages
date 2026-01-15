@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai@0.1.0/dist/generative-ai.min.js"></script>
+    <script src="https://www.chatbase.co/chatbot-iframe.js"></script>
     
     <style>
         :root {
@@ -1005,29 +1005,44 @@
     </div>
 
     <!-- AI Chat Window -->
-    <div id="chatWindow">
-        <div class="chat-header">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-900">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div>
-                    <h5 class="font-bold">Assistant Sahab</h5>
-                    <small data-i18n="chat.online">En ligne • Prêt à vous aider</small>
-                </div>
+<!-- AI Chat Window - CHATBASE VERSION -->
+<div id="chatWindow">
+    <div class="chat-header">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-900">
+                <i class="fas fa-robot"></i>
             </div>
-            <button onclick="toggleChat()" class="text-white hover:text-gray-300"><i class="fas fa-times"></i></button>
+            <div>
+                <h5 class="font-bold">Assistant Sahab</h5>
+                <small data-i18n="chat.online">En ligne • Prêt à vous aider</small>
+            </div>
         </div>
-        <div class="chat-messages" id="chatMsgs">
-            <!-- Messages will be loaded here -->
-        </div>
-        <!-- Quick Action Buttons -->
-        <div class="p-3 border-t border-gray-200 bg-blue-50 flex flex-wrap gap-2">
-            <button class="quick-btn" onclick="sendQuickQuestion('Quel est le prix de l\'Omra ?')" data-i18n="chat.quick1">💰 Prix Omra</button>
-            <button class="quick-btn" onclick="sendQuickQuestion('Comment obtenir un visa ?')" data-i18n="chat.quick2">🛂 Visa Arabie</button>
-            <button class="quick-btn" onclick="sendQuickQuestion('Quels sont vos horaires ?')" data-i18n="chat.quick3">🕘 Horaires</button>
-            <button class="quick-btn" onclick="sendQuickQuestion('Réserver un billet d\'avion')" data-i18n="chat.quick4">✈️ Billet avion</button>
-        </div>
+        <button onclick="toggleChat()" class="text-white hover:text-gray-300"><i class="fas fa-times"></i></button>
+    </div>
+    
+    <!-- Chatbase Iframe Container -->
+    <div id="chatbaseContainer" style="flex-grow: 1; height: calc(100% - 150px);">
+        <chatbase-widget 
+            style="width: 100%; height: 100%; border: none; border-radius: 0;"
+            chatbase-id="HORXcyE96yobSAbY_DPez"
+            domain="https://www.chatbase.co"
+            widget-version="v1"
+            header-bg-color="#004aad"
+            header-text-color="#ffffff"
+            button-bg-color="#25d366"
+            button-text-color="#ffffff"
+            language="auto"
+        ></chatbase-widget>
+    </div>
+    
+    <!-- Quick Action Buttons (تعمل مع النظام الجديد) -->
+    <div class="p-3 border-t border-gray-200 bg-blue-50 flex flex-wrap gap-2">
+        <button class="quick-btn" onclick="sendQuickQuestion('Quel est le prix de l\\'Omra ?')" data-i18n="chat.quick1">💰 Prix Omra</button>
+        <button class="quick-btn" onclick="sendQuickQuestion('Comment obtenir un visa ?')" data-i18n="chat.quick2">🛂 Visa Arabie</button>
+        <button class="quick-btn" onclick="sendQuickQuestion('Quels sont vos horaires ?')" data-i18n="chat.quick3">🕘 Horaires</button>
+        <button class="quick-btn" onclick="sendQuickQuestion('Réserver un billet d\\'avion')" data-i18n="chat.quick4">✈️ Billet avion</button>
+    </div>
+</div>
         <!-- User Input Area -->
         <div class="p-3 border-t border-gray-200 flex">
             <input type="text" id="userInput" placeholder="Tapez votre question ici..." class="flex-grow p-3 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" onkeypress="handleKeyPress(event)">
@@ -1130,50 +1145,99 @@
     <!-- Main JavaScript -->
     <script>
         // ============ WEBSITE CORE FUNCTIONS ============
-        let currentLanguage = 'fr';
-        
-        function showSection(id) {
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-section'));
-            document.getElementById(id).classList.add('active-section');
-            document.getElementById('mobileMenu').classList.add('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+// ============ WEBSITE CORE FUNCTIONS ============
+let currentLanguage = 'fr';
+let chatbaseWidget = null;
+
+function showSection(id) {
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-section'));
+    document.getElementById(id).classList.add('active-section');
+    document.getElementById('mobileMenu').classList.add('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+}
+
+function filterOffers(cat) {
+    document.querySelectorAll('.section-tab').forEach(t => {
+        t.classList.remove('active-tab', 'bg-white', 'shadow');
+        t.classList.add('bg-white', 'shadow');
+    });
+    
+    document.getElementById(`tab-${cat}`).classList.add('active-tab');
+    document.getElementById(`tab-${cat}`).classList.remove('bg-white', 'shadow');
+    
+    document.querySelectorAll('.offer-card').forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
         }
-        
-        function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
-        
-        function filterOffers(cat) {
-            document.querySelectorAll('.section-tab').forEach(t => {
-                t.classList.remove('active-tab', 'bg-white', 'shadow');
-                t.classList.add('bg-white', 'shadow');
-            });
-            
-            document.getElementById(`tab-${cat}`).classList.add('active-tab');
-            document.getElementById(`tab-${cat}`).classList.remove('bg-white', 'shadow');
-            
-            document.querySelectorAll('.offer-card').forEach(card => {
-                if (cat === 'all' || card.getAttribute('data-cat') === cat) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-        
-        function filterFromMenu(cat) {
-            document.getElementById('mobileMenu').classList.add('hidden');
-            showSection('offers');
-            
-            setTimeout(() => {
-                filterOffers(cat);
-                document.getElementById('offers').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
-                });
-            }, 100);
-        }
-        
+    });
+}
+
+function filterFromMenu(cat) {
+    document.getElementById('mobileMenu').classList.add('hidden');
+    showSection('offers');
+    
+    setTimeout(() => {
+        filterOffers(cat);
+        document.getElementById('offers').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }, 100);
+}
+
+// ============ CHATBASE CHAT SYSTEM ============
+function toggleChat() {
+    const win = document.getElementById('chatWindow');
+    const isClosed = win.style.display !== 'flex';
+    win.style.display = isClosed ? 'flex' : 'none';
+    
+    if (isClosed && !chatbaseWidget) {
+        // تأكد من تحميل Chatbase
+        setTimeout(() => {
+            initChatbase();
+        }, 100);
+    }
+}
+
+function initChatbase() {
+    // Chatbase سيتم تحميله تلقائياً من الـ iframe
+    chatbaseWidget = document.querySelector('chatbase-widget');
+    if (chatbaseWidget) {
+        console.log('Chatbase widget loaded successfully');
+    }
+}
+
+function sendQuickQuestion(question) {
+    // إرسال سؤال إلى Chatbase
+    const chatbaseIframe = document.querySelector('chatbase-widget').shadowRoot?.querySelector('iframe');
+    if (chatbaseIframe && chatbaseIframe.contentWindow) {
+        chatbaseIframe.contentWindow.postMessage({
+            type: 'SEND_MESSAGE',
+            text: question
+        }, '*');
+    }
+    
+    // إغلاق النافذة بعد إرسال السؤال
+    setTimeout(() => {
+        document.getElementById('chatWindow').style.display = 'none';
+    }, 500);
+}
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        sendQuickQuestion(document.getElementById('userInput').value);
+        document.getElementById('userInput').value = '';
+    }
+}
+
+// ============ TRANSLATION SYSTEM ============
+// [نفس نظام الترجمة الموجود حالياً - لا تغيير]
         // ============ TRANSLATION SYSTEM ============
         const translations = {
             fr: {
