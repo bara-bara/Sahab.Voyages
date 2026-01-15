@@ -1006,7 +1006,6 @@
 
     <!-- AI Chat Window -->
 <!-- AI Chat Window - CHATBASE VERSION -->
-<!-- AI Chat Window - CHATBASE VERSION -->
 <div id="chatWindow">
     <div class="chat-header">
         <div class="flex items-center gap-3">
@@ -1014,7 +1013,6 @@
                 <i class="fas fa-robot"></i>
             </div>
             <div>
-                <!-- التعديل هنا: إضافة كلمة Voyages -->
                 <h5 class="font-bold">Assistant Sahab Voyages</h5>
                 <small data-i18n="chat.online">En ligne • Prêt à vous aider</small>
             </div>
@@ -1022,8 +1020,8 @@
         <button onclick="toggleChat()" class="text-white hover:text-gray-300"><i class="fas fa-times"></i></button>
     </div>
     
-    <!-- Chatbase Iframe Container -->
-    <div id="chatbaseContainer" style="flex-grow: 1; height: calc(100% - 150px);">
+    <!-- Chatbase Iframe Container (يأخذ معظم المساحة) -->
+    <div id="chatbaseContainer" style="flex-grow: 1; height: 70%; min-height: 300px;">
         <chatbase-widget 
             style="width: 100%; height: 100%; border: none; border-radius: 0;"
             chatbase-id="HORXcyE96yobSAbY_DPez"
@@ -1037,14 +1035,70 @@
         ></chatbase-widget>
     </div>
     
-    <!-- Quick Action Buttons (تعمل مع النظام الجديد) -->
+    <!-- Quick Action Buttons -->
     <div class="p-3 border-t border-gray-200 bg-blue-50 flex flex-wrap gap-2">
         <button class="quick-btn" onclick="sendQuickQuestion('Quel est le prix de l\\'Omra ?')" data-i18n="chat.quick1">💰 Prix Omra</button>
         <button class="quick-btn" onclick="sendQuickQuestion('Comment obtenir un visa ?')" data-i18n="chat.quick2">🛂 Visa Arabie</button>
         <button class="quick-btn" onclick="sendQuickQuestion('Quels sont vos horaires ?')" data-i18n="chat.quick3">🕘 Horaires</button>
         <button class="quick-btn" onclick="sendQuickQuestion('Réserver un billet d\\'avion')" data-i18n="chat.quick4">✈️ Billet avion</button>
     </div>
+    
+    <!-- مكان كتابة الزوار المضاف -->
+    <div class="p-3 border-t border-gray-200 bg-white flex">
+        <input 
+            type="text" 
+            id="userChatbaseInput" 
+            placeholder="Tapez votre message ici..." 
+            class="flex-grow p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            onkeypress="if(event.key === 'Enter') sendToChatbase()"
+        >
+        <button 
+            onclick="sendToChatbase()" 
+            class="bg-blue-800 text-white px-5 rounded-r-lg font-bold hover:bg-blue-700 transition"
+        >
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
 </div>
+
+<script>
+// دالة لإرسال رسالة إلى Chatbase
+function sendToChatbase() {
+    const inputField = document.getElementById('userChatbaseInput');
+    const userText = inputField.value.trim();
+    
+    if (!userText) return;
+    
+    // البحث عن واجهة Chatbase وإرسال الرسالة إليها
+    const chatbaseIframe = document.querySelector('chatbase-widget')?.shadowRoot?.querySelector('iframe');
+    
+    if (chatbaseIframe && chatbaseIframe.contentWindow) {
+        // إرسال الرسالة إلى iframe Chatbase
+        chatbaseIframe.contentWindow.postMessage({
+            type: 'SEND_MESSAGE',
+            text: userText
+        }, '*');
+        
+        // مسح حقل الإدخال
+        inputField.value = '';
+        inputField.focus();
+    } else {
+        // Fallback: افتح رابط الواتساب
+        const whatsappURL = `https://wa.me/212623945729?text=${encodeURIComponent(userText)}`;
+        window.open(whatsappURL, '_blank');
+        inputField.value = '';
+        
+        // إظهار رسالة للزائر
+        alert('Chatbase non disponible, redirection vers WhatsApp...');
+    }
+}
+
+// دالة للأزرار السريعة
+function sendQuickQuestion(question) {
+    document.getElementById('userChatbaseInput').value = question;
+    sendToChatbase();
+}
+</script>
         <!-- User Input Area -->
         <div class="p-3 border-t border-gray-200 flex">
             <input type="text" id="userInput" placeholder="Tapez votre question ici..." class="flex-grow p-3 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" onkeypress="handleKeyPress(event)">
