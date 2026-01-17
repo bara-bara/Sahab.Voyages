@@ -133,88 +133,7 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .btn-chat { background: var(--sahab-blue); }
         .btn-wa-float { background: #25d366; }
-        
-        /* Chat Window */
-        #chatWindow {
-            position: fixed;
-            bottom: 110px;
-            right: 30px;
-            width: 380px;
-            height: 550px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
-            z-index: 1001;
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .chat-header { 
-            background: linear-gradient(135deg, var(--sahab-blue) 0%, #003a8a 100%); 
-            color: white; 
-            padding: 18px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        .chat-messages { 
-            flex-grow: 1; 
-            padding: 15px; 
-            overflow-y: auto; 
-            display: flex; 
-            flex-direction: column; 
-            gap: 10px; 
-            background: #f8fafc; 
-        }
-        .msg { 
-            padding: 12px 16px; 
-            border-radius: 18px; 
-            max-width: 85%; 
-            font-size: 14px; 
-            line-height: 1.5;
-            animation: fadeIn 0.3s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .msg-bot { 
-            background: #e2e8f0; 
-            align-self: flex-start; 
-            border-bottom-left-radius: 5px; 
-        }
-        .msg-user { 
-            background: var(--sahab-blue); 
-            color: white; 
-            align-self: flex-end; 
-            border-bottom-right-radius: 5px; 
-        }
-        .msg-system {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            align-self: center;
-            max-width: 90%;
-            font-size: 12px;
-            color: #856404;
-            text-align: center;
-        }
-        
-        /* Quick Buttons */
-        .quick-btn {
-            padding: 8px 14px;
-            background: white;
-            border: 1px solid #cbd5e1;
-            color: var(--sahab-blue);
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-        .quick-btn:hover { background: var(--sahab-blue); color: white; border-color: var(--sahab-blue); }
         
         /* Contact Page */
         .contact-map {
@@ -273,12 +192,6 @@
         /* Responsive */
         @media (max-width: 768px) {
             .nav-logo { height: 80px; }
-            #chatWindow { 
-                width: 90%; 
-                right: 5%; 
-                height: 70vh; 
-                bottom: 100px; 
-            }
             .tabs-container {
                 justify-content: flex-start;
                 padding-left: 10px;
@@ -297,29 +210,6 @@
         @media (max-width: 480px) {
             .hero-section h1 { font-size: 2.5rem !important; }
             .hero-section p { font-size: 1.2rem !important; }
-        }
-        
-        /* Typing Indicator */
-        .typing-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 8px 16px;
-            background: #e2e8f0;
-            border-radius: 18px;
-        }
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            background: #64748b;
-            border-radius: 50%;
-            animation: typing 1.4s infinite ease-in-out;
-        }
-        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes typing {
-            0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
-            40% { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
@@ -997,113 +887,9 @@
         
     </main>
 
-    <!-- Floating Buttons -->
+    <!-- Floating WhatsApp Button Only -->
     <div class="floating-container">
         <a href="https://wa.me/212623945729" target="_blank" class="float-btn btn-wa-float"><i class="fab fa-whatsapp"></i></a>
-        <div class="float-btn btn-chat" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></div>
-    </div>
-
-    <!-- AI Chat Window -->
-<!-- AI Chat Window - CHATBASE VERSION -->
-<div id="chatWindow">
-    <div class="chat-header">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-900">
-                <i class="fas fa-robot"></i>
-            </div>
-            <div>
-                <h5 class="font-bold">Assistant Sahab Voyages</h5>
-                <small data-i18n="chat.online">En ligne • Prêt à vous aider</small>
-            </div>
-        </div>
-        <button onclick="toggleChat()" class="text-white hover:text-gray-300"><i class="fas fa-times"></i></button>
-    </div>
-    
-    <!-- Chatbase Iframe Container (يأخذ معظم المساحة) -->
-    <div id="chatbaseContainer" style="flex-grow: 1; height: 70%; min-height: 300px;">
-        <chatbase-widget 
-            style="width: 100%; height: 100%; border: none; border-radius: 0;"
-            chatbase-id="HORXcyE96yobSAbY_DPez"
-            domain="https://www.chatbase.co"
-            widget-version="v1"
-            header-bg-color="#004aad"
-            header-text-color="#ffffff"
-            button-bg-color="#25d366"
-            button-text-color="#ffffff"
-            language="auto"
-        ></chatbase-widget>
-    </div>
-    
-    <!-- Quick Action Buttons -->
-    <div class="p-3 border-t border-gray-200 bg-blue-50 flex flex-wrap gap-2">
-        <button class="quick-btn" onclick="sendQuickQuestion('Quel est le prix de l\\'Omra ?')" data-i18n="chat.quick1">💰 Prix Omra</button>
-        <button class="quick-btn" onclick="sendQuickQuestion('Comment obtenir un visa ?')" data-i18n="chat.quick2">🛂 Visa Arabie</button>
-        <button class="quick-btn" onclick="sendQuickQuestion('Quels sont vos horaires ?')" data-i18n="chat.quick3">🕘 Horaires</button>
-        <button class="quick-btn" onclick="sendQuickQuestion('Réserver un billet d\\'avion')" data-i18n="chat.quick4">✈️ Billet avion</button>
-    </div>
-    
-    <!-- مكان كتابة الزوار المضاف -->
-    <div class="p-3 border-t border-gray-200 bg-white flex">
-        <input 
-            type="text" 
-            id="userChatbaseInput" 
-            placeholder="Tapez votre message ici..." 
-            <div id="chatbaseContainer" style="flex-grow: 1; height: 70%;">
-            class="flex-grow p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            onkeypress="if(event.key === 'Enter') sendToChatbase()"
-        >
-        <button 
-            onclick="sendToChatbase()" 
-            class="bg-blue-800 text-white px-5 rounded-r-lg font-bold hover:bg-blue-700 transition"
-        >
-            <i class="fas fa-paper-plane"></i>
-        </button>
-    </div>
-</div>
-
-<script>
-// دالة لإرسال رسالة إلى Chatbase
-function sendToChatbase() {
-    const inputField = document.getElementById('userChatbaseInput');
-    const userText = inputField.value.trim();
-    
-    if (!userText) return;
-    
-    // البحث عن واجهة Chatbase وإرسال الرسالة إليها
-    const chatbaseIframe = document.querySelector('chatbase-widget')?.shadowRoot?.querySelector('iframe');
-    
-    if (chatbaseIframe && chatbaseIframe.contentWindow) {
-        // إرسال الرسالة إلى iframe Chatbase
-        chatbaseIframe.contentWindow.postMessage({
-            type: 'SEND_MESSAGE',
-            text: userText
-        }, '*');
-        
-        // مسح حقل الإدخال
-        inputField.value = '';
-        inputField.focus();
-    } else {
-        // Fallback: افتح رابط الواتساب
-        const whatsappURL = `https://wa.me/212623945729?text=${encodeURIComponent(userText)}`;
-        window.open(whatsappURL, '_blank');
-        inputField.value = '';
-        
-        // إظهار رسالة للزائر
-        alert('Chatbase non disponible, redirection vers WhatsApp...');
-    }
-}
-
-// دالة للأزرار السريعة
-function sendQuickQuestion(question) {
-    document.getElementById('userChatbaseInput').value = question;
-    sendToChatbase();
-}
-</script>
-        <!-- User Input Area -->
-        <div class="p-3 border-t border-gray-200 flex">
-            <input type="text" id="userInput" placeholder="Tapez votre question ici..." class="flex-grow p-3 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" onkeypress="handleKeyPress(event)">
-            <button onclick="sendUserMessage()" class="bg-blue-800 text-white px-5 rounded-r-lg font-bold hover:bg-blue-700"><i class="fas fa-paper-plane"></i></button>
-        </div>
     </div>
 
 <!-- Footer -->
@@ -1201,350 +987,298 @@ function sendQuickQuestion(question) {
     <!-- Main JavaScript -->
     <script>
         // ============ WEBSITE CORE FUNCTIONS ============
-// ============ WEBSITE CORE FUNCTIONS ============
-let currentLanguage = 'fr';
-let chatbaseWidget = null;
+        let currentLanguage = 'fr';
 
-function showSection(id) {
-    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-section'));
-    document.getElementById(id).classList.add('active-section');
-    document.getElementById('mobileMenu').classList.add('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('hidden');
-}
-
-function filterOffers(cat) {
-    document.querySelectorAll('.section-tab').forEach(t => {
-        t.classList.remove('active-tab', 'bg-white', 'shadow');
-        t.classList.add('bg-white', 'shadow');
-    });
-    
-    document.getElementById(`tab-${cat}`).classList.add('active-tab');
-    document.getElementById(`tab-${cat}`).classList.remove('bg-white', 'shadow');
-    
-    document.querySelectorAll('.offer-card').forEach(card => {
-        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
-            card.style.display = 'flex';
-        } else {
-            card.style.display = 'none';
+        function showSection(id) {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-section'));
+            document.getElementById(id).classList.add('active-section');
+            document.getElementById('mobileMenu').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    });
-}
 
-function filterFromMenu(cat) {
-    document.getElementById('mobileMenu').classList.add('hidden');
-    showSection('offers');
-    
-    setTimeout(() => {
-        filterOffers(cat);
-        document.getElementById('offers').scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-        });
-    }, 100);
-}
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
 
-<script>
-    // ============ WEBSITE CORE FUNCTIONS ============
-    let currentLanguage = 'fr';
-
-    function showSection(id) {
-        document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-section'));
-        document.getElementById(id).classList.add('active-section');
-        document.getElementById('mobileMenu').classList.add('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function toggleMenu() {
-        document.getElementById('mobileMenu').classList.toggle('hidden');
-    }
-
-    function filterOffers(cat) {
-        document.querySelectorAll('.section-tab').forEach(t => {
-            t.classList.remove('active-tab', 'bg-white', 'shadow');
-            t.classList.add('bg-white', 'shadow');
-        });
-        
-        document.getElementById(`tab-${cat}`).classList.add('active-tab');
-        document.getElementById(`tab-${cat}`).classList.remove('bg-white', 'shadow');
-        
-        document.querySelectorAll('.offer-card').forEach(card => {
-            if (cat === 'all' || card.getAttribute('data-cat') === cat) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-
-    function filterFromMenu(cat) {
-        document.getElementById('mobileMenu').classList.add('hidden');
-        showSection('offers');
-        
-        setTimeout(() => {
-            filterOffers(cat);
-            document.getElementById('offers').scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
+        function filterOffers(cat) {
+            document.querySelectorAll('.section-tab').forEach(t => {
+                t.classList.remove('active-tab', 'bg-white', 'shadow');
+                t.classList.add('bg-white', 'shadow');
             });
-        }, 100);
-    }
-
-    // ============ CHATBASE CHAT SYSTEM ============
-    function toggleChat() {
-        const win = document.getElementById('chatWindow');
-        win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
-    }
-
-    // ============ TRANSLATION SYSTEM ============
-    const translations = {
-        fr: {
-            // Navigation
-            'nav.home': 'Accueil',
-            'nav.about': 'À Propos',
-            'nav.offers': 'Nos Offres',
-            'nav.contact': 'Contact',
-            'nav.whatsapp': 'Contact WhatsApp',
-            'nav.services': 'خدماتنا',
             
-            // Services
-            'services.omra': 'Omra & Hajj',
-            'services.omra_desc': 'برامج العمرة والحج',
-            'services.visa': 'Visa',
-            'services.visa_desc': 'تأشيرات جميع الدول',
-            'services.travel': 'Voyages Organisés',
-            'services.travel_desc': 'رحلات منظمة حول العالم',
-            'services.tickets': 'Billetterie',
-            'services.tickets_desc': 'حجز تذاكر الطيران',
-            'services.hotels': 'Hôtels',
-            'services.hotels_desc': 'حجوزات الفنادق',
+            document.getElementById(`tab-${cat}`).classList.add('active-tab');
+            document.getElementById(`tab-${cat}`).classList.remove('bg-white', 'shadow');
             
-            // Hero
-            'hero.title': 'SAHAB VOYAGES',
-            'hero.subtitle': 'L\'excellence au service de vos voyages',
-            'hero.button': 'DÉCOUVRIR NOS OFFRES',
-            
-            // Gallery
-            'gallery.title': 'Entrez… et ressentez l\'instant',
-            'gallery.subtitle': 'Des moments rares de nos voyages spirituels',
-            
-            // Reviews
-            'reviews.title': 'Avis de nos clients',
-            'reviews.review1': '"Meilleure agence de voyage et meilleur accueil. Qu\'Allah vous facilite."',
-            'reviews.review2': '"Une agence avec beaucoup de crédibilité. Un grand merci à M. Issam pour son professionnalisme."',
-            'reviews.review3': '"J\'ai eu l\'honneur de travailler avec votre agence, service merveilleux et comportement rafiné, merci beaucoup 👌❤️❤️."',
-            'reviews.button': 'En savoir plus sur Google Maps',
-            
-            // About
-            'about.title': 'À Propos de Nous',
-            'about.p1': 'Sahab Voyages est une agence marocaine 🇲🇦 spécialisée dans le tourisme, le voyage et les services associés. Nous mettons notre expertise et notre passion au service de nos clients afin de créer des expériences de voyage uniques et inoubliables.',
-            'about.p2': 'Nous proposons une gamme complète de services comprenant les voyages aériens et maritimes ✈️, l\'organisation des voyages de Hajj et Omra 🕋, l\'obtention de visas, la réservation d\'hôtels, ainsi que de nombreuses autres prestations touristiques adaptées aux besoins de chaque voyageur.',
-            'about.p3': 'Chez Sahab Voyages, nous nous engageons à offrir des services de haute qualité, fondés sur la confiance, le professionnalisme et la satisfaction du client, en accompagnant chaque voyageur à chaque étape de son parcours.',
-            'about.p4': 'Sahab Voyages… parce que chaque voyage mérite de commencer en toute confiance et de se terminer par des souvenirs inoubliables.',
-            
-            // Offers
-            'offers.title': 'Nos Offres',
-            'offers.all': 'Tout',
-            'offers.tickets_hotels': 'Billetterie & Hôtels',
-            'offers.learn_more': 'En savoir plus',
-            'offers.order': 'Commander',
-            
-            // Contact
-            'contact.title': 'Contactez-nous',
-            'contact.subtitle': 'Notre équipe est à votre disposition pour répondre à toutes vos questions et vous accompagner dans l\'organisation de votre voyage de rêve.',
-            'contact.address_title': 'Notre Adresse',
-            'contact.address': 'Aml 4, Rue 27, N°44, Bernoussi, Casablanca',
-            'contact.address2': 'Hay Naser, Tata',
-            'contact.view_map': 'Voir sur la carte',
-            'contact.phone_title': 'Téléphone',
-            'contact.email_title': 'Email',
-            'contact.hours_title': 'Horaires d\'ouverture',
-            'contact.days1': 'Lun - Jeu',
-            'contact.days2': 'Vendredi',
-            'contact.days3': 'Samedi',
-            'contact.days4': 'Dimanche',
-            'contact.whatsapp': 'Envoyer un message WhatsApp',
-            'contact.call': 'Appeler maintenant',
-            'contact.form_title': 'Envoyez-nous un message',
-            'contact.form_name': 'Nom complet',
-            'contact.form_phone': 'Téléphone',
-            'contact.form_email': 'Email',
-            'contact.form_service': 'Service demandé',
-            'contact.form_select': 'Sélectionnez un service',
-            'contact.form_message': 'Message',
-            'contact.form_submit': 'Envoyer le message',
-            
-            // Visa
-            'visa.qatar': 'Visa État du Qatar',
-            
-            // Footer
-            'footer.tagline': 'L\'excellence au service de vos voyages.',
-            'footer.addresses_title': 'Nos Adresses',
-            'footer.address1': 'Casablanca: Aml 4, Rue 27, N°44, Bernoussi',
-            'footer.address2': 'Tata: Hay Naser, Tata',
-            'footer.phone': 'Fixe: 05.22.75.91.67',
-            'footer.whatsapp': 'Watts : +212 623 94 57 29',
-            'footer.email': 'Email: agencesahab@gmail.com',
-            'footer.hours_title': 'Horaires',
-            'footer.days1': 'Lun - Jeu',
-            'footer.days2': 'Ven',
-            'footer.days3': 'Sam',
-            'footer.days4': 'Dim',
-            'footer.closed': 'Fermé',
-            'footer.follow_title': 'Suivez-nous',
-            'footer.tiktok': 'TikTok',
-            'footer.instagram': 'Insta',
-            'footer.whatsapp_short': 'WhatsApp',
-            'footer.facebook': 'FB',
-            'footer.copyright': '2026 SAHAB VOYAGES. TOUS DROITS RÉSERVÉS.'
-        },
-        
-        ar: {
-            // Navigation
-            'nav.home': 'الرئيسية',
-            'nav.about': 'من نحن',
-            'nav.offers': 'عروضنا',
-            'nav.contact': 'اتصل بنا',
-            'nav.whatsapp': 'اتصل على واتساب',
-            'nav.services': 'خدماتنا',
-            
-            // Services
-            'services.omra': 'العمرة والحج',
-            'services.omra_desc': 'برامج العمرة والحج',
-            'services.visa': 'التأشيرات',
-            'services.visa_desc': 'تأشيرات جميع الدول',
-            'services.travel': 'رحلات منظمة',
-            'services.travel_desc': 'رحلات منظمة حول العالم',
-            'services.tickets': 'حجز التذاكر',
-            'services.tickets_desc': 'حجز تذاكر الطيران',
-            'services.hotels': 'الفنادق',
-            'services.hotels_desc': 'حجوزات الفنادق',
-            
-            // Hero
-            'hero.title': 'سفار سحاب',
-            'hero.subtitle': 'التميز في خدمة سفركم',
-            'hero.button': 'اكتشف عروضنا',
-            
-            // Gallery
-            'gallery.title': 'ادخل… واستشعر اللحظة',
-            'gallery.subtitle': 'لحظات نادرة من رحلاتنا الروحانية',
-            
-            // Reviews
-            'reviews.title': 'آراء عملائنا',
-            'reviews.review1': '"أفضل وكالة سفر وأفضل استقبال. الله ييسر أمركم."',
-            'reviews.review2': '"وكالة ذات مصداقية كبيرة. شكراً جزيلاً للسيد عصام على احترافيته."',
-            'reviews.review3': '"تشرفت بالعمل مع وكالتكم، خدمة رائعة وتصرف راقي، شكراً جزيلاً 👌❤️❤️."',
-            'reviews.button': 'اعرف أكثر على خرائط جوجل',
-            
-            // About
-            'about.title': 'من نحن',
-            'about.p1': 'سفار سحاب هي وكالة سفر مغربية 🇲🇦 متخصصة في السياحة والسفر والخدمات المرتبطة بها. نضع خبرتنا وشغفنا في خدمة عملائنا لخلق تجارب سفر فريدة لا تنسى.',
-            'about.p2': 'نقدم مجموعة كاملة من الخدمات تشمل السفر الجوي والبحري ✈️، تنظيم رحلات الحج والعمرة 🕋، الحصول على التأشيرات، حجز الفنادق، بالإضافة إلى العديد من الخدمات السياحية الأخرى التي تلبي احتياجات كل مسافر.',
-            'about.p3': 'في سفار سحاب، نلتزم بتقديم خدمات عالية الجودة، قائمة على الثقة، الاحترافية ورضا العميل، من خلال مرافقة كل مسافر في كل خطوة من رحلته.',
-            'about.p4': 'سفار سحاب… لأن كل رحلة تستحق أن تبدأ بكل ثقة وأن تنتهي بذكريات لا تنسى.',
-            
-            // Offers
-            'offers.title': 'عروضنا',
-            'offers.all': 'الكل',
-            'offers.tickets_hotels': 'التذاكر والفنادق',
-            'offers.learn_more': 'اعرف أكثر',
-            'offers.order': 'اطلب الآن',
-            
-            // Contact
-            'contact.title': 'اتصل بنا',
-            'contact.subtitle': 'فريقنا رهن إشارتكم للإجابة على جميع استفساراتكم ومرافقتكم في تنظيم رحلة أحلامكم.',
-            'contact.address_title': 'عنواننا',
-            'contact.address': 'أمل 4، شارع 27، رقم 44، برنوصي، الدار البيضاء',
-            'contact.address2': 'حي ناصر، طاطا',
-            'contact.view_map': 'شاهد على الخريطة',
-            'contact.phone_title': 'الهاتف',
-            'contact.email_title': 'البريد الإلكتروني',
-            'contact.hours_title': 'ساعات العمل',
-            'contact.days1': 'الإثنين - الخميس',
-            'contact.days2': 'الجمعة',
-            'contact.days3': 'السبت',
-            'contact.days4': 'الأحد',
-            'contact.whatsapp': 'أرسل رسالة على واتساب',
-            'contact.call': 'اتصل الآن',
-            'contact.form_title': 'أرسل لنا رسالة',
-            'contact.form_name': 'الاسم الكامل',
-            'contact.form_phone': 'الهاتف',
-            'contact.form_email': 'البريد الإلكتروني',
-            'contact.form_service': 'الخدمة المطلوبة',
-            'contact.form_select': 'اختر خدمة',
-            'contact.form_message': 'الرسالة',
-            'contact.form_submit': 'أرسل الرسالة',
-            
-            // Visa
-            'visa.qatar': 'تأشيرة دولة قطر',
-            
-            // Footer
-            'footer.tagline': 'التميز في خدمة سفركم.',
-            'footer.addresses_title': 'عناويننا',
-            'footer.address1': 'الدار البيضاء: أمل 4، شارع 27، رقم 44، برنوصي',
-            'footer.address2': 'طاطا: حي ناصر، طاطا',
-            'footer.phone': 'ثابت: 05.22.75.91.67',
-            'footer.whatsapp': 'واتساب: 212 623 94 57 29+',
-            'footer.email': 'البريد: agencesahab@gmail.com',
-            'footer.hours_title': 'ساعات العمل',
-            'footer.days1': 'الإثنين - الخميس',
-            'footer.days2': 'الجمعة',
-            'footer.days3': 'السبت',
-            'footer.days4': 'الأحد',
-            'footer.closed': 'مغلق',
-            'footer.follow_title': 'تابعنا',
-            'footer.tiktok': 'تيك توك',
-            'footer.instagram': 'انستغرام',
-            'footer.whatsapp_short': 'واتساب',
-            'footer.facebook': 'فيسبوك',
-            'footer.copyright': '2026 سفار سحاب. جميع الحقوق محفوظة.'
-        }
-    };
-    
-    function toggleLanguage() {
-        currentLanguage = currentLanguage === 'fr' ? 'ar' : 'fr';
-        document.documentElement.lang = currentLanguage;
-        document.documentElement.dir = currentLanguage === 'ar' ? 'rtl' : 'ltr';
-        
-        // Update language switcher text
-        document.getElementById('currentLang').textContent = currentLanguage === 'fr' ? 'FR' : 'AR';
-        document.getElementById('currentLangMobile').textContent = currentLanguage === 'fr' ? 'FR' : 'AR';
-        
-        // Update all translatable elements
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-            const key = element.getAttribute('data-i18n');
-            if (translations[currentLanguage][key]) {
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    element.placeholder = translations[currentLanguage][key];
+            document.querySelectorAll('.offer-card').forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+                    card.style.display = 'flex';
                 } else {
-                    element.textContent = translations[currentLanguage][key];
+                    card.style.display = 'none';
                 }
+            });
+        }
+
+        function filterFromMenu(cat) {
+            document.getElementById('mobileMenu').classList.add('hidden');
+            showSection('offers');
+            
+            setTimeout(() => {
+                filterOffers(cat);
+                document.getElementById('offers').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }, 100);
+        }
+
+        // ============ TRANSLATION SYSTEM ============
+        const translations = {
+            fr: {
+                // Navigation
+                'nav.home': 'Accueil',
+                'nav.about': 'À Propos',
+                'nav.offers': 'Nos Offres',
+                'nav.contact': 'Contact',
+                'nav.whatsapp': 'Contact WhatsApp',
+                'nav.services': 'خدماتنا',
+                
+                // Services
+                'services.omra': 'Omra & Hajj',
+                'services.omra_desc': 'برامج العمرة والحج',
+                'services.visa': 'Visa',
+                'services.visa_desc': 'تأشيرات جميع الدول',
+                'services.travel': 'Voyages Organisés',
+                'services.travel_desc': 'رحلات منظمة حول العالم',
+                'services.tickets': 'Billetterie',
+                'services.tickets_desc': 'حجز تذاكر الطيران',
+                'services.hotels': 'Hôtels',
+                'services.hotels_desc': 'حجوزات الفنادق',
+                
+                // Hero
+                'hero.title': 'SAHAB VOYAGES',
+                'hero.subtitle': 'L\'excellence au service de vos voyages',
+                'hero.button': 'DÉCOUVRIR NOS OFFRES',
+                
+                // Gallery
+                'gallery.title': 'Entrez… et ressentez l\'instant',
+                'gallery.subtitle': 'Des moments rares de nos voyages spirituels',
+                
+                // Reviews
+                'reviews.title': 'Avis de nos clients',
+                'reviews.review1': '"Meilleure agence de voyage et meilleur accueil. Qu\'Allah vous facilite."',
+                'reviews.review2': '"Une agence avec beaucoup de crédibilité. Un grand merci à M. Issam pour son professionnalisme."',
+                'reviews.review3': '"J\'ai eu l\'honneur de travailler avec votre agence, service merveilleux et comportement raffiné, merci beaucoup 👌❤️❤️."',
+                'reviews.button': 'En savoir plus sur Google Maps',
+                
+                // About
+                'about.title': 'À Propos de Nous',
+                'about.p1': 'Sahab Voyages est une agence marocaine 🇲🇦 spécialisée dans le tourisme, le voyage et les services associés. Nous mettons notre expertise et notre passion au service de nos clients afin de créer des expériences de voyage uniques et inoubliables.',
+                'about.p2': 'Nous proposons une gamme complète de services comprenant les voyages aériens et maritimes ✈️, l\'organisation des voyages de Hajj et Omra 🕋, l\'obtention de visas, la réservation d\'hôtels, ainsi que de nombreuses autres prestations touristiques adaptées aux besoins de chaque voyageur.',
+                'about.p3': 'Chez Sahab Voyages, nous nous engageons à offrir des services de haute qualité, fondés sur la confiance, le professionnalisme et la satisfaction du client, en accompagnant chaque voyageur à chaque étape de son parcours.',
+                'about.p4': 'Sahab Voyages… parce que chaque voyage mérite de commencer en toute confiance et de se terminer par des souvenirs inoubliables.',
+                
+                // Offers
+                'offers.title': 'Nos Offres',
+                'offers.all': 'Tout',
+                'offers.tickets_hotels': 'Billetterie & Hôtels',
+                'offers.learn_more': 'En savoir plus',
+                'offers.order': 'Commander',
+                
+                // Contact
+                'contact.title': 'Contactez-nous',
+                'contact.subtitle': 'Notre équipe est à votre disposition pour répondre à toutes vos questions et vous accompagner dans l\'organisation de votre voyage de rêve.',
+                'contact.address_title': 'Notre Adresse',
+                'contact.address': 'Aml 4, Rue 27, N°44, Bernoussi, Casablanca',
+                'contact.address2': 'Hay Naser, Tata',
+                'contact.view_map': 'Voir sur la carte',
+                'contact.phone_title': 'Téléphone',
+                'contact.email_title': 'Email',
+                'contact.hours_title': 'Horaires d\'ouverture',
+                'contact.days1': 'Lun - Jeu',
+                'contact.days2': 'Vendredi',
+                'contact.days3': 'Samedi',
+                'contact.days4': 'Dimanche',
+                'contact.whatsapp': 'Envoyer un message WhatsApp',
+                'contact.call': 'Appeler maintenant',
+                'contact.form_title': 'Envoyez-nous un message',
+                'contact.form_name': 'Nom complet',
+                'contact.form_phone': 'Téléphone',
+                'contact.form_email': 'Email',
+                'contact.form_service': 'Service demandé',
+                'contact.form_select': 'Sélectionnez un service',
+                'contact.form_message': 'Message',
+                'contact.form_submit': 'Envoyer le message',
+                
+                // Visa
+                'visa.qatar': 'Visa État du Qatar',
+                
+                // Footer
+                'footer.tagline': 'L\'excellence au service de vos voyages.',
+                'footer.addresses_title': 'Nos Adresses',
+                'footer.address1': 'Casablanca: Aml 4, Rue 27, N°44, Bernoussi',
+                'footer.address2': 'Tata: Hay Naser, Tata',
+                'footer.phone': 'Fixe: 05.22.75.91.67',
+                'footer.whatsapp': 'Watts : +212 623 94 57 29',
+                'footer.email': 'Email: agencesahab@gmail.com',
+                'footer.hours_title': 'Horaires',
+                'footer.days1': 'Lun - Jeu',
+                'footer.days2': 'Ven',
+                'footer.days3': 'Sam',
+                'footer.days4': 'Dim',
+                'footer.closed': 'Fermé',
+                'footer.follow_title': 'Suivez-nous',
+                'footer.tiktok': 'TikTok',
+                'footer.instagram': 'Insta',
+                'footer.whatsapp_short': 'WhatsApp',
+                'footer.facebook': 'FB',
+                'footer.copyright': '2026 SAHAB VOYAGES. TOUS DROITS RÉSERVÉS.'
+            },
+            
+            ar: {
+                // Navigation
+                'nav.home': 'الرئيسية',
+                'nav.about': 'من نحن',
+                'nav.offers': 'عروضنا',
+                'nav.contact': 'اتصل بنا',
+                'nav.whatsapp': 'اتصل على واتساب',
+                'nav.services': 'خدماتنا',
+                
+                // Services
+                'services.omra': 'العمرة والحج',
+                'services.omra_desc': 'برامج العمرة والحج',
+                'services.visa': 'التأشيرات',
+                'services.visa_desc': 'تأشيرات جميع الدول',
+                'services.travel': 'رحلات منظمة',
+                'services.travel_desc': 'رحلات منظمة حول العالم',
+                'services.tickets': 'حجز التذاكر',
+                'services.tickets_desc': 'حجز تذاكر الطيران',
+                'services.hotels': 'الفنادق',
+                'services.hotels_desc': 'حجوزات الفنادق',
+                
+                // Hero
+                'hero.title': 'سفار سحاب',
+                'hero.subtitle': 'التميز في خدمة سفركم',
+                'hero.button': 'اكتشف عروضنا',
+                
+                // Gallery
+                'gallery.title': 'ادخل… واستشعر اللحظة',
+                'gallery.subtitle': 'لحظات نادرة من رحلاتنا الروحانية',
+                
+                // Reviews
+                'reviews.title': 'آراء عملائنا',
+                'reviews.review1': '"أفضل وكالة سفر وأفضل استقبال. الله ييسر أمركم."',
+                'reviews.review2': '"وكالة ذات مصداقية كبيرة. شكراً جزيلاً للسيد عصام على احترافيته."',
+                'reviews.review3': '"تشرفت بالعمل مع وكالتكم، خدمة رائعة وتصرف راقي، شكراً جزيلاً 👌❤️❤️."',
+                'reviews.button': 'اعرف أكثر على خرائط جوجل',
+                
+                // About
+                'about.title': 'من نحن',
+                'about.p1': 'سفار سحاب هي وكالة سفر مغربية 🇲🇦 متخصصة في السياحة والسفر والخدمات المرتبطة بها. نضع خبرتنا وشغفنا في خدمة عملائنا لخلق تجارب سفر فريدة لا تنسى.',
+                'about.p2': 'نقدم مجموعة كاملة من الخدمات تشمل السفر الجوي والبحري ✈️، تنظيم رحلات الحج والعمرة 🕋، الحصول على التأشيرات، حجز الفنادق، بالإضافة إلى العديد من الخدمات السياحية الأخرى التي تلبي احتياجات كل مسافر.',
+                'about.p3': 'في سفار سحاب، نلتزم بتقديم خدمات عالية الجودة، قائمة على الثقة، الاحترافية ورضا العميل، من خلال مرافقة كل مسافر في كل خطوة من رحلته.',
+                'about.p4': 'سفار سحاب… لأن كل رحلة تستحق أن تبدأ بكل ثقة وأن تنتهي بذكريات لا تنسى.',
+                
+                // Offers
+                'offers.title': 'عروضنا',
+                'offers.all': 'الكل',
+                'offers.tickets_hotels': 'التذاكر والفنادق',
+                'offers.learn_more': 'اعرف أكثر',
+                'offers.order': 'اطلب الآن',
+                
+                // Contact
+                'contact.title': 'اتصل بنا',
+                'contact.subtitle': 'فريقنا رهن إشارتكم للإجابة على جميع استفساراتكم ومرافقتكم في تنظيم رحلة أحلامكم.',
+                'contact.address_title': 'عنواننا',
+                'contact.address': 'أمل 4، شارع 27، رقم 44، برنوصي، الدار البيضاء',
+                'contact.address2': 'حي ناصر، طاطا',
+                'contact.view_map': 'شاهد على الخريطة',
+                'contact.phone_title': 'الهاتف',
+                'contact.email_title': 'البريد الإلكتروني',
+                'contact.hours_title': 'ساعات العمل',
+                'contact.days1': 'الإثنين - الخميس',
+                'contact.days2': 'الجمعة',
+                'contact.days3': 'السبت',
+                'contact.days4': 'الأحد',
+                'contact.whatsapp': 'أرسل رسالة على واتساب',
+                'contact.call': 'اتصل الآن',
+                'contact.form_title': 'أرسل لنا رسالة',
+                'contact.form_name': 'الاسم الكامل',
+                'contact.form_phone': 'الهاتف',
+                'contact.form_email': 'البريد الإلكتروني',
+                'contact.form_service': 'الخدمة المطلوبة',
+                'contact.form_select': 'اختر خدمة',
+                'contact.form_message': 'الرسالة',
+                'contact.form_submit': 'أرسل الرسالة',
+                
+                // Visa
+                'visa.qatar': 'تأشيرة دولة قطر',
+                
+                // Footer
+                'footer.tagline': 'التميز في خدمة سفركم.',
+                'footer.addresses_title': 'عناويننا',
+                'footer.address1': 'الدار البيضاء: أمل 4، شارع 27، رقم 44، برنوصي',
+                'footer.address2': 'طاطا: حي ناصر، طاطا',
+                'footer.phone': 'ثابت: 05.22.75.91.67',
+                'footer.whatsapp': 'واتساب: 212 623 94 57 29+',
+                'footer.email': 'البريد: agencesahab@gmail.com',
+                'footer.hours_title': 'ساعات العمل',
+                'footer.days1': 'الإثنين - الخميس',
+                'footer.days2': 'الجمعة',
+                'footer.days3': 'السبت',
+                'footer.days4': 'الأحد',
+                'footer.closed': 'مغلق',
+                'footer.follow_title': 'تابعنا',
+                'footer.tiktok': 'تيك توك',
+                'footer.instagram': 'انستغرام',
+                'footer.whatsapp_short': 'واتساب',
+                'footer.facebook': 'فيسبوك',
+                'footer.copyright': '2026 سفار سحاب. جميع الحقوق محفوظة.'
             }
-        });
+        };
         
-        // Update page title based on language
-        document.title = currentLanguage === 'fr' 
-            ? 'Sahab Voyages | Excellence & Voyage' 
-            : 'سفار سحاب | التميز في السفر';
-    }
-    
-    // ============ SMOOTH SCROLLING ============
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId !== '#') {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'fr' ? 'ar' : 'fr';
+            document.documentElement.lang = currentLanguage;
+            document.documentElement.dir = currentLanguage === 'ar' ? 'rtl' : 'ltr';
+            
+            // Update language switcher text
+            document.getElementById('currentLang').textContent = currentLanguage === 'fr' ? 'FR' : 'AR';
+            document.getElementById('currentLangMobile').textContent = currentLanguage === 'fr' ? 'FR' : 'AR';
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLanguage][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[currentLanguage][key];
+                    } else {
+                        element.textContent = translations[currentLanguage][key];
+                    }
                 }
-            }
+            });
+            
+            // Update page title based on language
+            document.title = currentLanguage === 'fr' 
+                ? 'Sahab Voyages | Excellence & Voyage' 
+                : 'أسفار سحاب | التميز في السفر';
+        }
+        
+        // ============ SMOOTH SCROLLING ============
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
         });
-    });
-</script>
+    </script>
+</body>
+</html>
