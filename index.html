@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- أضف سكريبت Chatbase هنا -->
+    <script src="https://www.chatbase.co/chatbot-iframe.js"></script>
+    
     <style>
         :root {
             --sahab-blue: #004aad;
@@ -110,7 +113,7 @@
             background: white;
         }
         
-        /* Chat System */
+        /* Floating WhatsApp Button */
         .floating-container {
             position: fixed;
             bottom: 30px;
@@ -891,6 +894,19 @@
     <div class="floating-container">
         <a href="https://wa.me/212623945729" target="_blank" class="float-btn btn-wa-float"><i class="fab fa-whatsapp"></i></a>
     </div>
+
+    <!-- Chatbase Widget - أضف هذا قبل نهاية body مباشرة -->
+    <chatbase-widget
+        chatbase-id="HORXcyE96yobSAbY_DPez"
+        domain="https://www.chatbase.co"
+        widget-version="v1"
+        header-bg-color="#004aad"
+        header-text-color="#ffffff"
+        button-bg-color="#25d366"
+        button-text-color="#ffffff"
+        language="auto"
+        style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;"
+    ></chatbase-widget>
 
 <!-- Footer -->
 <footer class="bg-gray-950 text-white py-20 px-6">
