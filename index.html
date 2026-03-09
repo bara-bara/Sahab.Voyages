@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -438,6 +439,7 @@
                 <button onclick="showSection('home')" class="hover:text-blue-700 transition" data-i18n="nav.home">Accueil</button>
                 <button onclick="showSection('about')" class="hover:text-blue-700 transition" data-i18n="nav.about">À Propos</button>
                 <button onclick="showSection('offers')" class="hover:text-blue-700 transition" data-i18n="nav.offers">Nos Offres</button>
+                <button onclick="showSection('faq')" class="hover:text-blue-700 transition" data-i18n="nav.faq">FAQ</button>
                 <button onclick="showSection('blog')" class="hover:text-blue-700 transition" data-i18n="nav.blog">Blog</button>
                 <button onclick="showSection('contact')" class="hover:text-blue-700 transition" data-i18n="nav.contact">Contact</button>
                 
@@ -474,6 +476,9 @@
                 </button>
                 <button onclick="showSection('offers')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-suitcase text-blue-600 w-6"></i> <span data-i18n="nav.offers">Nos Offres</span>
+                </button>
+                <button onclick="showSection('faq')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                    <i class="fas fa-question-circle text-blue-600 w-6"></i> <span data-i18n="nav.faq">FAQ</span>
                 </button>
                 <button onclick="showSection('blog')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-blog text-blue-600 w-6"></i> <span data-i18n="nav.blog">Blog</span>
@@ -913,10 +918,10 @@
             </div>
         </section>
 
-        <!-- ========== NOUVELLE FAQ 2026 (BILINGUE) ========== -->
-        <section id="faq" class="py-20 px-6 bg-white">
+        <!-- ========== FAQ SECTION (INDÉPENDANTE) ========== -->
+        <section id="faq" class="page-section py-20 px-6 bg-white">
             <div class="max-w-4xl mx-auto">
-                <!-- Titre principal de la FAQ (bilingue) -->
+                <!-- Titre principal de la FAQ -->
                 <h2 class="text-4xl md:text-5xl font-black text-center text-blue-900 mb-4" data-i18n="faq.main_title">أسئلة وأجوبة عن العمرة والحج 2026 والتأشيرات والسفر</h2>
                 <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="faq.intro">
                     نسعى في وكالة سفريات لتقديم خدمات متكاملة تلبي جميع احتياجات سفرك. سواء كنت تخطط لأداء مناسك العمرة أو الحج في 2026، أو تحتاج تأشيرة لزيارة أوروبا، أفريقيا، أو آسيا، أو تبحث عن رحلة سياحية متكاملة مع تذاكر الطيران والفنادق، نحن هنا لخدمتك.
@@ -988,7 +993,7 @@
             </div>
         </section>
 
-        <!-- ========== NOUVELLE PAGE BLOG 2026 ========== -->
+        <!-- ========== BLOG PAGE ========== -->
         <section id="blog" class="page-section py-20 px-6 bg-gradient-to-b from-slate-50 to-white">
             <div class="max-w-4xl mx-auto">
                 <!-- Article de blog -->
@@ -1090,7 +1095,7 @@
             </div>
         </section>
 
-        <!-- ========== CONTACT SECTION ========== -->
+        <!-- ========== CONTACT SECTION (SANS FAQ) ========== -->
         <section id="contact" class="page-section py-20 px-6 bg-white">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
@@ -1382,13 +1387,14 @@
         // ========== VARIABLES GLOBALES ==========
         let currentLanguage = 'fr';
 
-        // ========== TRANSLATIONS COMPLÈTES (incluant FAQ et Blog) ==========
+        // ========== TRANSLATIONS COMPLÈTES ==========
         const translations = {
             fr: {
                 // Navigation
                 'nav.home': 'Accueil',
                 'nav.about': 'À Propos',
                 'nav.offers': 'Nos Offres',
+                'nav.faq': 'FAQ',
                 'nav.blog': 'Blog',
                 'nav.contact': 'Contact',
                 'nav.whatsapp': 'WhatsApp',
@@ -1436,9 +1442,9 @@
                 'offers.all': 'Tout',
                 'offers.tickets_hotels': 'Billets & Hôtels',
                 
-                // FAQ (nouvelle version)
+                // FAQ
                 'faq.main_title': 'Questions fréquentes sur l\'Omra, le Hajj 2026, les visas et les voyages',
-                'faq.intro': 'Chez Sahab Voyages, nous nous efforçons de fournir des services intégrés répondant à tous vos besoins de voyage. Que vous prévoyiez d\'effectuer la Omra ou le Hajj en 2026, que vous ayez besoin d\'un visa pour l\'Europe, l\'Afrique ou l\'Asie, ou que vous recherchiez un voyage touristique complet avec billets d\'avion et hôtels, nous sommes là pour vous servir.',
+                'faq.intro': 'Chez Sahab Voyages, nous nous efforçons de fournir des services intégrés répondant à tous vos besoins de voyage. Que vous planifiez d\'effectuer la Omra ou le Hajj en 2026, que vous ayez besoin d\'un visa pour l\'Europe, l\'Afrique ou l\'Asie, ou que vous recherchiez un voyage touristique complet avec billets d\'avion et hôtels, nous sommes là pour vous servir.',
                 'faq.cat_omra': '🕋 Omra et Hajj 2026 : tout ce que vous devez savoir',
                 'faq.omra.q1': 'Quels sont les forfaits Omra disponibles pour 2026 et quels sont les prix prévus ?',
                 'faq.omra.a1': 'Chez Sahab Voyages, nous proposons divers forfaits Omra pour 2026, conçus pour convenir à tous les budgets et besoins. Les prix varient selon la saison (Ramadan, vacances scolaires), la catégorie d\'hôtel (économique, luxe, VIP), la durée du séjour, le mode de transport et les services supplémentaires. Pour des offres et tarifs précis, contactez-nous sur WhatsApp.',
@@ -1550,6 +1556,7 @@
                 'nav.home': 'الرئيسية',
                 'nav.about': 'من نحن',
                 'nav.offers': 'عروضنا',
+                'nav.faq': 'الأسئلة الشائعة',
                 'nav.blog': 'المدونة',
                 'nav.contact': 'اتصل بنا',
                 'nav.whatsapp': 'واتساب',
@@ -1597,7 +1604,7 @@
                 'offers.all': 'الكل',
                 'offers.tickets_hotels': 'تذاكر وفنادق',
                 
-                // FAQ (nouvelle version en arabe)
+                // FAQ
                 'faq.main_title': 'أسئلة وأجوبة عن العمرة والحج 2026 والتأشيرات والسفر',
                 'faq.intro': 'نسعى في وكالة سفريات لتقديم خدمات متكاملة تلبي جميع احتياجات سفرك. سواء كنت تخطط لأداء مناسك العمرة أو الحج في 2026، أو تحتاج تأشيرة لزيارة أوروبا، أفريقيا، أو آسيا، أو تبحث عن رحلة سياحية متكاملة مع تذاكر الطيران والفنادق، نحن هنا لخدمتك.',
                 'faq.cat_omra': '🕋 العمرة والحج 2026: كل ما تريد معرفته',
