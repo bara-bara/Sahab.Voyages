@@ -1,49 +1,73 @@
+```html
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- ========== SEO OPTIMIZED TAGS ========== -->
-    <!-- Primary Title Tag (Optimized for Omra/Visa keywords) -->
-    <title>Sahab Voyages | Agence de Voyage Maroc | Omra, Visa & Billets d'Avion</title>
-    
-    <!-- Meta Description (Compelling, Keyword-rich, Action-oriented) -->
-    <meta name="description" content="Planifiez votre voyage en toute confiance avec Sahab Voyages, agence de voyage à Casablanca et Tata. Offres exclusives pour l'Omra 2026, visas (Arabie Saoudite, Qatar), vols et séjours organisés. Devis gratuit sur WhatsApp.">
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="keywords" content="agence de voyage casablanca, omra maroc 2026, visa arabie saoudite, billet avion pas cher, voyage famille, hajj mabrouk, sahab voyages">
+    <!-- ========== OPTIMISATION SEO COMPLÈTE ========== -->
+    <title>Omra Maroc 2026 | Agence Sahab Voyages – Packages Omra au départ du Maroc</title>
+    <meta name="description" content="Réservez votre Omra 2026 avec Agence Sahab Voyages au Maroc. Vol, hôtel, visa et accompagnement complet pour un voyage spirituel inoubliable. Devis gratuit sur WhatsApp.">
+    <meta name="keywords" content="omra maroc 2026, prix omra maroc, agence omra casablanca, visa saoudite maroc, voyage turquie maroc, billet avion pas cher casablanca, agence de voyage maroc, omra ramadan 2026">
     <meta name="author" content="Sahab Voyages">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sahabvoyages.com">
     
-    <!-- Open Graph / Social Media Tags -->
-    <meta property="og:title" content="Sahab Voyages | Votre Partenaire de Voyage au Maroc">
-    <meta property="og:description" content="Offres Omra 2026, visas rapides et voyages organisés. Devis gratuit en ligne.">
-    <meta property="og:image" content="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://sahabvoyages.com">
+    <meta property="og:title" content="Omra Maroc 2026 | Agence Sahab Voyages">
+    <meta property="og:description" content="Réservez votre Omra 2026 avec Sahab Voyages. Agence de voyage à Casablanca et Tata.">
+    <meta property="og:image" content="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png">
     
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sahabvoyages.com">
+    <meta property="twitter:title" content="Omra Maroc 2026 | Sahab Voyages">
+    <meta property="twitter:description" content="Réservez votre Omra 2026 avec Sahab Voyages.">
+    <meta property="twitter:image" content="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png">
+    
+    <!-- Scripts et styles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
+        /* ========== VARIABLES ET STYLES GLOBAUX ========== */
         :root {
             --sahab-blue: #004aad;
             --sahab-gold: #c5a059;
             --sahab-green: #25d366;
+            --sahab-dark: #0b1c2f;
         }
         
         /* Language Direction */
-        [lang="fr"] { direction: ltr; font-family: 'Montserrat', sans-serif; }
-        [lang="ar"] { direction: rtl; font-family: 'Cairo', sans-serif; text-align: right; }
+        [lang="fr"] { 
+            direction: ltr; 
+            font-family: 'Montserrat', sans-serif; 
+        }
+        [lang="ar"] { 
+            direction: rtl; 
+            font-family: 'Cairo', sans-serif; 
+            text-align: right; 
+        }
         
-        body { background-color: #ffffff; scroll-behavior: smooth; }
+        body { 
+            background-color: #ffffff; 
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
         
-        /* Navigation */
-        .nav-logo { height: 110px; width: auto; transition: transform 0.3s; }
-        .nav-logo:hover { transform: scale(1.05); }
+        /* ========== NAVIGATION ========== */
+        .nav-logo { 
+            height: 110px; 
+            width: auto; 
+            transition: transform 0.3s; 
+        }
+        .nav-logo:hover { 
+            transform: scale(1.05); 
+        }
         
-        /* Hero Section */
+        /* ========== HERO SECTION ========== */
         .hero-section {
             background-image: url('https://res.cloudinary.com/dkusr0hu1/image/upload/v1768417157/VV_Image_h21ca7h21ca7h21c_twnlan.png');
             background-size: cover;
@@ -60,7 +84,7 @@
             background: rgba(0, 0, 0, 0.15);
         }
         
-        /* Offers */
+        /* ========== OFFRE CARDS ========== */
         .offer-card {
             background: white;
             border-radius: 20px;
@@ -72,7 +96,10 @@
             flex-direction: column;
             height: 100%;
         }
-        .offer-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .offer-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15); 
+        }
         
         .image-container {
             width: 100%;
@@ -98,9 +125,18 @@
             margin-top: auto;
             transition: 0.3s;
         }
-        .btn-visa { background-color: var(--sahab-blue); }
+        .btn-action:hover {
+            background-color: #1da851;
+            transform: scale(1.02);
+        }
+        .btn-visa { 
+            background-color: var(--sahab-blue); 
+        }
+        .btn-visa:hover {
+            background-color: #003d8f;
+        }
         
-        /* Tabs */
+        /* ========== TABS ========== */
         .section-tab {
             cursor: pointer;
             padding: 10px 16px;
@@ -111,13 +147,21 @@
             white-space: nowrap;
             font-size: 14px;
         }
-        .active-tab { background: var(--sahab-blue); color: white; border-color: var(--sahab-blue); }
+        .active-tab { 
+            background: var(--sahab-blue); 
+            color: white; 
+            border-color: var(--sahab-blue); 
+        }
         
-        /* Page Sections */
-        .page-section { display: none; }
-        .active-section { display: block; }
+        /* ========== PAGE SECTIONS ========== */
+        .page-section { 
+            display: none; 
+        }
+        .active-section { 
+            display: block; 
+        }
         
-        /* Client Photos */
+        /* ========== CLIENT PHOTOS ========== */
         .client-photo-card {
             border-radius: 30px;
             overflow: hidden;
@@ -127,8 +171,12 @@
             position: relative;
             background: white;
         }
+        .client-photo-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,74,173,0.2);
+        }
         
-        /* Floating WhatsApp Buttons */
+        /* ========== FLOATING WHATSAPP BUTTONS ========== */
         .floating-container {
             position: fixed;
             bottom: 140px;
@@ -152,12 +200,22 @@
             transition: 0.3s;
             text-decoration: none;
         }
-        .btn-wa-float { background: #25d366; }
-        .btn-wa-float:hover { background: #1da851; }
-        .btn-wa-float2 { background: var(--sahab-blue); }
-        .btn-wa-float2:hover { background: #003d8f; }
+        .btn-wa-float { 
+            background: #25d366; 
+        }
+        .btn-wa-float:hover { 
+            background: #1da851; 
+            transform: scale(1.1);
+        }
+        .btn-wa-float2 { 
+            background: var(--sahab-blue); 
+        }
+        .btn-wa-float2:hover { 
+            background: #003d8f; 
+            transform: scale(1.1);
+        }
         
-        /* Contact Page */
+        /* ========== CONTACT PAGE ========== */
         .contact-map {
             border-radius: 20px;
             overflow: hidden;
@@ -172,9 +230,78 @@
             transition: transform 0.3s;
             height: 100%;
         }
-        .contact-info-card:hover { transform: translateY(-5px); }
+        .contact-info-card:hover { 
+            transform: translateY(-5px); 
+        }
         
-        /* Tabs Container */
+        /* ========== FAQ SECTION ========== */
+        .faq-item {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-right: 6px solid var(--sahab-blue);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 10px 25px rgba(0,74,173,0.1);
+        }
+        [lang="ar"] .faq-item {
+            border-right: none;
+            border-left: 6px solid var(--sahab-blue);
+        }
+        
+        /* ========== BLOG SECTION ========== */
+        .blog-article {
+            background: #ffffff;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.05);
+            padding: 40px;
+            margin-top: 40px;
+        }
+        .blog-article h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--sahab-blue);
+            margin-bottom: 1.5rem;
+        }
+        .blog-article h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--sahab-dark);
+            margin: 2rem 0 1rem;
+            border-bottom: 3px solid var(--sahab-gold);
+            padding-bottom: 0.5rem;
+        }
+        .blog-article h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sahab-blue);
+            margin: 1.5rem 0 1rem;
+        }
+        .blog-article p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 1.2rem;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+        .blog-article li {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .blog-tip {
+            background: #f0f9ff;
+            border-left: 6px solid var(--sahab-blue);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 25px 0;
+        }
+        
+        /* ========== TABS CONTAINER ========== */
         .tabs-container {
             display: flex;
             overflow-x: auto;
@@ -184,9 +311,11 @@
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
         }
-        .tabs-container::-webkit-scrollbar { display: none; }
+        .tabs-container::-webkit-scrollbar { 
+            display: none; 
+        }
         
-        /* Language Switcher */
+        /* ========== LANGUAGE SWITCHER ========== */
         .lang-switcher {
             background: white;
             border: 2px solid #e5e7eb;
@@ -199,59 +328,32 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        .lang-switcher:hover { border-color: var(--sahab-blue); }
+        .lang-switcher:hover { 
+            border-color: var(--sahab-blue); 
+        }
         
-        /* Mobile Menu */
+        /* ========== MOBILE MENU ========== */
         #mobileMenu {
             max-height: 85vh;
             overflow-y: auto;
             scrollbar-width: thin;
         }
-        #mobileMenu::-webkit-scrollbar { width: 5px; }
-        #mobileMenu::-webkit-scrollbar-track { background: #f1f1f1; }
-        #mobileMenu::-webkit-scrollbar-thumb { background: var(--sahab-blue); border-radius: 10px; }
-        
-        /* FAQ Section Styling */
-        .faq-item {
-            background: linear-gradient(145deg, #ffffff, #f8fafc);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            border: 1px solid #eef2f6;
-            transition: all 0.3s ease;
-            border-right: 5px solid var(--sahab-blue);
+        #mobileMenu::-webkit-scrollbar { 
+            width: 5px; 
         }
-        .faq-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 10px 30px rgba(0,74,173,0.1);
+        #mobileMenu::-webkit-scrollbar-track { 
+            background: #f1f1f1; 
         }
-        [dir="rtl"] .faq-item:hover {
-            transform: translateX(-5px);
-        }
-        .faq-question {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--sahab-blue);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .faq-answer {
-            color: #2d3a4f;
-            line-height: 1.8;
-            font-size: 1rem;
-            padding-left: 35px;
-        }
-        [dir="rtl"] .faq-answer {
-            padding-left: 0;
-            padding-right: 35px;
+        #mobileMenu::-webkit-scrollbar-thumb { 
+            background: var(--sahab-blue); 
+            border-radius: 10px; 
         }
         
-        /* Responsive */
+        /* ========== RESPONSIVE DESIGN ========== */
         @media (max-width: 768px) {
-            .nav-logo { height: 80px; }
+            .nav-logo { 
+                height: 80px; 
+            }
             .tabs-container {
                 justify-content: flex-start;
                 padding-left: 10px;
@@ -263,9 +365,12 @@
                 font-size: 12px;
                 font-weight: 700;
             }
-            .hero-section h1 { font-size: 3.5rem !important; }
-            .hero-section p { font-size: 1.5rem !important; }
-            
+            .hero-section h1 { 
+                font-size: 3.5rem !important; 
+            }
+            .hero-section p { 
+                font-size: 1.5rem !important; 
+            }
             .floating-container {
                 bottom: 120px;
                 right: 20px;
@@ -275,16 +380,24 @@
                 height: 55px;
                 font-size: 24px;
             }
-            
-            .faq-question { font-size: 1.1rem; }
-            .faq-answer { padding-left: 25px; font-size: 0.95rem; }
-            [dir="rtl"] .faq-answer { padding-right: 25px; }
+            .blog-article {
+                padding: 20px;
+            }
+            .blog-article h1 {
+                font-size: 1.8rem;
+            }
+            .blog-article h2 {
+                font-size: 1.5rem;
+            }
         }
         
         @media (max-width: 480px) {
-            .hero-section h1 { font-size: 2.5rem !important; }
-            .hero-section p { font-size: 1.2rem !important; }
-            
+            .hero-section h1 { 
+                font-size: 2.5rem !important; 
+            }
+            .hero-section p { 
+                font-size: 1.2rem !important; 
+            }
             .floating-container {
                 bottom: 110px;
                 right: 15px;
@@ -294,38 +407,54 @@
                 height: 50px;
                 font-size: 22px;
             }
-            
-            .faq-item { padding: 20px; }
-            .faq-question { font-size: 1rem; }
         }
         
-        /* Chatbase Container */
-        .chatbase-container {
-            z-index: 1000 !important;
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
         }
     </style>
 </head>
 <body lang="fr">
 
-    <!-- Navigation -->
+    <!-- ========== URGENCY BANNER ========== -->
+    <div class="bg-amber-400 text-black py-3 text-center font-bold text-sm md:text-base fixed top-28 w-full z-40 shadow-md" data-i18n="urgency.banner">
+        ⏳ Places limitées pour l'Omra Ramadan 2026 – Réservez maintenant !
+    </div>
+
+    <!-- ========== NAVIGATION ========== -->
     <nav class="bg-white/95 backdrop-blur-md shadow-md fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-6 h-28 flex justify-between items-center">
+            <!-- Logo -->
             <div class="flex items-center gap-4 cursor-pointer" onclick="showSection('home')">
                 <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png" alt="Sahab Logo" class="nav-logo">
             </div>
             
+            <!-- Desktop Menu -->
             <div class="hidden md:flex gap-8 font-bold items-center text-lg">
                 <button onclick="showSection('home')" class="hover:text-blue-700 transition" data-i18n="nav.home">Accueil</button>
                 <button onclick="showSection('about')" class="hover:text-blue-700 transition" data-i18n="nav.about">À Propos</button>
                 <button onclick="showSection('offers')" class="hover:text-blue-700 transition" data-i18n="nav.offers">Nos Offres</button>
+                <button onclick="showSection('blog')" class="hover:text-blue-700 transition" data-i18n="nav.blog">Blog</button>
                 <button onclick="showSection('contact')" class="hover:text-blue-700 transition" data-i18n="nav.contact">Contact</button>
+                
+                <!-- Language Switcher -->
                 <button class="lang-switcher" onclick="toggleLanguage()">
                     <i class="fas fa-globe"></i>
                     <span id="currentLang">FR</span>
                 </button>
-                <a href="https://wa.me/212623945729" target="_blank" class="bg-blue-800 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition" data-i18n="nav.whatsapp">Contact WhatsApp</a>
+                
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/212623945729" target="_blank" class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition flex items-center gap-2" data-i18n="nav.whatsapp">
+                    <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
+                </a>
             </div>
             
+            <!-- Mobile Menu Button -->
             <div class="flex items-center gap-4 md:hidden">
                 <button class="lang-switcher text-sm" onclick="toggleLanguage()">
                     <i class="fas fa-globe"></i>
@@ -338,32 +467,34 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden bg-white border-t p-6 shadow-xl">
             <div class="flex flex-col gap-4">
-                <button onclick="showSection('home')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3" data-i18n="nav.home">
-                    <i class="fas fa-home text-blue-600 w-6"></i> <span>Accueil</span>
+                <button onclick="showSection('home')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                    <i class="fas fa-home text-blue-600 w-6"></i> <span data-i18n="nav.home">Accueil</span>
                 </button>
-                <button onclick="showSection('about')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3" data-i18n="nav.about">
-                    <i class="fas fa-info-circle text-blue-600 w-6"></i> <span>À Propos</span>
+                <button onclick="showSection('about')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                    <i class="fas fa-info-circle text-blue-600 w-6"></i> <span data-i18n="nav.about">À Propos</span>
                 </button>
-                <button onclick="showSection('offers')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3" data-i18n="nav.offers">
-                    <i class="fas fa-suitcase text-blue-600 w-6"></i> <span>Nos Offres</span>
+                <button onclick="showSection('offers')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                    <i class="fas fa-suitcase text-blue-600 w-6"></i> <span data-i18n="nav.offers">Nos Offres</span>
                 </button>
-                <button onclick="showSection('contact')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3" data-i18n="nav.contact">
-                    <i class="fas fa-address-book text-blue-600 w-6"></i> <span>Contact</span>
+                <button onclick="showSection('blog')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                    <i class="fas fa-blog text-blue-600 w-6"></i> <span data-i18n="nav.blog">Blog</span>
+                </button>
+                <button onclick="showSection('contact')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                    <i class="fas fa-address-book text-blue-600 w-6"></i> <span data-i18n="nav.contact">Contact</span>
                 </button>
                 
                 <div class="border-t border-gray-200 my-3"></div>
                 
-                <p class="font-black text-blue-900 text-lg mb-2 flex items-center gap-2" data-i18n="nav.services">
-                    <i class="fas fa-list-alt"></i> خدماتنا
-                </p>
+                <!-- Service Categories -->
+                <p class="font-black text-blue-900 text-lg mb-2" data-i18n="nav.services">Services</p>
                 
                 <button onclick="filterFromMenu('omra')" class="text-left py-3 px-4 rounded-lg hover:bg-blue-50 transition border border-gray-100 flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
                         <i class="fas fa-kaaba text-white"></i>
                     </div>
                     <div>
-                        <p class="font-bold text-gray-800" data-i18n="services.omra">Omra & Hajj</p>
-                        <p class="text-sm text-gray-500" data-i18n="services.omra_desc">برامج العمرة والحج</p>
+                        <p class="font-bold text-gray-800" data-i18n="services.omra">Omra & Hajj 2026</p>
+                        <p class="text-sm text-gray-500" data-i18n="services.omra_desc">Forfaits Omra pas chers</p>
                     </div>
                 </button>
                 
@@ -372,8 +503,8 @@
                         <i class="fas fa-passport text-white"></i>
                     </div>
                     <div>
-                        <p class="font-bold text-gray-800" data-i18n="services.visa">Visa</p>
-                        <p class="text-sm text-gray-500" data-i18n="services.visa_desc">تأشيرات جميع الدول</p>
+                        <p class="font-bold text-gray-800" data-i18n="services.visa">Visa Touristique</p>
+                        <p class="text-sm text-gray-500" data-i18n="services.visa_desc">Arabie, Qatar, Dubaï...</p>
                     </div>
                 </button>
                 
@@ -382,8 +513,8 @@
                         <i class="fas fa-globe-africa text-white"></i>
                     </div>
                     <div>
-                        <p class="font-bold text-gray-800" data-i18n="services.travel">Voyages Organisés</p>
-                        <p class="text-sm text-gray-500" data-i18n="services.travel_desc">رحلات منظمة حول العالم</p>
+                        <p class="font-bold text-gray-800" data-i18n="services.travel">Circuits & Séjours</p>
+                        <p class="text-sm text-gray-500" data-i18n="services.travel_desc">Égypte, Turquie, Asie</p>
                     </div>
                 </button>
                 
@@ -393,7 +524,7 @@
                     </div>
                     <div>
                         <p class="font-bold text-gray-800" data-i18n="services.tickets">Billetterie</p>
-                        <p class="text-sm text-gray-500" data-i18n="services.tickets_desc">حجز تذاكر الطيران</p>
+                        <p class="text-sm text-gray-500" data-i18n="services.tickets_desc">Vols pas chers</p>
                     </div>
                 </button>
                 
@@ -404,40 +535,37 @@
         </div>
     </nav>
 
-    <main class="pt-28">
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="pt-32">
         
-        <!-- ========== HOME SECTION (OPTIMIZED COPY) ========== -->
+        <!-- ========== HOME SECTION ========== -->
         <section id="home" class="page-section active-section">
+            <!-- Hero -->
             <div class="hero-section">
                 <div class="hero-overlay"></div>
                 <div class="relative z-10 text-center px-4">
-                    <!-- OPTIMIZED H1: Emotional + Keyword Rich -->
-                    <h1 class="text-6xl md:text-8xl font-black text-white drop-shadow-2xl mb-4" data-i18n="hero.title">Vivez un Voyage Spirituel et Familial Inoubliable</h1>
-                    <!-- OPTIMIZED H2: Clear Value Proposition -->
-                    <p class="text-2xl md:text-4xl text-white font-semibold mb-8" data-i18n="hero.subtitle">Votre agence de confiance à Casablanca pour l'Omra, les visas et les voyages organisés.</p>
-                    <!-- OPTIMIZED CTA: Action-Oriented -->
-                    <button onclick="showSection('offers')" class="bg-white text-blue-900 px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition shadow-2xl" data-i18n="hero.button">Réserver mon voyage dès maintenant</button>
+                    <h1 class="text-6xl md:text-8xl font-black text-white drop-shadow-2xl mb-4" data-i18n="hero.title">Omra 2026 au départ du Maroc – Agence Sahab Voyages</h1>
+                    <p class="text-2xl md:text-4xl text-white font-semibold mb-8" data-i18n="hero.subtitle">Votre agence de confiance à Casablanca et Tata pour l'Omra, les visas et les voyages</p>
+                    <button onclick="showSection('offers')" class="bg-white text-blue-900 px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition shadow-2xl" data-i18n="hero.button">Découvrir nos offres</button>
                 </div>
             </div>
 
-            <!-- Gallery Section (Structure Unchanged, Copy Optimized) -->
+            <!-- Gallery Section -->
             <div class="py-24 bg-gradient-to-b from-white to-slate-100 px-6">
                 <div class="max-w-7xl mx-auto text-center">
-                    <!-- OPTIMIZED H2: Benefit-Driven -->
-                    <h2 class="text-4xl md:text-6xl font-black mb-4 text-blue-900" data-i18n="gallery.title">Immortalisez des Moments Uniques avec Sahab Voyages</h2>
-                    <!-- OPTIMIZED H3: Reinforces Trust -->
-                    <p class="text-xl md:text-2xl text-gray-600 font-medium mb-16" data-i18n="gallery.subtitle">Derrière chaque image, une histoire de confiance et de spiritualité.</p>
+                    <h2 class="text-4xl md:text-6xl font-black mb-4 text-blue-900" data-i18n="gallery.title">Immortalisez vos moments spirituels avec Sahab Voyages</h2>
+                    <p class="text-xl md:text-2xl text-gray-600 font-medium mb-16" data-i18n="gallery.subtitle">Derrière chaque image, une histoire de confiance et de spiritualité</p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 px-4">
-                        <div class="client-photo-card"><img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771737/PHOTO-2_drs1nb.jpg" alt="Client Sahab Voyages en voyage"></div>
-                        <div class="client-photo-card"><img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771737/PHOTO-1_bioqpk.jpg" alt="Moments de spiritualité Omra"></div>
+                        <div class="client-photo-card"><img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771737/PHOTO-2_drs1nb.jpg" alt="Clients Sahab Voyages en Omra"></div>
+                        <div class="client-photo-card"><img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771737/PHOTO-1_bioqpk.jpg" alt="Moments de spiritualité à La Mecque"></div>
                         <div class="client-photo-card"><img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771737/LOGO-4_sdekyk.jpg" alt="Groupe de voyageurs Sahab"></div>
-                        <div class="client-photo-card"><img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771745/PHOTO-3_fzimde.jpg" alt="Souvenirs de voyage organisé"></div>
+                        <div class="client-photo-card"><img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771745/PHOTO-3_fzimde.jpg" alt="Voyage organisé par Sahab"></div>
                     </div>
                     
-                    <!-- Client Reviews -->
+                    <!-- Avis Clients -->
                     <div class="mt-24 max-w-5xl mx-auto">
-                        <h3 class="text-3xl font-black mb-12 text-blue-900" data-i18n="reviews.title">Ils nous ont fait confiance pour leur voyage : leurs avis</h3>
+                        <h3 class="text-3xl font-black mb-12 text-blue-900" data-i18n="reviews.title">Ils nous ont fait confiance : leurs avis</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                             <div class="bg-white p-8 rounded-3xl shadow-lg border-t-4 border-blue-600">
                                 <div class="text-amber-500 mb-4 text-xl"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -446,16 +574,15 @@
                             </div>
                             <div class="bg-white p-8 rounded-3xl shadow-lg border-t-4 border-blue-600">
                                 <div class="text-amber-500 mb-4 text-xl"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <p class="text-gray-700 mb-4 font-bold" data-i18n="reviews.review2">"Une agence avec beaucoup de crédibilité. Un grand merci à M. Issam pour son professionnalisme."</p>
+                                <p class="text-gray-700 mb-4 font-bold" data-i18n="reviews.review2">"Une agence avec beaucoup de crédibilité. Un grand merci à M. Issam."</p>
                                 <h5 class="font-black text-blue-900 text-lg">- Mohammed Tighzoui</h5>
                             </div>
                             <div class="bg-white p-8 rounded-3xl shadow-lg border-t-4 border-blue-600">
                                 <div class="text-amber-500 mb-4 text-xl"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <p class="text-gray-700 mb-4 font-bold" data-i18n="reviews.review3">"J'ai eu l'honneur de travailler avec votre agence, service merveilleux et comportement raffiné, merci beaucoup 👌❤️❤️."</p>
+                                <p class="text-gray-700 mb-4 font-bold" data-i18n="reviews.review3">"Service merveilleux et comportement raffiné, merci beaucoup 👌❤️"</p>
                                 <h5 class="font-black text-blue-900 text-lg">- Nassima Aitbrahim</h5>
                             </div>
-                        </div>
-                        <div class="mt-12 text-center">
+                        </div>                        <div class="mt-12 text-center">
                             <a href="https://goo.gl/maps/7vuiHnpUBmmyvKeK6" target="_blank" class="inline-block bg-blue-900 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-800 transition" data-i18n="reviews.button">
                                 En savoir plus sur Google Maps <i class="fas fa-external-link-alt ml-2"></i>
                             </a>
@@ -465,33 +592,31 @@
             </div>
         </section>
 
-        <!-- ========== ABOUT SECTION (OPTIMIZED COPY) ========== -->
+        <!-- ========== ABOUT SECTION ========== -->
         <section id="about" class="page-section py-20 px-6 bg-white">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-12">
-                    <!-- OPTIMIZED H2: Includes Brand Name and Keywords -->
-                    <h2 class="text-4xl md:text-6xl font-black text-blue-900 mb-6" data-i18n="about.title">Sahab Voyages : Votre Partenaire de Voyage au Maroc</h2>
+                    <h2 class="text-4xl md:text-6xl font-black text-blue-900 mb-6" data-i18n="about.title">Sahab Voyages : Votre partenaire de voyage au Maroc</h2>
                     <div class="w-32 h-2 bg-gold mx-auto" style="background:var(--sahab-gold)"></div>
                 </div>
                 <div class="bg-slate-50 p-10 rounded-[40px] shadow-sm border-l-8 border-blue-900">
                     <div class="text-lg md:text-xl leading-relaxed text-gray-800 space-y-8 font-medium">
-                        <!-- OPTIMIZED COPY: Keyword-rich and Benefit-focused -->
-                        <p data-i18n="about.p1">Sahab Voyages est une agence de voyage marocaine basée à <strong>Casablanca et Tata</strong>, spécialisée dans la création d'expériences de voyage authentiques et sans stress. Nous comprenons que chaque voyage est unique, c'est pourquoi nous offrons un service sur-mesure.</p>
-                        <p data-i18n="about.p2">Nous proposons une gamme complète de services pour vos <strong>projets de Hajj & Omra 🕋</strong>, vos demandes de <strong>visas touristiques et électroniques</strong> pour le monde entier, la <strong>réservation de vols</strong> au meilleur prix, et l'organisation de <strong>séjours en famille</strong> vers des destinations de rêve (Égypte, Turquie, Asie...).</p>
-                        <p data-i18n="about.p3">Notre engagement ? Vous accompagner à chaque étape, du premier conseil jusqu'à votre retour, en faisant de la transparence et du professionnalisme notre signature.</p>
-                        <p class="text-2xl font-black text-blue-900 text-center pt-6" data-i18n="about.p4">Voyagez l'esprit tranquille, avec Sahab Voyages.</p>
+                        <p data-i18n="about.p1">Sahab Voyages est une agence de voyage marocaine basée à <strong>Casablanca et Tata</strong>, spécialisée dans l'organisation de voyages spirituels et touristiques depuis 2015.</p>
+                        <p data-i18n="about.p2">Nous proposons des services complets : <strong>Omra & Hajj 🕋</strong>, visas touristiques pour le monde entier, billets d'avion au meilleur prix, et circuits organisés vers l'Égypte, la Turquie, l'Asie et l'Europe.</p>
+                        <p data-i18n="about.p3">Notre engagement : transparence, professionnalisme et accompagnement personnalisé à chaque étape de votre voyage.</p>
+                        <p class="text-2xl font-black text-blue-900 text-center pt-6" data-i18n="about.p4">Voyagez l'esprit tranquille avec Sahab Voyages</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== OFFERS SECTION (OPTIMIZED COPY) ========== -->
+        <!-- ========== OFFERS SECTION ========== -->
         <section id="offers" class="page-section py-20 px-4 bg-slate-50">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
-                    <!-- OPTIMIZED H2: More Descriptive -->
-                    <h2 class="text-5xl font-black mb-10" data-i18n="offers.title">Nos Offres de Voyage et Services sur-Mesure</h2>
-                    <!-- OPTIMIZED FILTER TABS: More Keyword-Rich -->
+                    <h2 class="text-5xl font-black mb-10" data-i18n="offers.title">Nos offres de voyage et services sur mesure</h2>
+                    
+                    <!-- Filter Tabs -->
                     <div class="tabs-container mb-12">
                         <button onclick="filterOffers('all')" id="tab-all" class="section-tab active-tab" data-i18n="offers.all">Tout</button>
                         <button onclick="filterOffers('omra')" id="tab-omra" class="section-tab bg-white shadow" data-i18n="services.omra">Omra & Hajj 2026</button>
@@ -501,16 +626,18 @@
                     </div>
                 </div>
 
+                <!-- Offers Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="offersGrid">
-                    <!-- OMRA CARDS (unchanged image structure, only copy optimized via data-i18n in JS) -->
+                    
+                    <!-- OMRA CARDS -->
                     <div class="offer-card" data-cat="omra">
                         <div class="image-container">
-                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766659933/%D8%B1%D8%AD%D9%84%D8%A9_%D9%8A%D9%86%D8%A7%D9%8A%D8%B1_zebgu6.png" alt="Forfait Omra pas cher Janvier 2026">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766659933/%D8%B1%D8%AD%D9%84%D8%A9_%D9%8A%D9%86%D8%A7%D9%8A%D8%B1_zebgu6.png" alt="Forfait Omra Janvier 2026">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-2">Omra pas chère Janvier 2026 : Séjour spirituel à La Mecque</h3>
-                            <p class="text-blue-600 font-bold mb-6">Dates : du 03 au 15 jan. ou 12 au 26 jan.</p>
-                            <a href="https://wa.me/p/25709642965314217/212623945729" target="_blank" class="btn-action" data-i18n="offers.learn_more">Voir le programme et prix</a>
+                            <h3 class="text-xl font-black mb-2">Omra Janvier 2026 - Séjour spirituel</h3>
+                            <p class="text-blue-600 font-bold mb-6">Du 03 au 15 janvier | 12 au 26 janvier</p>
+                            <a href="https://wa.me/p/25709642965314217/212623945729" target="_blank" class="btn-action">Voir le programme et prix</a>
                         </div>
                     </div>
                     
@@ -519,9 +646,9 @@
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766659957/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B4%D8%B9%D8%A8%D8%A7%D9%86_idphpj.png" alt="Omra Chaâbane 2026">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-2">Omra Chaâbane 2026 : Préparez votre cœur pour le Ramadan</h3>
-                            <p class="text-blue-600 font-bold mb-6">Dates : du 26 janvier au 9 février</p>
-                            <a href="https://wa.me/p/25828021510116298/212623945729" target="_blank" class="btn-action" data-i18n="offers.learn_more">Voir le programme et prix</a>
+                            <h3 class="text-xl font-black mb-2">Omra Chaâbane 2026</h3>
+                            <p class="text-blue-600 font-bold mb-6">Du 26 janvier au 9 février</p>
+                            <a href="https://wa.me/p/25828021510116298/212623945729" target="_blank" class="btn-action">Voir le programme</a>
                         </div>
                     </div>
                     
@@ -530,128 +657,456 @@
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1768418062/CHAABAN_AND_RAMADAN_d09si5.jpg" alt="Omra Ramadan 2026">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-2">Omra Ramadan 2026 : Vivez les nuits bénies à La Mecque</h3>
-                            <p class="text-blue-600 font-bold mb-6">Dates : du 03 au 23 février</p>
-                            <a href="https://wa.me/p/25953131680990622/212623945729" target="_blank" class="btn-action" data-i18n="offers.learn_more">Réserver ma place pour le Ramadan</a>
+                            <h3 class="text-xl font-black mb-2">Omra Ramadan 2026</h3>
+                            <p class="text-blue-600 font-bold mb-6">Du 03 au 23 février</p>
+                            <a href="https://wa.me/p/25953131680990622/212623945729" target="_blank" class="btn-action">Réserver pour le Ramadan</a>
                         </div>
                     </div>
                     
                     <div class="offer-card" data-cat="omra">
                         <div class="image-container">
-                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766757785/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B1%D9%85%D8%B6%D8%A7%D9%86_lfum5k.jpg" alt="Omra Ramadan 2026">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766757785/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B1%D9%85%D8%B6%D8%A7%D9%86_lfum5k.jpg" alt="Omra 10 derniers jours Ramadan">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-2">Omra des 10 derniers jours du Ramadan 2026</h3>
-                            <p class="text-blue-600 font-bold mb-6">Dates : Du 19 février au 24 mars</p>
-                            <a href="https://wa.me/p/26571919809063840/212623945729" target="_blank" class="btn-action" data-i18n="offers.learn_more">Réserver ma place pour le Ramadan</a>
+                            <h3 class="text-xl font-black mb-2">Omra 10 derniers jours du Ramadan</h3>
+                            <p class="text-blue-600 font-bold mb-6">Du 19 février au 24 mars</p>
+                            <a href="https://wa.me/p/26571919809063840/212623945729" target="_blank" class="btn-action">Réserver</a>
                         </div>
                     </div>
-
+                    
                     <div class="offer-card" data-cat="omra">
                         <div class="image-container">
-                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1768418878/RAMADAN_AVEC_CHAWALL_pn7wbf.jpg" alt="Omra Ramadan et Shawwal 2026">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1768418878/RAMADAN_AVEC_CHAWALL_pn7wbf.jpg" alt="Omra Ramadan et Shawwal">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-2">Omra du Ramadan avec prolongation jusqu'à Shawwal</h3>
-                            <p class="text-blue-600 font-bold mb-6">Dates : Du 28 février au 11 avril</p>
-                            <a href="https://wa.me/p/25424547567168367/212623945729" target="_blank" class="btn-action" data-i18n="offers.learn_more">Voir le programme et prix</a>
+                            <h3 class="text-xl font-black mb-2">Omra Ramadan + prolongation Shawwal</h3>
+                            <p class="text-blue-600 font-bold mb-6">Du 28 février au 11 avril</p>
+                            <a href="https://wa.me/p/25424547567168367/212623945729" target="_blank" class="btn-action">Voir programme</a>
                         </div>
                     </div>
-
+                    
                     <!-- VISA CARDS -->
                     <div class="offer-card" data-cat="visa">
                         <div class="image-container">
-                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766870009/VISA-QATAR_sawtsc.png" alt="Visa touristique Qatar">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766870009/VISA-QATAR_sawtsc.png" alt="Visa Qatar">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-2" data-i18n="visa.qatar">Visa touriste Qatar : Obtenez votre autorisation</h3>
-                            <a href="https://wa.me/p/25491260960567909/212623945729" target="_blank" class="btn-action btn-visa" data-i18n="offers.order">Faire ma demande de visa</a>
+                            <h3 class="text-xl font-black mb-2" data-i18n="visa.qatar">Visa touriste Qatar</h3>
+                            <a href="https://wa.me/p/25491260960567909/212623945729" target="_blank" class="btn-action btn-visa">Faire ma demande</a>
                         </div>
                     </div>
                     
-                    <!-- More cards remain unchanged as they use data-i18n attributes -->
+                    <div class="offer-card" data-cat="visa">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766759766/Visa_Saudi_pu1rai.jpg" alt="Visa Arabie Saoudite">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-2">Visa Arabie Saoudite e-visa</h3>
+                            <p class="text-sm mb-2">Sous 4 jours ouvrés</p>
+                            <a href="https://wa.me/p/6635789499807855/212623945729" target="_blank" class="btn-action btn-visa">Faire ma demande</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="visa">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766870464/VISA-OMAN_vm0igd.png" alt="Visa Oman">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-2">Visa Oman</h3>
+                            <a href="https://wa.me/p/24948802458133196/212623945729" target="_blank" class="btn-action btn-visa">Faire ma demande</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="visa">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1768417599/VISA-BAHRINE_oike4r.jpg" alt="Visa Bahreïn">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-2">Visa Bahreïn en ligne</h3>
+                            <a href="https://wa.me/p/6527925420589249/212623945729" target="_blank" class="btn-action btn-visa">Faire ma demande</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="visa">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766871324/VISA-SAUDI_m7suk7.png" alt="Visa Arabie multiple">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-2">Visa Arabie Saoudite (1 an, entrées multiples)</h3>
+                            <a href="https://wa.me/p/6635909943111318/212623945729" target="_blank" class="btn-action btn-visa">Faire ma demande</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="visa">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766759766/Qatar_-_Saudi_-_Bahrain_-_.._vu9tgy.jpg" alt="Visa combiné Golf">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-2">Visa combiné Golf</h3>
+                            <p class="text-sm mb-2">EAU, Arabie, Qatar, Bahreïn, Oman</p>
+                            <a href="https://wa.me/p/6655750361179310/212623945729" target="_blank" class="btn-action btn-visa">Faire ma demande</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="visa">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766918912/VISA-Emarate_jkuqau.png" alt="Visa Dubaï">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-2">Visa Dubaï et EAU</h3>
+                            <p class="text-sm mb-2">Traitement rapide</p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action btn-visa">Obtenir mon visa</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="visa">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1768417484/VISA-EGYPTE_ca42pj.jpg" alt="Visa Égypte">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-2">Visa Égypte</h3>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action btn-visa">Faire ma demande</a>
+                        </div>
+                    </div>
+                    
+                    <!-- VOYAGE CARDS -->
+                    <div class="offer-card" data-cat="voyage">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858375/MOROCCO_2_okdxll.jpg" alt="Circuit Maroc">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Circuit touristique au Maroc</h3>
+                            <p class="text-sm mb-4">Atlas, Sahara, villes impériales</p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action">Demander un devis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="voyage">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858373/EGYPT_z4ofdu.jpg" alt="Circuit Égypte">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Circuit en Égypte</h3>
+                            <p class="text-sm mb-4">Pyramides, croisière sur le Nil</p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action">Découvrir</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="voyage">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858372/EMARATE_uxuwuk.jpg" alt="Voyage Dubaï">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Séjour de luxe à Dubaï</h3>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action">Demander un devis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="voyage">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858283/BAHRAIN_jfazqq.jpg" alt="Voyage Bahreïn">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Découverte de Bahreïn</h3>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action">Devis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="voyage">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858374/QATAR_x4kerr.jpg" alt="Voyage Qatar">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Séjour moderne au Qatar</h3>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action">Devis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="voyage">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858823/VITNAM_oush4e.jpg" alt="Voyage Vietnam">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Circuit authentique au Vietnam</h3>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action">Devis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="voyage">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858379/SANGAFORA_qzofa1.jpg" alt="Voyage Singapour">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Escales à Singapour</h3>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action">Devis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="voyage">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858373/INDONISIA_m2enha.jpg" alt="Voyage Indonésie">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Vacances de rêve à Bali</h3>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action">Devis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="voyage">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858817/TAYLAND_nmbahl.jpg" alt="Voyage Thaïlande">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Circuit en Thaïlande</h3>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action">Devis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="voyage">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858415/SRILANKA_e91f1o.jpg" alt="Voyage Sri Lanka">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Voyage au Sri Lanka</h3>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action">Devis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="voyage">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858372/MALIZYA_yannvd.jpg" alt="Voyage Malaisie">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Circuit en Malaisie</h3>
+                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action">Devis</a>
+                        </div>
+                    </div>
+                    
+                    <!-- BILLETTERIE CARDS -->
+                    <div class="offer-card" data-cat="billet">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771094/HAJZ_cpo63j.jpg" alt="Billet avion">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Billet d'avion pas cher</h3>
+                            <p class="text-sm mb-4">Le Caire, Dubaï, Doha, Istanbul...</p>
+                            <a href="https://wa.me/p/9734168360040574/212623945729" target="_blank" class="btn-action">Demander un devis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="billet">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1767003257/r%C3%A9servation_h%C3%B4tel_vgneua.png" alt="Réservation hôtel">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Réservation d'hôtels</h3>
+                            <p class="text-sm mb-4">Meilleurs tarifs garantis</p>
+                            <a href="https://wa.me/p/33021797887466015/212623945729" target="_blank" class="btn-action">Trouver un hôtel</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card" data-cat="billet">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1767003391/r%C3%A9servation_h%C3%B4tel_et_billet_pour_visa_wjjywh.png" alt="Réservation pour visa">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-4">Réservation hôtel + billet pour visa</h3>
+                            <a href="https://wa.me/p/33661500800129900/212623945729" target="_blank" class="btn-action">Préparer mon dossier</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== NEW FAQ SECTION (BILINGUAL) ========== -->
+        <!-- ========== NOUVELLE FAQ 2026 (BILINGUE) ========== -->
         <section id="faq" class="py-20 px-6 bg-white">
             <div class="max-w-4xl mx-auto">
-                <!-- Optimized FAQ Title -->
-                <h2 class="text-4xl md:text-5xl font-black text-center text-blue-900 mb-16" data-i18n="faq.title">Questions Fréquentes sur l'Omra, les Visas et la Réservation</h2>
-                
-                <div class="space-y-6">
-                    <!-- FAQ Item 1 - Documents nécessaires -->
+                <!-- Titre principal de la FAQ (bilingue) -->
+                <h2 class="text-4xl md:text-5xl font-black text-center text-blue-900 mb-4" data-i18n="faq.main_title">أسئلة وأجوبة عن العمرة والحج 2026 والتأشيرات والسفر</h2>
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="faq.intro">
+                    نسعى في وكالة سفريات لتقديم خدمات متكاملة تلبي جميع احتياجات سفرك. سواء كنت تخطط لأداء مناسك العمرة أو الحج في 2026، أو تحتاج تأشيرة لزيارة أوروبا، أفريقيا، أو آسيا، أو تبحث عن رحلة سياحية متكاملة مع تذاكر الطيران والفنادق، نحن هنا لخدمتك.
+                </p>
+
+                <!-- Catégorie : Omra & Hajj 2026 -->
+                <div class="mb-12">
+                    <h3 class="text-3xl font-black text-blue-800 mb-6 border-r-8 border-blue-600 pr-4" data-i18n="faq.cat_omra">🕋 العمرة والحج 2026: كل ما تريد معرفته</h3>
+                    
                     <div class="faq-item">
-                        <div class="faq-question">
-                            <i class="fas fa-file-alt text-blue-600"></i>
-                            <span data-i18n="faq.q1">📝 Quels sont les documents nécessaires pour une demande de visa touristique pour l'Arabie Saoudite ?</span>
-                        </div>
-                        <div class="faq-answer" data-i18n="faq.a1">
-                            Pour un visa touristique électronique, vous aurez besoin d'un passeport valide au moins 6 mois, d'une photo d'identité récente et d'une adresse email valide. Notre équipe vous guide pour remplir le formulaire en ligne. <a href="https://wa.me/212623945729" class="text-green-600 font-bold hover:underline">Contactez-nous sur WhatsApp</a> pour plus de détails.
-                        </div>
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.omra.q1">ما هي باقات العمرة المتوفرة لعام 2026، وما هي الأسعار المتوقعة؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.omra.a1">
+                            يسعدنا في وكالة سفريات الإعلان عن باقات العمرة المتنوعة لعام 2026، المصممة لتناسب جميع الميزانيات والاحتياجات. تختلف الأسعار حسب عدة عوامل: موسم السفر (رمضان، العطل المدرسية)، مستوى الفنادق (اقتصادي، فاخر، VIP)، مدة الإقامة، وسيلة النقل، والخدمات الإضافية. للاستفسار عن العروض والأسعار الدقيقة، يرجى التواصل معنا عبر الواتساب.
+                        </p>
                     </div>
                     
-                    <!-- FAQ Item 2 - Devis billet avion -->
                     <div class="faq-item">
-                        <div class="faq-question">
-                            <i class="fas fa-plane text-blue-600"></i>
-                            <span data-i18n="faq.q2">✈️ Comment puis-je obtenir un devis pour un billet d'avion pour Le Caire ?</span>
-                        </div>
-                        <div class="faq-answer" data-i18n="faq.a2">
-                            C'est très simple ! Cliquez sur l'offre <strong>"Billet d'avion pas cher"</strong> qui vous intéresse, cela ouvrira une discussion WhatsApp. Indiquez-nous vos dates de voyage et destinations (ex: "vol Casablanca Le Caire aller-retour"), et nous vous répondrons avec les meilleurs tarifs disponibles.
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ Item 3 - Paiement Omra -->
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <i class="fas fa-kaaba text-blue-600"></i>
-                            <span data-i18n="faq.q3">🕋 Proposez-vous des formules de paiement pour l'Omra 2026 ?</span>
-                        </div>
-                        <div class="faq-answer" data-i18n="faq.a3">
-                            Oui, nous comprenons l'importance de planifier ce voyage spirituel. Nous proposons des facilités de paiement pour nos forfaits Omra. <a href="#contact" onclick="showSection('contact')" class="text-blue-600 font-bold hover:underline">Contactez notre agence de Casablanca</a> pour discuter des modalités.
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ Item 4 - Différence agences -->
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <i class="fas fa-map-marker-alt text-blue-600"></i>
-                            <span data-i18n="faq.q4">📍 Quelle est la différence entre votre agence de Casablanca et celle de Tata ?</span>
-                        </div>
-                        <div class="faq-answer" data-i18n="faq.a4">
-                            Les deux agences offrent les mêmes services de haute qualité. L'agence de <strong>Casablanca</strong> est notre bureau principal, idéalement situé à Bernoussi. Notre <strong>succursale de Tata</strong> (Hay Naser) permet de mieux servir nos clients du sud du Maroc. Vous pouvez nous rejoindre dans l'agence la plus proche de chez vous.
-                        </div>
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.omra.q2">متى يبدأ التسجيل لحج 2026، وما هي الشروط؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.omra.a2">
+                            من المتوقع أن تبدأ إجراءات التسجيل المبكر لحج 2026 (1447 هـ - 1448 هـ) في النصف الثاني من عام 2025 أو بداية 2026 حسب التعليمات الرسمية. الشروط الأساسية: أن يكون المتقدم مسلماً بالغاً عاقلاً، جواز سفر صالح لمدة 6 أشهر، استكمال التطعيمات المطلوبة، دفع التكاليف المقررة. ننصح بالتسجيل المبكر لضمان المقعد.
+                        </p>
                     </div>
                 </div>
-                
-                <!-- FAQ CTA -->
+
+                <!-- Catégorie : Visas -->
+                <div class="mb-12">
+                    <h3 class="text-3xl font-black text-blue-800 mb-6 border-r-8 border-blue-600 pr-4" data-i18n="faq.cat_visa">🛂 التأشيرات: أوروبا، أفريقيا، آسيا</h3>
+                    
+                    <div class="faq-item">
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.visa.q1">وكالتكم تقدم تأشيرات لأي دول؟ وكيف يمكنني التقديم؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.visa.a1">
+                            نعم، نقدم خدمات التقديم والتوجيه للحصول على التأشيرات السياحية لعدد كبير من الدول: أوروبا (شنغن)، أفريقيا (مصر، تونس، نيجيريا...)، آسيا (السعودية، الإمارات، قطر، ماليزيا...). للبدء، تواصل معنا لتزويدنا بجواز سفرك، صور شخصية، وأي وثائق إضافية حسب الدولة المستهدفة.
+                        </p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.visa.q2">ما هي المستندات الأساسية المطلوبة لتأشيرة شنغن (أوروبا) من المغرب؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.visa.a2">
+                            المستندات الأساسية: استمارة طلب التأشيرة، جواز سفر صالح، صور شخصية، تأمين صحي للسفر، حجوزات الطيران والفنادق (وهمية أو مؤكدة)، إثبات الوسائل المالية (كشوف حساب بنكي)، إثبات العودة (خطاب عمل، عقد كراء). نحن نساعدك في تجهيز ملف متكامل.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Catégorie : Billets & Hôtels -->
+                <div class="mb-12">
+                    <h3 class="text-3xl font-black text-blue-800 mb-6 border-r-8 border-blue-600 pr-4" data-i18n="faq.cat_travel">✈️ تذاكر الطيران والفنادق والرحلات السياحية</h3>
+                    
+                    <div class="faq-item">
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.travel.q1">كيف يمكنني حجز تذكرة طيران رخيصة وفندق مناسب من خلالكم؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.travel.a1">
+                            تواصل معنا عبر الهاتف أو الواتساب، أخبرنا بوجهتك، تواريخ سفرك، عدد المسافرين. سيقوم فريقنا بالبحث في أنظمة الحجز العالمية ومقارنة الأسعار لتقديم أفضل العروض المتاحة التي تناسب ميزانيتك.
+                        </p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.travel.q2">ما هي أنواع الرحلات السياحية التي تنظمونها؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.travel.a2">
+                            نقدم برامج سياحية متنوعة: رحلات عائلية، رحلات شهر العسل، رحلات ثقافية، مغامرات، سياحة دينية. اتصل بنا لتصميم رحلة أحلامك.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact CTA -->
                 <div class="text-center mt-12">
-                    <p class="text-lg text-gray-600 mb-4" data-i18n="faq.cta_text">Vous n'avez pas trouvé votre réponse ?</p>
-                    <a href="https://wa.me/212623945729" target="_blank" class="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-4 rounded-full font-bold hover:bg-green-700 transition text-lg">
-                        <i class="fab fa-whatsapp"></i>
-                        <span data-i18n="faq.cta_button">Contactez-nous directement sur WhatsApp</span>
+                    <a href="https://wa.me/212623945729" target="_blank" class="inline-block bg-green-600 text-white px-10 py-4 rounded-full text-xl font-bold hover:bg-green-700 transition shadow-lg">
+                        <i class="fab fa-whatsapp mr-2"></i> <span data-i18n="faq.contact_btn">تواصل معنا على واتساب</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- ========== CONTACT SECTION (OPTIMIZED COPY) ========== -->
+        <!-- ========== NOUVELLE PAGE BLOG 2026 ========== -->
+        <section id="blog" class="page-section py-20 px-6 bg-gradient-to-b from-slate-50 to-white">
+            <div class="max-w-4xl mx-auto">
+                <!-- Article de blog -->
+                <article class="blog-article">
+                    <h1 data-i18n="blog.title">الدليل الشامل للسفر في 2026: حجز العمرة والحج، التأشيرات، وأفضل الوجهات السياحية مع نصائح وحيل الخبراء</h1>
+                    <p class="text-gray-500 text-sm mb-8" data-i18n="blog.date">نشر في 9 مارس 2026 | دليل السفر الشامل</p>
+
+                    <!-- Introduction -->
+                    <p data-i18n="blog.intro">
+                        مع دخولنا عام 2026، تتجدد الأحلام وتكبر الطموحات لاستكشاف العالم وأداء المناسك الدينية وقضاء أوقات لا تنسى مع العائلة والأحباب. في وكالة سفريات، نضع بين يديك هذا الدليل الشامل والضخم الذي سيرافقك خطوة بخطوة في رحلتك القادمة، من أول فكرة حتى العودة بسلام. استعد لتكون خبير سفر بمساعدة خبرائنا!
+                    </p>
+
+                    <!-- Chapitre 1: Omra & Hajj -->
+                    <h2 data-i18n="blog.chap1_title">الفصل الأول: رحلة الروح - العمرة والحج في 2026</h2>
+                    <p data-i18n="blog.chap1_p1">العام 2026 يحمل بشائر خير لضيوف الرحمن. مع عودة الأعداد الكاملة واستقرار الخدمات، إليك ما تحتاج معرفته:</p>
+                    
+                    <h3 data-i18n="blog.chap1_sub1">لماذا تختار وكالة سفريات لعمرتك وحجك في 2026؟</h3>
+                    <ul>
+                        <li data-i18n="blog.chap1_li1">خبرة تمتد لسنوات في تنظيم رحلات العمرة والحج.</li>
+                        <li data-i18n="blog.chap1_li2">باقات متنوعة 2026: اقتصادية، تميز، فاخرة (VIP).</li>
+                        <li data-i18n="blog.chap1_li3">استخدام التكنولوجيا الحديثة لمتابعة رحلتك.</li>
+                        <li data-i18n="blog.chap1_li4">الدعم الكامل من لحظة الحجز حتى العودة.</li>
+                    </ul>
+
+                    <h3 data-i18n="blog.chap1_sub2">خطوات حجز العمرة أو الحج لعام 2026:</h3>
+                    <ol>
+                        <li data-i18n="blog.chap1_step1">التواصل والاستشارة لتحديد احتياجاتك.</li>
+                        <li data-i18n="blog.chap1_step2">اختيار الباقة المناسبة.</li>
+                        <li data-i18n="blog.chap1_step3">الحجز المبدئي بدفع عربون.</li>
+                        <li data-i18n="blog.chap1_step4">تجهيز المستندات (جواز سفر، صور).</li>
+                        <li data-i18n="blog.chap1_step5">إجراءات التأشيرة الإلكترونية.</li>
+                        <li data-i18n="blog.chap1_step6">التأهيل والإرشاد لأداء المناسك.</li>
+                        <li data-i18n="blog.chap1_step7">الانطلاق في الرحلة.</li>
+                    </ol>
+
+                    <!-- Chapitre 2: Visas -->
+                    <h2 data-i18n="blog.chap2_title">الفصل الثاني: بوابتك للعالم - دليل التأشيرات الشامل 2026</h2>
+                    
+                    <h3 data-i18n="blog.chap2_sub1">1. تأشيرة شنغن (أوروبا) من المغرب 2026</h3>
+                    <p data-i18n="blog.chap2_p1">السفر إلى أوروبا حلم يراود الكثيرين. فرنسا وإسبانيا وإيطاليا وألمانيا هي الوجهات الأكثر طلباً.</p>
+                    <div class="blog-tip">
+                        <p class="font-bold mb-2" data-i18n="blog.chap2_tip_title">نصائح ذهبية لزيادة فرص قبول فيزا شنغن 2026:</p>
+                        <ul>
+                            <li data-i18n="blog.chap2_tip1">الملف المتكامل هو الأهم: لا تهمل أي وثيقة.</li>
+                            <li data-i18n="blog.chap2_tip2">إثبات العودة: قدم ما يثبت ارتباطك بالمغرب.</li>
+                            <li data-i18n="blog.chap2_tip3">مصداقية الحجوزات: نقدم حجوزات طيران وفنادق وفق المعايير.</li>
+                            <li data-i18n="blog.chap2_tip4">التقديم المبكر قبل موعد السفر بوقت كاف.</li>
+                            <li data-i18n="blog.chap2_tip5">الاستعداد للمقابلة الشخصية بثقة وصدق.</li>
+                        </ul>
+                    </div>
+
+                    <h3 data-i18n="blog.chap2_sub2">2. تأشيرات آسيا وأفريقيا 2026</h3>
+                    <p data-i18n="blog.chap2_p2">نقدم تسهيلات للحصول على تأشيرات الإمارات (إلكترونية)، تركيا (e-Visa)، ماليزيا، إندونيسيا، ومصر وتونس.</p>
+
+                    <!-- Chapitre 3: Réservations -->
+                    <h2 data-i18n="blog.chap3_title">الفصل الثالث: سفر بلا هموم - حجز التذاكر والفنادق والرحلات السياحية 2026</h2>
+                    
+                    <h3 data-i18n="blog.chap3_sub1">حجز تذاكر الطيران بذكاء في 2026</h3>
+                    <ul>
+                        <li data-i18n="blog.chap3_tip1">المرونة في المواعيد: السفر في منتصف الأسبوع غالباً أرخص.</li>
+                        <li data-i18n="blog.chap3_tip2">الحجز المبكر قبل شهرين إلى ثلاثة أشهر.</li>
+                        <li data-i18n="blog.chap3_tip3">مقارنة الأسعار: نقوم بذلك نيابة عنك.</li>
+                        <li data-i18n="blog.chap3_tip4">المطارات القريبة قد تكون أقل تكلفة.</li>
+                    </ul>
+
+                    <h3 data-i18n="blog.chap3_sub2">اختيار الفندق المثالي</h3>
+                    <p data-i18n="blog.chap3_p1">الموقع، الخدمات، التقييمات، وعروضنا الخاصة مع سلاسل فندقية عالمية.</p>
+
+                    <h3 data-i18n="blog.chap3_sub3">أفكار لرحلات سياحية لا تنسى في 2026</h3>
+                    <ul>
+                        <li data-i18n="blog.chap3_dest1">أوروبا الكلاسيكية: إيطاليا وسويسرا.</li>
+                        <li data-i18n="blog.chap3_dest2">سحر الشرق: تركيا وماليزيا وسنغافورة.</li>
+                        <li data-i18n="blog.chap3_dest3">مغامرات أفريقية: سفاري في كينيا، شواطئ موريشيوس.</li>
+                        <li data-i18n="blog.chap3_dest4">اكتشاف الخليج: دبي وأبوظبي.</li>
+                    </ul>
+
+                    <!-- Chapitre 4: Conseils d'expert -->
+                    <h2 data-i18n="blog.chap4_title">الفصل الرابع: نصائح خبير السفر لعام 2026</h2>
+                    <ul>
+                        <li data-i18n="blog.chap4_tip1">جواز السفر أولاً: تأكد من صلاحيته 6 أشهر.</li>
+                        <li data-i18n="blog.chap4_tip2">النسخ الاحتياطية: احتفظ بنسخ إلكترونية من المستندات.</li>
+                        <li data-i18n="blog.chap4_tip3">عملة الوجهة: تعرف عليها واحضر مبلغاً مناسباً.</li>
+                        <li data-i18n="blog.chap4_tip4">الصحة أولاً: استشر طبيبك واحصل على التطعيمات.</li>
+                        <li data-i18n="blog.chap4_tip5">الثقة بالخبراء: وفر وقتك وجهدك مع وكالة محترفة.</li>
+                    </ul>
+
+                    <!-- Conclusion -->
+                    <h2 data-i18n="blog.conclusion_title">خاتمة: رحلتك تبدأ من هنا</h2>
+                    <p data-i18n="blog.conclusion_text">
+                        عام 2026 مليء بالإمكانيات والفرص لاستكشاف جمال وعجائب العالم. سواء كانت رحلتك روحانية إلى البقاع المقدسة، أو مغامرة سياحية جديدة، فإن وكالة سفريات هي شريكك الأمثل. لا تتردد في الاتصال بنا اليوم للحصول على استشارة مجانية.
+                    </p>
+
+                    <div class="text-center mt-10">
+                        <a href="https://wa.me/212623945729" target="_blank" class="bg-green-600 text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-green-700 transition shadow-lg inline-flex items-center gap-2">
+                            <i class="fab fa-whatsapp"></i> <span data-i18n="blog.cta">تواصل معنا الآن</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT SECTION ========== -->
         <section id="contact" class="page-section py-20 px-6 bg-white">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
-                    <!-- OPTIMIZED H2: Question + Value Prop -->
-                    <h2 class="text-4xl md:text-6xl font-black text-blue-900 mb-6" data-i18n="contact.title">Prêt à Organiser Votre Voyage ? Contactez Nos Experts à Casablanca et Tata</h2>
-                    <!-- OPTIMIZED SUBTITLE: Reassuring -->
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-i18n="contact.subtitle">Que ce soit pour une question sur nos offres Omra, une demande de visa urgent, ou un projet de circuit sur mesure, notre équipe est là pour vous conseiller sans engagement.</p>
+                    <h2 class="text-4xl md:text-6xl font-black text-blue-900 mb-6" data-i18n="contact.title">Prêt à organiser votre voyage ? Contactez nos experts</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-i18n="contact.subtitle">Pour l'Omra, les visas, les billets ou les circuits, notre équipe est là pour vous conseiller sans engagement.</p>
                 </div>
                 
-                <!-- Contact Information (Structure Unchanged) -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <!-- Contact Details -->
+                    <!-- Contact Info -->
                     <div>
-                        <!-- CASABLANCA -->
+                        <!-- Casablanca -->
                         <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-3xl shadow-xl border-t-4 border-blue-600 mb-8">
                             <div class="flex items-center gap-4 mb-6">
                                 <div class="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center">
@@ -659,7 +1114,7 @@
                                 </div>
                                 <div>
                                     <h3 class="text-2xl font-black text-blue-900">Agence Casablanca</h3>
-                                    <p class="text-gray-600 font-semibold">Bureau Principal</p>
+                                    <p class="text-gray-600 font-semibold" data-i18n="contact.main_office">Bureau Principal</p>
                                 </div>
                             </div>
                             
@@ -670,52 +1125,49 @@
                                         <i class="fas fa-map-marker-alt text-blue-600"></i>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-1">Adresse:</p>
+                                        <p class="font-bold text-gray-800 mb-1" data-i18n="contact.address_title">Adresse:</p>
                                         <p class="text-gray-700">Aml 4, Rue 27, N°44<br>Bernoussi, Casablanca</p>
-                                        <a href="https://maps.app.goo.gl/MHqbXvwNqKXNGiEo7" target="_blank" class="inline-block mt-2 text-blue-600 font-bold hover:underline text-sm">
+                                        <a href="https://maps.app.goo.gl/MHqbXvwNqKXNGiEo7" target="_blank" class="inline-block mt-2 text-blue-600 font-bold hover:underline text-sm" data-i18n="contact.view_map">
                                             <i class="fas fa-external-link-alt mr-1"></i>Voir sur la carte
                                         </a>
                                     </div>
                                 </div>
                                 
-                                <!-- WhatsApp Numbers -->
+                                <!-- WhatsApp -->
                                 <div class="flex items-start gap-3">
                                     <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
                                         <i class="fab fa-whatsapp text-green-600"></i>
                                     </div>
                                     <div class="flex-1">
-                                        <p class="font-bold text-gray-800 mb-2">WhatsApp:</p>
+                                        <p class="font-bold text-gray-800 mb-2" data-i18n="contact.whatsapp">WhatsApp:</p>
                                         <div class="grid grid-cols-1 gap-2">
                                             <a href="https://wa.me/212666123893" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-bold text-center transition flex items-center justify-center gap-2">
-                                                <i class="fab fa-whatsapp"></i>
-                                                <span dir="ltr">+212 666 12 38 93</span>
+                                                <i class="fab fa-whatsapp"></i> +212 666 12 38 93
                                             </a>
                                             <a href="https://wa.me/212666429978" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-bold text-center transition flex items-center justify-center gap-2">
-                                                <i class="fab fa-whatsapp"></i>
-                                                <span dir="ltr">+212 666 42 99 78</span>
+                                                <i class="fab fa-whatsapp"></i> +212 666 42 99 78
                                             </a>
                                             <a href="https://wa.me/212623945729" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-bold text-center transition flex items-center justify-center gap-2">
-                                                <i class="fab fa-whatsapp"></i>
-                                                <span dir="ltr">+212 623 94 57 29</span>
+                                                <i class="fab fa-whatsapp"></i> +212 623 94 57 29
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <!-- Fixed Phone -->
+                                <!-- Phone -->
                                 <div class="flex items-start gap-3">
                                     <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
                                         <i class="fas fa-phone-alt text-blue-600"></i>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-1">Téléphone Fixe:</p>
+                                        <p class="font-bold text-gray-800 mb-1" data-i18n="contact.phone_title">Téléphone:</p>
                                         <a href="tel:0522759167" class="text-blue-600 hover:text-blue-800 font-bold text-lg" dir="ltr">05 22 75 91 67</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- TATA (Similar structure, unchanged) -->
+                        <!-- Tata -->
                         <div class="bg-gradient-to-br from-amber-50 to-white p-8 rounded-3xl shadow-xl border-t-4 border-amber-600 mb-8">
                             <div class="flex items-center gap-4 mb-6">
                                 <div class="w-16 h-16 rounded-full bg-amber-600 flex items-center justify-center">
@@ -723,7 +1175,7 @@
                                 </div>
                                 <div>
                                     <h3 class="text-2xl font-black text-amber-900">Agence Tata</h3>
-                                    <p class="text-gray-600 font-semibold">Succursale de Tata</p>
+                                    <p class="text-gray-600 font-semibold" data-i18n="contact.branch">Succursale de Tata</p>
                                 </div>
                             </div>
                             
@@ -734,48 +1186,46 @@
                                         <i class="fas fa-map-marker-alt text-amber-600"></i>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-1">Adresse:</p>
+                                        <p class="font-bold text-gray-800 mb-1" data-i18n="contact.address_title">Adresse:</p>
                                         <p class="text-gray-700">Hay Naser<br>Tata</p>
-                                        <a href="https://maps.app.goo.gl/aaxURvqcQiJPrpKt5" target="_blank" class="inline-block mt-2 text-amber-600 font-bold hover:underline text-sm">
+                                        <a href="https://maps.app.goo.gl/aaxURvqcQiJPrpKt5" target="_blank" class="inline-block mt-2 text-amber-600 font-bold hover:underline text-sm" data-i18n="contact.view_map">
                                             <i class="fas fa-external-link-alt mr-1"></i>Voir sur la carte
                                         </a>
                                     </div>
                                 </div>
                                 
-                                <!-- WhatsApp Numbers -->
+                                <!-- WhatsApp -->
                                 <div class="flex items-start gap-3">
                                     <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
                                         <i class="fab fa-whatsapp text-green-600"></i>
                                     </div>
                                     <div class="flex-1">
-                                        <p class="font-bold text-gray-800 mb-2">WhatsApp:</p>
+                                        <p class="font-bold text-gray-800 mb-2" data-i18n="contact.whatsapp">WhatsApp:</p>
                                         <div class="grid grid-cols-1 gap-2">
                                             <a href="https://wa.me/212667067850" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-bold text-center transition flex items-center justify-center gap-2">
-                                                <i class="fab fa-whatsapp"></i>
-                                                <span dir="ltr">+212 667 06 78 50</span>
+                                                <i class="fab fa-whatsapp"></i> +212 667 06 78 50
                                             </a>
                                             <a href="https://wa.me/212667067847" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-bold text-center transition flex items-center justify-center gap-2">
-                                                <i class="fab fa-whatsapp"></i>
-                                                <span dir="ltr">+212 667 06 78 47</span>
+                                                <i class="fab fa-whatsapp"></i> +212 667 06 78 47
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <!-- Fixed Phone -->
+                                <!-- Phone -->
                                 <div class="flex items-start gap-3">
                                     <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
                                         <i class="fas fa-phone-alt text-amber-600"></i>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-1">Téléphone Fixe:</p>
+                                        <p class="font-bold text-gray-800 mb-1" data-i18n="contact.phone_title">Téléphone:</p>
                                         <a href="tel:0528803909" class="text-amber-600 hover:text-amber-800 font-bold text-lg" dir="ltr">05 28 80 39 09</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Email & Horaires -->
+                        <!-- Email & Hours -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="contact-info-card">
                                 <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mb-4">
@@ -789,7 +1239,7 @@
                                 <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mb-4">
                                     <i class="fas fa-clock text-amber-600 text-xl"></i>
                                 </div>
-                                <h3 class="text-xl font-bold mb-3" data-i18n="contact.hours_title">Horaires d'ouverture</h3>
+                                <h3 class="text-xl font-bold mb-3" data-i18n="contact.hours_title">Horaires</h3>
                                 <div class="space-y-2">
                                     <p class="text-gray-700 flex justify-between"><span data-i18n="contact.days1">Lun - Jeu</span> <span>09:00 – 18:30</span></p>
                                     <p class="text-gray-700 flex justify-between"><span data-i18n="contact.days2">Vendredi</span> <span>09:00 – 18:30</span></p>
@@ -815,27 +1265,28 @@
                 </div>
             </div>
         </section>
-        
     </main>
 
-    <!-- Floating WhatsApp Buttons -->
+    <!-- ========== FLOATING WHATSAPP BUTTONS ========== -->
     <div class="floating-container">
-        <a href="https://wa.me/212623945729" target="_blank" class="float-btn btn-wa-float" title="الفرع الرئيسي - الدار البيضاء / Succursale principale - Casablanca">
+        <a href="https://wa.me/212623945729" target="_blank" class="float-btn btn-wa-float" title="Casablanca - Bureau principal">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="https://wa.me/212667067850" target="_blank" class="float-btn btn-wa-float2" title="فرع طاطا / Succursale Tata">
+        <a href="https://wa.me/212667067850" target="_blank" class="float-btn btn-wa-float2" title="Tata - Succursale">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <!-- Footer (Structure Unchanged, copy optimized via translations) -->
+    <!-- ========== FOOTER ========== -->
     <footer class="bg-gray-950 text-white py-20 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
+            <!-- Logo -->
             <div class="flex flex-col items-center md:items-start">
-                <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png" alt="Logo" class="h-32 mb-6 brightness-125">
-                <p class="text-gray-400 font-semibold text-center md:text-left" data-i18n="footer.tagline">L'excellence au service de vos voyages.</p>
+                <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png" alt="Sahab Logo" class="h-32 mb-6 brightness-125">
+                <p class="text-gray-400 font-semibold text-center md:text-left" data-i18n="footer.tagline">L'excellence au service de vos voyages</p>
             </div>
             
+            <!-- Adresses -->
             <div class="flex flex-col items-center md:items-start">
                 <h4 class="text-xl font-black mb-8 border-b-2 border-blue-600 pb-2" data-i18n="footer.addresses_title">Nos Adresses</h4>
                 <div class="space-y-6 text-gray-400">
@@ -847,20 +1298,16 @@
                         </a>
                         <div class="pl-8 space-y-2">
                             <a href="https://wa.me/212666123893" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
-                                <i class="fab fa-whatsapp text-green-500"></i>
-                                <span dir="ltr">+212 666 12 38 93</span>
+                                <i class="fab fa-whatsapp text-green-500"></i> +212 666 12 38 93
                             </a>
                             <a href="https://wa.me/212666429978" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
-                                <i class="fab fa-whatsapp text-green-500"></i>
-                                <span dir="ltr">+212 666 42 99 78</span>
+                                <i class="fab fa-whatsapp text-green-500"></i> +212 666 42 99 78
                             </a>
                             <a href="https://wa.me/212623945729" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
-                                <i class="fab fa-whatsapp text-green-500"></i>
-                                <span dir="ltr">+212 623 94 57 29</span>
+                                <i class="fab fa-whatsapp text-green-500"></i> +212 623 94 57 29
                             </a>
                             <a href="tel:0522759167" class="flex gap-2 hover:text-blue-400 transition text-xs">
-                                <i class="fas fa-phone text-blue-500"></i>
-                                <span dir="ltr">05 22 75 91 67</span>
+                                <i class="fas fa-phone text-blue-500"></i> 05 22 75 91 67
                             </a>
                         </div>
                     </div>
@@ -873,16 +1320,13 @@
                         </a>
                         <div class="pl-8 space-y-2">
                             <a href="https://wa.me/212667067850" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
-                                <i class="fab fa-whatsapp text-green-500"></i>
-                                <span dir="ltr">+212 667 06 78 50</span>
+                                <i class="fab fa-whatsapp text-green-500"></i> +212 667 06 78 50
                             </a>
                             <a href="https://wa.me/212667067847" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
-                                <i class="fab fa-whatsapp text-green-500"></i>
-                                <span dir="ltr">+212 667 06 78 47</span>
+                                <i class="fab fa-whatsapp text-green-500"></i> +212 667 06 78 47
                             </a>
                             <a href="tel:0528803909" class="flex gap-2 hover:text-blue-400 transition text-xs">
-                                <i class="fas fa-phone text-blue-500"></i>
-                                <span dir="ltr">05 28 80 39 09</span>
+                                <i class="fas fa-phone text-blue-500"></i> 05 28 80 39 09
                             </a>
                         </div>
                     </div>
@@ -895,6 +1339,7 @@
                 </div>
             </div>
             
+            <!-- Horaires -->
             <div class="flex flex-col items-center md:items-start">
                 <h4 class="text-xl font-black mb-8 border-b-2 border-blue-600 pb-2" data-i18n="footer.hours_title">Horaires</h4>
                 <div class="grid gap-2 w-full text-sm text-gray-400">
@@ -905,6 +1350,7 @@
                 </div>
             </div>
             
+            <!-- Social Media -->
             <div class="flex flex-col items-center md:items-end">
                 <h4 class="text-xl font-black mb-8" data-i18n="footer.follow_title">Suivez-nous</h4>
                 <div class="grid grid-cols-2 gap-4">
@@ -915,6 +1361,8 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Copyright -->
         <div class="text-center mt-16 border-t border-gray-900 pt-8 text-gray-500 font-bold uppercase tracking-widest">
             <span data-i18n="footer.copyright">2026 SAHAB VOYAGES. TOUS DROITS RÉSERVÉS.</span>
         </div>
@@ -934,154 +1382,160 @@
         defer>
     </script>
 
-    <!-- JavaScript (Updated with ALL translations including FAQ) -->
+    <!-- ========== JAVASCRIPT PRINCIPAL ========== -->
     <script>
-        // ============ WEBSITE CORE FUNCTIONS ============
+        // ========== VARIABLES GLOBALES ==========
         let currentLanguage = 'fr';
 
-        function showSection(id) {
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-section'));
-            document.getElementById(id).classList.add('active-section');
-            document.getElementById('mobileMenu').classList.add('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
-
-        function filterOffers(cat) {
-            document.querySelectorAll('.section-tab').forEach(t => {
-                t.classList.remove('active-tab', 'bg-white', 'shadow');
-                t.classList.add('bg-white', 'shadow');
-            });
-            
-            document.getElementById(`tab-${cat}`).classList.add('active-tab');
-            document.getElementById(`tab-${cat}`).classList.remove('bg-white', 'shadow');
-            
-            document.querySelectorAll('.offer-card').forEach(card => {
-                if (cat === 'all' || card.getAttribute('data-cat') === cat) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        function filterFromMenu(cat) {
-            document.getElementById('mobileMenu').classList.add('hidden');
-            showSection('offers');
-            
-            setTimeout(() => {
-                filterOffers(cat);
-                document.getElementById('offers').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
-                });
-            }, 100);
-        }
-
-        // ============ COMPLETE TRANSLATION SYSTEM ============
+        // ========== TRANSLATIONS COMPLÈTES (incluant FAQ et Blog) ==========
         const translations = {
             fr: {
                 // Navigation
                 'nav.home': 'Accueil',
                 'nav.about': 'À Propos',
                 'nav.offers': 'Nos Offres',
+                'nav.blog': 'Blog',
                 'nav.contact': 'Contact',
-                'nav.whatsapp': 'Contact WhatsApp',
-                'nav.services': 'خدماتنا',
+                'nav.whatsapp': 'WhatsApp',
+                'nav.services': 'Services',
                 
                 // Services
                 'services.omra': 'Omra & Hajj 2026',
-                'services.omra_desc': 'برامج العمرة والحج',
+                'services.omra_desc': 'Forfaits Omra pas chers',
                 'services.visa': 'Visa Touristique',
-                'services.visa_desc': 'تأشيرات جميع الدول',
+                'services.visa_desc': 'Arabie, Qatar, Dubaï...',
                 'services.travel': 'Circuits & Séjours',
-                'services.travel_desc': 'رحلات منظمة حول العالم',
+                'services.travel_desc': 'Égypte, Turquie, Asie',
                 'services.tickets': 'Billetterie',
-                'services.tickets_desc': 'حجز تذاكر الطيران',
+                'services.tickets_desc': 'Vols pas chers',
                 'services.hotels': 'Hôtels',
-                'services.hotels_desc': 'حجوزات الفنادق',
+                'services.hotels_desc': 'Réservation hôtels',
+                
+                // Urgency banner
+                'urgency.banner': '⏳ Places limitées pour l\'Omra Ramadan 2026 – Réservez maintenant !',
                 
                 // Hero
-                'hero.title': 'Vivez un Voyage Spirituel et Familial Inoubliable',
-                'hero.subtitle': 'Votre agence de confiance à Casablanca pour l\'Omra, les visas et les voyages organisés.',
-                'hero.button': 'Réserver mon voyage dès maintenant',
+                'hero.title': 'Omra 2026 au départ du Maroc – Agence Sahab Voyages',
+                'hero.subtitle': 'Votre agence de confiance à Casablanca et Tata pour l\'Omra, les visas et les voyages',
+                'hero.button': 'Découvrir nos offres',
                 
                 // Gallery
-                'gallery.title': 'Immortalisez des Moments Uniques avec Sahab Voyages',
-                'gallery.subtitle': 'Derrière chaque image, une histoire de confiance et de spiritualité.',
+                'gallery.title': 'Immortalisez vos moments spirituels avec Sahab Voyages',
+                'gallery.subtitle': 'Derrière chaque image, une histoire de confiance et de spiritualité',
                 
                 // Reviews
                 'reviews.title': 'Ils nous ont fait confiance pour leur voyage : leurs avis',
                 'reviews.review1': '"Meilleure agence de voyage et meilleur accueil. Qu\'Allah vous facilite."',
-                'reviews.review2': '"Une agence avec beaucoup de crédibilité. Un grand merci à M. Issam pour son professionnalisme."',
+                'reviews.review2': '"Une agence avec beaucoup de crédibilité. Unws grand merci à M. Issam pour son professionnalisme."',
                 'reviews.review3': '"J\'ai eu l\'honneur de travailler avec votre agence, service merveilleux et comportement raffiné, merci beaucoup 👌❤️❤️."',
                 'reviews.button': 'En savoir plus sur Google Maps',
                 
                 // About
-                'about.title': 'Sahab Voyages : Votre Partenaire de Voyage au Maroc',
-                'about.p1': 'Sahab Voyages est une agence de voyage marocaine basée à Casablanca et Tata, spécialisée dans la création d\'expériences de voyage authentiques et sans stress. Nous comprenons que chaque voyage est unique, c\'est pourquoi nous offrons un service sur-mesure.',
-                'about.p2': 'Nous proposons une gamme complète de services pour vos projets de Hajj & Omra 🕋, vos demandes de visas touristiques et électroniques pour le monde entier, la réservation de vols au meilleur prix, et l\'organisation de séjours en famille vers des destinations de rêve (Égypte, Turquie, Asie...).',
-                'about.p3': 'Notre engagement ? Vous accompagner à chaque étape, du premier conseil jusqu\'à votre retour, en faisant de la transparence et du professionnalisme notre signature.',
-                'about.p4': 'Voyagez l\'esprit tranquille, avec Sahab Voyages.',
+                'about.title': 'Sahab Voyages : Votre partenaire de voyage au Maroc',
+                'about.p1': 'Sahab Voyages est une agence de voyage marocaine basée à Casablanca et Tata, spécialisée dans l\'organisation de voyages spirituels et touristiques depuis 2015.',
+                'about.p2': 'Nous proposons des services complets : Omra & Hajj 🕋, visas touristiques pour le monde entier, billets d\'avion au meilleur prix, et circuits organisés vers l\'Égypte, la Turquie, l\'Asie et l\'Europe.',
+                'about.p3': 'Notre engagement : transparence, professionnalisme et accompagnement personnalisé à chaque étape de votre voyage.',
+                'about.p4': 'Voyagez l\'esprit tranquille avec Sahab Voyages',
                 
                 // Offers
-                'offers.title': 'Nos Offres de Voyage et Services sur-Mesure',
+                'offers.title': 'Nos offres de voyage et services sur mesure',
                 'offers.all': 'Tout',
                 'offers.tickets_hotels': 'Billets & Hôtels',
-                'offers.learn_more': 'En savoir plus',
-                'offers.order': 'Commander',
                 
-                // FAQ
-                'faq.title': 'Questions Fréquentes sur l\'Omra, les Visas et la Réservation',
-                'faq.q1': '📝 Quels sont les documents nécessaires pour une demande de visa touristique pour l\'Arabie Saoudite ?',
-                'faq.a1': 'Pour un visa touristique électronique, vous aurez besoin d\'un passeport valide au moins 6 mois, d\'une photo d\'identité récente et d\'une adresse email valide. Notre équipe vous guide pour remplir le formulaire en ligne. Contactez-nous sur WhatsApp pour plus de détails.',
-                'faq.q2': '✈️ Comment puis-je obtenir un devis pour un billet d\'avion pour Le Caire ?',
-                'faq.a2': 'C\'est très simple ! Cliquez sur l\'offre "Billet d\'avion pas cher" qui vous intéresse, cela ouvrira une discussion WhatsApp. Indiquez-nous vos dates de voyage et destinations (ex: "vol Casablanca Le Caire aller-retour"), et nous vous répondrons avec les meilleurs tarifs disponibles.',
-                'faq.q3': '🕋 Proposez-vous des formules de paiement pour l\'Omra 2026 ?',
-                'faq.a3': 'Oui, nous comprenons l\'importance de planifier ce voyage spirituel. Nous proposons des facilités de paiement pour nos forfaits Omra. Contactez notre agence de Casablanca pour discuter des modalités.',
-                'faq.q4': '📍 Quelle est la différence entre votre agence de Casablanca et celle de Tata ?',
-                'faq.a4': 'Les deux agences offrent les mêmes services de haute qualité. L\'agence de Casablanca est notre bureau principal, idéalement situé à Bernoussi. Notre succursale de Tata (Hay Naser) permet de mieux servir nos clients du sud du Maroc. Vous pouvez nous rejoindre dans l\'agence la plus proche de chez vous.',
-                'faq.cta_text': 'Vous n\'avez pas trouvé votre réponse ?',
-                'faq.cta_button': 'Contactez-nous directement sur WhatsApp',
+                // FAQ (nouvelle version)
+                'faq.main_title': 'Questions fréquentes sur l\'Omra, le Hajj 2026, les visas et les voyages',
+                'faq.intro': 'Chez Sahab Voyages, nous nous efforçons de fournir des services intégrés répondant à tous vos besoins de voyage. Que vous prévoyiez d\'effectuer la Omra ou le Hajj en 2026, que vous ayez besoin d\'un visa pour l\'Europe, l\'Afrique ou l\'Asie, ou que vous recherchiez un voyage touristique complet avec billets d\'avion et hôtels, nous sommes là pour vous servir.',
+                'faq.cat_omra': '🕋 Omra et Hajj 2026 : tout ce que vous devez savoir',
+                'faq.omra.q1': 'Quels sont les forfaits Omra disponibles pour 2026 et quels sont les prix prévus ?',
+                'faq.omra.a1': 'Chez Sahab Voyages, nous proposons divers forfaits Omra pour 2026, conçus pour convenir à tous les budgets et besoins. Les prix varient selon la saison (Ramadan, vacances scolaires), la catégorie d\'hôtel (économique, luxe, VIP), la durée du séjour, le mode de transport et les services supplémentaires. Pour des offres et tarifs précis, contactez-nous sur WhatsApp.',
+                'faq.omra.q2': 'Quand commencent les inscriptions pour le Hajj 2026 et quelles sont les conditions ?',
+                'faq.omra.a2': 'Les inscriptions anticipées pour le Hajj 2026 (1447 H - 1448 H) devraient débuter au second semestre 2025 ou début 2026, selon les instructions officielles. Conditions : être musulman, majeur et sain d\'esprit, passeport valide 6 mois, vaccinations requises, paiement des frais. Nous recommandons une inscription précoce.',
+                'faq.cat_visa': '🛂 Visas : Europe, Afrique, Asie',
+                'faq.visa.q1': 'Pour quels pays proposez-vous des visas et comment postuler ?',
+                'faq.visa.a1': 'Nous proposons des services de demande de visas touristiques pour de nombreux pays : Europe (Schengen), Afrique (Égypte, Tunisie, Nigeria...), Asie (Arabie Saoudite, Émirats, Qatar, Malaisie...). Contactez-nous avec votre passeport, photos et documents complémentaires.',
+                'faq.visa.q2': 'Quels sont les documents requis pour un visa Schengen (Europe) depuis le Maroc ?',
+                'faq.visa.a2': 'Documents : formulaire de demande, passeport valide, photos, assurance voyage, réservations (vol + hôtel), preuves de ressources financières, preuve de retour (attestation d\'emploi, contrat de location). Nous vous aidons à constituer un dossier complet.',
+                'faq.cat_travel': '✈️ Billets d\'avion, hôtels et voyages touristiques',
+                'faq.travel.q1': 'Comment réserver un billet d\'avion pas cher et un hôtel convenable via votre agence ?',
+                'faq.travel.a1': 'Contactez-nous par téléphone ou WhatsApp, indiquez votre destination, vos dates et le nombre de voyageurs. Notre équipe recherche les meilleures offres adaptées à votre budget.',
+                'faq.travel.q2': 'Quels types de voyages touristiques organisez-vous ?',
+                'faq.travel.a2': 'Nous proposons des programmes variés : voyages familiaux, lunes de miel, circuits culturels, aventures, tourisme religieux. Contactez-nous pour concevoir le voyage de vos rêves.',
+                'faq.contact_btn': 'Contactez-nous sur WhatsApp',
+
+                // Blog
+                'blog.title': 'Le guide complet du voyage en 2026 : réservation Omra et Hajj, visas, et meilleures destinations avec astuces d\'experts',
+                'blog.date': 'Publié le 9 mars 2026 | Guide de voyage complet',
+                'blog.intro': 'En cette année 2026, les rêves se renouvellent et les ambitions de découvrir le monde, d\'accomplir les rites religieux et de passer des moments inoubliables en famille et entre proches grandissent. Chez Sahab Voyages, nous mettons entre vos mains ce guide complet et exhaustif qui vous accompagnera pas à pas dans votre prochain voyage, de la première idée jusqu\'au retour sain et sauf. Préparez-vous à devenir un expert du voyage avec l\'aide de nos spécialistes !',
+                'blog.chap1_title': 'Chapitre premier : Le voyage de l\'âme - Omra et Hajj en 2026',
+                'blog.chap1_p1': 'L\'année 2026 apporte de bonnes nouvelles pour les hôtes du Tout-Puissant. Avec le retour des effectifs complets et la stabilisation des services, voici ce que vous devez savoir :',
+                'blog.chap1_sub1': 'Pourquoi choisir Sahab Voyages pour votre Omra et votre Hajj en 2026 ?',
+                'blog.chap1_li1': 'Une expérience de plusieurs années dans l\'organisation des voyages de Omra et Hajj.',
+                'blog.chap1_li2': 'Forfaits variés 2026 : économique, prestige, VIP.',
+                'blog.chap1_li3': 'Utilisation des technologies modernes pour le suivi de votre voyage.',
+                'blog.chap1_li4': 'Accompagnement complet de la réservation au retour.',
+                'blog.chap1_sub2': 'Étapes de réservation de la Omra ou du Hajj 2026 :',
+                'blog.chap1_step1': 'Contact et consultation pour définir vos besoins.',
+                'blog.chap1_step2': 'Choix du forfait approprié.',
+                'blog.chap1_step3': 'Réservation préliminaire avec acompte.',
+                'blog.chap1_step4': 'Préparation des documents (passeport, photos).',
+                'blog.chap1_step5': 'Procédures de visa électronique.',
+                'blog.chap1_step6': 'Formation et conseils pour accomplir les rites.',
+                'blog.chap1_step7': 'Départ pour le voyage.',
+                'blog.chap2_title': 'Chapitre deuxième : Votre porte sur le monde - Guide complet des visas 2026',
+                'blog.chap2_sub1': '1. Visa Schengen (Europe) depuis le Maroc 2026',
+                'blog.chap2_p1': 'Voyager en Europe est un rêve pour beaucoup. La France, l\'Espagne, l\'Italie et l\'Allemagne sont les destinations les plus demandées.',
+                'blog.chap2_tip_title': 'Conseils en or pour augmenter vos chances d\'obtenir un visa Schengen 2026 :',
+                'blog.chap2_tip1': 'Un dossier complet est essentiel : ne négligez aucun document.',
+                'blog.chap2_tip2': 'Preuve de retour : présentez des preuves d\'attache au Maroc.',
+                'blog.chap2_tip3': 'Réservations fiables : nous fournissons des réservations conformes aux normes.',
+                'blog.chap2_tip4': 'Dépôt anticipé de la demande.',
+                'blog.chap2_tip5': 'Préparez-vous à l\'entretien avec confiance et honnêteté.',
+                'blog.chap2_sub2': '2. Visas Asie et Afrique 2026',
+                'blog.chap2_p2': 'Nous facilitons l\'obtention des visas pour les Émirats (électronique), la Turquie (e-Visa), la Malaisie, l\'Indonésie, l\'Égypte et la Tunisie.',
+                'blog.chap3_title': 'Chapitre troisième : Voyager sans souci - Réservation de billets, hôtels et circuits touristiques 2026',
+                'blog.chap3_sub1': 'Réserver ses billets d\'avion intelligemment en 2026',
+                'blog.chap3_tip1': 'Flexibilité des dates : voyager en milieu de semaine est souvent moins cher.',
+                'blog.chap3_tip2': 'Réservation anticipée deux à trois mois à l\'avance.',
+                'blog.chap3_tip3': 'Comparaison des prix : nous le faisons pour vous.',
+                'blog.chap3_tip4': 'Aéroports proches : peuvent être moins coûteux.',
+                'blog.chap3_sub2': 'Choisir l\'hôtel idéal',
+                'blog.chap3_p1': 'Emplacement, services, évaluations, et nos offres spéciales avec des chaînes hôtelières internationales.',
+                'blog.chap3_sub3': 'Idées de voyages touristiques inoubliables en 2026',
+                'blog.chap3_dest1': 'Europe classique : Italie et Suisse.',
+                'blog.chap3_dest2': 'Charme de l\'Orient : Turquie, Malaisie, Singapour.',
+                'blog.chap3_dest3': 'Aventures africaines : safari au Kenya, plages de Maurice.',
+                'blog.chap3_dest4': 'Découverte du Golfe : Dubaï et Abou Dabi.',
+                'blog.chap4_title': 'Chapitre quatrième : Conseils d\'expert pour voyager en 2026',
+                'blog.chap4_tip1': 'Passeport d\'abord : vérifiez sa validité 6 mois.',
+                'blog.chap4_tip2': 'Copies de sauvegarde : conservez des copies électroniques des documents.',
+                'blog.chap4_tip3': 'Monnaie locale : renseignez-vous et emportez une somme adéquate.',
+                'blog.chap4_tip4': 'La santé avant tout : consultez votre médecin et faites les vaccins nécessaires.',
+                'blog.chap4_tip5': 'Confiance aux experts : gagnez du temps et de l\'argent avec une agence professionnelle.',
+                'blog.conclusion_title': 'Conclusion : Votre voyage commence ici',
+                'blog.conclusion_text': 'L\'année 2026 est pleine de possibilités et d\'opportunités pour explorer les beautés et merveilles du monde. Que votre voyage soit spirituel vers les Lieux Saints, ou une nouvelle aventure touristique, Sahab Voyages est votre partenaire idéal. N\'hésitez pas à nous contacter dès aujourd\'hui pour une consultation gratuite.',
+                'blog.cta': 'Contactez-nous maintenant',
                 
                 // Contact
-                'contact.title': 'Prêt à Organiser Votre Voyage ? Contactez Nos Experts à Casablanca et Tata',
-                'contact.subtitle': 'Que ce soit pour une question sur nos offres Omra, une demande de visa urgent, ou un projet de circuit sur mesure, notre équipe est là pour vous conseiller sans engagement.',
-                'contact.address_title': 'Notre Adresse',
-                'contact.address': 'Aml 4, Rue 27, N°44, Bernoussi, Casablanca',
-                'contact.address2': 'Hay Naser, Tata',
+                'contact.title': 'Prêt à organiser votre voyage ? Contactez nos experts',
+                'contact.subtitle': 'Pour l\'Omra, les visas, les billets ou les circuits, notre équipe est là pour vous conseiller sans engagement.',
+                'contact.address_title': 'Adresse',
                 'contact.view_map': 'Voir sur la carte',
                 'contact.phone_title': 'Téléphone',
                 'contact.email_title': 'Email',
-                'contact.hours_title': 'Horaires d\'ouverture',
+                'contact.hours_title': 'Horaires',
                 'contact.days1': 'Lun - Jeu',
                 'contact.days2': 'Vendredi',
                 'contact.days3': 'Samedi',
                 'contact.days4': 'Dimanche',
-                'contact.whatsapp': 'Envoyer un message WhatsApp',
-                'contact.call': 'Appeler maintenant',
-                'contact.form_title': 'Envoyez-nous un message',
-                'contact.form_name': 'Nom complet',
-                'contact.form_phone': 'Téléphone',
-                'contact.form_email': 'Email',
-                'contact.form_service': 'Service demandé',
-                'contact.form_select': 'Sélectionnez un service',
-                'contact.form_message': 'Message',
-                'contact.form_submit': 'Envoyer le message',
-                
-                // Visa
-                'visa.qatar': 'Visa touriste Qatar : Obtenez votre autorisation',
+                'contact.whatsapp': 'WhatsApp',
+                'contact.main_office': 'Bureau Principal',
+                'contact.branch': 'Succursale de Tata',
                 
                 // Footer
-                'footer.tagline': 'L\'excellence au service de vos voyages.',
+                'footer.tagline': 'L\'excellence au service de vos voyages',
                 'footer.addresses_title': 'Nos Adresses',
                 'footer.address1': 'Casablanca: Aml 4, Rue 27, N°44, Bernoussi',
                 'footer.address2': 'Tata: Hay Naser, Tata',
-                'footer.phone': 'Fixe: 05.22.75.91.67',
-                'footer.whatsapp': 'Watts : +212 623 94 57 29',
                 'footer.email': 'Email: agencesahab@gmail.com',
                 'footer.hours_title': 'Horaires',
                 'footer.days1': 'Lun - Jeu',
@@ -1102,29 +1556,33 @@
                 'nav.home': 'الرئيسية',
                 'nav.about': 'من نحن',
                 'nav.offers': 'عروضنا',
+                'nav.blog': 'المدونة',
                 'nav.contact': 'اتصل بنا',
-                'nav.whatsapp': 'اتصل على واتساب',
+                'nav.whatsapp': 'واتساب',
                 'nav.services': 'خدماتنا',
                 
                 // Services
                 'services.omra': 'العمرة والحج 2026',
-                'services.omra_desc': 'برامج العمرة والحج',
-                'services.visa': 'التأشيرات السياحية',
-                'services.visa_desc': 'تأشيرات جميع الدول',
-                'services.travel': 'رحلات منظمة',
-                'services.travel_desc': 'رحلات منظمة حول العالم',
-                'services.tickets': 'حجز التذاكر',
-                'services.tickets_desc': 'حجز تذاكر الطيران',
-                'services.hotels': 'الفنادق',
-                'services.hotels_desc': 'حجوزات الفنادق',
+                'services.omra_desc': 'عروض العمرة',
+                'services.visa': 'التأشيرات',
+                'services.visa_desc': 'السعودية، قطر، دبي',
+                'services.travel': 'رحلات سياحية',
+                'services.travel_desc': 'مصر، تركيا، آسيا',
+                'services.tickets': 'حجز الطيران',
+                'services.tickets_desc': 'تذاكر رخيصة',
+                'services.hotels': 'فنادق',
+                'services.hotels_desc': 'حجز فنادق',
+                
+                // Urgency banner
+                'urgency.banner': '⏳ أماكن محدودة لعمرة رمضان 2026 – احجز الآن !',
                 
                 // Hero
-                'hero.title': 'عش رحلة روحية وعائلية لا تنسى',
-                'hero.subtitle': 'وكالتكم الموثوقة في الدار البيضاء للعمرة والتأشيرات والرحلات المنظمة',
-                'hero.button': 'احجز رحلتي الآن',
+                'hero.title': 'عمرة 2026 من المغرب – وكالة أسفار سحاب',
+                'hero.subtitle': 'وكالتكم الموثوقة في الدار البيضاء وطاطا للعمرة والتأشيرات والرحلات',
+                'hero.button': 'اكتشف عروضنا',
                 
                 // Gallery
-                'gallery.title': 'خلد لحظات فريدة مع أسفار سحاب',
+                'gallery.title': 'خلد لحظاتك الروحانية مع أسفار سحاب',
                 'gallery.subtitle': 'وراء كل صورة، قصة ثقة وروحانية',
                 
                 // Reviews
@@ -1136,37 +1594,93 @@
                 
                 // About
                 'about.title': 'أسفار سحاب: شريك سفركم في المغرب',
-                'about.p1': 'أسفار سحاب هي وكالة سفر مغربية مقرها الدار البيضاء وطاطا، متخصصة في خلق تجارب سفر أصيلة وخالية من التوتر. نحن نتفهم أن كل رحلة فريدة، لذلك نقدم خدمة مخصصة.',
-                'about.p2': 'نقدم مجموعة كاملة من الخدمات لمشاريع الحج والعمرة 🕋، وطلبات التأشيرات السياحية والإلكترونية لجميع أنحاء العالم، وحجز الرحلات بأفضل الأسعار، وتنظيم عطلات عائلية إلى وجهات الأحلام (مصر، تركيا، آسيا...).',
-                'about.p3': 'التزامنا؟ مرافقتكم في كل خطوة، من الاستشارة الأولى حتى عودتكم، وجعل الشفافية والاحترافية عنواننا.',
-                'about.p4': 'سافر وراحة بالك مع أسفار سحاب.',
+                'about.p1': 'أسفار سحاب هي وكالة سفر مغربية مقرها الدار البيضاء وطاطا، متخصصة في تنظيم الرحلات الدينية والسياحية منذ 2015.',
+                'about.p2': 'نقدم خدمات شاملة: العمرة والحج 🕋، تأشيرات سياحية لجميع دول العالم، تذاكر طيران بأفضل الأسعار، ورحلات منظمة إلى مصر، تركيا، آسيا وأوروبا.',
+                'about.p3': 'التزامنا: الشفافية، الاحترافية، ومرافقتكم في كل خطوة من رحلتكم.',
+                'about.p4': 'سافر وراحة بالك مع أسفار سحاب',
                 
                 // Offers
                 'offers.title': 'عروض السفر والخدمات حسب الطلب',
                 'offers.all': 'الكل',
-                'offers.tickets_hotels': 'التذاكر والفنادق',
-                'offers.learn_more': 'اعرف أكثر',
-                'offers.order': 'اطلب الآن',
+                'offers.tickets_hotels': 'تذاكر وفنادق',
                 
-                // FAQ
-                'faq.title': 'أسئلة شائعة عن العمرة والتأشيرات والحجز',
-                'faq.q1': '📝 ما هي الوثائق المطلوبة للحصول على تأشيرة سياحية للسعودية؟',
-                'faq.a1': 'للحصول على التأشيرة السياحية الإلكترونية، ستحتاج إلى جواز سفر ساري المفعول لمدة 6 أشهر على الأقل، صورة شخصية حديثة، وبريد إلكتروني صالح. فريقنا يرشدك خطوة بخطوة لملء النموذج. تواصل معنا على الواتساب للمزيد من التفاصيل.',
-                'faq.q2': '✈️ كيف أحصل على عرض سعر لتذكرة طيران إلى القاهرة؟',
-                'faq.a2': 'الأمر بسيط جداً! اضغط على عرض "تذكرة طيران رخيصة" الذي يهمك، سيفتح لك محادثة واتساب. أخبرنا بتواريخ سفرك ووجهتك (مثال: "رحلة الدار البيضاء القاهرة ذهاب وعودة") وسنرد عليك بأفضل الأسعار المتاحة.',
-                'faq.q3': '🕋 هل توفرون خطط تقسيط للعمرة (عمرة 2026)؟',
-                'faq.a3': 'نعم، نحن نتفهم أهمية التخطيط لهذه الرحلة الروحانية. نحن نقدم تسهيلات في الدفع على باقات العمرة لدينا. تواصل مع وكالتنا في الدار البيضاء لمناقشة الشروط والتفاصيل.',
-                'faq.q4': '📍 ما الفرق بين وكالتكم في الدار البيضاء ووكالة طاطا؟',
-                'faq.a4': 'تقدم كلتا الوكالتين نفس الخدمات عالية الجودة. وكالة الدار البيضاء هي مكتبنا الرئيسي، ويقع في برنوصي. أما فرعنا في طاطا (حي النصر) فيهدف لخدمة عملائنا في جنوب المغرب بشكل أفضل. يمكنكم زيارة أقرب وكالة لكم.',
-                'faq.cta_text': 'لم تجد إجابتك؟',
-                'faq.cta_button': 'تواصل معنا مباشرة على الواتساب',
+                // FAQ (nouvelle version en arabe)
+                'faq.main_title': 'أسئلة وأجوبة عن العمرة والحج 2026 والتأشيرات والسفر',
+                'faq.intro': 'نسعى في وكالة سفريات لتقديم خدمات متكاملة تلبي جميع احتياجات سفرك. سواء كنت تخطط لأداء مناسك العمرة أو الحج في 2026، أو تحتاج تأشيرة لزيارة أوروبا، أفريقيا، أو آسيا، أو تبحث عن رحلة سياحية متكاملة مع تذاكر الطيران والفنادق، نحن هنا لخدمتك.',
+                'faq.cat_omra': '🕋 العمرة والحج 2026: كل ما تريد معرفته',
+                'faq.omra.q1': 'ما هي باقات العمرة المتوفرة لعام 2026، وما هي الأسعار المتوقعة؟',
+                'faq.omra.a1': 'يسعدنا في وكالة سفريات الإعلان عن باقات العمرة المتنوعة لعام 2026، المصممة لتناسب جميع الميزانيات والاحتياجات. تختلف الأسعار حسب عدة عوامل: موسم السفر (رمضان، العطل المدرسية)، مستوى الفنادق (اقتصادي، فاخر، VIP)، مدة الإقامة، وسيلة النقل، والخدمات الإضافية. للاستفسار عن العروض والأسعار الدقيقة، يرجى التواصل معنا عبر الواتساب.',
+                'faq.omra.q2': 'متى يبدأ التسجيل لحج 2026، وما هي الشروط؟',
+                'faq.omra.a2': 'من المتوقع أن تبدأ إجراءات التسجيل المبكر لحج 2026 (1447 هـ - 1448 هـ) في النصف الثاني من عام 2025 أو بداية 2026 حسب التعليمات الرسمية. الشروط الأساسية: أن يكون المتقدم مسلماً بالغاً عاقلاً، جواز سفر صالح لمدة 6 أشهر، استكمال التطعيمات المطلوبة، دفع التكاليف المقررة. ننصح بالتسجيل المبكر لضمان المقعد.',
+                'faq.cat_visa': '🛂 التأشيرات: أوروبا، أفريقيا، آسيا',
+                'faq.visa.q1': 'وكالتكم تقدم تأشيرات لأي دول؟ وكيف يمكنني التقديم؟',
+                'faq.visa.a1': 'نعم، نقدم خدمات التقديم والتوجيه للحصول على التأشيرات السياحية لعدد كبير من الدول: أوروبا (شنغن)، أفريقيا (مصر، تونس، نيجيريا...)، آسيا (السعودية، الإمارات، قطر، ماليزيا...). للبدء، تواصل معنا لتزويدنا بجواز سفرك، صور شخصية، وأي وثائق إضافية حسب الدولة المستهدفة.',
+                'faq.visa.q2': 'ما هي المستندات الأساسية المطلوبة لتأشيرة شنغن (أوروبا) من المغرب؟',
+                'faq.visa.a2': 'المستندات الأساسية: استمارة طلب التأشيرة، جواز سفر صالح، صور شخصية، تأمين صحي للسفر، حجوزات الطيران والفنادق (وهمية أو مؤكدة)، إثبات الوسائل المالية (كشوف حساب بنكي)، إثبات العودة (خطاب عمل، عقد كراء). نحن نساعدك في تجهيز ملف متكامل.',
+                'faq.cat_travel': '✈️ تذاكر الطيران والفنادق والرحلات السياحية',
+                'faq.travel.q1': 'كيف يمكنني حجز تذكرة طيران رخيصة وفندق مناسب من خلالكم؟',
+                'faq.travel.a1': 'تواصل معنا عبر الهاتف أو الواتساب، أخبرنا بوجهتك، تواريخ سفرك، عدد المسافرين. سيقوم فريقنا بالبحث في أنظمة الحجز العالمية ومقارنة الأسعار لتقديم أفضل العروض المتاحة التي تناسب ميزانيتك.',
+                'faq.travel.q2': 'ما هي أنواع الرحلات السياحية التي تنظمونها؟',
+                'faq.travel.a2': 'نقدم برامج سياحية متنوعة: رحلات عائلية، رحلات شهر العسل، رحلات ثقافية، مغامرات، سياحة دينية. اتصل بنا لتصميم رحلة أحلامك.',
+                'faq.contact_btn': 'تواصل معنا على واتساب',
+
+                // Blog (arabe)
+                'blog.title': 'الدليل الشامل للسفر في 2026: حجز العمرة والحج، التأشيرات، وأفضل الوجهات السياحية مع نصائح وحيل الخبراء',
+                'blog.date': 'نشر في 9 مارس 2026 | دليل السفر الشامل',
+                'blog.intro': 'مع دخولنا عام 2026، تتجدد الأحلام وتكبر الطموحات لاستكشاف العالم وأداء المناسك الدينية وقضاء أوقات لا تنسى مع العائلة والأحباب. في وكالة سفريات، نضع بين يديك هذا الدليل الشامل والضخم الذي سيرافقك خطوة بخطوة في رحلتك القادمة، من أول فكرة حتى العودة بسلام. استعد لتكون خبير سفر بمساعدة خبرائنا!',
+                'blog.chap1_title': 'الفصل الأول: رحلة الروح - العمرة والحج في 2026',
+                'blog.chap1_p1': 'العام 2026 يحمل بشائر خير لضيوف الرحمن. مع عودة الأعداد الكاملة واستقرار الخدمات، إليك ما تحتاج معرفته:',
+                'blog.chap1_sub1': 'لماذا تختار وكالة سفريات لعمرتك وحجك في 2026؟',
+                'blog.chap1_li1': 'خبرة تمتد لسنوات في تنظيم رحلات العمرة والحج.',
+                'blog.chap1_li2': 'باقات متنوعة 2026: اقتصادية، تميز، فاخرة (VIP).',
+                'blog.chap1_li3': 'استخدام التكنولوجيا الحديثة لمتابعة رحلتك.',
+                'blog.chap1_li4': 'الدعم الكامل من لحظة الحجز حتى العودة.',
+                'blog.chap1_sub2': 'خطوات حجز العمرة أو الحج لعام 2026:',
+                'blog.chap1_step1': 'التواصل والاستشارة لتحديد احتياجاتك.',
+                'blog.chap1_step2': 'اختيار الباقة المناسبة.',
+                'blog.chap1_step3': 'الحجز المبدئي بدفع عربون.',
+                'blog.chap1_step4': 'تجهيز المستندات (جواز سفر، صور).',
+                'blog.chap1_step5': 'إجراءات التأشيرة الإلكترونية.',
+                'blog.chap1_step6': 'التأهيل والإرشاد لأداء المناسك.',
+                'blog.chap1_step7': 'الانطلاق في الرحلة.',
+                'blog.chap2_title': 'الفصل الثاني: بوابتك للعالم - دليل التأشيرات الشامل 2026',
+                'blog.chap2_sub1': '1. تأشيرة شنغن (أوروبا) من المغرب 2026',
+                'blog.chap2_p1': 'السفر إلى أوروبا حلم يراود الكثيرين. فرنسا وإسبانيا وإيطاليا وألمانيا هي الوجهات الأكثر طلباً.',
+                'blog.chap2_tip_title': 'نصائح ذهبية لزيادة فرص قبول فيزا شنغن 2026:',
+                'blog.chap2_tip1': 'الملف المتكامل هو الأهم: لا تهمل أي وثيقة.',
+                'blog.chap2_tip2': 'إثبات العودة: قدم ما يثبت ارتباطك بالمغرب.',
+                'blog.chap2_tip3': 'مصداقية الحجوزات: نقدم حجوزات طيران وفنادق وفق المعايير.',
+                'blog.chap2_tip4': 'التقديم المبكر قبل موعد السفر بوقت كاف.',
+                'blog.chap2_tip5': 'الاستعداد للمقابلة الشخصية بثقة وصدق.',
+                'blog.chap2_sub2': '2. تأشيرات آسيا وأفريقيا 2026',
+                'blog.chap2_p2': 'نقدم تسهيلات للحصول على تأشيرات الإمارات (إلكترونية)، تركيا (e-Visa)، ماليزيا، إندونيسيا، ومصر وتونس.',
+                'blog.chap3_title': 'الفصل الثالث: سفر بلا هموم - حجز التذاكر والفنادق والرحلات السياحية 2026',
+                'blog.chap3_sub1': 'حجز تذاكر الطيران بذكاء في 2026',
+                'blog.chap3_tip1': 'المرونة في المواعيد: السفر في منتصف الأسبوع غالباً أرخص.',
+                'blog.chap3_tip2': 'الحجز المبكر قبل شهرين إلى ثلاثة أشهر.',
+                'blog.chap3_tip3': 'مقارنة الأسعار: نقوم بذلك نيابة عنك.',
+                'blog.chap3_tip4': 'المطارات القريبة قد تكون أقل تكلفة.',
+                'blog.chap3_sub2': 'اختيار الفندق المثالي',
+                'blog.chap3_p1': 'الموقع، الخدمات، التقييمات، وعروضنا الخاصة مع سلاسل فندقية عالمية.',
+                'blog.chap3_sub3': 'أفكار لرحلات سياحية لا تنسى في 2026',
+                'blog.chap3_dest1': 'أوروبا الكلاسيكية: إيطاليا وسويسرا.',
+                'blog.chap3_dest2': 'سحر الشرق: تركيا وماليزيا وسنغافورة.',
+                'blog.chap3_dest3': 'مغامرات أفريقية: سفاري في كينيا، شواطئ موريشيوس.',
+                'blog.chap3_dest4': 'اكتشاف الخليج: دبي وأبوظبي.',
+                'blog.chap4_title': 'الفصل الرابع: نصائح خبير السفر لعام 2026',
+                'blog.chap4_tip1': 'جواز السفر أولاً: تأكد من صلاحيته 6 أشهر.',
+                'blog.chap4_tip2': 'النسخ الاحتياطية: احتفظ بنسخ إلكترونية من المستندات.',
+                'blog.chap4_tip3': 'عملة الوجهة: تعرف عليها واحضر مبلغاً مناسباً.',
+                'blog.chap4_tip4': 'الصحة أولاً: استشر طبيبك واحصل على التطعيمات.',
+                'blog.chap4_tip5': 'الثقة بالخبراء: وفر وقتك وجهدك مع وكالة محترفة.',
+                'blog.conclusion_title': 'خاتمة: رحلتك تبدأ من هنا',
+                'blog.conclusion_text': 'عام 2026 مليء بالإمكانيات والفرص لاستكشاف جمال وعجائب العالم. سواء كانت رحلتك روحانية إلى البقاع المقدسة، أو مغامرة سياحية جديدة، فإن وكالة سفريات هي شريكك الأمثل. لا تتردد في الاتصال بنا اليوم للحصول على استشارة مجانية.',
+                'blog.cta': 'تواصل معنا الآن',
                 
-                // Contact
-                'contact.title': 'مستعد لتنظيم رحلتك؟ تواصل مع خبرائنا في الدار البيضاء وطاطا',
-                'contact.subtitle': 'سواء كان لديك سؤال عن عروض العمرة، طلب تأشيرة عاجل، أو مشروع رحلة مخصصة، فريقنا هنا لإرشادك بدون أي التزام.',
-                'contact.address_title': 'عنواننا',
-                'contact.address': 'أمل 4، شارع 27، رقم 44، برنوصي، الدار البيضاء',
-                'contact.address2': 'حي ناصر، طاطا',
+                // Contact (arabe)
+                'contact.title': 'مستعد لتنظيم رحلتك؟ تواصل مع خبرائنا',
+                'contact.subtitle': 'للاستفسار عن العمرة، التأشيرات، التذاكر أو الرحلات، فريقنا هنا لإرشادك بدون أي التزام.',
+                'contact.address_title': 'العنوان',
                 'contact.view_map': 'شاهد على الخريطة',
                 'contact.phone_title': 'الهاتف',
                 'contact.email_title': 'البريد الإلكتروني',
@@ -1175,27 +1689,15 @@
                 'contact.days2': 'الجمعة',
                 'contact.days3': 'السبت',
                 'contact.days4': 'الأحد',
-                'contact.whatsapp': 'أرسل رسالة على واتساب',
-                'contact.call': 'اتصل الآن',
-                'contact.form_title': 'أرسل لنا رسالة',
-                'contact.form_name': 'الاسم الكامل',
-                'contact.form_phone': 'الهاتف',
-                'contact.form_email': 'البريد الإلكتروني',
-                'contact.form_service': 'الخدمة المطلوبة',
-                'contact.form_select': 'اختر خدمة',
-                'contact.form_message': 'الرسالة',
-                'contact.form_submit': 'أرسل الرسالة',
+                'contact.whatsapp': 'واتساب',
+                'contact.main_office': 'المكتب الرئيسي',
+                'contact.branch': 'فرع طاطا',
                 
-                // Visa
-                'visa.qatar': 'تأشيرة قطر السياحية: احصل على موافقتك',
-                
-                // Footer
-                'footer.tagline': 'التميز في خدمة سفركم.',
+                // Footer (arabe)
+                'footer.tagline': 'التميز في خدمة سفركم',
                 'footer.addresses_title': 'عناويننا',
                 'footer.address1': 'الدار البيضاء: أمل 4، شارع 27، رقم 44، برنوصي',
                 'footer.address2': 'طاطا: حي ناصر، طاطا',
-                'footer.phone': 'ثابت: 05.22.75.91.67',
-                'footer.whatsapp': 'واتساب: 212 623 94 57 29+',
                 'footer.email': 'البريد: agencesahab@gmail.com',
                 'footer.hours_title': 'ساعات العمل',
                 'footer.days1': 'الإثنين - الخميس',
@@ -1211,57 +1713,104 @@
                 'footer.copyright': '2026 أسفار سحاب. جميع الحقوق محفوظة.'
             }
         };
+
+        // ========== FONCTIONS PRINCIPALES ==========
         
+        // Afficher une section
+        function showSection(id) {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-section'));
+            document.getElementById(id).classList.add('active-section');
+            document.getElementById('mobileMenu').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Basculer le menu mobile
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        // Filtrer les offres
+        function filterOffers(cat) {
+            document.querySelectorAll('.section-tab').forEach(t => {
+                t.classList.remove('active-tab', 'bg-white', 'shadow');
+                t.classList.add('bg-white', 'shadow');
+            });
+            
+            document.getElementById(`tab-${cat}`).classList.add('active-tab');
+            document.getElementById(`tab-${cat}`).classList.remove('bg-white', 'shadow');
+            
+            document.querySelectorAll('.offer-card').forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Filtrer depuis le menu mobile
+        function filterFromMenu(cat) {
+            document.getElementById('mobileMenu').classList.add('hidden');
+            showSection('offers');
+            
+            setTimeout(() => {
+                filterOffers(cat);
+                document.getElementById('offers').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }, 100);
+        }
+
+        // Changer de langue
         function toggleLanguage() {
             currentLanguage = currentLanguage === 'fr' ? 'ar' : 'fr';
             document.documentElement.lang = currentLanguage;
             document.documentElement.dir = currentLanguage === 'ar' ? 'rtl' : 'ltr';
             
-            // Update language switcher text
+            // Mettre à jour les indicateurs de langue
             document.getElementById('currentLang').textContent = currentLanguage === 'fr' ? 'FR' : 'AR';
             document.getElementById('currentLangMobile').textContent = currentLanguage === 'fr' ? 'FR' : 'AR';
             
-            // Update all translatable elements
+            // Mettre à jour tous les éléments avec data-i18n
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
-                if (translations[currentLanguage] && translations[currentLanguage][key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.tagName === 'SELECT') {
-                        element.placeholder = translations[currentLanguage][key];
-                    } else {
-                        element.innerHTML = translations[currentLanguage][key];
-                    }
+                if (translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
                 }
             });
             
-            // Update page title
+            // Mettre à jour le titre de la page
             document.title = currentLanguage === 'fr' 
-                ? 'Sahab Voyages | Agence de Voyage Maroc | Omra, Visa & Billets d\'Avion' 
-                : 'أسفار سحاب | وكالة أسفار المغرب | عمرة، فيزا، تذاكر طيران';
+                ? 'Omra Maroc 2026 | Agence Sahab Voyages – Packages Omra au départ du Maroc' 
+                : 'عمرة 2026 من المغرب | وكالة أسفار سحاب – عروض العمرة';
         }
-        
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId !== '#') {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+
+        // ========== INITIALISATION ==========
+        window.onload = function() {
+            // Initialiser le filtre
+            filterOffers('all');
+            
+            // Appliquer la langue française par défaut
+            toggleLanguage();
+            
+            // Ajouter des écouteurs pour les ancres
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
                     }
-                }
+                });
             });
-        });
-        
-        // Initialize
-        filterOffers('all');
-        // Set initial language
-        setTimeout(() => {
-            toggleLanguage(); // This ensures proper initialization
-        }, 100);
+        };
     </script>
 </body>
 </html>
