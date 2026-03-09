@@ -251,6 +251,55 @@
             border-left: 6px solid var(--sahab-blue);
         }
         
+        /* ========== BLOG SECTION ========== */
+        .blog-article {
+            background: #ffffff;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.05);
+            padding: 40px;
+            margin-top: 40px;
+        }
+        .blog-article h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--sahab-blue);
+            margin-bottom: 1.5rem;
+        }
+        .blog-article h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--sahab-dark);
+            margin: 2rem 0 1rem;
+            border-bottom: 3px solid var(--sahab-gold);
+            padding-bottom: 0.5rem;
+        }
+        .blog-article h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sahab-blue);
+            margin: 1.5rem 0 1rem;
+        }
+        .blog-article p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 1.2rem;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+        .blog-article li {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .blog-tip {
+            background: #f0f9ff;
+            border-left: 6px solid var(--sahab-blue);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 25px 0;
+        }
+        
         /* ========== TABS CONTAINER ========== */
         .tabs-container {
             display: flex;
@@ -330,6 +379,15 @@
                 height: 55px;
                 font-size: 24px;
             }
+            .blog-article {
+                padding: 20px;
+            }
+            .blog-article h1 {
+                font-size: 1.8rem;
+            }
+            .blog-article h2 {
+                font-size: 1.5rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -380,6 +438,7 @@
                 <button onclick="showSection('home')" class="hover:text-blue-700 transition" data-i18n="nav.home">Accueil</button>
                 <button onclick="showSection('about')" class="hover:text-blue-700 transition" data-i18n="nav.about">À Propos</button>
                 <button onclick="showSection('offers')" class="hover:text-blue-700 transition" data-i18n="nav.offers">Nos Offres</button>
+                <button onclick="showSection('blog')" class="hover:text-blue-700 transition" data-i18n="nav.blog">Blog</button>
                 <button onclick="showSection('contact')" class="hover:text-blue-700 transition" data-i18n="nav.contact">Contact</button>
                 
                 <!-- Language Switcher -->
@@ -415,6 +474,9 @@
                 </button>
                 <button onclick="showSection('offers')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-suitcase text-blue-600 w-6"></i> <span data-i18n="nav.offers">Nos Offres</span>
+                </button>
+                <button onclick="showSection('blog')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                    <i class="fas fa-blog text-blue-600 w-6"></i> <span data-i18n="nav.blog">Blog</span>
                 </button>
                 <button onclick="showSection('contact')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-address-book text-blue-600 w-6"></i> <span data-i18n="nav.contact">Contact</span>
@@ -851,55 +913,180 @@
             </div>
         </section>
 
-        <!-- ========== FAQ SECTION BILINGUE ========== -->
+        <!-- ========== NOUVELLE FAQ 2026 (BILINGUE) ========== -->
         <section id="faq" class="py-20 px-6 bg-white">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-black text-center text-blue-900 mb-16" data-i18n="faq.title">Questions fréquentes sur l'Omra, les visas et la réservation</h2>
-                
-                <div class="space-y-6">
-                    <!-- Question 1 -->
+                <!-- Titre principal de la FAQ (bilingue) -->
+                <h2 class="text-4xl md:text-5xl font-black text-center text-blue-900 mb-4" data-i18n="faq.main_title">أسئلة وأجوبة عن العمرة والحج 2026 والتأشيرات والسفر</h2>
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="faq.intro">
+                    نسعى في وكالة سفريات لتقديم خدمات متكاملة تلبي جميع احتياجات سفرك. سواء كنت تخطط لأداء مناسك العمرة أو الحج في 2026، أو تحتاج تأشيرة لزيارة أوروبا، أفريقيا، أو آسيا، أو تبحث عن رحلة سياحية متكاملة مع تذاكر الطيران والفنادق، نحن هنا لخدمتك.
+                </p>
+
+                <!-- Catégorie : Omra & Hajj 2026 -->
+                <div class="mb-12">
+                    <h3 class="text-3xl font-black text-blue-800 mb-6 border-r-8 border-blue-600 pr-4" data-i18n="faq.cat_omra">🕋 العمرة والحج 2026: كل ما تريد معرفته</h3>
+                    
                     <div class="faq-item">
-                        <h3 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.q1">📝 Quels sont les documents pour un visa touristique Arabie Saoudite ?</h3>
-                        <p class="text-gray-700" data-i18n="faq.a1">Passeport valide 6 mois, photo d'identité, email valide. Notre équipe vous guide. <a href="https://wa.me/212623945729" class="text-green-600 font-bold hover:underline">Contactez-nous sur WhatsApp</a></p>
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.omra.q1">ما هي باقات العمرة المتوفرة لعام 2026، وما هي الأسعار المتوقعة؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.omra.a1">
+                            يسعدنا في وكالة سفريات الإعلان عن باقات العمرة المتنوعة لعام 2026، المصممة لتناسب جميع الميزانيات والاحتياجات. تختلف الأسعار حسب عدة عوامل: موسم السفر (رمضان، العطل المدرسية)، مستوى الفنادق (اقتصادي، فاخر، VIP)، مدة الإقامة، وسيلة النقل، والخدمات الإضافية. للاستفسار عن العروض والأسعار الدقيقة، يرجى التواصل معنا عبر الواتساب.
+                        </p>
                     </div>
                     
-                    <!-- Question 2 -->
                     <div class="faq-item">
-                        <h3 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.q2">✈️ Comment obtenir un devis pour un billet d'avion ?</h3>
-                        <p class="text-gray-700" data-i18n="faq.a2">Cliquez sur l'offre "Billet d'avion", indiquez vos dates sur WhatsApp, nous vous répondons avec les meilleurs tarifs.</p>
-                    </div>
-                    
-                    <!-- Question 3 -->
-                    <div class="faq-item">
-                        <h3 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.q3">🕋 Proposez-vous des facilités de paiement pour l'Omra 2026 ?</h3>
-                        <p class="text-gray-700" data-i18n="faq.a3">Oui, nous proposons des facilités de paiement pour nos forfaits Omra. Contactez notre agence de Casablanca.</p>
-                    </div>
-                    
-                    <!-- Question 4 -->
-                    <div class="faq-item">
-                        <h3 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.q4">📍 Différence entre l'agence de Casablanca et Tata ?</h3>
-                        <p class="text-gray-700" data-i18n="faq.a4">Mêmes services de haute qualité. Casablanca est notre bureau principal à Bernoussi, Tata (Hay Naser) pour le sud du Maroc.</p>
-                    </div>
-                    
-                    <!-- Question 5 -->
-                    <div class="faq-item">
-                        <h3 class="text-xl font-black text-blue-800 mb-3">💰 Quel est le prix d'une Omra depuis le Maroc en 2026 ?</h3>
-                        <p class="text-gray-700">Les prix varient de 16.500 DH à 45.000 DH selon la durée, l'hôtel et la période. Contactez-nous pour un devis personnalisé.</p>
-                    </div>
-                    
-                    <!-- Question 6 -->
-                    <div class="faq-item">
-                        <h3 class="text-xl font-black text-blue-800 mb-3">🕒 Combien de temps pour obtenir un visa saoudien ?</h3>
-                        <p class="text-gray-700">Le visa électronique est délivré sous 48h à 72h. Notre agence traite les demandes en urgence.</p>
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.omra.q2">متى يبدأ التسجيل لحج 2026، وما هي الشروط؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.omra.a2">
+                            من المتوقع أن تبدأ إجراءات التسجيل المبكر لحج 2026 (1447 هـ - 1448 هـ) في النصف الثاني من عام 2025 أو بداية 2026 حسب التعليمات الرسمية. الشروط الأساسية: أن يكون المتقدم مسلماً بالغاً عاقلاً، جواز سفر صالح لمدة 6 أشهر، استكمال التطعيمات المطلوبة، دفع التكاليف المقررة. ننصح بالتسجيل المبكر لضمان المقعد.
+                        </p>
                     </div>
                 </div>
-                
+
+                <!-- Catégorie : Visas -->
+                <div class="mb-12">
+                    <h3 class="text-3xl font-black text-blue-800 mb-6 border-r-8 border-blue-600 pr-4" data-i18n="faq.cat_visa">🛂 التأشيرات: أوروبا، أفريقيا، آسيا</h3>
+                    
+                    <div class="faq-item">
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.visa.q1">وكالتكم تقدم تأشيرات لأي دول؟ وكيف يمكنني التقديم؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.visa.a1">
+                            نعم، نقدم خدمات التقديم والتوجيه للحصول على التأشيرات السياحية لعدد كبير من الدول: أوروبا (شنغن)، أفريقيا (مصر، تونس، نيجيريا...)، آسيا (السعودية، الإمارات، قطر، ماليزيا...). للبدء، تواصل معنا لتزويدنا بجواز سفرك، صور شخصية، وأي وثائق إضافية حسب الدولة المستهدفة.
+                        </p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.visa.q2">ما هي المستندات الأساسية المطلوبة لتأشيرة شنغن (أوروبا) من المغرب؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.visa.a2">
+                            المستندات الأساسية: استمارة طلب التأشيرة، جواز سفر صالح، صور شخصية، تأمين صحي للسفر، حجوزات الطيران والفنادق (وهمية أو مؤكدة)، إثبات الوسائل المالية (كشوف حساب بنكي)، إثبات العودة (خطاب عمل، عقد كراء). نحن نساعدك في تجهيز ملف متكامل.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Catégorie : Billets & Hôtels -->
+                <div class="mb-12">
+                    <h3 class="text-3xl font-black text-blue-800 mb-6 border-r-8 border-blue-600 pr-4" data-i18n="faq.cat_travel">✈️ تذاكر الطيران والفنادق والرحلات السياحية</h3>
+                    
+                    <div class="faq-item">
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.travel.q1">كيف يمكنني حجز تذكرة طيران رخيصة وفندق مناسب من خلالكم؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.travel.a1">
+                            تواصل معنا عبر الهاتف أو الواتساب، أخبرنا بوجهتك، تواريخ سفرك، عدد المسافرين. سيقوم فريقنا بالبحث في أنظمة الحجز العالمية ومقارنة الأسعار لتقديم أفضل العروض المتاحة التي تناسب ميزانيتك.
+                        </p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.travel.q2">ما هي أنواع الرحلات السياحية التي تنظمونها؟</h4>
+                        <p class="text-gray-700" data-i18n="faq.travel.a2">
+                            نقدم برامج سياحية متنوعة: رحلات عائلية، رحلات شهر العسل، رحلات ثقافية، مغامرات، سياحة دينية. اتصل بنا لتصميم رحلة أحلامك.
+                        </p>
+                    </div>
+                </div>
+
                 <!-- Contact CTA -->
                 <div class="text-center mt-12">
                     <a href="https://wa.me/212623945729" target="_blank" class="inline-block bg-green-600 text-white px-10 py-4 rounded-full text-xl font-bold hover:bg-green-700 transition shadow-lg">
-                        <i class="fab fa-whatsapp mr-2"></i> Poser votre question sur WhatsApp
+                        <i class="fab fa-whatsapp mr-2"></i> <span data-i18n="faq.contact_btn">تواصل معنا على واتساب</span>
                     </a>
                 </div>
+            </div>
+        </section>
+
+        <!-- ========== NOUVELLE PAGE BLOG 2026 ========== -->
+        <section id="blog" class="page-section py-20 px-6 bg-gradient-to-b from-slate-50 to-white">
+            <div class="max-w-4xl mx-auto">
+                <!-- Article de blog -->
+                <article class="blog-article">
+                    <h1 data-i18n="blog.title">الدليل الشامل للسفر في 2026: حجز العمرة والحج، التأشيرات، وأفضل الوجهات السياحية مع نصائح وحيل الخبراء</h1>
+                    <p class="text-gray-500 text-sm mb-8" data-i18n="blog.date">نشر في 9 مارس 2026 | دليل السفر الشامل</p>
+
+                    <!-- Introduction -->
+                    <p data-i18n="blog.intro">
+                        مع دخولنا عام 2026، تتجدد الأحلام وتكبر الطموحات لاستكشاف العالم وأداء المناسك الدينية وقضاء أوقات لا تنسى مع العائلة والأحباب. في وكالة سفريات، نضع بين يديك هذا الدليل الشامل والضخم الذي سيرافقك خطوة بخطوة في رحلتك القادمة، من أول فكرة حتى العودة بسلام. استعد لتكون خبير سفر بمساعدة خبرائنا!
+                    </p>
+
+                    <!-- Chapitre 1: Omra & Hajj -->
+                    <h2 data-i18n="blog.chap1_title">الفصل الأول: رحلة الروح - العمرة والحج في 2026</h2>
+                    <p data-i18n="blog.chap1_p1">العام 2026 يحمل بشائر خير لضيوف الرحمن. مع عودة الأعداد الكاملة واستقرار الخدمات، إليك ما تحتاج معرفته:</p>
+                    
+                    <h3 data-i18n="blog.chap1_sub1">لماذا تختار وكالة سفريات لعمرتك وحجك في 2026؟</h3>
+                    <ul>
+                        <li data-i18n="blog.chap1_li1">خبرة تمتد لسنوات في تنظيم رحلات العمرة والحج.</li>
+                        <li data-i18n="blog.chap1_li2">باقات متنوعة 2026: اقتصادية، تميز، فاخرة (VIP).</li>
+                        <li data-i18n="blog.chap1_li3">استخدام التكنولوجيا الحديثة لمتابعة رحلتك.</li>
+                        <li data-i18n="blog.chap1_li4">الدعم الكامل من لحظة الحجز حتى العودة.</li>
+                    </ul>
+
+                    <h3 data-i18n="blog.chap1_sub2">خطوات حجز العمرة أو الحج لعام 2026:</h3>
+                    <ol>
+                        <li data-i18n="blog.chap1_step1">التواصل والاستشارة لتحديد احتياجاتك.</li>
+                        <li data-i18n="blog.chap1_step2">اختيار الباقة المناسبة.</li>
+                        <li data-i18n="blog.chap1_step3">الحجز المبدئي بدفع عربون.</li>
+                        <li data-i18n="blog.chap1_step4">تجهيز المستندات (جواز سفر، صور).</li>
+                        <li data-i18n="blog.chap1_step5">إجراءات التأشيرة الإلكترونية.</li>
+                        <li data-i18n="blog.chap1_step6">التأهيل والإرشاد لأداء المناسك.</li>
+                        <li data-i18n="blog.chap1_step7">الانطلاق في الرحلة.</li>
+                    </ol>
+
+                    <!-- Chapitre 2: Visas -->
+                    <h2 data-i18n="blog.chap2_title">الفصل الثاني: بوابتك للعالم - دليل التأشيرات الشامل 2026</h2>
+                    
+                    <h3 data-i18n="blog.chap2_sub1">1. تأشيرة شنغن (أوروبا) من المغرب 2026</h3>
+                    <p data-i18n="blog.chap2_p1">السفر إلى أوروبا حلم يراود الكثيرين. فرنسا وإسبانيا وإيطاليا وألمانيا هي الوجهات الأكثر طلباً.</p>
+                    <div class="blog-tip">
+                        <p class="font-bold mb-2" data-i18n="blog.chap2_tip_title">نصائح ذهبية لزيادة فرص قبول فيزا شنغن 2026:</p>
+                        <ul>
+                            <li data-i18n="blog.chap2_tip1">الملف المتكامل هو الأهم: لا تهمل أي وثيقة.</li>
+                            <li data-i18n="blog.chap2_tip2">إثبات العودة: قدم ما يثبت ارتباطك بالمغرب.</li>
+                            <li data-i18n="blog.chap2_tip3">مصداقية الحجوزات: نقدم حجوزات طيران وفنادق وفق المعايير.</li>
+                            <li data-i18n="blog.chap2_tip4">التقديم المبكر قبل موعد السفر بوقت كاف.</li>
+                            <li data-i18n="blog.chap2_tip5">الاستعداد للمقابلة الشخصية بثقة وصدق.</li>
+                        </ul>
+                    </div>
+
+                    <h3 data-i18n="blog.chap2_sub2">2. تأشيرات آسيا وأفريقيا 2026</h3>
+                    <p data-i18n="blog.chap2_p2">نقدم تسهيلات للحصول على تأشيرات الإمارات (إلكترونية)، تركيا (e-Visa)، ماليزيا، إندونيسيا، ومصر وتونس.</p>
+
+                    <!-- Chapitre 3: Réservations -->
+                    <h2 data-i18n="blog.chap3_title">الفصل الثالث: سفر بلا هموم - حجز التذاكر والفنادق والرحلات السياحية 2026</h2>
+                    
+                    <h3 data-i18n="blog.chap3_sub1">حجز تذاكر الطيران بذكاء في 2026</h3>
+                    <ul>
+                        <li data-i18n="blog.chap3_tip1">المرونة في المواعيد: السفر في منتصف الأسبوع غالباً أرخص.</li>
+                        <li data-i18n="blog.chap3_tip2">الحجز المبكر قبل شهرين إلى ثلاثة أشهر.</li>
+                        <li data-i18n="blog.chap3_tip3">مقارنة الأسعار: نقوم بذلك نيابة عنك.</li>
+                        <li data-i18n="blog.chap3_tip4">المطارات القريبة قد تكون أقل تكلفة.</li>
+                    </ul>
+
+                    <h3 data-i18n="blog.chap3_sub2">اختيار الفندق المثالي</h3>
+                    <p data-i18n="blog.chap3_p1">الموقع، الخدمات، التقييمات، وعروضنا الخاصة مع سلاسل فندقية عالمية.</p>
+
+                    <h3 data-i18n="blog.chap3_sub3">أفكار لرحلات سياحية لا تنسى في 2026</h3>
+                    <ul>
+                        <li data-i18n="blog.chap3_dest1">أوروبا الكلاسيكية: إيطاليا وسويسرا.</li>
+                        <li data-i18n="blog.chap3_dest2">سحر الشرق: تركيا وماليزيا وسنغافورة.</li>
+                        <li data-i18n="blog.chap3_dest3">مغامرات أفريقية: سفاري في كينيا، شواطئ موريشيوس.</li>
+                        <li data-i18n="blog.chap3_dest4">اكتشاف الخليج: دبي وأبوظبي.</li>
+                    </ul>
+
+                    <!-- Chapitre 4: Conseils d'expert -->
+                    <h2 data-i18n="blog.chap4_title">الفصل الرابع: نصائح خبير السفر لعام 2026</h2>
+                    <ul>
+                        <li data-i18n="blog.chap4_tip1">جواز السفر أولاً: تأكد من صلاحيته 6 أشهر.</li>
+                        <li data-i18n="blog.chap4_tip2">النسخ الاحتياطية: احتفظ بنسخ إلكترونية من المستندات.</li>
+                        <li data-i18n="blog.chap4_tip3">عملة الوجهة: تعرف عليها واحضر مبلغاً مناسباً.</li>
+                        <li data-i18n="blog.chap4_tip4">الصحة أولاً: استشر طبيبك واحصل على التطعيمات.</li>
+                        <li data-i18n="blog.chap4_tip5">الثقة بالخبراء: وفر وقتك وجهدك مع وكالة محترفة.</li>
+                    </ul>
+
+                    <!-- Conclusion -->
+                    <h2 data-i18n="blog.conclusion_title">خاتمة: رحلتك تبدأ من هنا</h2>
+                    <p data-i18n="blog.conclusion_text">
+                        عام 2026 مليء بالإمكانيات والفرص لاستكشاف جمال وعجائب العالم. سواء كانت رحلتك روحانية إلى البقاع المقدسة، أو مغامرة سياحية جديدة، فإن وكالة سفريات هي شريكك الأمثل. لا تتردد في الاتصال بنا اليوم للحصول على استشارة مجانية.
+                    </p>
+
+                    <div class="text-center mt-10">
+                        <a href="https://wa.me/212623945729" target="_blank" class="bg-green-600 text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-green-700 transition shadow-lg inline-flex items-center gap-2">
+                            <i class="fab fa-whatsapp"></i> <span data-i18n="blog.cta">تواصل معنا الآن</span>
+                        </a>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -1195,13 +1382,14 @@
         // ========== VARIABLES GLOBALES ==========
         let currentLanguage = 'fr';
 
-        // ========== TRANSLATIONS COMPLÈTES ==========
+        // ========== TRANSLATIONS COMPLÈTES (incluant FAQ et Blog) ==========
         const translations = {
             fr: {
                 // Navigation
                 'nav.home': 'Accueil',
                 'nav.about': 'À Propos',
                 'nav.offers': 'Nos Offres',
+                'nav.blog': 'Blog',
                 'nav.contact': 'Contact',
                 'nav.whatsapp': 'WhatsApp',
                 'nav.services': 'Services',
@@ -1247,19 +1435,79 @@
                 'offers.title': 'Nos offres de voyage et services sur mesure',
                 'offers.all': 'Tout',
                 'offers.tickets_hotels': 'Billets & Hôtels',
-                'offers.learn_more': 'En savoir plus',
-                'offers.order': 'Commander',
                 
-                // FAQ
-                'faq.title': 'Questions fréquentes sur l\'Omra, les visas et la réservation',
-                'faq.q1': '📝 Quels sont les documents pour un visa touristique Arabie Saoudite ?',
-                'faq.a1': 'Passeport valide 6 mois, photo d\'identité, email valide. Notre équipe vous guide. Contactez-nous sur WhatsApp',
-                'faq.q2': '✈️ Comment obtenir un devis pour un billet d\'avion ?',
-                'faq.a2': 'Cliquez sur l\'offre "Billet d\'avion", indiquez vos dates sur WhatsApp, nous vous répondons avec les meilleurs tarifs.',
-                'faq.q3': '🕋 Proposez-vous des facilités de paiement pour l\'Omra 2026 ?',
-                'faq.a3': 'Oui, nous proposons des facilités de paiement pour nos forfaits Omra. Contactez notre agence de Casablanca.',
-                'faq.q4': '📍 Différence entre l\'agence de Casablanca et Tata ?',
-                'faq.a4': 'Mêmes services de haute qualité. Casablanca est notre bureau principal à Bernoussi, Tata (Hay Naser) pour le sud du Maroc.',
+                // FAQ (nouvelle version)
+                'faq.main_title': 'Questions fréquentes sur l\'Omra, le Hajj 2026, les visas et les voyages',
+                'faq.intro': 'Chez Sahab Voyages, nous nous efforçons de fournir des services intégrés répondant à tous vos besoins de voyage. Que vous prévoyiez d\'effectuer la Omra ou le Hajj en 2026, que vous ayez besoin d\'un visa pour l\'Europe, l\'Afrique ou l\'Asie, ou que vous recherchiez un voyage touristique complet avec billets d\'avion et hôtels, nous sommes là pour vous servir.',
+                'faq.cat_omra': '🕋 Omra et Hajj 2026 : tout ce que vous devez savoir',
+                'faq.omra.q1': 'Quels sont les forfaits Omra disponibles pour 2026 et quels sont les prix prévus ?',
+                'faq.omra.a1': 'Chez Sahab Voyages, nous proposons divers forfaits Omra pour 2026, conçus pour convenir à tous les budgets et besoins. Les prix varient selon la saison (Ramadan, vacances scolaires), la catégorie d\'hôtel (économique, luxe, VIP), la durée du séjour, le mode de transport et les services supplémentaires. Pour des offres et tarifs précis, contactez-nous sur WhatsApp.',
+                'faq.omra.q2': 'Quand commencent les inscriptions pour le Hajj 2026 et quelles sont les conditions ?',
+                'faq.omra.a2': 'Les inscriptions anticipées pour le Hajj 2026 (1447 H - 1448 H) devraient débuter au second semestre 2025 ou début 2026, selon les instructions officielles. Conditions : être musulman, majeur et sain d\'esprit, passeport valide 6 mois, vaccinations requises, paiement des frais. Nous recommandons une inscription précoce.',
+                'faq.cat_visa': '🛂 Visas : Europe, Afrique, Asie',
+                'faq.visa.q1': 'Pour quels pays proposez-vous des visas et comment postuler ?',
+                'faq.visa.a1': 'Nous proposons des services de demande de visas touristiques pour de nombreux pays : Europe (Schengen), Afrique (Égypte, Tunisie, Nigeria...), Asie (Arabie Saoudite, Émirats, Qatar, Malaisie...). Contactez-nous avec votre passeport, photos et documents complémentaires.',
+                'faq.visa.q2': 'Quels sont les documents requis pour un visa Schengen (Europe) depuis le Maroc ?',
+                'faq.visa.a2': 'Documents : formulaire de demande, passeport valide, photos, assurance voyage, réservations (vol + hôtel), preuves de ressources financières, preuve de retour (attestation d\'emploi, contrat de location). Nous vous aidons à constituer un dossier complet.',
+                'faq.cat_travel': '✈️ Billets d\'avion, hôtels et voyages touristiques',
+                'faq.travel.q1': 'Comment réserver un billet d\'avion pas cher et un hôtel convenable via votre agence ?',
+                'faq.travel.a1': 'Contactez-nous par téléphone ou WhatsApp, indiquez votre destination, vos dates et le nombre de voyageurs. Notre équipe recherche les meilleures offres adaptées à votre budget.',
+                'faq.travel.q2': 'Quels types de voyages touristiques organisez-vous ?',
+                'faq.travel.a2': 'Nous proposons des programmes variés : voyages familiaux, lunes de miel, circuits culturels, aventures, tourisme religieux. Contactez-nous pour concevoir le voyage de vos rêves.',
+                'faq.contact_btn': 'Contactez-nous sur WhatsApp',
+
+                // Blog
+                'blog.title': 'Le guide complet du voyage en 2026 : réservation Omra et Hajj, visas, et meilleures destinations avec astuces d\'experts',
+                'blog.date': 'Publié le 9 mars 2026 | Guide de voyage complet',
+                'blog.intro': 'En cette année 2026, les rêves se renouvellent et les ambitions de découvrir le monde, d\'accomplir les rites religieux et de passer des moments inoubliables en famille et entre proches grandissent. Chez Sahab Voyages, nous mettons entre vos mains ce guide complet et exhaustif qui vous accompagnera pas à pas dans votre prochain voyage, de la première idée jusqu\'au retour sain et sauf. Préparez-vous à devenir un expert du voyage avec l\'aide de nos spécialistes !',
+                'blog.chap1_title': 'Chapitre premier : Le voyage de l\'âme - Omra et Hajj en 2026',
+                'blog.chap1_p1': 'L\'année 2026 apporte de bonnes nouvelles pour les hôtes du Tout-Puissant. Avec le retour des effectifs complets et la stabilisation des services, voici ce que vous devez savoir :',
+                'blog.chap1_sub1': 'Pourquoi choisir Sahab Voyages pour votre Omra et votre Hajj en 2026 ?',
+                'blog.chap1_li1': 'Une expérience de plusieurs années dans l\'organisation des voyages de Omra et Hajj.',
+                'blog.chap1_li2': 'Forfaits variés 2026 : économique, prestige, VIP.',
+                'blog.chap1_li3': 'Utilisation des technologies modernes pour le suivi de votre voyage.',
+                'blog.chap1_li4': 'Accompagnement complet de la réservation au retour.',
+                'blog.chap1_sub2': 'Étapes de réservation de la Omra ou du Hajj 2026 :',
+                'blog.chap1_step1': 'Contact et consultation pour définir vos besoins.',
+                'blog.chap1_step2': 'Choix du forfait approprié.',
+                'blog.chap1_step3': 'Réservation préliminaire avec acompte.',
+                'blog.chap1_step4': 'Préparation des documents (passeport, photos).',
+                'blog.chap1_step5': 'Procédures de visa électronique.',
+                'blog.chap1_step6': 'Formation et conseils pour accomplir les rites.',
+                'blog.chap1_step7': 'Départ pour le voyage.',
+                'blog.chap2_title': 'Chapitre deuxième : Votre porte sur le monde - Guide complet des visas 2026',
+                'blog.chap2_sub1': '1. Visa Schengen (Europe) depuis le Maroc 2026',
+                'blog.chap2_p1': 'Voyager en Europe est un rêve pour beaucoup. La France, l\'Espagne, l\'Italie et l\'Allemagne sont les destinations les plus demandées.',
+                'blog.chap2_tip_title': 'Conseils en or pour augmenter vos chances d\'obtenir un visa Schengen 2026 :',
+                'blog.chap2_tip1': 'Un dossier complet est essentiel : ne négligez aucun document.',
+                'blog.chap2_tip2': 'Preuve de retour : présentez des preuves d\'attache au Maroc.',
+                'blog.chap2_tip3': 'Réservations fiables : nous fournissons des réservations conformes aux normes.',
+                'blog.chap2_tip4': 'Dépôt anticipé de la demande.',
+                'blog.chap2_tip5': 'Préparez-vous à l\'entretien avec confiance et honnêteté.',
+                'blog.chap2_sub2': '2. Visas Asie et Afrique 2026',
+                'blog.chap2_p2': 'Nous facilitons l\'obtention des visas pour les Émirats (électronique), la Turquie (e-Visa), la Malaisie, l\'Indonésie, l\'Égypte et la Tunisie.',
+                'blog.chap3_title': 'Chapitre troisième : Voyager sans souci - Réservation de billets, hôtels et circuits touristiques 2026',
+                'blog.chap3_sub1': 'Réserver ses billets d\'avion intelligemment en 2026',
+                'blog.chap3_tip1': 'Flexibilité des dates : voyager en milieu de semaine est souvent moins cher.',
+                'blog.chap3_tip2': 'Réservation anticipée deux à trois mois à l\'avance.',
+                'blog.chap3_tip3': 'Comparaison des prix : nous le faisons pour vous.',
+                'blog.chap3_tip4': 'Aéroports proches : peuvent être moins coûteux.',
+                'blog.chap3_sub2': 'Choisir l\'hôtel idéal',
+                'blog.chap3_p1': 'Emplacement, services, évaluations, et nos offres spéciales avec des chaînes hôtelières internationales.',
+                'blog.chap3_sub3': 'Idées de voyages touristiques inoubliables en 2026',
+                'blog.chap3_dest1': 'Europe classique : Italie et Suisse.',
+                'blog.chap3_dest2': 'Charme de l\'Orient : Turquie, Malaisie, Singapour.',
+                'blog.chap3_dest3': 'Aventures africaines : safari au Kenya, plages de Maurice.',
+                'blog.chap3_dest4': 'Découverte du Golfe : Dubaï et Abou Dabi.',
+                'blog.chap4_title': 'Chapitre quatrième : Conseils d\'expert pour voyager en 2026',
+                'blog.chap4_tip1': 'Passeport d\'abord : vérifiez sa validité 6 mois.',
+                'blog.chap4_tip2': 'Copies de sauvegarde : conservez des copies électroniques des documents.',
+                'blog.chap4_tip3': 'Monnaie locale : renseignez-vous et emportez une somme adéquate.',
+                'blog.chap4_tip4': 'La santé avant tout : consultez votre médecin et faites les vaccins nécessaires.',
+                'blog.chap4_tip5': 'Confiance aux experts : gagnez du temps et de l\'argent avec une agence professionnelle.',
+                'blog.conclusion_title': 'Conclusion : Votre voyage commence ici',
+                'blog.conclusion_text': 'L\'année 2026 est pleine de possibilités et d\'opportunités pour explorer les beautés et merveilles du monde. Que votre voyage soit spirituel vers les Lieux Saints, ou une nouvelle aventure touristique, Sahab Voyages est votre partenaire idéal. N\'hésitez pas à nous contacter dès aujourd\'hui pour une consultation gratuite.',
+                'blog.cta': 'Contactez-nous maintenant',
                 
                 // Contact
                 'contact.title': 'Prêt à organiser votre voyage ? Contactez nos experts',
@@ -1302,6 +1550,7 @@
                 'nav.home': 'الرئيسية',
                 'nav.about': 'من نحن',
                 'nav.offers': 'عروضنا',
+                'nav.blog': 'المدونة',
                 'nav.contact': 'اتصل بنا',
                 'nav.whatsapp': 'واتساب',
                 'nav.services': 'خدماتنا',
@@ -1347,21 +1596,81 @@
                 'offers.title': 'عروض السفر والخدمات حسب الطلب',
                 'offers.all': 'الكل',
                 'offers.tickets_hotels': 'تذاكر وفنادق',
-                'offers.learn_more': 'اعرف أكثر',
-                'offers.order': 'اطلب الآن',
                 
-                // FAQ
-                'faq.title': 'أسئلة شائعة عن العمرة والتأشيرات والحجز',
-                'faq.q1': '📝 ما هي وثائق فيزا السعودية السياحية؟',
-                'faq.a1': 'جواز سفر صالح 6 أشهر، صورة شخصية، بريد إلكتروني. فريقنا يرشدكم. تواصلوا معنا على واتساب',
-                'faq.q2': '✈️ كيف أحصل على تذكرة طيران رخيصة؟',
-                'faq.a2': 'اضغط على عرض "تذكرة طيران"، أرسل تواريخ سفرك على واتساب، وسنرد بأفضل الأسعار.',
-                'faq.q3': '🕋 هل تقدمون تقسيط للعمرة 2026؟',
-                'faq.a3': 'نعم، نوفر تسهيلات في الدفع. اتصل بوكالتنا في الدار البيضاء.',
-                'faq.q4': '📍 الفرق بين وكالة الدار البيضاء وطاطا؟',
-                'faq.a4': 'نفس الخدمات. الدار البيضاء المكتب الرئيسي في برنوصي، طاطا (حي ناصر) لخدمة عملاء الجنوب.',
+                // FAQ (nouvelle version en arabe)
+                'faq.main_title': 'أسئلة وأجوبة عن العمرة والحج 2026 والتأشيرات والسفر',
+                'faq.intro': 'نسعى في وكالة سفريات لتقديم خدمات متكاملة تلبي جميع احتياجات سفرك. سواء كنت تخطط لأداء مناسك العمرة أو الحج في 2026، أو تحتاج تأشيرة لزيارة أوروبا، أفريقيا، أو آسيا، أو تبحث عن رحلة سياحية متكاملة مع تذاكر الطيران والفنادق، نحن هنا لخدمتك.',
+                'faq.cat_omra': '🕋 العمرة والحج 2026: كل ما تريد معرفته',
+                'faq.omra.q1': 'ما هي باقات العمرة المتوفرة لعام 2026، وما هي الأسعار المتوقعة؟',
+                'faq.omra.a1': 'يسعدنا في وكالة سفريات الإعلان عن باقات العمرة المتنوعة لعام 2026، المصممة لتناسب جميع الميزانيات والاحتياجات. تختلف الأسعار حسب عدة عوامل: موسم السفر (رمضان، العطل المدرسية)، مستوى الفنادق (اقتصادي، فاخر، VIP)، مدة الإقامة، وسيلة النقل، والخدمات الإضافية. للاستفسار عن العروض والأسعار الدقيقة، يرجى التواصل معنا عبر الواتساب.',
+                'faq.omra.q2': 'متى يبدأ التسجيل لحج 2026، وما هي الشروط؟',
+                'faq.omra.a2': 'من المتوقع أن تبدأ إجراءات التسجيل المبكر لحج 2026 (1447 هـ - 1448 هـ) في النصف الثاني من عام 2025 أو بداية 2026 حسب التعليمات الرسمية. الشروط الأساسية: أن يكون المتقدم مسلماً بالغاً عاقلاً، جواز سفر صالح لمدة 6 أشهر، استكمال التطعيمات المطلوبة، دفع التكاليف المقررة. ننصح بالتسجيل المبكر لضمان المقعد.',
+                'faq.cat_visa': '🛂 التأشيرات: أوروبا، أفريقيا، آسيا',
+                'faq.visa.q1': 'وكالتكم تقدم تأشيرات لأي دول؟ وكيف يمكنني التقديم؟',
+                'faq.visa.a1': 'نعم، نقدم خدمات التقديم والتوجيه للحصول على التأشيرات السياحية لعدد كبير من الدول: أوروبا (شنغن)، أفريقيا (مصر، تونس، نيجيريا...)، آسيا (السعودية، الإمارات، قطر، ماليزيا...). للبدء، تواصل معنا لتزويدنا بجواز سفرك، صور شخصية، وأي وثائق إضافية حسب الدولة المستهدفة.',
+                'faq.visa.q2': 'ما هي المستندات الأساسية المطلوبة لتأشيرة شنغن (أوروبا) من المغرب؟',
+                'faq.visa.a2': 'المستندات الأساسية: استمارة طلب التأشيرة، جواز سفر صالح، صور شخصية، تأمين صحي للسفر، حجوزات الطيران والفنادق (وهمية أو مؤكدة)، إثبات الوسائل المالية (كشوف حساب بنكي)، إثبات العودة (خطاب عمل، عقد كراء). نحن نساعدك في تجهيز ملف متكامل.',
+                'faq.cat_travel': '✈️ تذاكر الطيران والفنادق والرحلات السياحية',
+                'faq.travel.q1': 'كيف يمكنني حجز تذكرة طيران رخيصة وفندق مناسب من خلالكم؟',
+                'faq.travel.a1': 'تواصل معنا عبر الهاتف أو الواتساب، أخبرنا بوجهتك، تواريخ سفرك، عدد المسافرين. سيقوم فريقنا بالبحث في أنظمة الحجز العالمية ومقارنة الأسعار لتقديم أفضل العروض المتاحة التي تناسب ميزانيتك.',
+                'faq.travel.q2': 'ما هي أنواع الرحلات السياحية التي تنظمونها؟',
+                'faq.travel.a2': 'نقدم برامج سياحية متنوعة: رحلات عائلية، رحلات شهر العسل، رحلات ثقافية، مغامرات، سياحة دينية. اتصل بنا لتصميم رحلة أحلامك.',
+                'faq.contact_btn': 'تواصل معنا على واتساب',
+
+                // Blog (arabe)
+                'blog.title': 'الدليل الشامل للسفر في 2026: حجز العمرة والحج، التأشيرات، وأفضل الوجهات السياحية مع نصائح وحيل الخبراء',
+                'blog.date': 'نشر في 9 مارس 2026 | دليل السفر الشامل',
+                'blog.intro': 'مع دخولنا عام 2026، تتجدد الأحلام وتكبر الطموحات لاستكشاف العالم وأداء المناسك الدينية وقضاء أوقات لا تنسى مع العائلة والأحباب. في وكالة سفريات، نضع بين يديك هذا الدليل الشامل والضخم الذي سيرافقك خطوة بخطوة في رحلتك القادمة، من أول فكرة حتى العودة بسلام. استعد لتكون خبير سفر بمساعدة خبرائنا!',
+                'blog.chap1_title': 'الفصل الأول: رحلة الروح - العمرة والحج في 2026',
+                'blog.chap1_p1': 'العام 2026 يحمل بشائر خير لضيوف الرحمن. مع عودة الأعداد الكاملة واستقرار الخدمات، إليك ما تحتاج معرفته:',
+                'blog.chap1_sub1': 'لماذا تختار وكالة سفريات لعمرتك وحجك في 2026؟',
+                'blog.chap1_li1': 'خبرة تمتد لسنوات في تنظيم رحلات العمرة والحج.',
+                'blog.chap1_li2': 'باقات متنوعة 2026: اقتصادية، تميز، فاخرة (VIP).',
+                'blog.chap1_li3': 'استخدام التكنولوجيا الحديثة لمتابعة رحلتك.',
+                'blog.chap1_li4': 'الدعم الكامل من لحظة الحجز حتى العودة.',
+                'blog.chap1_sub2': 'خطوات حجز العمرة أو الحج لعام 2026:',
+                'blog.chap1_step1': 'التواصل والاستشارة لتحديد احتياجاتك.',
+                'blog.chap1_step2': 'اختيار الباقة المناسبة.',
+                'blog.chap1_step3': 'الحجز المبدئي بدفع عربون.',
+                'blog.chap1_step4': 'تجهيز المستندات (جواز سفر، صور).',
+                'blog.chap1_step5': 'إجراءات التأشيرة الإلكترونية.',
+                'blog.chap1_step6': 'التأهيل والإرشاد لأداء المناسك.',
+                'blog.chap1_step7': 'الانطلاق في الرحلة.',
+                'blog.chap2_title': 'الفصل الثاني: بوابتك للعالم - دليل التأشيرات الشامل 2026',
+                'blog.chap2_sub1': '1. تأشيرة شنغن (أوروبا) من المغرب 2026',
+                'blog.chap2_p1': 'السفر إلى أوروبا حلم يراود الكثيرين. فرنسا وإسبانيا وإيطاليا وألمانيا هي الوجهات الأكثر طلباً.',
+                'blog.chap2_tip_title': 'نصائح ذهبية لزيادة فرص قبول فيزا شنغن 2026:',
+                'blog.chap2_tip1': 'الملف المتكامل هو الأهم: لا تهمل أي وثيقة.',
+                'blog.chap2_tip2': 'إثبات العودة: قدم ما يثبت ارتباطك بالمغرب.',
+                'blog.chap2_tip3': 'مصداقية الحجوزات: نقدم حجوزات طيران وفنادق وفق المعايير.',
+                'blog.chap2_tip4': 'التقديم المبكر قبل موعد السفر بوقت كاف.',
+                'blog.chap2_tip5': 'الاستعداد للمقابلة الشخصية بثقة وصدق.',
+                'blog.chap2_sub2': '2. تأشيرات آسيا وأفريقيا 2026',
+                'blog.chap2_p2': 'نقدم تسهيلات للحصول على تأشيرات الإمارات (إلكترونية)، تركيا (e-Visa)، ماليزيا، إندونيسيا، ومصر وتونس.',
+                'blog.chap3_title': 'الفصل الثالث: سفر بلا هموم - حجز التذاكر والفنادق والرحلات السياحية 2026',
+                'blog.chap3_sub1': 'حجز تذاكر الطيران بذكاء في 2026',
+                'blog.chap3_tip1': 'المرونة في المواعيد: السفر في منتصف الأسبوع غالباً أرخص.',
+                'blog.chap3_tip2': 'الحجز المبكر قبل شهرين إلى ثلاثة أشهر.',
+                'blog.chap3_tip3': 'مقارنة الأسعار: نقوم بذلك نيابة عنك.',
+                'blog.chap3_tip4': 'المطارات القريبة قد تكون أقل تكلفة.',
+                'blog.chap3_sub2': 'اختيار الفندق المثالي',
+                'blog.chap3_p1': 'الموقع، الخدمات، التقييمات، وعروضنا الخاصة مع سلاسل فندقية عالمية.',
+                'blog.chap3_sub3': 'أفكار لرحلات سياحية لا تنسى في 2026',
+                'blog.chap3_dest1': 'أوروبا الكلاسيكية: إيطاليا وسويسرا.',
+                'blog.chap3_dest2': 'سحر الشرق: تركيا وماليزيا وسنغافورة.',
+                'blog.chap3_dest3': 'مغامرات أفريقية: سفاري في كينيا، شواطئ موريشيوس.',
+                'blog.chap3_dest4': 'اكتشاف الخليج: دبي وأبوظبي.',
+                'blog.chap4_title': 'الفصل الرابع: نصائح خبير السفر لعام 2026',
+                'blog.chap4_tip1': 'جواز السفر أولاً: تأكد من صلاحيته 6 أشهر.',
+                'blog.chap4_tip2': 'النسخ الاحتياطية: احتفظ بنسخ إلكترونية من المستندات.',
+                'blog.chap4_tip3': 'عملة الوجهة: تعرف عليها واحضر مبلغاً مناسباً.',
+                'blog.chap4_tip4': 'الصحة أولاً: استشر طبيبك واحصل على التطعيمات.',
+                'blog.chap4_tip5': 'الثقة بالخبراء: وفر وقتك وجهدك مع وكالة محترفة.',
+                'blog.conclusion_title': 'خاتمة: رحلتك تبدأ من هنا',
+                'blog.conclusion_text': 'عام 2026 مليء بالإمكانيات والفرص لاستكشاف جمال وعجائب العالم. سواء كانت رحلتك روحانية إلى البقاع المقدسة، أو مغامرة سياحية جديدة، فإن وكالة سفريات هي شريكك الأمثل. لا تتردد في الاتصال بنا اليوم للحصول على استشارة مجانية.',
+                'blog.cta': 'تواصل معنا الآن',
                 
-                // Contact
+                // Contact (arabe)
                 'contact.title': 'مستعد لتنظيم رحلتك؟ تواصل مع خبرائنا',
                 'contact.subtitle': 'للاستفسار عن العمرة، التأشيرات، التذاكر أو الرحلات، فريقنا هنا لإرشادك بدون أي التزام.',
                 'contact.address_title': 'العنوان',
@@ -1377,7 +1686,7 @@
                 'contact.main_office': 'المكتب الرئيسي',
                 'contact.branch': 'فرع طاطا',
                 
-                // Footer
+                // Footer (arabe)
                 'footer.tagline': 'التميز في خدمة سفركم',
                 'footer.addresses_title': 'عناويننا',
                 'footer.address1': 'الدار البيضاء: أمل 4، شارع 27، رقم 44، برنوصي',
