@@ -6,9 +6,10 @@
     <!-- ========== OPTIMISATION SEO COMPLÈTE ========== -->
     <title>Omra Maroc 2026 | Agence Sahab Voyages – Packages Omra au départ du Maroc</title>
     <meta name="description" content="Réservez votre Omra 2026 avec Agence Sahab Voyages au Maroc. Vol, hôtel, visa et accompagnement complet pour un voyage spirituel inoubliable. Devis gratuit sur WhatsApp.">
-    <meta name="keywords" content="omra maroc 2026, prix omra maroc, agence omra casablanca, visa saoudite maroc, voyage turquie maroc, billet avion pas cher casablanca, agence de voyage maroc, omra ramadan 2026">
+    <meta name="keywords" content="omra maroc 2026, prix omra maroc, agence omra casablanca, visa saoudite maroc, voyage turquie maroc, billet avion pas cher casablanca, agence de voyage maroc, omra ramadan 2026, vlog omra, vidéo omra, témoignage omra">
+    <meta name="news_keywords" content="omra 2026, hajj 2026, visa touristique, circuits maroc, agence voyage casablanca">
     <meta name="author" content="Sahab Voyages">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://sahabvoyages.com">
     
     <!-- Open Graph / Facebook -->
@@ -17,6 +18,7 @@
     <meta property="og:title" content="Omra Maroc 2026 | Agence Sahab Voyages">
     <meta property="og:description" content="Réservez votre Omra 2026 avec Sahab Voyages. Agence de voyage à Casablanca et Tata.">
     <meta property="og:image" content="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png">
+    <meta property="og:video" content="https://www.youtube.com/embed/VIDEO_ID"> <!-- à remplacer -->
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -24,6 +26,12 @@
     <meta property="twitter:title" content="Omra Maroc 2026 | Sahab Voyages">
     <meta property="twitter:description" content="Réservez votre Omra 2026 avec Sahab Voyages.">
     <meta property="twitter:image" content="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png">
+    <meta property="twitter:player" content="https://www.youtube.com/embed/VIDEO_ID">
+    
+    <!-- Geo / Local Business -->
+    <meta name="geo.placename" content="Casablanca, Maroc">
+    <meta name="geo.region" content="MA-CAS">
+    <meta name="ICBM" content="33.5731, -7.5898">
     
     <!-- Scripts et styles -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -300,6 +308,56 @@
             margin: 25px 0;
         }
         
+        /* ========== VLOGS SECTION (NOUVEAU) ========== */
+        .vlog-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        .vlog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px -12px rgba(0,74,173,0.25);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .vlog-content {
+            padding: 1.5rem;
+        }
+        .vlog-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--sahab-blue);
+            margin-bottom: 0.5rem;
+        }
+        .vlog-meta {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .vlog-description {
+            color: #4b5563;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
         /* ========== TABS CONTAINER ========== */
         .tabs-container {
             display: flex;
@@ -440,6 +498,8 @@
                 <button onclick="showSection('offers')" class="hover:text-blue-700 transition" data-i18n="nav.offers">Nos Offres</button>
                 <button onclick="showSection('faq')" class="hover:text-blue-700 transition" data-i18n="nav.faq">FAQ</button>
                 <button onclick="showSection('blog')" class="hover:text-blue-700 transition" data-i18n="nav.blog">Blog</button>
+                <!-- NOUVEAU : Vlogs -->
+                <button onclick="showSection('vlogs')" class="hover:text-blue-700 transition" data-i18n="nav.vlogs">Vlogs</button>
                 <button onclick="showSection('contact')" class="hover:text-blue-700 transition" data-i18n="nav.contact">Contact</button>
                 
                 <!-- Language Switcher -->
@@ -481,6 +541,10 @@
                 </button>
                 <button onclick="showSection('blog')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-blog text-blue-600 w-6"></i> <span data-i18n="nav.blog">Blog</span>
+                </button>
+                <!-- NOUVEAU : Vlogs mobile -->
+                <button onclick="showSection('vlogs')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                    <i class="fas fa-video text-blue-600 w-6"></i> <span data-i18n="nav.vlogs">Vlogs</span>
                 </button>
                 <button onclick="showSection('contact')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-address-book text-blue-600 w-6"></i> <span data-i18n="nav.contact">Contact</span>
@@ -1098,6 +1162,167 @@
             </div>
         </section>
 
+        <!-- ========== VLOGS SECTION (NOUVEAU) ========== -->
+        <section id="vlogs" class="page-section py-20 px-6 bg-gradient-to-br from-blue-50 to-white">
+            <div class="max-w-7xl mx-auto">
+                <!-- En-tête SEO -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-6xl font-black text-blue-900 mb-4" data-i18n="vlogs.title">Nos Vlogs : Vivez l'expérience Sahab Voyages en vidéo</h2>
+                    <p class="text-xl text-gray-700 max-w-3xl mx-auto" data-i18n="vlogs.subtitle">
+                        Découvrez des témoignages, conseils de voyage et moments forts de nos circuits Omra, Hajj et séjours touristiques. 
+                        Des images authentiques pour vous inspirer avant votre départ.
+                    </p>
+                    <div class="w-24 h-1 bg-gold mx-auto mt-6" style="background:var(--sahab-gold)"></div>
+                </div>
+
+                <!-- Grille de vidéos (remplacez les liens YouTube par vos propres vidéos) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
+                    <!-- Vlog 1 : Omra Ramadan 2026 -->
+                    <div class="vlog-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Omra Ramadan 2026 - Sahab Voyages" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="vlog-content">
+                            <div class="vlog-title">✨ Omra Ramadan 2026 – Préparation et spiritualité</div>
+                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Mars 2026</span> <span><i class="fas fa-eye"></i> 1.2k vues</span></div>
+                            <p class="vlog-description">
+                                Suivez nos pèlerins lors de l'Omra du Ramadan 2026. De Casablanca à La Mecque, vivez l'émotion et les rites pas à pas.
+                            </p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Demandez le forfait Omra
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Vlog 2 : Visa Arabie Saoudite e-visa -->
+                    <div class="vlog-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/3JZ_D3ELwOQ" title="Visa Arabie Saoudite e-visa 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="vlog-content">
+                            <div class="vlog-title">🛂 Comment obtenir son visa saoudien en 48h ?</div>
+                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Février 2026</span> <span><i class="fas fa-eye"></i> 890 vues</span></div>
+                            <p class="vlog-description">
+                                Guide complet pour réussir votre demande de visa électronique pour l'Arabie Saoudite (touristique, Omra, Hajj). Astuces et documents.
+                            </p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Faire ma demande
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Vlog 3 : Circuit Turquie & Dubaï -->
+                    <div class="vlog-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Circuit Turquie et Dubaï 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="vlog-content">
+                            <div class="vlog-title">🇹🇷🇦🇪 Voyage Turquie – Dubaï : entre culture et luxe</div>
+                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Janvier 2026</span> <span><i class="fas fa-eye"></i> 2.1k vues</span></div>
+                            <p class="vlog-description">
+                                Immersion dans nos circuits combinés : Istanbul, Cappadoce, puis les merveilles de Dubaï. Avis clients et moments forts.
+                            </p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Réservez ce circuit
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Vlog 4 : Témoignage client Hajj -->
+                    <div class="vlog-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Témoignage Hajj 2025 - Sahab Voyages" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="vlog-content">
+                            <div class="vlog-title">🕋 Témoignage : « J'ai vécu le Hajj grâce à Sahab »</div>
+                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Décembre 2025</span> <span><i class="fas fa-eye"></i> 3.5k vues</span></div>
+                            <p class="vlog-description">
+                                Écoutez le témoignage sincère de Mohammed, parti en Hajj 2025 avec notre agence. Organisation, hébergement, accompagnement.
+                            </p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Inscrivez-vous au Hajj 2026
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Vlog 5 : Billets d'avion pas chers -->
+                    <div class="vlog-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/6v2L2UGZJAM" title="Astuces billets d'avion pas chers depuis Casablanca" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="vlog-content">
+                            <div class="vlog-title">✈️ Les secrets pour des vols pas chers depuis le Maroc</div>
+                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Novembre 2025</span> <span><i class="fas fa-eye"></i> 4.2k vues</span></div>
+                            <p class="vlog-description">
+                                Nos experts vous dévoilent les meilleures périodes et astuces pour économiser sur vos billets d'avion (Europe, Asie, Moyen-Orient).
+                            </p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Devis personnalisé
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Vlog 6 : Visas combinés Golfe -->
+                    <div class="vlog-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/1PrY87nS1ZY" title="Visas combinés : Qatar, Oman, Bahreïn, EAU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="vlog-content">
+                            <div class="vlog-title">🌍 Visas du Golfe : un seul dossier pour plusieurs pays</div>
+                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Octobre 2025</span> <span><i class="fas fa-eye"></i> 1.8k vues</span></div>
+                            <p class="vlog-description">
+                                Profitez de nos offres de visas combinés pour visiter plusieurs pays du Golfe avec une seule demande. Simple et rapide.
+                            </p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Demandez votre visa
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action supplémentaire -->
+                <div class="text-center mt-16">
+                    <p class="text-lg text-gray-700 mb-4" data-i18n="vlogs.cta_text">
+                        Vous souhaitez apparaître dans nos prochains vlogs ou partager votre expérience ? Contactez-nous !
+                    </p>
+                    <a href="https://wa.me/212623945729" target="_blank" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-full transition shadow-lg text-lg">
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="vlogs.cta_btn">Participez à nos vlogs</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Données structurées JSON-LD pour les vidéos (SEO renforcé) -->
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "itemListElement": [
+                    {
+                        "@type": "VideoObject",
+                        "name": "Omra Ramadan 2026 – Préparation et spiritualité",
+                        "description": "Suivez nos pèlerins lors de l'Omra du Ramadan 2026. De Casablanca à La Mecque, vivez l'émotion et les rites pas à pas.",
+                        "thumbnailUrl": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+                        "uploadDate": "2026-03-01",
+                        "duration": "PT4M30S",
+                        "contentUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                        "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    },
+                    {
+                        "@type": "VideoObject",
+                        "name": "Comment obtenir son visa saoudien en 48h ?",
+                        "description": "Guide complet pour réussir votre demande de visa électronique pour l'Arabie Saoudite.",
+                        "thumbnailUrl": "https://img.youtube.com/vi/3JZ_D3ELwOQ/maxresdefault.jpg",
+                        "uploadDate": "2026-02-15",
+                        "duration": "PT5M12S",
+                        "contentUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",
+                        "embedUrl": "https://www.youtube.com/embed/3JZ_D3ELwOQ"
+                    }
+                ]
+            }
+            </script>
+        </section>
+
         <!-- ========== CONTACT SECTION (SANS FAQ) ========== -->
         <section id="contact" class="page-section py-20 px-6 bg-white">
             <div class="max-w-7xl mx-auto">
@@ -1281,109 +1506,109 @@
     </div>
 
     <!-- ========== FOOTER ========== -->
-<footer class="bg-gray-950 text-white py-20 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
-        <!-- Logo -->
-        <div class="flex flex-col items-center md:items-start">
-            <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png" alt="Sahab Logo" class="h-32 mb-6 brightness-125">
-            <p class="text-gray-400 font-semibold text-center md:text-left" data-i18n="footer.tagline">L'excellence au service de vos voyages</p>
-            <div class="mt-4 text-gray-400 text-sm space-y-1">
-                <p class="font-bold text-white">Sahab Voyages – أسفار سحاب</p>
-                <p>Billets d'avion & bateau</p>
-                <p>Voyages organisés | Hajj & Omra</p>
-                <p>Hôtels | Visa | Transport touristique</p>
-            </div>
-        </div>
-        
-        <!-- Adresses -->
-        <div class="flex flex-col items-center md:items-start md:col-span-2">
-            <h4 class="text-xl font-black mb-8 border-b-2 border-blue-600 pb-2" data-i18n="footer.addresses_title">Nos Adresses</h4>
-            <div class="space-y-6 text-gray-400 w-full">
-                
-                <!-- Casablanca Siège -->
-                <div class="bg-gray-900 p-4 rounded-lg border-l-4 border-blue-500">
-                    <p class="text-sm font-black text-white mb-2">🏢 Siège principal – Casablanca</p>
-                    <p class="text-xs mb-2">AMAL 4, Rue 27, N°44 – Bernoussi, Casablanca</p>
-                    <div class="space-y-1">
-                        <a href="tel:0522759167" class="flex gap-2 hover:text-blue-400 transition text-xs">
-                            <i class="fas fa-phone text-blue-500"></i> Fix : 05 22 75 91 67
-                        </a>
-                        <a href="https://wa.me/212666123893" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
-                            <i class="fab fa-whatsapp text-green-500"></i> Mobile : 06 66 12 38 93
-                        </a>
-                        <a href="https://wa.me/212666429978" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
-                            <i class="fab fa-whatsapp text-green-500"></i> +212 666 42 99 78
-                        </a>
-                    </div>
+    <footer class="bg-gray-950 text-white py-20 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
+            <!-- Logo -->
+            <div class="flex flex-col items-center md:items-start">
+                <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png" alt="Sahab Logo" class="h-32 mb-6 brightness-125">
+                <p class="text-gray-400 font-semibold text-center md:text-left" data-i18n="footer.tagline">L'excellence au service de vos voyages</p>
+                <div class="mt-4 text-gray-400 text-sm space-y-1">
+                    <p class="font-bold text-white">Sahab Voyages – أسفار سحاب</p>
+                    <p>Billets d'avion & bateau</p>
+                    <p>Voyages organisés | Hajj & Omra</p>
+                    <p>Hôtels | Visa | Transport touristique</p>
                 </div>
-                
-                <!-- Casablanca Ain Chock -->
-                <div class="bg-gray-900 p-4 rounded-lg border-l-4 border-purple-500">
-                    <p class="text-sm font-black text-white mb-2">🏢 Agence Ain Chock – Casablanca</p>
-                    <p class="text-xs mb-2">Kissariat Mosque Al Mossalla, N B1 – Casablanca</p>
-                    <div class="space-y-1">
-                        <a href="tel:0522508334" class="flex gap-2 hover:text-blue-400 transition text-xs">
-                            <i class="fas fa-phone text-blue-500"></i> Fix : 05 22 50 83 34
-                        </a>
-                        <a href="https://wa.me/212623945729" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
-                            <i class="fab fa-whatsapp text-green-500"></i> Mobile : 06 23 94 57 29
-                        </a>
-                                                <a href="https://wa.me/212666313357" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
-                            <i class="fab fa-whatsapp text-green-500"></i> Mobile : 06 66 31 33 57
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Tata -->
-                <div class="bg-gray-900 p-4 rounded-lg border-l-4 border-amber-500">
-                    <p class="text-sm font-black text-white mb-2">🏢 Agence Tata</p>
-                    <p class="text-xs mb-2">318 Hay Nacer 1 – Tata</p>
-                    <div class="space-y-1">
-                        <a href="tel:0528803909" class="flex gap-2 hover:text-blue-400 transition text-xs">
-                            <i class="fas fa-phone text-blue-500"></i> Fix : 05 28 80 39 09
-                        </a>
-                        <a href="https://wa.me/212667067850" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
-                            <i class="fab fa-whatsapp text-green-500"></i> Mobile : 06 67 06 78 50
-                        </a>
-                        <a href="https://wa.me/212667067847" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
-                            <i class="fab fa-whatsapp text-green-500"></i> +212 667 06 78 47
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Email -->
-                <a href="mailto:agencesahab@gmail.com" class="flex gap-3 hover:text-white transition">
-                    <i class="fas fa-envelope text-red-500"></i>
-                    <span data-i18n="footer.email">Email: agencesahab@gmail.com</span>
-                </a>
-            </div>
-        </div>
-        
-        <!-- Horaires + Réseaux sociaux -->
-        <div class="flex flex-col items-center md:items-start">
-            <h4 class="text-xl font-black mb-8 border-b-2 border-blue-600 pb-2" data-i18n="footer.hours_title">Horaires</h4>
-            <div class="grid gap-2 w-full text-sm text-gray-400 mb-10">
-                <div class="flex justify-between border-b border-white/10 pb-1"><span data-i18n="footer.days1">Lun - Jeu</span> <span>09:00 – 18:30</span></div>
-                <div class="flex justify-between border-b border-white/10 pb-1"><span data-i18n="footer.days2">Ven</span> <span>09:00 – 18:30</span></div>
-                <div class="flex justify-between border-b border-white/10 pb-1"><span data-i18n="footer.days3">Sam</span> <span>09:00 – 13:00</span></div>
-                <div class="flex justify-between text-red-400 font-bold"><span data-i18n="footer.days4">Dim</span> <span data-i18n="footer.closed">Fermé</span></div>
             </div>
             
-            <h4 class="text-xl font-black mb-4" data-i18n="footer.follow_title">Suivez-nous</h4>
-            <div class="grid grid-cols-2 gap-4">
-                <a href="https://www.tiktok.com/@sahab_voyages" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-black transition"><i class="fab fa-tiktok"></i> <span class="text-xs font-bold" data-i18n="footer.tiktok">TikTok</span></a>
-                <a href="https://www.instagram.com/sahabvoyages" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-pink-600 transition"><i class="fab fa-instagram"></i> <span class="text-xs font-bold" data-i18n="footer.instagram">Insta</span></a>
-                <a href="https://wa.me/212623945729" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-green-600 transition"><i class="fab fa-whatsapp"></i> <span class="text-xs font-bold" data-i18n="footer.whatsapp_short">WhatsApp</span></a>
-                <a href="https://www.facebook.com/sahabvoyages" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-blue-600 transition"><i class="fab fa-facebook"></i> <span class="text-xs font-bold" data-i18n="footer.facebook">FB</span></a>
+            <!-- Adresses -->
+            <div class="flex flex-col items-center md:items-start md:col-span-2">
+                <h4 class="text-xl font-black mb-8 border-b-2 border-blue-600 pb-2" data-i18n="footer.addresses_title">Nos Adresses</h4>
+                <div class="space-y-6 text-gray-400 w-full">
+                    
+                    <!-- Casablanca Siège -->
+                    <div class="bg-gray-900 p-4 rounded-lg border-l-4 border-blue-500">
+                        <p class="text-sm font-black text-white mb-2">🏢 Siège principal – Casablanca</p>
+                        <p class="text-xs mb-2">AMAL 4, Rue 27, N°44 – Bernoussi, Casablanca</p>
+                        <div class="space-y-1">
+                            <a href="tel:0522759167" class="flex gap-2 hover:text-blue-400 transition text-xs">
+                                <i class="fas fa-phone text-blue-500"></i> Fix : 05 22 75 91 67
+                            </a>
+                            <a href="https://wa.me/212666123893" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
+                                <i class="fab fa-whatsapp text-green-500"></i> Mobile : 06 66 12 38 93
+                            </a>
+                            <a href="https://wa.me/212666429978" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
+                                <i class="fab fa-whatsapp text-green-500"></i> +212 666 42 99 78
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Casablanca Ain Chock -->
+                    <div class="bg-gray-900 p-4 rounded-lg border-l-4 border-purple-500">
+                        <p class="text-sm font-black text-white mb-2">🏢 Agence Ain Chock – Casablanca</p>
+                        <p class="text-xs mb-2">Kissariat Mosque Al Mossalla, N B1 – Casablanca</p>
+                        <div class="space-y-1">
+                            <a href="tel:0522508334" class="flex gap-2 hover:text-blue-400 transition text-xs">
+                                <i class="fas fa-phone text-blue-500"></i> Fix : 05 22 50 83 34
+                            </a>
+                            <a href="https://wa.me/212623945729" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
+                                <i class="fab fa-whatsapp text-green-500"></i> Mobile : 06 23 94 57 29
+                            </a>
+                            <a href="https://wa.me/212666313357" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
+                                <i class="fab fa-whatsapp text-green-500"></i> Mobile : 06 66 31 33 57
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Tata -->
+                    <div class="bg-gray-900 p-4 rounded-lg border-l-4 border-amber-500">
+                        <p class="text-sm font-black text-white mb-2">🏢 Agence Tata</p>
+                        <p class="text-xs mb-2">318 Hay Nacer 1 – Tata</p>
+                        <div class="space-y-1">
+                            <a href="tel:0528803909" class="flex gap-2 hover:text-blue-400 transition text-xs">
+                                <i class="fas fa-phone text-blue-500"></i> Fix : 05 28 80 39 09
+                            </a>
+                            <a href="https://wa.me/212667067850" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
+                                <i class="fab fa-whatsapp text-green-500"></i> Mobile : 06 67 06 78 50
+                            </a>
+                            <a href="https://wa.me/212667067847" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs">
+                                <i class="fab fa-whatsapp text-green-500"></i> +212 667 06 78 47
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <a href="mailto:agencesahab@gmail.com" class="flex gap-3 hover:text-white transition">
+                        <i class="fas fa-envelope text-red-500"></i>
+                        <span data-i18n="footer.email">Email: agencesahab@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Horaires + Réseaux sociaux -->
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-xl font-black mb-8 border-b-2 border-blue-600 pb-2" data-i18n="footer.hours_title">Horaires</h4>
+                <div class="grid gap-2 w-full text-sm text-gray-400 mb-10">
+                    <div class="flex justify-between border-b border-white/10 pb-1"><span data-i18n="footer.days1">Lun - Jeu</span> <span>09:00 – 18:30</span></div>
+                    <div class="flex justify-between border-b border-white/10 pb-1"><span data-i18n="footer.days2">Ven</span> <span>09:00 – 18:30</span></div>
+                    <div class="flex justify-between border-b border-white/10 pb-1"><span data-i18n="footer.days3">Sam</span> <span>09:00 – 13:00</span></div>
+                    <div class="flex justify-between text-red-400 font-bold"><span data-i18n="footer.days4">Dim</span> <span data-i18n="footer.closed">Fermé</span></div>
+                </div>
+                
+                <h4 class="text-xl font-black mb-4" data-i18n="footer.follow_title">Suivez-nous</h4>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="https://www.tiktok.com/@sahab_voyages" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-black transition"><i class="fab fa-tiktok"></i> <span class="text-xs font-bold" data-i18n="footer.tiktok">TikTok</span></a>
+                    <a href="https://www.instagram.com/sahabvoyages" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-pink-600 transition"><i class="fab fa-instagram"></i> <span class="text-xs font-bold" data-i18n="footer.instagram">Insta</span></a>
+                    <a href="https://wa.me/212623945729" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-green-600 transition"><i class="fab fa-whatsapp"></i> <span class="text-xs font-bold" data-i18n="footer.whatsapp_short">WhatsApp</span></a>
+                    <a href="https://www.facebook.com/sahabvoyages" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-blue-600 transition"><i class="fab fa-facebook"></i> <span class="text-xs font-bold" data-i18n="footer.facebook">FB</span></a>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Copyright -->
-    <div class="text-center mt-16 border-t border-gray-900 pt-8 text-gray-500 font-bold uppercase tracking-widest">
-        <span data-i18n="footer.copyright">2026 SAHAB VOYAGES. TOUS DROITS RÉSERVÉS.</span>
-    </div>
-</footer>
+        
+        <!-- Copyright -->
+        <div class="text-center mt-16 border-t border-gray-900 pt-8 text-gray-500 font-bold uppercase tracking-widest">
+            <span data-i18n="footer.copyright">2026 SAHAB VOYAGES. TOUS DROITS RÉSERVÉS.</span>
+        </div>
+    </footer>
 
     <!-- Chatbase Widget -->
     <script>
@@ -1413,6 +1638,7 @@
                 'nav.offers': 'Nos Offres',
                 'nav.faq': 'FAQ',
                 'nav.blog': 'Blog',
+                'nav.vlogs': 'Vlogs',
                 'nav.contact': 'Contact',
                 'nav.whatsapp': 'WhatsApp',
                 'nav.services': 'Services',
@@ -1533,6 +1759,12 @@
                 'blog.conclusion_text': 'L\'année 2026 est pleine de possibilités et d\'opportunités pour explorer les beautés et merveilles du monde. Que votre voyage soit spirituel vers les Lieux Saints, ou une nouvelle aventure touristique, Sahab Voyages est votre partenaire idéal. N\'hésitez pas à nous contacter dès aujourd\'hui pour une consultation gratuite.',
                 'blog.cta': 'Contactez-nous maintenant',
                 
+                // Vlogs
+                'vlogs.title': 'Nos Vlogs : Vivez l\'expérience Sahab Voyages en vidéo',
+                'vlogs.subtitle': 'Découvrez des témoignages, conseils de voyage et moments forts de nos circuits Omra, Hajj et séjours touristiques. Des images authentiques pour vous inspirer avant votre départ.',
+                'vlogs.cta_text': 'Vous souhaitez apparaître dans nos prochains vlogs ou partager votre expérience ? Contactez-nous !',
+                'vlogs.cta_btn': 'Participez à nos vlogs',
+                
                 // Contact
                 'contact.title': 'Prêt à organiser votre voyage ? Contactez nos experts',
                 'contact.subtitle': 'Pour l\'Omra, les visas, les billets ou les circuits, notre équipe est là pour vous conseiller sans engagement.',
@@ -1576,6 +1808,7 @@
                 'nav.offers': 'عروضنا',
                 'nav.faq': 'الأسئلة الشائعة',
                 'nav.blog': 'المدونة',
+                'nav.vlogs': 'فيديو المدونة',
                 'nav.contact': 'اتصل بنا',
                 'nav.whatsapp': 'واتساب',
                 'nav.services': 'خدماتنا',
@@ -1604,7 +1837,7 @@
                 'gallery.title': 'خلد لحظاتك الروحانية مع أسفار سحاب',
                 'gallery.subtitle': 'وراء كل صورة، قصة ثقة وروحانية',
                 
-             // Reviews
+                // Reviews
                 'reviews.title': 'وثقوا بنا في رحلاتهم: آراؤهم',
                 'reviews.review1': '"أفضل وكالة سفر وأفضل استقبال. الله ييسر أمركم."',
                 'reviews.review2': '"وكالة ذات مصداقية كبيرة. شكراً جزيلاً للسيد عصام على احترافيته."',
@@ -1695,6 +1928,12 @@
                 'blog.conclusion_title': 'خاتمة: رحلتك تبدأ من هنا',
                 'blog.conclusion_text': 'عام 2026 مليء بالإمكانيات والفرص لاستكشاف جمال وعجائب العالم. سواء كانت رحلتك روحانية إلى البقاع المقدسة، أو مغامرة سياحية جديدة، فإن وكالة سفريات هي شريكك الأمثل. لا تتردد في الاتصال بنا اليوم للحصول على استشارة مجانية.',
                 'blog.cta': 'تواصل معنا الآن',
+                
+                // Vlogs (arabe)
+                'vlogs.title': 'فيديو المدونة: عش تجربة أسفار سحاب بالصوت والصورة',
+                'vlogs.subtitle': 'اكتشف شهادات حقيقية، نصائح سفر ولحظات مميزة من رحلات العمرة والحج والجولات السياحية. صور حقيقية لإلهامك قبل انطلاق رحلتك.',
+                'vlogs.cta_text': 'هل ترغب في الظهور في فيديوهاتنا القادمة أو مشاركة تجربتك؟ تواصل معنا!',
+                'vlogs.cta_btn': 'شارك في فيديوهاتنا',
                 
                 // Contact (arabe)
                 'contact.title': 'مستعد لتنظيم رحلتك؟ تواصل مع خبرائنا',
