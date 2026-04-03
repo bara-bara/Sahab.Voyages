@@ -356,32 +356,6 @@
             height: 100%;
             object-fit: cover;
         }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-        /* Nouveau style pour les vidéos 9/16 (portrait) */
-        .video-container-portrait {
-            position: relative;
-            padding-bottom: 177.78%; /* 9/16 = 0.5625 ratio hauteur/largeur inversé => 16/9 = 177.78% */
-            height: 0;
-            overflow: hidden;
-            background: #000;
-        }
-        .video-container-portrait video,
-        .video-container-portrait iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-            object-fit: cover;
-        }
         .vlog-content {
             padding: 1.5rem;
         }
@@ -544,7 +518,6 @@
                 <button onclick="showSection('offers')" class="hover:text-blue-700 transition" data-i18n="nav.offers">Nos Offres</button>
                 <button onclick="showSection('faq')" class="hover:text-blue-700 transition" data-i18n="nav.faq">FAQ</button>
                 <button onclick="showSection('blog')" class="hover:text-blue-700 transition" data-i18n="nav.blog">Blog</button>
-                <!-- NOUVEAU : Vlogs -->
                 <button onclick="showSection('vlogs')" class="hover:text-blue-700 transition" data-i18n="nav.vlogs">Vlogs</button>
                 <button onclick="showSection('contact')" class="hover:text-blue-700 transition" data-i18n="nav.contact">Contact</button>
                 
@@ -588,7 +561,6 @@
                 <button onclick="showSection('blog')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-blog text-blue-600 w-6"></i> <span data-i18n="nav.blog">Blog</span>
                 </button>
-                <!-- NOUVEAU : Vlogs mobile -->
                 <button onclick="showSection('vlogs')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-video text-blue-600 w-6"></i> <span data-i18n="nav.vlogs">Vlogs</span>
                 </button>
@@ -1208,7 +1180,7 @@
             </div>
         </section>
 
-        <!-- ========== VLOGS SECTION (NOUVEAU) ========== -->
+        <!-- ========== VLOGS SECTION (MODIFIÉE : SEULEMENT 4 VIDÉOS DEMANDÉES) ========== -->
         <section id="vlogs" class="page-section py-20 px-6 bg-gradient-to-br from-blue-50 to-white">
             <div class="max-w-7xl mx-auto">
                 <!-- En-tête SEO -->
@@ -1221,13 +1193,13 @@
                     <div class="w-24 h-1 bg-gold mx-auto mt-6" style="background:var(--sahab-gold)"></div>
                 </div>
 
-                <!-- Grille de vidéos (4 vidéos fournies + 2 vidéos bonus + 4 nouvelles vidéos 9/16) -->
+                <!-- Grille de vidéos : seulement les 4 demandées -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     
-                    <!-- Vlog 1 : Vidéo fournie 1 (Nasser Mohammed chez Sahab) -->
+                    <!-- Vlog 1 : Vidéo 1 – ناصر محمد في ضيافة أسفار سحاب -->
                     <div class="vlog-card">
                         <div class="video-container">
-                            <video controls poster="https://res.cloudinary.com/dkusr0hu1/image/upload/v1775205536/thumbnail.jpg" preload="metadata">
+                            <video controls preload="metadata">
                                 <source src="https://res.cloudinary.com/dkusr0hu1/video/upload/v1775205536/%D9%88%D9%83%D8%A7%D9%84%D8%A9_%D8%A3%D8%B3%D9%81%D8%A7%D8%B1_%D8%B3%D8%AD%D8%A7%D8%A8_%D8%A8%D8%A7%D9%84%D8%A8%D8%B1%D9%86%D9%88%D8%B5%D9%8A_%D9%85%D9%88%D8%AC%D9%88%D8%AF_%D9%85%D9%88%D9%82%D8%B9%D9%87%D9%85_%D8%A8%D8%A7%D9%84%D8%AE%D8%B1%D9%8A%D8%B7%D8%A9_%D8%AA%D8%B9%D8%A7%D9%85%D9%84%D9%87%D9%85_%D8%B1%D8%A7%D9%82%D9%8A_%D8%B3%D8%AD%D8%A7%D8%A8_zwdnzo.mp4" type="video/mp4">
                                 Votre navigateur ne supporte pas la lecture vidéo.
                             </video>
@@ -1244,10 +1216,10 @@
                         </div>
                     </div>
 
-                    <!-- Vlog 2 : Vidéo fournie 2 (Tikrar al Omra) -->
+                    <!-- Vlog 2 : Vidéo 2 – تكرار العمرة -->
                     <div class="vlog-card">
                         <div class="video-container">
-                            <video controls poster="https://res.cloudinary.com/dkusr0hu1/image/upload/v1775206215/poster.jpg" preload="metadata">
+                            <video controls preload="metadata">
                                 <source src="https://res.cloudinary.com/dkusr0hu1/video/upload/v1775206215/%D8%AA%D9%83%D8%B1%D8%A7%D8%B1_%D8%A7%D9%84%D8%B9%D9%85%D8%B1%D8%A9_%D8%B9%D9%85%D8%B1%D8%A9_%D8%A3%D9%83%D8%AA%D9%88%D8%A8%D8%B1_%D9%86%D9%88%D9%86%D8%A8%D8%B1_%D8%AF%D8%AC%D9%86%D8%A8%D8%B1_%D9%8A%D9%86%D8%A7%D9%8A%D8%B1_%D8%B4%D8%B9%D8%A8%D8%A7%D9%86_%D8%B1%D9%85%D8%B6%D8%A7%D9%862024-2025_mhvyft.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1255,7 +1227,7 @@
                             <div class="vlog-title">🕋 هل ترغب في تكرار العمرة خلال سفرك؟ إليك الجواب</div>
                             <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Mars 2026</span> <span><i class="fas fa-eye"></i> 2.1k vues</span></div>
                             <p class="vlog-description">
-                                تساؤلات كثيرة تصلنا حول حكم تكرار العمرة في السفرة الواحدة. في هذا الفيديو، نستعرض معكم الآراء الفقهية وكيفية تنظيم رحلتكم الإيمانية بما يحقق السنة النبوية وراحة المعتمرين.
+                                تساؤلات كثيرة تصلنا حول حكم تكرار العمرة في السفرة الواحدة. في هذا الفيديو، نستعرض معكم الآراء الفقهية وكيفية تنظيم رحلتكم الإيمانية بما يحقق السنة النبوية وراحة المعتمرين. في "أسفار سحاب"، لا نقدم رحلات فقط، بل نحرص على توجيهكم دينياً وتقنياً لضمان عمرة مقبولة بإذن الله.
                             </p>
                             <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
                                 <i class="fab fa-whatsapp"></i> احجز عمرتك الآن
@@ -1263,10 +1235,10 @@
                         </div>
                     </div>
 
-                    <!-- Vlog 3 : Vidéo fournie 3 (Omra badel) -->
+                    <!-- Vlog 3 : Vidéo 3 – عمرة البدل -->
                     <div class="vlog-card">
                         <div class="video-container">
-                            <video controls poster="https://res.cloudinary.com/dkusr0hu1/image/upload/v1775207203/poster.jpg" preload="metadata">
+                            <video controls preload="metadata">
                                 <source src="https://res.cloudinary.com/dkusr0hu1/video/upload/v1775207203/sahab_voyages_-_7531356878572391686_ckhunl.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1274,7 +1246,7 @@
                             <div class="vlog-title">🕋 عمرة البدل عن متوفى أو مريض – الضوابط الشرعية</div>
                             <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Février 2026</span> <span><i class="fas fa-eye"></i> 1.8k vues</span></div>
                             <p class="vlog-description">
-                                هل تفكر في أداء عمرة البدل عن عزيز متوفى أو مريض؟ نوضح لكم الضوابط الشرعية. في وكالة أسفار سحاب، لا نهتم فقط بالتنظيم اللوجستي، بل نحرص على تقديم الإرشاد الديني الصحيح.
+                                هل تفكر في أداء عمرة البدل عن عزيز متوفى أو مريض؟ 🕋 تساؤلات كثيرة تدور حول حكم الاستنابة في العمرة وأخذ الأجر عليها. في هذا الفيديو، نوضح لكم الضوابط الشرعية لهذه العملية. في وكالة أسفار سحاب، لا نهتم فقط بالتنظيم اللوجستي، بل نحرص على تقديم الإرشاد الديني الصحيح لضمان صحة مناسككم وموافقتها للسنة النبوية. 📍 تواصلوا معنا لترتيب رحلات العمرة لعام 2026.
                             </p>
                             <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
                                 <i class="fab fa-whatsapp"></i> استفسر عن عمرة البدل
@@ -1282,10 +1254,10 @@
                         </div>
                     </div>
 
-                    <!-- Vlog 4 : Vidéo fournie 4 (Signes d'acceptation de la Omra) -->
+                    <!-- Vlog 4 : Vidéo 4 – علامات قبول العمرة -->
                     <div class="vlog-card">
                         <div class="video-container">
-                            <video controls poster="https://res.cloudinary.com/dkusr0hu1/image/upload/v1775207713/poster.jpg" preload="metadata">
+                            <video controls preload="metadata">
                                 <source src="https://res.cloudinary.com/dkusr0hu1/video/upload/v1775207713/download_k8rssn.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -1293,113 +1265,10 @@
                             <div class="vlog-title">✨ هل قُبلت عمرتك؟ علامات تبعث الطمأنينة</div>
                             <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Janvier 2026</span> <span><i class="fas fa-eye"></i> 3.2k vues</span></div>
                             <p class="vlog-description">
-                                "علامة قبول الحسنة.. الحسنة بعدها". انشراح الصدر، استقامة الحال، تتابع الطاعات. نسأل الله أن يتقبل من المعتمرين عمرتهم.
+                                "علامة قبول الحسنة.. الحسنة بعدها". كثير من المعتمرين والزوار يراودهم سؤال واحد بعد العودة من الديار المقدسة: "كيف أعرف أن الله تقبل مني؟" في هذا الفيديو، نلخص لكم أهم علامات قبول العمرة وسائر الأعمال الصالحة كما ذكرها العلماء: ✅ انشراح الصدر ✅ استقامة الحال ✅ تتابع الطاعات. نسأل الله أن يتقبل من المعتمرين عمرتهم، وأن يرزق كل مشتاق زيارة بيته الحرام.
                             </p>
                             <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
                                 <i class="fab fa-whatsapp"></i> تواصل مع خبرائنا
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Vlog 5 : Bonus - Témoignage client Hajj (YouTube) -->
-                    <div class="vlog-card">
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Témoignage Hajj 2025 - Sahab Voyages" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="vlog-content">
-                            <div class="vlog-title">🕋 Témoignage : « J'ai vécu le Hajj grâce à Sahab »</div>
-                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Décembre 2025</span> <span><i class="fas fa-eye"></i> 3.5k vues</span></div>
-                            <p class="vlog-description">
-                                Écoutez le témoignage sincère de Mohammed, parti en Hajj 2025 avec notre agence. Organisation, hébergement, accompagnement.
-                            </p>
-                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
-                                <i class="fab fa-whatsapp"></i> Inscrivez-vous au Hajj 2026
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Vlog 6 : Bonus - Visas combinés Golfe (YouTube) -->
-                    <div class="vlog-card">
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/1PrY87nS1ZY" title="Visas combinés : Qatar, Oman, Bahreïn, EAU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="vlog-content">
-                            <div class="vlog-title">🌍 Visas du Golfe : un seul dossier pour plusieurs pays</div>
-                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Octobre 2025</span> <span><i class="fas fa-eye"></i> 1.8k vues</span></div>
-                            <p class="vlog-description">
-                                Profitez de nos offres de visas combinés pour visiter plusieurs pays du Golfe avec une seule demande. Simple et rapide.
-                            </p>
-                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
-                                <i class="fab fa-whatsapp"></i> Demandez votre visa
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- ========== NOUVELLES VIDÉOS 9/16 (PORTRAIT) - À REMPLACER PAR VOS LIENS ========== -->
-                    <!-- Nouveau Vlog 7 : Vidéo 9/16 – Conseils pour l'Omra -->
-                    <div class="vlog-card">
-                        <div class="video-container-portrait">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Exemple vidéo portrait Omra" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="vlog-content">
-                            <div class="vlog-title">📱 Astuce 9/16 : Préparez votre Omra en 5 minutes</div>
-                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Mai 2026</span> <span><i class="fas fa-eye"></i> 0 vues</span></div>
-                            <p class="vlog-description">
-                                Remplacez cette vidéo par votre contenu 9/16. Idéal pour les conseils pratiques, témoignages courts ou annonces.
-                            </p>
-                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
-                                <i class="fab fa-whatsapp"></i> En savoir plus
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Nouveau Vlog 8 : Vidéo 9/16 – Témoignage client -->
-                    <div class="vlog-card">
-                        <div class="video-container-portrait">
-                            <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" title="Témoignage client format portrait" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="vlog-content">
-                            <div class="vlog-title">🗣️ Témoignage client – Omra Ramadan 2026</div>
-                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Avril 2026</span> <span><i class="fas fa-eye"></i> 0 vues</span></div>
-                            <p class="vlog-description">
-                                Remplacez par votre propre témoignage vidéo (9/16). Les clients aiment les retours authentiques.
-                            </p>
-                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
-                                <i class="fab fa-whatsapp"></i> Partagez votre expérience
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Nouveau Vlog 9 : Vidéo 9/16 – Offre spéciale visa -->
-                    <div class="vlog-card">
-                        <div class="video-container-portrait">
-                            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Offre visa 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="vlog-content">
-                            <div class="vlog-title">✈️ Nouvelle offre visa Arabie Saoudite</div>
-                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Mars 2026</span> <span><i class="fas fa-eye"></i> 0 vues</span></div>
-                            <p class="vlog-description">
-                                Découvrez en 60 secondes notre offre de visa express. Remplacez par votre vidéo 9/16.
-                            </p>
-                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
-                                <i class="fab fa-whatsapp"></i> Obtenez votre visa
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Nouveau Vlog 10 : Vidéo 9/16 – FAQ express -->
-                    <div class="vlog-card">
-                        <div class="video-container-portrait">
-                            <iframe src="https://www.youtube.com/embed/LjCzPp-MK48" title="FAQ Omra en portrait" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="vlog-content">
-                            <div class="vlog-title">❓ FAQ : Peut-on faire Omra sans mahram ?</div>
-                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Février 2026</span> <span><i class="fas fa-eye"></i> 0 vues</span></div>
-                            <p class="vlog-description">
-                                Réponse rapide en format vertical. Idéal pour les réseaux sociaux. Remplacez par votre contenu.
-                            </p>
-                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
-                                <i class="fab fa-whatsapp"></i> Posez votre question
                             </a>
                         </div>
                     </div>
@@ -1416,7 +1285,7 @@
                 </div>
             </div>
 
-            <!-- Données structurées JSON-LD pour les vidéos (SEO renforcé) avec vos vraies vidéos + nouvelles -->
+            <!-- Données structurées JSON-LD pour les vidéos (4 vidéos demandées) -->
             <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
@@ -2247,7 +2116,7 @@
                 });
             });
 
-            // ========== AJOUT : Chargement paresseux des images (sans supprimer le code existant) ==========
+            // Chargement paresseux des images
             const images = document.querySelectorAll('img:not([loading])');
             images.forEach(img => img.setAttribute('loading', 'lazy'));
         };
