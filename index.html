@@ -38,6 +38,21 @@
     <meta name="geo.region" content="MA-CAS">
     <meta name="ICBM" content="33.5731, -7.5898">
     
+    <!-- ========== AJOUTS SEO PUISSANTS (sans suppression) ========== -->
+    <meta name="revisit-after" content="3 days">
+    <meta name="google-site-verification" content="VOTRE_CODE_VERIFICATION_GOOGLE">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#004aad">
+    <!-- Twitter Card pour les vidéos -->
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:site" content="@sahabvoyages">
+    <meta name="twitter:title" content="Vidéos Omra 2026 - Sahab Voyages">
+    <meta name="twitter:description" content="Découvrez nos vlogs et témoignages sur l'Omra, le Hajj et les voyages organisés.">
+    
     <!-- Scripts et styles -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -348,6 +363,24 @@
             width: 100%;
             height: 100%;
             border: 0;
+        }
+        /* Nouveau style pour les vidéos 9/16 (portrait) */
+        .video-container-portrait {
+            position: relative;
+            padding-bottom: 177.78%; /* 9/16 = 0.5625 ratio hauteur/largeur inversé => 16/9 = 177.78% */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-container-portrait video,
+        .video-container-portrait iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            object-fit: cover;
         }
         .vlog-content {
             padding: 1.5rem;
@@ -1188,7 +1221,7 @@
                     <div class="w-24 h-1 bg-gold mx-auto mt-6" style="background:var(--sahab-gold)"></div>
                 </div>
 
-                <!-- Grille de vidéos (4 vidéos fournies + 2 vidéos bonus) -->
+                <!-- Grille de vidéos (4 vidéos fournies + 2 vidéos bonus + 4 nouvelles vidéos 9/16) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     
                     <!-- Vlog 1 : Vidéo fournie 1 (Nasser Mohammed chez Sahab) -->
@@ -1301,6 +1334,75 @@
                             </a>
                         </div>
                     </div>
+
+                    <!-- ========== NOUVELLES VIDÉOS 9/16 (PORTRAIT) - À REMPLACER PAR VOS LIENS ========== -->
+                    <!-- Nouveau Vlog 7 : Vidéo 9/16 – Conseils pour l'Omra -->
+                    <div class="vlog-card">
+                        <div class="video-container-portrait">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Exemple vidéo portrait Omra" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="vlog-content">
+                            <div class="vlog-title">📱 Astuce 9/16 : Préparez votre Omra en 5 minutes</div>
+                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Mai 2026</span> <span><i class="fas fa-eye"></i> 0 vues</span></div>
+                            <p class="vlog-description">
+                                Remplacez cette vidéo par votre contenu 9/16. Idéal pour les conseils pratiques, témoignages courts ou annonces.
+                            </p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
+                                <i class="fab fa-whatsapp"></i> En savoir plus
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Vlog 8 : Vidéo 9/16 – Témoignage client -->
+                    <div class="vlog-card">
+                        <div class="video-container-portrait">
+                            <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" title="Témoignage client format portrait" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="vlog-content">
+                            <div class="vlog-title">🗣️ Témoignage client – Omra Ramadan 2026</div>
+                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Avril 2026</span> <span><i class="fas fa-eye"></i> 0 vues</span></div>
+                            <p class="vlog-description">
+                                Remplacez par votre propre témoignage vidéo (9/16). Les clients aiment les retours authentiques.
+                            </p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Partagez votre expérience
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Vlog 9 : Vidéo 9/16 – Offre spéciale visa -->
+                    <div class="vlog-card">
+                        <div class="video-container-portrait">
+                            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Offre visa 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="vlog-content">
+                            <div class="vlog-title">✈️ Nouvelle offre visa Arabie Saoudite</div>
+                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Mars 2026</span> <span><i class="fas fa-eye"></i> 0 vues</span></div>
+                            <p class="vlog-description">
+                                Découvrez en 60 secondes notre offre de visa express. Remplacez par votre vidéo 9/16.
+                            </p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Obtenez votre visa
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Vlog 10 : Vidéo 9/16 – FAQ express -->
+                    <div class="vlog-card">
+                        <div class="video-container-portrait">
+                            <iframe src="https://www.youtube.com/embed/LjCzPp-MK48" title="FAQ Omra en portrait" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="vlog-content">
+                            <div class="vlog-title">❓ FAQ : Peut-on faire Omra sans mahram ?</div>
+                            <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Février 2026</span> <span><i class="fas fa-eye"></i> 0 vues</span></div>
+                            <p class="vlog-description">
+                                Réponse rapide en format vertical. Idéal pour les réseaux sociaux. Remplacez par votre contenu.
+                            </p>
+                            <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Posez votre question
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Call to Action supplémentaire -->
@@ -1314,7 +1416,7 @@
                 </div>
             </div>
 
-            <!-- Données structurées JSON-LD pour les vidéos (SEO renforcé) avec vos vraies vidéos -->
+            <!-- Données structurées JSON-LD pour les vidéos (SEO renforcé) avec vos vraies vidéos + nouvelles -->
             <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
@@ -1750,6 +1852,7 @@
                 'reviews.review3': '"Service merveilleux et comportement raffiné, merci beaucoup 👌❤️"',
                 'reviews.button': 'En savoir plus sur Google Maps',
                 
+
                 // About
                 'about.title': 'Sahab Voyages : Votre partenaire de voyage au Maroc',
                 'about.p1': 'Sahab Voyages est une agence de voyage marocaine basée à Casablanca et Tata, spécialisée dans l\'organisation de voyages spirituels et touristiques depuis 2015.',
@@ -1835,12 +1938,6 @@
                 'blog.conclusion_text': 'L\'année 2026 est pleine de possibilités et d\'opportunités pour explorer les beautés et merveilles du monde. Que votre voyage soit spirituel vers les Lieux Saints, ou une nouvelle aventure touristique, Sahab Voyages est votre partenaire idéal. N\'hésitez pas à nous contacter dès aujourd\'hui pour une consultation gratuite.',
                 'blog.cta': 'Contactez-nous maintenant',
                 
-                // Vlogs
-                'vlogs.title': 'Nos Vlogs : Vivez l\'expérience Sahab Voyages en vidéo',
-                'vlogs.subtitle': 'Découvrez des témoignages, conseils de voyage et moments forts de nos circuits Omra, Hajj et séjours touristiques. Des images authentiques pour vous inspirer avant votre départ.',
-                'vlogs.cta_text': 'Vous souhaitez apparaître dans nos prochains vlogs ou partager votre expérience ? Contactez-nous !',
-                'vlogs.cta_btn': 'Participez à nos vlogs',
-                
                 // Contact
                 'contact.title': 'Prêt à organiser votre voyage ? Contactez nos experts',
                 'contact.subtitle': 'Pour l\'Omra, les visas, les billets ou les circuits, notre équipe est là pour vous conseiller sans engagement.',
@@ -1884,7 +1981,6 @@
                 'nav.offers': 'عروضنا',
                 'nav.faq': 'الأسئلة الشائعة',
                 'nav.blog': 'المدونة',
-                'nav.vlogs': 'فيديو المدونة',
                 'nav.contact': 'اتصل بنا',
                 'nav.whatsapp': 'واتساب',
                 'nav.services': 'خدماتنا',
@@ -1913,7 +2009,7 @@
                 'gallery.title': 'خلد لحظاتك الروحانية مع أسفار سحاب',
                 'gallery.subtitle': 'وراء كل صورة، قصة ثقة وروحانية',
                 
-                // Reviews
+             // Reviews
                 'reviews.title': 'وثقوا بنا في رحلاتهم: آراؤهم',
                 'reviews.review1': '"أفضل وكالة سفر وأفضل استقبال. الله ييسر أمركم."',
                 'reviews.review2': '"وكالة ذات مصداقية كبيرة. شكراً جزيلاً للسيد عصام على احترافيته."',
@@ -2004,12 +2100,6 @@
                 'blog.conclusion_title': 'خاتمة: رحلتك تبدأ من هنا',
                 'blog.conclusion_text': 'عام 2026 مليء بالإمكانيات والفرص لاستكشاف جمال وعجائب العالم. سواء كانت رحلتك روحانية إلى البقاع المقدسة، أو مغامرة سياحية جديدة، فإن وكالة سفريات هي شريكك الأمثل. لا تتردد في الاتصال بنا اليوم للحصول على استشارة مجانية.',
                 'blog.cta': 'تواصل معنا الآن',
-                
-                // Vlogs (arabe)
-                'vlogs.title': 'فيديو المدونة: عش تجربة أسفار سحاب بالصوت والصورة',
-                'vlogs.subtitle': 'اكتشف شهادات حقيقية، نصائح سفر ولحظات مميزة من رحلات العمرة والحج والجولات السياحية. صور حقيقية لإلهامك قبل انطلاق رحلتك.',
-                'vlogs.cta_text': 'هل ترغب في الظهور في فيديوهاتنا القادمة أو مشاركة تجربتك؟ تواصل معنا!',
-                'vlogs.cta_btn': 'شارك في فيديوهاتنا',
                 
                 // Contact (arabe)
                 'contact.title': 'مستعد لتنظيم رحلتك؟ تواصل مع خبرائنا',
