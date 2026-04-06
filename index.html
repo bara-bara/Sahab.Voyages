@@ -356,6 +356,32 @@
             height: 100%;
             object-fit: cover;
         }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* Style pour les vidéos 9/16 (portrait) */
+        .video-container-portrait {
+            position: relative;
+            padding-bottom: 177.78%; /* 9/16 = 0.5625 ratio hauteur/largeur inversé => 16/9 = 177.78% */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-container-portrait video,
+        .video-container-portrait iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            object-fit: cover;
+        }
         .vlog-content {
             padding: 1.5rem;
         }
@@ -518,6 +544,7 @@
                 <button onclick="showSection('offers')" class="hover:text-blue-700 transition" data-i18n="nav.offers">Nos Offres</button>
                 <button onclick="showSection('faq')" class="hover:text-blue-700 transition" data-i18n="nav.faq">FAQ</button>
                 <button onclick="showSection('blog')" class="hover:text-blue-700 transition" data-i18n="nav.blog">Blog</button>
+                <!-- NOUVEAU : Vlogs -->
                 <button onclick="showSection('vlogs')" class="hover:text-blue-700 transition" data-i18n="nav.vlogs">Vlogs</button>
                 <button onclick="showSection('contact')" class="hover:text-blue-700 transition" data-i18n="nav.contact">Contact</button>
                 
@@ -561,6 +588,7 @@
                 <button onclick="showSection('blog')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-blog text-blue-600 w-6"></i> <span data-i18n="nav.blog">Blog</span>
                 </button>
+                <!-- NOUVEAU : Vlogs mobile -->
                 <button onclick="showSection('vlogs')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-video text-blue-600 w-6"></i> <span data-i18n="nav.vlogs">Vlogs</span>
                 </button>
@@ -1180,7 +1208,7 @@
             </div>
         </section>
 
-        <!-- ========== VLOGS SECTION (MODIFIÉE : SEULEMENT 4 VIDÉOS DEMANDÉES) ========== -->
+        <!-- ========== VLOGS SECTION (MODIFIÉE : 4 VIDÉOS 9/16 UNIQUEMENT) ========== -->
         <section id="vlogs" class="page-section py-20 px-6 bg-gradient-to-br from-blue-50 to-white">
             <div class="max-w-7xl mx-auto">
                 <!-- En-tête SEO -->
@@ -1193,19 +1221,19 @@
                     <div class="w-24 h-1 bg-gold mx-auto mt-6" style="background:var(--sahab-gold)"></div>
                 </div>
 
-                <!-- Grille de vidéos : seulement les 4 demandées -->
+                <!-- Grille de vidéos (4 vidéos au format portrait 9/16) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     
-                    <!-- Vlog 1 : Vidéo 1 – ناصر محمد في ضيافة أسفار سحاب -->
+                    <!-- Vlog 1 : Vidéo 1 (Nasser Mohammed chez Sahab) -->
                     <div class="vlog-card">
-                        <div class="video-container">
+                        <div class="video-container-portrait">
                             <video controls preload="metadata">
                                 <source src="https://res.cloudinary.com/dkusr0hu1/video/upload/v1775205536/%D9%88%D9%83%D8%A7%D9%84%D8%A9_%D8%A3%D8%B3%D9%81%D8%A7%D8%B1_%D8%B3%D8%AD%D8%A7%D8%A8_%D8%A8%D8%A7%D9%84%D8%A8%D8%B1%D9%86%D9%88%D8%B5%D9%8A_%D9%85%D9%88%D8%AC%D9%88%D8%AF_%D9%85%D9%88%D9%82%D8%B9%D9%87%D9%85_%D8%A8%D8%A7%D9%84%D8%AE%D8%B1%D9%8A%D8%B7%D8%A9_%D8%AA%D8%B9%D8%A7%D9%85%D9%84%D9%87%D9%85_%D8%B1%D8%A7%D9%82%D9%8A_%D8%B3%D8%AD%D8%A7%D8%A8_zwdnzo.mp4" type="video/mp4">
                                 Votre navigateur ne supporte pas la lecture vidéo.
                             </video>
                         </div>
                         <div class="vlog-content">
-                            <div class="vlog-title">🤝 ناصر محمد في ضيافة أسفار سحاب بالبرنوصي</div>
+                            <div class="vlog-title">🤝 ناصر محمد في ضيافة أسفار سحاب بالبرنوصي 📍</div>
                             <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Avril 2026</span> <span><i class="fas fa-eye"></i> 1.5k vues</span></div>
                             <p class="vlog-description">
                                 شاهدوا جولة الخواجة ناصر محمد وتعرفوا على خدماتنا السياحية المتكاملة. تعامل راقي، خدمات سريعة، ومصداقية يشهد بها الجميع. رحلتكم القادمة تبدأ من هنا!
@@ -1216,15 +1244,15 @@
                         </div>
                     </div>
 
-                    <!-- Vlog 2 : Vidéo 2 – تكرار العمرة -->
+                    <!-- Vlog 2 : Vidéo 2 (Tikrar al Omra) -->
                     <div class="vlog-card">
-                        <div class="video-container">
+                        <div class="video-container-portrait">
                             <video controls preload="metadata">
                                 <source src="https://res.cloudinary.com/dkusr0hu1/video/upload/v1775206215/%D8%AA%D9%83%D8%B1%D8%A7%D8%B1_%D8%A7%D9%84%D8%B9%D9%85%D8%B1%D8%A9_%D8%B9%D9%85%D8%B1%D8%A9_%D8%A3%D9%83%D8%AA%D9%88%D8%A8%D8%B1_%D9%86%D9%88%D9%86%D8%A8%D8%B1_%D8%AF%D8%AC%D9%86%D8%A8%D8%B1_%D9%8A%D9%86%D8%A7%D9%8A%D8%B1_%D8%B4%D8%B9%D8%A8%D8%A7%D9%86_%D8%B1%D9%85%D8%B6%D8%A7%D9%862024-2025_mhvyft.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="vlog-content">
-                            <div class="vlog-title">🕋 هل ترغب في تكرار العمرة خلال سفرك؟ إليك الجواب</div>
+                            <div class="vlog-title">🕋 هل ترغب في تكرار العمرة خلال سفرك؟ إليك الجواب من قلب وكالة أسفار سحاب</div>
                             <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Mars 2026</span> <span><i class="fas fa-eye"></i> 2.1k vues</span></div>
                             <p class="vlog-description">
                                 تساؤلات كثيرة تصلنا حول حكم تكرار العمرة في السفرة الواحدة. في هذا الفيديو، نستعرض معكم الآراء الفقهية وكيفية تنظيم رحلتكم الإيمانية بما يحقق السنة النبوية وراحة المعتمرين. في "أسفار سحاب"، لا نقدم رحلات فقط، بل نحرص على توجيهكم دينياً وتقنياً لضمان عمرة مقبولة بإذن الله.
@@ -1235,18 +1263,18 @@
                         </div>
                     </div>
 
-                    <!-- Vlog 3 : Vidéo 3 – عمرة البدل -->
+                    <!-- Vlog 3 : Vidéo 3 (Omra badel) -->
                     <div class="vlog-card">
-                        <div class="video-container">
+                        <div class="video-container-portrait">
                             <video controls preload="metadata">
                                 <source src="https://res.cloudinary.com/dkusr0hu1/video/upload/v1775207203/sahab_voyages_-_7531356878572391686_ckhunl.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="vlog-content">
-                            <div class="vlog-title">🕋 عمرة البدل عن متوفى أو مريض – الضوابط الشرعية</div>
+                            <div class="vlog-title">🕋 هل تفكر في أداء عمرة البدل عن عزيز متوفى أو مريض؟</div>
                             <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Février 2026</span> <span><i class="fas fa-eye"></i> 1.8k vues</span></div>
                             <p class="vlog-description">
-                                هل تفكر في أداء عمرة البدل عن عزيز متوفى أو مريض؟ 🕋 تساؤلات كثيرة تدور حول حكم الاستنابة في العمرة وأخذ الأجر عليها. في هذا الفيديو، نوضح لكم الضوابط الشرعية لهذه العملية. في وكالة أسفار سحاب، لا نهتم فقط بالتنظيم اللوجستي، بل نحرص على تقديم الإرشاد الديني الصحيح لضمان صحة مناسككم وموافقتها للسنة النبوية. 📍 تواصلوا معنا لترتيب رحلات العمرة لعام 2026.
+                                تساؤلات كثيرة تدور حول حكم الاستنابة في العمرة وأخذ الأجر عليها. في هذا الفيديو، نوضح لكم الضوابط الشرعية لهذه العملية. في وكالة أسفار سحاب، لا نهتم فقط بالتنظيم اللوجستي، بل نحرص على تقديم الإرشاد الديني الصحيح لضمان صحة مناسككم وموافقتها للسنة النبوية. 📍 تواصلوا معنا لترتيب رحلات العمرة لعام 2026.
                             </p>
                             <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
                                 <i class="fab fa-whatsapp"></i> استفسر عن عمرة البدل
@@ -1254,18 +1282,22 @@
                         </div>
                     </div>
 
-                    <!-- Vlog 4 : Vidéo 4 – علامات قبول العمرة -->
+                    <!-- Vlog 4 : Vidéo 4 (Signes d'acceptation de la Omra) -->
                     <div class="vlog-card">
-                        <div class="video-container">
+                        <div class="video-container-portrait">
                             <video controls preload="metadata">
                                 <source src="https://res.cloudinary.com/dkusr0hu1/video/upload/v1775207713/download_k8rssn.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="vlog-content">
-                            <div class="vlog-title">✨ هل قُبلت عمرتك؟ علامات تبعث الطمأنينة</div>
+                            <div class="vlog-title">✨ هل قُبلت عمرتك؟ إليك "العلامات" التي تبعث الطمأنينة في قلبك!</div>
                             <div class="vlog-meta"><span><i class="far fa-calendar-alt"></i> Janvier 2026</span> <span><i class="fas fa-eye"></i> 3.2k vues</span></div>
                             <p class="vlog-description">
-                                "علامة قبول الحسنة.. الحسنة بعدها". كثير من المعتمرين والزوار يراودهم سؤال واحد بعد العودة من الديار المقدسة: "كيف أعرف أن الله تقبل مني؟" في هذا الفيديو، نلخص لكم أهم علامات قبول العمرة وسائر الأعمال الصالحة كما ذكرها العلماء: ✅ انشراح الصدر ✅ استقامة الحال ✅ تتابع الطاعات. نسأل الله أن يتقبل من المعتمرين عمرتهم، وأن يرزق كل مشتاق زيارة بيته الحرام.
+                                كثير من المعتمرين والزوار يراودهم سؤال واحد بعد العودة من الديار المقدسة: "كيف أعرف أن الله تقبل مني؟"<br>
+                                ✅ انشراح الصدر: الشعور براحة نفسية وسكينة غير مسبوقة بعد أداء العبادة.<br>
+                                ✅ استقامة الحال: أن تجد نفسك بعد العمرة أفضل حالاً مع الله، وأكثر حرصاً على الطاعات.<br>
+                                ✅ تتابع الطاعات: القبول يجرّ القبول! "علامة قبول الحسنة.. الحسنة بعدها".<br>
+                                نسأل الله أن يتقبل من المعتمرين عمرتهم، وأن يرزق كل مشتاق زيارة بيته الحرام.
                             </p>
                             <a href="https://wa.me/212623945729" target="_blank" class="text-green-600 font-bold hover:underline flex items-center gap-2">
                                 <i class="fab fa-whatsapp"></i> تواصل مع خبرائنا
@@ -1285,7 +1317,7 @@
                 </div>
             </div>
 
-            <!-- Données structurées JSON-LD pour les vidéos (4 vidéos demandées) -->
+            <!-- Données structurées JSON-LD pour les 4 vidéos (SEO renforcé) -->
             <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
@@ -1294,7 +1326,7 @@
                     {
                         "@type": "VideoObject",
                         "name": "ناصر محمد في ضيافة أسفار سحاب بالبرنوصي",
-                        "description": "شاهدوا جولة الخواجة ناصر محمد وتعرفوا على خدماتنا السياحية المتكاملة. تعامل راقي، خدمات سريعة، ومصداقية يشهد بها الجميع.",
+                        "description": "شاهدوا جولة الخواجة ناصر محمد وتعرفوا على خدماتنا السياحية المتكاملة. تعامل راقي، خدمات سريعة، ومصداقية يشهد بها الجميع. رحلتكم القادمة تبدأ من هنا!",
                         "thumbnailUrl": "https://res.cloudinary.com/dkusr0hu1/image/upload/v1775205536/thumbnail.jpg",
                         "uploadDate": "2026-04-01",
                         "duration": "PT3M45S",
@@ -1303,8 +1335,8 @@
                     },
                     {
                         "@type": "VideoObject",
-                        "name": "هل ترغب في تكرار العمرة خلال سفرك؟ إليك الجواب",
-                        "description": "تساؤلات كثيرة تصلنا حول حكم تكرار العمرة في السفرة الواحدة. نستعرض الآراء الفقهية وكيفية تنظيم رحلتكم الإيمانية.",
+                        "name": "هل ترغب في تكرار العمرة خلال سفرك؟ إليك الجواب من قلب وكالة أسفار سحاب",
+                        "description": "تساؤلات كثيرة تصلنا حول حكم تكرار العمرة في السفرة الواحدة. في هذا الفيديو، نستعرض معكم الآراء الفقهية وكيفية تنظيم رحلتكم الإيمانية بما يحقق السنة النبوية وراحة المعتمرين.",
                         "thumbnailUrl": "https://res.cloudinary.com/dkusr0hu1/image/upload/v1775206215/poster.jpg",
                         "uploadDate": "2026-03-15",
                         "duration": "PT5M20S",
@@ -1312,8 +1344,8 @@
                     },
                     {
                         "@type": "VideoObject",
-                        "name": "عمرة البدل عن متوفى أو مريض – الضوابط الشرعية",
-                        "description": "هل تفكر في أداء عمرة البدل عن عزيز متوفى أو مريض؟ نوضح لكم الضوابط الشرعية لصحة المناسك.",
+                        "name": "هل تفكر في أداء عمرة البدل عن عزيز متوفى أو مريض؟",
+                        "description": "تساؤلات كثيرة تدور حول حكم الاستنابة في العمرة وأخذ الأجر عليها. في هذا الفيديو، نوضح لكم الضوابط الشرعية لهذه العملية. في وكالة أسفار سحاب، لا نهتم فقط بالتنظيم اللوجستي، بل نحرص على تقديم الإرشاد الديني الصحيح.",
                         "thumbnailUrl": "https://res.cloudinary.com/dkusr0hu1/image/upload/v1775207203/poster.jpg",
                         "uploadDate": "2026-02-20",
                         "duration": "PT4M10S",
@@ -1321,8 +1353,8 @@
                     },
                     {
                         "@type": "VideoObject",
-                        "name": "هل قُبلت عمرتك؟ علامات تبعث الطمأنينة",
-                        "description": "انشراح الصدر، استقامة الحال، تتابع الطاعات. علامات قبول العمرة كما ذكرها العلماء.",
+                        "name": "هل قُبلت عمرتك؟ إليك العلامات التي تبعث الطمأنينة في قلبك",
+                        "description": "كثير من المعتمرين والزوار يراودهم سؤال واحد بعد العودة من الديار المقدسة: 'كيف أعرف أن الله تقبل مني؟' انشراح الصدر، استقامة الحال، تتابع الطاعات. علامة قبول الحسنة.. الحسنة بعدها.",
                         "thumbnailUrl": "https://res.cloudinary.com/dkusr0hu1/image/upload/v1775207713/poster.jpg",
                         "uploadDate": "2026-01-10",
                         "duration": "PT3M55S",
@@ -2116,7 +2148,7 @@
                 });
             });
 
-            // Chargement paresseux des images
+            // ========== AJOUT : Chargement paresseux des images (sans supprimer le code existant) ==========
             const images = document.querySelectorAll('img:not([loading])');
             images.forEach(img => img.setAttribute('loading', 'lazy'));
         };
