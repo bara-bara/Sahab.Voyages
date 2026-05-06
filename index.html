@@ -563,7 +563,17 @@
             width: 0%;
             transition: width 0.2s ease;
         }
-        
+        #scroll-progress {
+    position: fixed;
+    top: 96px;
+    left: 0;
+    height: 3px;
+    background: var(--sahab-gold);
+    z-index: 60;
+    width: 0%;
+    opacity: 0;
+    transition: opacity 0.3s, width 0.2s ease;
+}
         /* Badge de confiance sur le hero */
         .trust-badge {
             position: absolute;
@@ -2004,6 +2014,10 @@
         // ========== TRANSLATIONS COMPLÈTES (inchangées) ==========
 const translations = {
     fr: {
+        // 🎁
+        'exit_modal.title': '🎁 Réduction exclusive !',
+'exit_modal.text': 'Profitez de -10% sur votre premier devis Omra ou voyage. Offre limitée.',
+'exit_modal.button': 'Obtenir -10% sur WhatsApp',
         // Navigation
         'nav.home': 'Accueil',
         'nav.about': 'À Propos',
@@ -2175,6 +2189,10 @@ const translations = {
         'visa.qatar': 'Visa touriste Qatar' // clé utilisée dans une offre
     },
     ar: {
+        // 🎁
+        'exit_modal.title': '🎁 خصم حصري!',
+'exit_modal.text': 'استفد من خصم -10% على أول طلب عمرة أو رحلة. عرض محدود.',
+'exit_modal.button': 'احصل على -10% عبر واتساب',
         // Navigation
         'nav.home': 'الرئيسية',
         'nav.about': 'من نحن',
@@ -2400,6 +2418,7 @@ const translations = {
             currentLanguage = currentLanguage === 'fr' ? 'ar' : 'fr';
             document.documentElement.lang = currentLanguage;
             document.documentElement.dir = currentLanguage === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('mobileMenu').classList.add('hidden');
             
             // Mettre à jour les indicateurs de langue
             document.getElementById('currentLang').textContent = currentLanguage === 'fr' ? 'FR' : 'AR';
@@ -2420,13 +2439,14 @@ const translations = {
         }
 
         // IMPROVEMENT: Scroll progress bar
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('scroll-progress').style.width = scrolled + '%';
-        });
-
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const progressBar = document.getElementById('scroll-progress');
+    progressBar.style.width = scrolled + '%';
+    progressBar.style.opacity = winScroll > 10 ? '1' : '0';
+});
         // ========== INITIALISATION ==========
         window.onload = function() {
             // Initialiser le filtre
