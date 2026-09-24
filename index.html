@@ -108,8 +108,38 @@
           ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Forfaits Omra, Hajj & Visas 2027",
+            "name": "Forfaits Omra, Hajj & Visas 2026-2027",
             "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Trip",
+                  "name": "Omra Septembre & Octobre 2026",
+                  "description": "Programme Omra de Septembre & Octobre 2026 du 25 septembre au 07 octobre 2026 au départ de Casablanca, hôtels sélectionnés et encadrement religieux."
+                },
+                "priceCurrency": "MAD",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Trip",
+                  "name": "Omra Vacances scolaires d’Octobre 2026",
+                  "description": "Programme Omra spécial vacances scolaires du 19 octobre au 01 novembre 2026 au départ de Casablanca, idéal pour familles avec enfants."
+                },
+                "priceCurrency": "MAD",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Trip",
+                  "name": "Omra de Chaabane avec Ramadan (20 jours)",
+                  "description": "Programme Omra de Chaabane avec début de Ramadan (20 jours) au départ de Casablanca, hébergement soigné à Makkah et Madinah et encadrement religieux complet."
+                },
+                "priceCurrency": "MAD",
+                "availability": "https://schema.org/InStock"
+              },
               {
                 "@type": "Offer",
                 "itemOffered": {
@@ -319,21 +349,29 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: 0.3s;
+            transition: all 0.3s ease;
             border: 1px solid #f0f0f0;
             display: flex;
             flex-direction: column;
             height: 100%;
+            cursor: pointer;
         }
         .offer-card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15); 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 45px rgba(0, 74, 173, 0.16); 
+            border-color: #cbd5e1;
+        }
+        .offer-card .p-8 {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 1.75rem !important;
         }
         
         .image-container {
             width: 100%;
             height: 300px;
-            padding: 10px;
+            padding: 12px;
             background: #fff;
         }
         .image-container img {
@@ -341,28 +379,44 @@
             height: 100%;
             object-fit: contain;
             border-radius: 12px;
+            transition: transform 0.4s ease;
+        }
+        .offer-card:hover .image-container img {
+            transform: scale(1.02);
         }
         
-        .btn-action {
-            background-color: #25d366;
-            color: white;
-            padding: 12px;
+        /* UNIFIED BUTTON STYLING - ALL BUTTONS SAME COLOR, SAME SIZE, NEAT & CLEAN */
+        .btn-action, .btn-visa {
+            background-color: var(--sahab-blue) !important;
+            color: #ffffff !important;
+            min-height: 48px;
+            height: 48px;
+            padding: 12px 20px;
             border-radius: 12px;
             text-align: center;
             font-weight: 800;
-            display: block;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             margin-top: auto;
-            transition: 0.3s;
+            width: 100%;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(0, 74, 173, 0.22);
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1.2;
         }
-        .btn-action:hover {
-            background-color: #1da851;
-            transform: scale(1.02);
+        .btn-action:hover, .btn-visa:hover {
+            background-color: #003680 !important;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0, 74, 173, 0.35);
         }
-        .btn-visa { 
-            background-color: var(--sahab-blue); 
-        }
-        .btn-visa:hover {
-            background-color: #003d8f;
+        .btn-action:active, .btn-visa:active {
+            transform: translateY(0);
         }
         
         /* ========== TABS ========== */
@@ -1137,6 +1191,7 @@
                                 <label class="block text-xs font-black uppercase text-gray-700 mb-2" data-i18n="estimator.label_season">الموسم / الفترة</label>
                                 <select id="estSeason" onchange="calculateEstimate()" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 font-bold text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
                                     <option value="ramadan" data-i18n="estimator.opt_ramadan">عمرة رمضان 2027 (1448)</option>
+                                    <option value="chaabane" data-i18n="estimator.opt_chaabane">عمرة شعبان مع رمضان (20 يوم)</option>
                                     <option value="chawwal" data-i18n="estimator.opt_chawwal">عمرة شوال 2027 (1448)</option>
                                     <option value="vacances" data-i18n="estimator.opt_vacances">العطل المدرسية / أكتوبر ونوفمبر</option>
                                     <option value="standard" selected data-i18n="estimator.opt_standard">الأشهر العادية (اقتصادية)</option>
@@ -1216,305 +1271,533 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="offersGrid">
                     
                     <!-- OMRA CARDS -->
-<!-- 1. Omra Septembre & Octobre 2026 -->
-                    <div class="offer-card" data-cat="omra">
+                    <!-- 1. Omra Septembre & Octobre 2026 -->
+                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-sept-oct')">
                         <div class="image-container skeleton">
-                            <img src="https://res.cloudinary.com/cproxotd/image/upload/v1789987958/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B4%D9%87%D8%B1_%D8%B4%D8%AA%D9%86%D8%A8%D8%B1_-_%D8%A3%D9%83%D8%AA%D9%88%D8%A8%D8%B1_2026.jpg" alt="Omra Septembre et Octobre 2026" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
+                            <img src="https://res.cloudinary.com/cproxotd/image/upload/v1790267213/OMRA_SEPTEMBRE_OCTOBRE_2026.png" alt="Omra Septembre et Octobre 2026" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Omra Septembre & Octobre 2026</h3>
-                            <p class="text-blue-600 font-bold mb-6">Du 25 septembre au 07 octobre | 19 octobre au 01 novembre</p>
-                            <a href="https://wa.me/p/39112993328287775/28230903976123" target="_blank" class="btn-action" onclick="trackEvent('offer_click_omra_sept_oct')">Voir le programme et prix</a>
+                            <p class="text-blue-600 font-bold mb-6">Du 25 septembre au 07 octobre 2026</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-sept-oct')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
 
                     <!-- 2. Omra Vacances scolaires Octobre 2026 -->
-                    <div class="offer-card" data-cat="omra">
+                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-vacances-octobre')">
                         <div class="image-container skeleton">
-                            <img src="https://res.cloudinary.com/cproxotd/image/upload/v1789987958/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B4%D9%87%D8%B1_%D8%B4%D8%AA%D9%86%D8%A8%D8%B1_-_%D8%A3%D9%83%D8%AA%D9%88%D8%A8%D8%B1_2026.jpg" alt="Omra Vacances scolaires Octobre 2026" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
+                            <img src="https://res.cloudinary.com/cproxotd/image/upload/v1790267436/OMRA_PENDANT_LES_VACANCES_SCOLAIRES_D_OCTOBRE_2026.png" alt="Omra Vacances scolaires d'Octobre 2026" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-2">Omra Vacances scolaires - Octobre 2026</h3>
+                            <h3 class="text-xl font-black mb-2">Omra Vacances scolaires d’Octobre 2026</h3>
                             <p class="text-blue-600 font-bold mb-6">Du 19 octobre au 01 novembre 2026</p>
-                            <a href="https://wa.me/p/38553771057570407/28230903976123" target="_blank" class="btn-action" onclick="trackEvent('offer_click_omra_vacances_octobre')">Voir le programme et prix</a>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-vacances-octobre')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
 
                     <!-- 3. Omra Novembre 2026 -->
-                    <div class="offer-card" data-cat="omra">
+                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-novembre')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D9%86%D9%88%D9%86%D8%A8%D8%B1_2026_18_%D9%8A%D9%88%D9%85.jpg" alt="Omra Novembre 2026" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Omra Novembre 2026 - 18 jours</h3>
-                            <p class="text-blue-600 font-bold mb-6">Du 11 au 28 novembre</p>
-                            <a href="https://wa.me/p/28253518837634002/28230903976123" target="_blank" class="btn-action" onclick="trackEvent('offer_click_omra_novembre')">Voir le programme et prix</a>
+                            <p class="text-blue-600 font-bold mb-6">Du 11 au 28 novembre 2026</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-novembre')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
 
                     <!-- 4. Omra Décembre 2026 -->
-                    <div class="offer-card" data-cat="omra">
+                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-decembre')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%AF%D8%AC%D9%86%D8%A8%D8%B1_2026.jpg" alt="Omra Décembre 2026" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Omra Décembre 2026</h3>
-                            <p class="text-blue-600 font-bold mb-6">Du 14 au 26 décembre</p>
-                            <a href="https://wa.me/p/27588938147448012/28230903976123" target="_blank" class="btn-action" onclick="trackEvent('offer_click_omra_decembre')">Voir le programme et prix</a>
+                            <p class="text-blue-600 font-bold mb-6">Du 14 au 26 décembre 2026</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-decembre')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
 
-                    <!-- 5. Omra Ramadan 2027 -->
-                    <div class="offer-card" data-cat="omra">
+                    <!-- 5. Omra de Chaabane avec Ramadan (20 jours) -->
+                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-chaabane')">
+                        <div class="image-container skeleton">
+                            <img src="https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B4%D8%B9%D8%A8%D8%A7%D9%86_%D9%85%D8%B9_%D8%B1%D9%85%D8%B6%D8%A7%D9%86_20_%D9%8A%D9%88%D9%85.jpg" alt="Omra de Chaabane avec Ramadan (20 jours)" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-black mb-2">Omra de Chaabane avec Ramadan (20 jours)</h3>
+                            <p class="text-blue-600 font-bold mb-6">20 jours | شعبان وبداية رمضان</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-chaabane')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 6. Omra Ramadan 2027 -->
+                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-ramadan')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B1%D9%85%D8%B6%D8%A7%D9%86_%D9%85%D9%86_12_%D9%81%D8%A8%D8%B1%D8%A7%D9%8A%D8%B1_%D8%A7%D9%84%D9%89_23_%D9%85%D8%A7%D8%B1%D8%B3_2027.jpg" alt="Omra Ramadan 2027" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Omra Ramadan 2027 (1448)</h3>
                             <p class="text-blue-600 font-bold mb-6">Du 12 février au 23 mars 2027</p>
-                            <a href="https://wa.me/p/28199723169654046/28230903976123" target="_blank" class="btn-action" onclick="trackEvent('offer_click_ramadan')">Réserver pour le Ramadan</a>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-ramadan')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
 
-                    <!-- 6. Omra Chawwal 2027 -->
-                    <div class="offer-card" data-cat="omra">
+                    <!-- 7. Omra Chawwal 2027 -->
+                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-chawwal')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B4%D9%88%D8%A7%D9%84_2027-1448.jpg" alt="Omra Chawwal 2027" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Omra Chawwal 2027 (1448)</h3>
                             <p class="text-blue-600 font-bold mb-6">Du 15 au 28 mars 2027</p>
-                            <a href="https://wa.me/p/28538652872436603/28230903976123" target="_blank" class="btn-action" onclick="trackEvent('offer_click_chawwal')">Voir le programme et prix</a>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-chawwal')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
                     <!-- VISA CARDS -->
-                    <div class="offer-card" data-cat="visa">
+                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-qatar')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766870009/VISA-QATAR_sawtsc.png" alt="Visa Qatar" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2" data-i18n="visa.qatar">Visa touriste Qatar</h3>
-                            <a href="https://wa.me/p/25491260960567909/212623945729" target="_blank" class="btn-action btn-visa" onclick="trackEvent('visa_qatar')">Faire ma demande</a>
+                            <p class="text-sm text-gray-500 mb-6">Délivrance rapide en ligne pour ressortissants marocains</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-qatar')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa">
+                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-saudi')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766759766/Visa_Saudi_pu1rai.jpg" alt="Visa Arabie Saoudite" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Arabie Saoudite e-visa</h3>
-                            <p class="text-sm mb-2">Sous 4 jours ouvrés</p>
-                            <a href="https://wa.me/p/6635789499807855/212623945729" target="_blank" class="btn-action btn-visa" onclick="trackEvent('visa_saudi')">Faire ma demande</a>
+                            <p class="text-sm text-gray-500 mb-6">Traitement agréé sous 4 jours ouvrés</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-saudi')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa">
+                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-oman')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766870464/VISA-OMAN_vm0igd.png" alt="Visa Oman" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Oman</h3>
-                            <a href="https://wa.me/p/24948802458133196/212623945729" target="_blank" class="btn-action btn-visa" onclick="trackEvent('visa_oman')">Faire ma demande</a>
+                            <p class="text-sm text-gray-500 mb-6">Visa touristique électronique officiel</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-oman')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa">
+                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-bahrein')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1768417599/VISA-BAHRINE_oike4r.jpg" alt="Visa Bahreïn" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Bahreïn en ligne</h3>
-                            <a href="https://wa.me/p/6527925420589249/212623945729" target="_blank" class="btn-action btn-visa" onclick="trackEvent('visa_bahrein')">Faire ma demande</a>
+                            <p class="text-sm text-gray-500 mb-6">Démarches complètes et rapides</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-bahrein')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa">
+                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-saudi-multi')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766871324/VISA-SAUDI_m7suk7.png" alt="Visa Arabie multiple" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Arabie Saoudite (1 an, entrées multiples)</h3>
-                            <a href="https://wa.me/p/6635909943111318/212623945729" target="_blank" class="btn-action btn-visa" onclick="trackEvent('visa_saudi_multi')">Faire ma demande</a>
+                            <p class="text-sm text-gray-500 mb-6">Idéal pour tourisme et Omra multiple</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-saudi-multi')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa">
+                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-golf')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766759766/Qatar_-_Saudi_-_Bahrain_-_.._vu9tgy.jpg" alt="Visa combiné Golf" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa combiné Golf</h3>
-                            <p class="text-sm mb-2">EAU, Arabie, Qatar, Bahreïn, Oman</p>
-                            <a href="https://wa.me/p/6655750361179310/212623945729" target="_blank" class="btn-action btn-visa" onclick="trackEvent('visa_golf')">Faire ma demande</a>
+                            <p class="text-sm text-gray-500 mb-6">EAU, Arabie, Qatar, Bahreïn, Oman</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-golf')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa">
+                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-dubai')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766918912/VISA-Emarate_jkuqau.png" alt="Visa Dubaï" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Dubaï et EAU</h3>
-                            <p class="text-sm mb-2">Traitement rapide</p>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action btn-visa" onclick="trackEvent('visa_dubai')">Obtenir mon visa</a>
+                            <p class="text-sm text-gray-500 mb-6">Traitement express sous 24h à 48h</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-dubai')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa">
+                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-egypt')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1768417484/VISA-EGYPTE_ca42pj.jpg" alt="Visa Égypte" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Égypte</h3>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action btn-visa" onclick="trackEvent('visa_egypt')">Faire ma demande</a>
+                            <p class="text-sm text-gray-500 mb-6">Assistance visa touristique et dossiers</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-egypt')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
                     <!-- VOYAGE CARDS -->
-                    <div class="offer-card" data-cat="voyage">
+                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-maroc')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858375/MOROCCO_2_okdxll.jpg" alt="Circuit Maroc" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Circuit touristique au Maroc</h3>
-                            <p class="text-sm mb-4">Atlas, Sahara, villes impériales</p>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action" onclick="trackEvent('circuit_maroc')">Demander un devis</a>
+                            <h3 class="text-xl font-black mb-2">Circuit touristique au Maroc</h3>
+                            <p class="text-sm text-gray-500 mb-6">Atlas, Sahara, villes impériales et circuits sur mesure</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-maroc')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage">
+                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-egypt')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858373/EGYPT_z4ofdu.jpg" alt="Circuit Égypte" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Circuit en Égypte</h3>
-                            <p class="text-sm mb-4">Pyramides, croisière sur le Nil</p>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action" onclick="trackEvent('circuit_egypt')">Découvrir</a>
+                            <h3 class="text-xl font-black mb-2">Circuit en Égypte</h3>
+                            <p class="text-sm text-gray-500 mb-6">Pyramides, croisière sur le Nil et Le Caire historique</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-egypt')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage">
+                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-dubai')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858372/EMARATE_uxuwuk.jpg" alt="Voyage Dubaï" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Séjour de luxe à Dubaï</h3>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action" onclick="trackEvent('circuit_dubai')">Demander un devis</a>
+                            <h3 class="text-xl font-black mb-2">Séjour de luxe à Dubaï</h3>
+                            <p class="text-sm text-gray-500 mb-6">Hôtels 5 étoiles, safari désert et attractions</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-dubai')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage">
+                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-bahrein')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858283/BAHRAIN_jfazqq.jpg" alt="Voyage Bahreïn" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Découverte de Bahreïn</h3>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action" onclick="trackEvent('circuit_bahrein')">Devis</a>
+                            <h3 class="text-xl font-black mb-2">Découverte de Bahreïn</h3>
+                            <p class="text-sm text-gray-500 mb-6">Séjour culturel et balnéaire dans le Golfe</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-bahrein')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage">
+                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-qatar')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858374/QATAR_x4kerr.jpg" alt="Voyage Qatar" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Séjour moderne au Qatar</h3>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action" onclick="trackEvent('circuit_qatar')">Devis</a>
+                            <h3 class="text-xl font-black mb-2">Séjour moderne au Qatar</h3>
+                            <p class="text-sm text-gray-500 mb-6">Doha, Souq Waqif, musées et îles artificielles</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-qatar')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage">
+                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-vietnam')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858823/VITNAM_oush4e.jpg" alt="Voyage Vietnam" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Circuit authentique au Vietnam</h3>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action" onclick="trackEvent('circuit_vietnam')">Devis</a>
+                            <h3 class="text-xl font-black mb-2">Circuit authentique au Vietnam</h3>
+                            <p class="text-sm text-gray-500 mb-6">Baie d'Halong, Hanoï, rizières et traditions</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-vietnam')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage">
+                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-singapour')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858379/SANGAFORA_qzofa1.jpg" alt="Voyage Singapour" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Escales à Singapour</h3>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action" onclick="trackEvent('circuit_singapour')">Devis</a>
+                            <h3 class="text-xl font-black mb-2">Escales à Singapour</h3>
+                            <p class="text-sm text-gray-500 mb-6">Marina Bay, Gardens by the Bay et modernité</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-singapour')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage">
+                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-bali')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858373/INDONISIA_m2enha.jpg" alt="Voyage Indonésie" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Vacances de rêve à Bali</h3>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action" onclick="trackEvent('circuit_bali')">Devis</a>
+                            <h3 class="text-xl font-black mb-2">Vacances de rêve à Bali</h3>
+                            <p class="text-sm text-gray-500 mb-6">Plages paradisiaques, cascades et villas privées</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-bali')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage">
+                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-thailande')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858817/TAYLAND_nmbahl.jpg" alt="Voyage Thaïlande" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Circuit en Thaïlande</h3>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action" onclick="trackEvent('circuit_thailande')">Devis</a>
+                            <h3 class="text-xl font-black mb-2">Circuit en Thaïlande</h3>
+                            <p class="text-sm text-gray-500 mb-6">Bangkok, Phuket et îles paradisiaques</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-thailande')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage">
+                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-srilanka')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858415/SRILANKA_e91f1o.jpg" alt="Voyage Sri Lanka" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Voyage au Sri Lanka</h3>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action" onclick="trackEvent('circuit_srilanka')">Devis</a>
+                            <h3 class="text-xl font-black mb-2">Voyage au Sri Lanka</h3>
+                            <p class="text-sm text-gray-500 mb-6">Plantations de thé, safaris et océan Indien</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-srilanka')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage">
+                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-malaisie')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858372/MALIZYA_yannvd.jpg" alt="Voyage Malaisie" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Circuit en Malaisie</h3>
-                            <a href="https://wa.me/212623945729" target="_blank" class="btn-action" onclick="trackEvent('circuit_malaisie')">Devis</a>
+                            <h3 class="text-xl font-black mb-2">Circuit en Malaisie</h3>
+                            <p class="text-sm text-gray-500 mb-6">Kuala Lumpur, Tours Petronas et îles tropicales</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-malaisie')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
                     <!-- BILLETTERIE CARDS -->
-                    <div class="offer-card" data-cat="billet">
+                    <div class="offer-card" data-cat="billet" onclick="openOfferDetails('billet-avion')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771094/HAJZ_cpo63j.jpg" alt="Billet avion" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Billet d'avion pas cher</h3>
-                            <p class="text-sm mb-4">Le Caire, Dubaï, Doha, Istanbul...</p>
-                            <a href="https://wa.me/p/9734168360040574/212623945729" target="_blank" class="btn-action" onclick="trackEvent('billet_avion')">Demander un devis</a>
+                            <h3 class="text-xl font-black mb-2">Billet d'avion pas cher</h3>
+                            <p class="text-sm text-gray-500 mb-6">Le Caire, Dubaï, Doha, Istanbul, Jeddah, Médine</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('billet-avion')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="billet">
+                    <div class="offer-card" data-cat="billet" onclick="openOfferDetails('hotel-resa')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1767003257/r%C3%A9servation_h%C3%B4tel_vgneua.png" alt="Réservation hôtel" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Réservation d'hôtels</h3>
-                            <p class="text-sm mb-4">Meilleurs tarifs garantis</p>
-                            <a href="https://wa.me/p/33021797887466015/212623945729" target="_blank" class="btn-action" onclick="trackEvent('hotel_resa')">Trouver un hôtel</a>
+                            <h3 class="text-xl font-black mb-2">Réservation d'hôtels</h3>
+                            <p class="text-sm text-gray-500 mb-6">Tarifs négociés directs à Makkah, Madinah et dans le monde</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('hotel-resa')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="billet">
+                    <div class="offer-card" data-cat="billet" onclick="openOfferDetails('visa-package')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1767003391/r%C3%A9servation_h%C3%B4tel_et_billet_pour_visa_wjjywh.png" alt="Réservation pour visa" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
-                            <h3 class="text-xl font-black mb-4">Réservation hôtel + billet pour visa</h3>
-                            <a href="https://wa.me/p/33661500800129900/212623945729" target="_blank" class="btn-action" onclick="trackEvent('visa_package')">Préparer mon dossier</a>
+                            <h3 class="text-xl font-black mb-2">Réservation hôtel + billet pour visa</h3>
+                            <p class="text-sm text-gray-500 mb-6">Dossier certifié pour demandes de visas consulaires</p>
+                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-package')">
+                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== DEDICATED OFFER DETAILS SECTION ========== -->
+        <section id="offer-details" class="page-section py-12 px-4 md:px-6 bg-slate-50 min-h-screen">
+            <div class="max-w-6xl mx-auto">
+                <!-- Navigation / Breadcrumbs -->
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                    <nav class="flex items-center gap-2 text-sm text-gray-500 font-bold">
+                        <button onclick="showSection('home')" class="hover:text-blue-700 transition flex items-center gap-1 cursor-pointer">
+                            <i class="fas fa-home"></i> <span data-i18n="nav.home">Accueil</span>
+                        </button>
+                        <span>/</span>
+                        <button onclick="showSection('offers')" class="hover:text-blue-700 transition cursor-pointer">
+                            <span data-i18n="nav.offers">Nos Offres</span>
+                        </button>
+                        <span>/</span>
+                        <span id="detailBreadcrumbTitle" class="text-blue-900 font-black truncate max-w-[200px] md:max-w-md"></span>
+                    </nav>
+
+                    <button onclick="showSection('offers')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-300 bg-white hover:bg-gray-100 text-gray-700 font-extrabold text-sm transition shadow-sm cursor-pointer min-h-[44px]">
+                        <i class="fas fa-arrow-left rtl:rotate-180"></i>
+                        <span data-i18n="detail.back_btn">Retour à la liste des offres</span>
+                    </button>
+                </div>
+
+                <!-- Main Card Showcase -->
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                        <!-- Left Column: Poster / Image -->
+                        <div class="lg:col-span-5 bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 p-6 md:p-8 flex flex-col items-center justify-center border-b lg:border-b-0 lg:border-r border-slate-200">
+                            <div class="relative w-full max-w-md rounded-2xl overflow-hidden shadow-xl bg-white border-4 border-white">
+                                <img id="detailImg" src="" alt="Détail offre" class="w-full h-auto object-contain max-h-[520px]" loading="lazy">
+                                <div id="detailBadgeCat" class="absolute top-4 left-4 bg-blue-900/90 text-white text-xs font-black px-3.5 py-1.5 rounded-full backdrop-blur-md shadow">
+                                    Omra
+                                </div>
+                            </div>
+                            <div class="mt-5 text-center text-xs text-gray-500 font-bold flex items-center justify-center gap-2">
+                                <i class="fas fa-shield-alt text-blue-600 text-base"></i>
+                                <span data-i18n="detail.guarantee">Offre officielle Sahab Voyages • Meilleur rapport qualité/prix garanti</span>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Details & Actions -->
+                        <div class="lg:col-span-7 p-6 md:p-10 flex flex-col justify-between">
+                            <div>
+                                <!-- Header Info Badges -->
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span id="detailPillDate" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-800 text-xs font-black border border-blue-200">
+                                        <i class="fas fa-calendar-alt text-blue-600"></i>
+                                        <span id="detailDatesText"></span>
+                                    </span>
+                                    <span class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-black border border-emerald-200">
+                                        <i class="fas fa-check-circle text-emerald-500"></i>
+                                        <span data-i18n="detail.status_open">Inscriptions ouvertes • Places limitées</span>
+                                    </span>
+                                </div>
+
+                                <h1 id="detailTitle" class="text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 mb-4 leading-tight"></h1>
+
+                                <p id="detailDesc" class="text-base text-gray-600 leading-relaxed mb-6 font-medium"></p>
+
+                                <!-- Highlights Grid -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
+                                    <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                                        <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 text-lg">
+                                            <i class="fas fa-plane-departure"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-xs text-gray-500 font-bold" data-i18n="detail.hl_flight_title">Vol & Bagages</div>
+                                            <div class="text-sm font-black text-gray-800" data-i18n="detail.hl_flight_desc">Départ Casablanca (direct ou 1 escale)</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                                        <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 text-lg">
+                                            <i class="fas fa-hotel"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-xs text-gray-500 font-bold" data-i18n="detail.hl_hotel_title">Hébergements Harams</div>
+                                            <div class="text-sm font-black text-gray-800" data-i18n="detail.hl_hotel_desc">Makkah & Madinah de standing</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                                        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-lg">
+                                            <i class="fas fa-passport"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-xs text-gray-500 font-bold" data-i18n="detail.hl_visa_title">Formalités & Visa</div>
+                                            <div class="text-sm font-black text-gray-800" data-i18n="detail.hl_visa_desc">Visa électronique + Assurance complète</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                                        <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 text-lg">
+                                            <i class="fas fa-user-tie"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-xs text-gray-500 font-bold" data-i18n="detail.hl_guide_title">Encadrement Religieux</div>
+                                            <div class="text-sm font-black text-gray-800" data-i18n="detail.hl_guide_desc">Assistance & encadrement 24h/24</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Inclusions List -->
+                                <div class="mb-8">
+                                    <h2 class="text-sm font-black uppercase tracking-wider text-slate-800 mb-3 flex items-center gap-2">
+                                        <i class="fas fa-list-check text-blue-600"></i>
+                                        <span data-i18n="detail.included_title">Ce qui est inclus dans le forfait</span>
+                                    </h2>
+                                    <div id="detailInclusionsList" class="space-y-2 text-sm text-gray-700"></div>
+                                </div>
+                            </div>
+
+                            <!-- CTAs Area -->
+                            <div class="pt-6 border-t border-slate-200 space-y-3">
+                                <!-- Big WhatsApp Button -->
+                                <a id="detailWaBtn" href="#" target="_blank" class="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-lg transition shadow-lg shadow-emerald-600/30 transform hover:-translate-y-0.5">
+                                    <i class="fab fa-whatsapp text-3xl"></i>
+                                    <span data-i18n="detail.wa_cta">Consulter le programme & Réserver sur WhatsApp</span>
+                                </a>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <a href="tel:+212623945729" class="btn-action">
+                                        <i class="fas fa-phone-alt"></i>
+                                        <span data-i18n="detail.call_cta">Appeler (+212 623 94 57 29)</span>
+                                    </a>
+                                    <button onclick="showSection('offers')" class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-sm transition cursor-pointer min-h-[48px]">
+                                        <i class="fas fa-th-large"></i>
+                                        <span data-i18n="detail.all_offers_btn">Voir d'autres offres</span>
+                                    </button>
+                                </div>
+
+                                <div class="text-center pt-2">
+                                    <span class="text-xs text-gray-400 font-semibold" data-i18n="detail.branch_notice">
+                                        📍 Agence officielle Sahab Voyages : Casablanca (Sidi Bernoussi & Ain Chock)
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2858,6 +3141,23 @@ const translations = {
         'footer.copyright': '2027 SAHAB VOYAGES. TOUS DROITS RÉSERVÉS.',
         'visa.qatar': 'Visa touriste Qatar',
         'nav.guide': 'Guide & Valise',
+        'btn.details': 'Voir le programme & détails',
+        'detail.back_btn': 'Retour à la liste des offres',
+        'detail.guarantee': 'Offre officielle Sahab Voyages • Meilleur rapport qualité/prix garanti',
+        'detail.status_open': 'Inscriptions ouvertes • Places limitées',
+        'detail.hl_flight_title': 'Vol & Bagages',
+        'detail.hl_flight_desc': 'Départ Casablanca (direct ou 1 escale)',
+        'detail.hl_hotel_title': 'Hébergements Harams',
+        'detail.hl_hotel_desc': 'Makkah & Madinah de standing',
+        'detail.hl_visa_title': 'Formalités & Visa',
+        'detail.hl_visa_desc': 'Visa électronique + Assurance complète',
+        'detail.hl_guide_title': 'Encadrement Religieux',
+        'detail.hl_guide_desc': 'Assistance & encadrement 24h/24',
+        'detail.included_title': 'Ce qui est inclus dans le forfait',
+        'detail.wa_cta': 'Consulter le programme & Réserver sur WhatsApp',
+        'detail.call_cta': 'Appeler (+212 623 94 57 29)',
+        'detail.all_offers_btn': "Voir d'autres offres",
+        'detail.branch_notice': '📍 Agence officielle Sahab Voyages : Casablanca (Sidi Bernoussi & Ain Chock)',
         // Estimator
         'estimator.badge': 'Simulateur Interactif',
         'estimator.title': 'Simulateur de Devis Omra 2027 🕋 | حاسبة تكلفة العمرة',
@@ -2865,6 +3165,7 @@ const translations = {
         'estimator.guarantee': 'Tarifs transparents sans frais cachés',
         'estimator.label_season': 'Saison / Période',
         'estimator.opt_ramadan': 'Omra Ramadan 2027 (1448)',
+        'estimator.opt_chaabane': 'Omra Chaabane avec Ramadan (20 jours)',
         'estimator.opt_chawwal': 'Omra Chawwal 2027 (1448)',
         'estimator.opt_vacances': 'Vacances scolaires / Oct-Nov',
         'estimator.opt_standard': 'Période standard (économique)',
@@ -3126,6 +3427,23 @@ const translations = {
         'footer.copyright': '2027 أسفار سحاب. جميع الحقوق محفوظة.',
         'visa.qatar': 'تأشيرة قطر السياحية',
         'nav.guide': 'دليل المعتمر',
+        'btn.details': 'عرض البرنامج والتفاصيل',
+        'detail.back_btn': 'العودة لقائمة العروض',
+        'detail.guarantee': 'عرض رسمي من أسفار سحاب • أفضل جودة وسعر مضمون',
+        'detail.status_open': 'التسجيل مفتوح • المقاعد محدودة',
+        'detail.hl_flight_title': 'الطيران والأمتعة',
+        'detail.hl_flight_desc': 'انطلاق من الدار البيضاء (مباشر أو ترانزيت مريح)',
+        'detail.hl_hotel_title': 'فنادق الحرمين',
+        'detail.hl_hotel_desc': 'مكة والمدينة بفنادق مصنفة ومريحة',
+        'detail.hl_visa_title': 'التأشيرة والتأمين',
+        'detail.hl_visa_desc': 'تأشيرة إلكترونية وتأمين شامل معتمد',
+        'detail.hl_guide_title': 'التأطير والمرافقة',
+        'detail.hl_guide_desc': 'مرافقة دينية وإدارية 24/24',
+        'detail.included_title': 'ما تشمله هذه الباقة الرسمية',
+        'detail.wa_cta': 'عرض البرنامج الكامل والحجز عبر واتساب',
+        'detail.call_cta': 'اتصال هاتفي مباشر (0623945729)',
+        'detail.all_offers_btn': 'استكشاف باقي العروض',
+        'detail.branch_notice': '📍 وكالة أسفار سحاب الرسمية : الدار البيضاء (سيدي البرنوصي وعين الشق)',
         // Estimator
         'estimator.badge': 'حاسبة تفاعلية',
         'estimator.title': 'حاسبة تكلفة باقة العمرة التقديرية 🕋 | Simulateur Devis Omra',
@@ -3133,6 +3451,7 @@ const translations = {
         'estimator.guarantee': 'أسعار شفافة وبدون رسوم خفية',
         'estimator.label_season': 'الموسم / الفترة',
         'estimator.opt_ramadan': 'عمرة رمضان 2027 (1448)',
+        'estimator.opt_chaabane': 'عمرة شعبان مع رمضان (20 يوماً)',
         'estimator.opt_chawwal': 'عمرة شوال 2027 (1448)',
         'estimator.opt_vacances': 'العطل المدرسية / أكتوبر ونوفمبر',
         'estimator.opt_standard': 'الأشهر العادية (اقتصادية)',
@@ -3337,6 +3656,11 @@ const translations = {
 
             // Mettre à jour les calculs de l'estimateur
             calculateEstimate();
+
+            // Mettre à jour les détails de l'offre si affichée
+            if (activeOfferId && typeof renderOfferDetails === 'function') {
+                renderOfferDetails(activeOfferId);
+            }
         }
 
         // Basculer entre français et arabe
@@ -3355,6 +3679,7 @@ const translations = {
             // Base price table per person in MAD
             let base = 15500;
             if (season === 'ramadan') base = 28500;
+            else if (season === 'chaabane') base = 24500;
             else if (season === 'chawwal') base = 19500;
             else if (season === 'vacances') base = 17500;
             else base = 15500;
@@ -3525,6 +3850,612 @@ const translations = {
             });
         }
 
+        // ========== OFFERS DATA & DEDICATED DETAILS VIEW ==========
+        let activeOfferId = null;
+
+        const offersData = {
+            'omra-sept-oct': {
+                id: 'omra-sept-oct',
+                category: 'omra',
+                image: 'https://res.cloudinary.com/cproxotd/image/upload/v1790267213/OMRA_SEPTEMBRE_OCTOBRE_2026.png',
+                waUrl: 'https://wa.me/p/39112993328287775/28230903976123',
+                titleFr: 'Omra Septembre & Octobre 2026',
+                titleAr: 'عمرة شتنبر وأكتوبر 2026',
+                datesFr: 'Du 25 septembre au 07 octobre 2026',
+                datesAr: 'من 25 شتنبر إلى 07 أكتوبر 2026',
+                descFr: "Programme complet pour la Omra de Septembre & Octobre 2026 avec l'agence Sahab Voyages. Vol au départ de Casablanca, hébergements sélectionnés à proximité des deux Saintes Mosquées à Makkah et Madinah, transferts en autocars modernes climatisés et encadrement religieux continu.",
+                descAr: 'برنامج متكامل لعمرة شتنبر وأكتوبر 2026 مع وكالة أسفار سحاب. طيران مريح، فنادق مختارة بعناية قريبة من الحرمين الشريفين بمكة المكرمة والمدينة المنورة، تنقلات بحافلات حديثة ومكيفة، وتأطير ديني وإداري طيلة مدة الإقامة.',
+                inclusionsFr: [
+                    'Vol Aller-Retour au départ de Casablanca',
+                    'Hébergements de standing à Makkah et Madinah',
+                    'Visa électronique officiel + Assurance médicale complète',
+                    'Transferts internes et visites (Mazarat) guidées',
+                    'Encadrement religieux et assistance 24h/24 par l\'équipe Sahab'
+                ],
+                inclusionsAr: [
+                    'تذاكر الطيران ذهاباً وإياباً انطلاقاً من الدار البيضاء',
+                    'إقامة فندقية راقية ومريحة في مكة المكرمة والمدينة المنورة',
+                    'التأشيرة الإلكترونية الرسمية والتأمين الصحي الشامل',
+                    'التنقلات الداخلية والمزارات الدينية في مكة والمدينة',
+                    'تأطير ديني ومرافقة شاملة طوال فترة الرحلة من فريق سحاب'
+                ]
+            },
+            'omra-vacances-octobre': {
+                id: 'omra-vacances-octobre',
+                category: 'omra',
+                image: 'https://res.cloudinary.com/cproxotd/image/upload/v1790267436/OMRA_PENDANT_LES_VACANCES_SCOLAIRES_D_OCTOBRE_2026.png',
+                waUrl: 'https://wa.me/p/38553771057570407/28230903976123',
+                titleFr: 'Omra Vacances scolaires d’Octobre 2026',
+                titleAr: 'عمرة العطلة المدرسية - أكتوبر 2026',
+                datesFr: 'Du 19 octobre au 01 novembre 2026',
+                datesAr: 'من 19 أكتوبر إلى 01 نونبر 2026',
+                descFr: "Conçue spécialement pour les familles durant les vacances scolaires d’octobre 2026. Profitez d'une organisation sur-mesure pour parents et enfants, à proximité immédiate des Haramains, avec accompagnement spirituel et logistique complet.",
+                descAr: 'باقة متميزة مصممة خصيصاً للعائلات والأطفال خلال العطلة المدرسية لأكتوبر 2026. رحلة روحانية ميسرة تجمع بين الراحة والسكينة بالقرب من الحرمين الشريفين مع تأطير متواصل.',
+                inclusionsFr: [
+                    'Vols aller-retour adaptés aux congés scolaires',
+                    'Chambres familiales spacieuses proches des Harams',
+                    'Visa officiel et formalités d\'assurance médicale',
+                    'Transferts en autocars grand tourisme climatisés',
+                    'Visites culturelles et religieuses guidées à La Mecque et Médine'
+                ],
+                inclusionsAr: [
+                    'رحلات جوية متوافقة مع مواعيد العطل المدرسية',
+                    'إقامة فندقية عائلية مريحة وفسيحة قرب الحرمين',
+                    'تأشيرة العمرة وتأمين السفر الصحي المعتمد',
+                    'تنقلات داخلية بحافلات سياحية مريحة ومكيفة',
+                    'جولات ومزارات دينية وتاريخية في مكة المكرمة والمدينة المنورة'
+                ]
+            },
+            'omra-novembre': {
+                id: 'omra-novembre',
+                category: 'omra',
+                image: 'https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D9%86%D9%88%D9%86%D8%A8%D8%B1_2026_18_%D9%8A%D9%88%D9%85.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20l\'Omra%20Novembre%202026%20(18%20jours)',
+                titleFr: 'Omra Novembre 2026 - 18 jours',
+                titleAr: 'عمرة نونبر 2026 - 18 يوماً',
+                datesFr: 'Du 11 au 28 novembre 2026 (18 jours)',
+                datesAr: 'من 11 إلى 28 نونبر 2026 (18 يوماً)',
+                descFr: 'Séjour prolongé de 18 jours pour profiter pleinement du calme et de la sérénité des Lieux Saints dans des conditions climatiques idéales en Arabie.',
+                descAr: 'رحلة مباركة ممتدة لـ 18 يوماً تمكنكم من قضاء أطول وقت في العبادة والسكينة في رحاب الحرمين الشريفين في أجواء مناخية معتدلة.',
+                inclusionsFr: [
+                    'Vol direct Aller-Retour Casablanca',
+                    '18 jours d\'immersion partagés entre Makkah et Madinah',
+                    'Visa électronique et assistance complète',
+                    'Visites (Mazarat) et transferts inclus',
+                    'Encadrement religieux par nos oulémas et guides'
+                ],
+                inclusionsAr: [
+                    'طيران مباشر ذهاباً وإياباً من الدار البيضاء',
+                    '18 يوماً موزعة بين مكة المكرمة والمدينة المنورة',
+                    'التأشيرة الإلكترونية والمساعدة الإدارية الكاملة',
+                    'تنقلات مريحة ومزارات تاريخية بإشراف مرشدين',
+                    'مرافقة وتأطير ديني مستمر طيلة الرحلة'
+                ]
+            },
+            'omra-decembre': {
+                id: 'omra-decembre',
+                category: 'omra',
+                image: 'https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%AF%D8%AC%D9%86%D8%A8%D8%B1_2026.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20l\'Omra%20D%C3%A9cembre%202026',
+                titleFr: 'Omra Décembre 2026',
+                titleAr: 'عمرة دجنبر 2026',
+                datesFr: 'Du 14 au 26 décembre 2026',
+                datesAr: 'من 14 إلى 26 دجنبر 2026',
+                descFr: 'Profitez de la fin d\'année 2026 pour accomplir votre Omra dans les meilleures conditions spirituelles et matérielles avec Sahab Voyages.',
+                descAr: 'اختتموا عام 2026 برحلة روحانية مباركة لأداء مناسك العمرة في رحاب بيت الله الحرام ومسجد رسوله الكريم ﷺ بأفضل الخدمات.',
+                inclusionsFr: [
+                    'Vol A/R de Casablanca',
+                    'Hôtels de qualité supérieure proches des esplanades',
+                    'Visa Omra officiel + Assurance',
+                    'Tous transferts et visites guidées',
+                    'Accompagnement continu'
+                ],
+                inclusionsAr: [
+                    'طيران ذهاباً وإياباً من الدار البيضاء',
+                    'إقامة فندقية قريبة ومختارة بعناية',
+                    'التأشيرة الرسمية والتأمين الصحي',
+                    'التنقلات والمزارات الدينية المتكاملة',
+                    'مرشدون ومرافقون إداريون متفرغون'
+                ]
+            },
+            'omra-chaabane': {
+                id: 'omra-chaabane',
+                category: 'omra',
+                image: 'https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B4%D8%B9%D8%A8%D8%A7%D9%86_%D9%85%D8%B9_%D8%B1%D9%85%D8%B6%D8%A7%D9%86_20_%D9%8A%D9%88%D9%85.jpg',
+                waUrl: 'https://wa.me/p/28385046831091769/28230903976123',
+                titleFr: 'Omra de Chaabane avec Ramadan (20 jours)',
+                titleAr: 'عمرة شعبان مع رمضان (20 يوماً)',
+                datesFr: '20 jours | Chaabane & début Ramadan 1448',
+                datesAr: '20 يوماً | أواخر شعبان وبداية شهر رمضان المبارك',
+                descFr: 'Une formule d\'exception de 20 jours combinant la quiétude de Chaabane et la bénédiction des premiers jours de Ramadan dans les Lieux Saints.',
+                descAr: 'باقة متميزة تجمع بين بركة وسكينة أواخر شهر شعبان وفضل ونور بدايات شهر رمضان المبارك في الحرمين الشريفين على مدى 20 يوماً كاملاً.',
+                inclusionsFr: [
+                    'Vol Aller-Retour de Casablanca',
+                    'Hébergements confortables à Makkah et Madinah',
+                    'Visa officiel et assurance médicale complète',
+                    'Transferts privatifs et programme de visites',
+                    'Accompagnement religieux pour les premiers jours de jeûne'
+                ],
+                inclusionsAr: [
+                    'طيران ذهاب وإياب من الدار البيضاء',
+                    'فنادق مميزة قريبة من الحرمين الشريفين',
+                    'تأشيرة العمرة والتأمين الصحي الشامل',
+                    'التنقلات والمزارات التاريخية والدينية',
+                    'تأطير ديني متواصل ومرافقة لصلاة التراويح'
+                ]
+            },
+            'omra-ramadan': {
+                id: 'omra-ramadan',
+                category: 'omra',
+                image: 'https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B1%D9%85%D8%B6%D8%A7%D9%86_%D9%85%D9%86_12_%D9%81%D8%A8%D8%B1%D8%A7%D9%8A%D8%B1_%D8%A7%D9%84%D9%89_23_%D9%85%D8%A7%D8%B1%D8%B3_2027.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20l\'Omra%20Ramadan%202027',
+                titleFr: 'Omra Ramadan 2027 (1448)',
+                titleAr: 'عمرة رمضان 2027 (1448)',
+                datesFr: 'Du 12 février au 23 mars 2027',
+                datesAr: 'من 12 فبراير إلى 23 مارس 2027',
+                descFr: 'L\'Omra durant le mois béni de Ramadan équivaut à un Hajj en compagnie du Prophète ﷺ. Places très limitées, réservez dès maintenant pour bénéficier des meilleurs tarifs.',
+                descAr: 'عمرة في رمضان تعدل حجة مع النبي ﷺ. احجز مقعدك في هذا الموسم الإيماني العظيم بأفضل الخدمات الفندقية والتنظيمية في مكة والمدينة.',
+                inclusionsFr: [
+                    'Vol direct A/R Casablanca - Djeddah / Médine',
+                    'Hôtels situés face ou très proches des Haramains',
+                    'Visa officiel Ramadan et assurances',
+                    'Logistique des repas (Iftar & Suhour selon formule)',
+                    'Encadrement religieux expert pour les prières de Tarawih et Tahajjud'
+                ],
+                inclusionsAr: [
+                    'طيران مباشر ذهاباً وإياباً من الدار البيضاء',
+                    'إقامة فندقية راقية قرب ساحات الحرمين الشريفين',
+                    'تأشيرة رسمية لموسم رمضان المبارك معتمدة',
+                    'تنظيم وجبات الإفطار والسحور حسب الباقة',
+                    'تأطير ديني متكامل لصلاة التراويح والتهجد'
+                ]
+            },
+            'omra-chawwal': {
+                id: 'omra-chawwal',
+                category: 'omra',
+                image: 'https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B4%D9%88%D8%A7%D9%84_2027-1448.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20l\'Omra%20Chawwal%202027',
+                titleFr: 'Omra Chawwal 2027 (1448)',
+                titleAr: 'عمرة شوال 2027 (1448)',
+                datesFr: 'Du 15 au 28 mars 2027',
+                datesAr: 'من 15 إلى 28 مارس 2027',
+                descFr: 'Célébrez l\'après-Ramadan et le mois de Chawwal dans la sérénité des Saintes Mosquées, à des tarifs particulièrement avantageux.',
+                descAr: 'عمرة شوال المباركة في أجواء هادئة ومريحة بعد انقضاء شهر رمضان، استمتع بزيارة الروضة الشريفة وأداء المناسك بكل يسر وسكينة.',
+                inclusionsFr: [
+                    'Vol Aller-Retour au départ de Casablanca',
+                    'Hôtels proches des Harams',
+                    'Visa et formalités administratives',
+                    'Transferts et visites guidées',
+                    'Assistance Sahab Voyages 24/7'
+                ],
+                inclusionsAr: [
+                    'طيران ذهاب وعودة من الدار البيضاء',
+                    'فنادق مصنفة قريبة من الحرمين',
+                    'تأشيرة رسمية وتأمين صحي',
+                    'تنقلات وزيارات للمعالم الدينية',
+                    'مرافقة وإرشاد متواصل على مدار الساعة'
+                ]
+            },
+            'visa-qatar': {
+                id: 'visa-qatar',
+                category: 'visa',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766870009/VISA-QATAR_sawtsc.png',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20des%20informations%20sur%20le%20Visa%20Qatar',
+                titleFr: 'Visa touriste Qatar',
+                titleAr: 'تأشيرة قطر السياحية',
+                datesFr: 'Délivrance rapide en 24h à 72h',
+                datesAr: 'إصدار سريع خلال 24 إلى 72 ساعة',
+                descFr: 'Obtenez votre visa touristique pour le Qatar en toute simplicité. Procédure 100% en ligne, rapide et sécurisée pour les citoyens marocains et résidents.',
+                descAr: 'احصل على تأشيرة قطر السياحية الإلكترونية بكل سهولة وأمان عبر وكالة أسفار سحاب مع تأكيد الحجز الفندقي والتأمين الصحي المطلوب.',
+                inclusionsFr: [
+                    'Traitement officiel du visa électronique Hayya / Touriste',
+                    'Assurance médicale obligatoire pour le Qatar',
+                    'Assistance et vérification de conformité du passeport',
+                    'Délivrance au format numérique prêt à imprimer'
+                ],
+                inclusionsAr: [
+                    'معالجة رسمية للتأشيرة الإلكترونية السياحية',
+                    'التأمين الصحي المعتمد واللازم لدخول قطر',
+                    'مراجعة وتدقيق المستندات لضمان القبول الفوري',
+                    'تسليم التأشيرة بصيغة رقمية فورية'
+                ]
+            },
+            'visa-saudi': {
+                id: 'visa-saudi',
+                category: 'visa',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766759766/Visa_Saudi_pu1rai.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20des%20informations%20sur%20le%20Visa%20Arabie%20Saoudite',
+                titleFr: 'Visa Arabie Saoudite e-visa',
+                titleAr: 'تأشيرة السعودية الإلكترونية',
+                datesFr: 'Traitement agréé sous 4 jours ouvrés',
+                datesAr: 'معالجة معتمدة خلال 4 أيام عمل',
+                descFr: 'Visa électronique officiel pour l\'Arabie Saoudite (Tourisme, Omra et visites). Sahab Voyages est agence agréée pour toutes vos démarches auprès des autorités saoudiennes.',
+                descAr: 'تأشيرة الدخول الرسمية للمملكة العربية السعودية للسياحة أو العمرة أو الزيارة العائلية معتمدة من وزارة الخارجية ومنصة التأشيرات السعودية.',
+                inclusionsFr: [
+                    'Enregistrement sur la plateforme officielle saoudienne',
+                    'Assurance médicale agréée par le Conseil des assurances de santé (CCHI)',
+                    'Validité conforme aux besoins du voyageur',
+                    'Support dédié pour l\'accomplissement de la Omra'
+                ],
+                inclusionsAr: [
+                    'التسجيل المعتمد عبر منصة التأشيرات السعودية',
+                    'تأمين صحي رسمي معتمد من مجلس الضمان الصحي',
+                    'صلاحية دخول مرنة ومناسبة لاحتياجات المسافر',
+                    'دعم فني واستشاري كامل لأداء مناسك العمرة'
+                ]
+            },
+            'visa-oman': {
+                id: 'visa-oman',
+                category: 'visa',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766870464/VISA-OMAN_vm0igd.png',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20des%20informations%20sur%20le%20Visa%20Oman',
+                titleFr: 'Visa Oman touristique',
+                titleAr: 'تأشيرة سلطنة عمان السياحية',
+                datesFr: 'Traitement express en ligne',
+                datesAr: 'معالجة إلكترونية سريعة',
+                descFr: 'Découvrez la beauté des fjords de Musandam et les déserts d\'Oman. Visa électronique touristique délivré rapidement par Sahab Voyages.',
+                descAr: 'اكتشف روعة وسحر سلطنة عمان وطبيعتها الخلابة، نقدم خدمة استخراج التأشيرة السياحية العمانية المعتمدة في وقت قياسي.',
+                inclusionsFr: [
+                    'Traitement de la demande auprès de la Police Royale d\'Oman',
+                    'Vérification des justificatifs et du passeport',
+                    'Conseils pour le séjour à Mascate et Salalah'
+                ],
+                inclusionsAr: [
+                    'تقديم الطلب عبر البوابة الرسمية لشرطة عمان السلطانية',
+                    'فحص وتدقيق الوثائق وتأكيد متطلبات السفر',
+                    'إرشادات سياحية لزيارة مسقط وصلالة'
+                ]
+            },
+            'visa-bahrein': {
+                id: 'visa-bahrein',
+                category: 'visa',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1768417599/VISA-BAHRINE_oike4r.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20des%20informations%20sur%20le%20Visa%20Bahre%C3%AFn',
+                titleFr: 'Visa Bahreïn en ligne',
+                titleAr: 'تأشيرة البحرين الإلكترونية',
+                datesFr: 'Démarches complètes sous 72h',
+                datesAr: 'إجراءات كاملة خلال 72 ساعة',
+                descFr: 'Votre visa pour le Royaume de Bahreïn traité avec rigueur et rapidité par les experts de Sahab Voyages.',
+                descAr: 'خدمة احترافية وسريعة لإصدار تأشيرة مملكة البحرين السياحية ورجال الأعمال بكل يسر وسهولة.',
+                inclusionsFr: ['e-Visa officiel', 'Assistance dossier', 'Conseil séjour'],
+                inclusionsAr: ['تأشيرة إلكترونية رسمية', 'إعداد الملف وتدقيقه', 'استشارات سياحية']
+            },
+            'visa-saudi-multi': {
+                id: 'visa-saudi-multi',
+                category: 'visa',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766871324/VISA-SAUDI_m7suk7.png',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20le%20Visa%20Arabie%201%20an%20multiples%20entr%C3%A9es',
+                titleFr: 'Visa Arabie Saoudite (1 an, entrées multiples)',
+                titleAr: 'تأشيرة السعودية المتعددة (لمدة سنة كاملة)',
+                datesFr: 'Valable 365 jours • 90 jours max par séjour',
+                datesAr: 'صالحة لمدة 365 يوماً • حتى 90 يوماً لكل زيارة',
+                descFr: 'La solution la plus avantageuse pour les voyageurs fréquents et les pèlerins souhaitant accomplir plusieurs Omras dans l\'année sans redemander de visa.',
+                descAr: 'الخيار الأفضل للمسافرين والمعتمرين الذين يرغبون في زيارة المملكة عدة مرات خلال السنة لأداء العمرة والتنقل بحرية تامة.',
+                inclusionsFr: [
+                    'Visa multi-entrées valable 1 an entier',
+                    'Séjour jusqu\'à 90 jours consécutifs par entrée',
+                    'Assurance médicale annuelle incluse',
+                    'Autorise le tourisme, les visites et la Omra'
+                ],
+                inclusionsAr: [
+                    'تأشيرة متعددة الدخول صالحة لسنة كاملة',
+                    'إقامة تصل إلى 90 يوماً متواصلة في كل رحلة',
+                    'تأمين صحي شامل ساري المفعول لمدة سنة',
+                    'تتيح السياحة، الزيارات، وأداء مناسك العمرة'
+                ]
+            },
+            'visa-golf': {
+                id: 'visa-golf',
+                category: 'visa',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766759766/Qatar_-_Saudi_-_Bahrain_-_.._vu9tgy.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20le%20Pack%20Visa%20Combin%C3%A9%20Golfe',
+                titleFr: 'Pack Visas Combiné Pays du Golfe',
+                titleAr: 'باقة تأشيرات دول الخليج المشتركة',
+                datesFr: 'Formule sur-mesure EAU, Arabie, Qatar, Bahreïn, Oman',
+                datesAr: 'باقة شاملة للإمارات، السعودية، قطر، البحرين وعمان',
+                descFr: 'Voyagez à travers plusieurs pays du Conseil de Coopération du Golfe en un seul dossier coordonné par Sahab Voyages.',
+                descAr: 'باقة منسقة ومتكاملة تمكنكم من زيارة عدة دول خليجية في رحلة واحدة مع تجهيز كافة التأشيرات والتصاريح معاً.',
+                inclusionsFr: ['Coordination des visas multi-destinations', 'Réservations et hôtels adaptés', 'Assistance continue'],
+                inclusionsAr: ['تنسيق كافة تأشيرات الوجهات الخليجية', 'تأكيد الحجوزات الفندقية وتذاكر التنقل', 'مرافقة واستشارات مخصصة']
+            },
+            'visa-dubai': {
+                id: 'visa-dubai',
+                category: 'visa',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766918912/VISA-Emarate_jkuqau.png',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20le%20Visa%20Duba%C3%AF',
+                titleFr: 'Visa Dubaï & Émirats Arabes Unis',
+                titleAr: 'تأشيرة دبي والإمارات العربية المتحدة',
+                datesFr: 'Délivrance express 24h - 48h (30 ou 60 jours)',
+                datesAr: 'إصدار سريع خلال 24 إلى 48 ساعة (30 أو 60 يوماً)',
+                descFr: 'Visas touristiques pour Dubaï et tous les Émirats. Traitement direct et garanti avec assurance voyage incluse.',
+                descAr: 'استخراج تأشيرات دبي والإمارات السياحية القصيرة والطويلة بأسرع وقت وبأفضل سعر وبضمان وكالة أسفار سحاب.',
+                inclusionsFr: [
+                    'Visa électronique officiel 30 ou 60 jours',
+                    'Assurance médicale Covid et urgences EAU',
+                    'Traitement express garanti sous 48h maximum'
+                ],
+                inclusionsAr: [
+                    'تأشيرة إلكترونية رسمية لمدة 30 أو 60 يوماً',
+                    'تأمين صحي معتمد في دولة الإمارات',
+                    'معالجة سريعة ومضمونة خلال 48 ساعة كحد أقصى'
+                ]
+            },
+            'visa-egypt': {
+                id: 'visa-egypt',
+                category: 'visa',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1768417484/VISA-EGYPTE_ca42pj.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20des%20informations%20sur%20le%20Visa%20%C3%89gypte',
+                titleFr: 'Visa Égypte',
+                titleAr: 'تأشيرة جمهورية مصر العربية',
+                datesFr: 'Assistance consulaire et démarches complètes',
+                datesAr: 'مساعدة قنصلية وإجراءات كاملة للملف',
+                descFr: 'Assistance et montage complet de votre dossier de visa pour l\'Égypte avec garanties d\'hébergement et de vol.',
+                descAr: 'تجهيز ملف تأشيرة مصر الشامل مع كافة الحجوزات المعتمدة وشهادات السفر لضمان قبول الطلب بكل سهولة.',
+                inclusionsFr: ['Montage du dossier de visa', 'Réservations certifiées billet et hôtel', 'Suivi du dossier'],
+                inclusionsAr: ['إعداد ملف التأشيرة كاملاً', 'حجوزات طيران وفنادق معتمدة', 'متابعة مستمرة حتى استلام التأشيرة']
+            },
+            'circuit-maroc': {
+                id: 'circuit-maroc',
+                category: 'voyage',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858375/MOROCCO_2_okdxll.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20un%20Circuit%20au%20Maroc',
+                titleFr: 'Circuit touristique d\'exception au Maroc',
+                titleAr: 'جولات وسياحة داخلية استثنائية في المغرب',
+                datesFr: 'Toute l\'année • Départs personnalisés',
+                datesAr: 'على مدار العام • برامج حسب الطلب',
+                descFr: 'Découvrez la splendeur des villes impériales, les dunes majestueuses de Merzouga et les montagnes de l\'Atlas avec des guides professionnels.',
+                descAr: 'استكشف سحر المدن العتيقة، رمال مرزوكة الذهبية وجبال الأطلس في رحلات سياحية عائلية منظمة بأعلى معايير الراحة.',
+                inclusionsFr: ['Transport tout confort', 'Hébergements authentiques et riads', 'Visites guidées et activités'],
+                inclusionsAr: ['وسائل نقل مريحة ومكيفة', 'فنادق ورياضات أصيلة مختارة', 'جولات إرشادية وأنشطة ممتعة']
+            },
+            'circuit-egypt': {
+                id: 'circuit-egypt',
+                category: 'voyage',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858373/EGYPT_z4ofdu.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20un%20Circuit%20en%20%C3%89gypte',
+                titleFr: 'Circuit magique en Égypte & Croisière sur le Nil',
+                titleAr: 'رحلة مصر الساحرة مع كروز نهر النيل',
+                datesFr: 'Séjours réguliers 8 à 10 jours',
+                datesAr: 'رحلات منتظمة من 8 إلى 10 أيام',
+                descFr: 'Pyramides de Gizeh, Le Caire historique, Louxor, Assouan et croisière inoubliable sur le Nil avec guide égyptologue privé.',
+                descAr: 'أهرامات الجيزة، القاهرة التاريخية، الأقصر وأسوان مع كروز نهري فاخر على ضفاف النيل الخالد برفقة مرشد سياحي متخصص.',
+                inclusionsFr: ['Vols A/R', 'Hôtels 5★ et bateau de croisière', 'Visites des monuments pharaoniques', 'Pension complète selon formule'],
+                inclusionsAr: ['طيران ذهاب وإياب', 'فنادق 5 نجوم وباخرة كروز نيلية فاخرة', 'زيارة المعالم والآثار الفرعونية', 'وجبات وتنقلات كاملة']
+            },
+            'circuit-dubai': {
+                id: 'circuit-dubai',
+                category: 'voyage',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858372/EMARATE_uxuwuk.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20le%20S%C3%A9jour%20Duba%C3%AF',
+                titleFr: 'Séjour féerique et shopping à Dubaï',
+                titleAr: 'عطلة سياحية فاخرة في دبي',
+                datesFr: 'Départs chaque semaine',
+                datesAr: 'انطلاقات أسبوعية منتظمة',
+                descFr: 'Le meilleur de Dubaï : Burj Khalifa, safari désert avec dîner barbecue, croisière Dubai Marina et parcs d\'attractions.',
+                descAr: 'أجمل معالم دبي: برج خليفة، سفاري الصحراء مع عشاء مشاوي، كروز مارينا دبي وأشهر مراكز التسوق والترفيه العالمية.',
+                inclusionsFr: ['Vol A/R', 'Hôtels de standing avec petit déjeuner', 'Safari désert 4x4', 'Visites guidées et transferts'],
+                inclusionsAr: ['تذاكر طيران ذهاب وعودة', 'إقامة فندقية فاخرة مع الإفطار', 'رحلة سفاري صحراوي بسيارات الدفع الرباعي', 'جولات سياحية وتنقلات خاصة']
+            },
+            'circuit-bahrein': {
+                id: 'circuit-bahrein',
+                category: 'voyage',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858283/BAHRAIN_jfazqq.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20d%C3%A9couvrir%20Bahre%C3%AFn',
+                titleFr: 'Découverte culturelle de Bahreïn',
+                titleAr: 'اكتشاف ثقافة وسحر البحرين',
+                datesFr: 'Séjours modulables',
+                datesAr: 'رحلات مرنة حسب الطلب',
+                descFr: 'Séjour culturel et balnéaire dans l\'archipel de Bahreïn, entre traditions perlières et modernité.',
+                descAr: 'رحلة تجمع بين الأصالة والتاريخ وتراث صيد اللؤلؤ وشواطئ الخليج الهادئة في البحرين.',
+                inclusionsFr: ['Vol et hôtel', 'Visa électronique', 'Transferts aéroport'],
+                inclusionsAr: ['طيران وفندق', 'تأشيرة إلكترونية', 'استقبال ونقل من المطار']
+            },
+            'circuit-qatar': {
+                id: 'circuit-qatar',
+                category: 'voyage',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858374/QATAR_x4kerr.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20un%20s%C3%A9jour%20au%20Qatar',
+                titleFr: 'Séjour moderne & Musée à Doha (Qatar)',
+                titleAr: 'سياحة حديثة وثقافة في الدوحة (قطر)',
+                datesFr: 'Départs réguliers',
+                datesAr: 'رحلات منتظمة',
+                descFr: 'Doha, Souq Waqif, Katara, musées d\'art islamique et mer intérieure pour un voyage unique.',
+                descAr: 'استمتع بأجمل وجهات الدوحة: سوق واقف، قرية كتارا الثقافية، متاحف الفن الإسلامي ورحلات الكثبان الرملية.',
+                inclusionsFr: ['Vol et hébergement 4★/5★', 'Visa Hayya', 'Transferts'],
+                inclusionsAr: ['طيران وفنادق 4 أو 5 نجوم', 'التأشيرة الرسمية', 'تنقلات واستقبال']
+            },
+            'circuit-vietnam': {
+                id: 'circuit-vietnam',
+                category: 'voyage',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858823/VITNAM_oush4e.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20le%20Circuit%20Vietnam',
+                titleFr: 'Circuit authentique au Vietnam',
+                titleAr: 'رحلة استكشاف فيتنام الأصيلة',
+                datesFr: '12 jours • Baie d\'Halong & Hanoï',
+                datesAr: '12 يوماً • خليج هالونغ وهانوي',
+                descFr: 'Traversée du Vietnam du Nord au Sud, croisière magique dans la baie d\'Halong et rizières en terrasse.',
+                descAr: 'رحلة أسطورية عبر فيتنام، كروز ساحر في خليج هالونغ وزيارة حقول الأرز والقرى التراثية العريقة.',
+                inclusionsFr: ['Vols internationaux et internes', 'Croisière Halong 5★', 'Hôtels sélectionnés', 'Guide francophone'],
+                inclusionsAr: ['طيران دولي وداخلي', 'كروز فاخر في خليج هالونغ', 'فنادق مميزة', 'مرشد سياحي متمرس']
+            },
+            'circuit-singapour': {
+                id: 'circuit-singapour',
+                category: 'voyage',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858379/SANGAFORA_qzofa1.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20le%20Voyage%20Singapour',
+                titleFr: 'Escales futuristes à Singapour',
+                titleAr: 'رحلة سنغافورة المستقبلية',
+                datesFr: 'Idéal combiné Malaisie / Singapour',
+                datesAr: 'مثالية مدمجة مع ماليزيا أو بمفردها',
+                descFr: 'Marina Bay Sands, Gardens by the Bay, île de Sentosa et attractions de classe mondiale.',
+                descAr: 'مارينا باي، حدائق الخليج المستقبلية، جزيرة سنتوسا الترفيهية وأرقى معالم السياحة والتسوق في آسيا.',
+                inclusionsFr: ['Vols A/R', 'Hôtels centraux', 'Excursions guidées'],
+                inclusionsAr: ['طيران ذهاب وإياب', 'فنادق في قلب المدينة', 'جولات سياحية منظمة']
+            },
+            'circuit-bali': {
+                id: 'circuit-bali',
+                category: 'voyage',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858373/INDONISIA_m2enha.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20le%20Voyage%20Bali%20Indon%C3%A9sie',
+                titleFr: 'Vacances de rêve à Bali & Indonésie',
+                titleAr: 'عطلة الأحلام في بالي وإندونيسيا',
+                datesFr: '10 à 14 jours • Ubud & Plages',
+                datesAr: 'من 10 إلى 14 يوماً • أوبود والشواطئ',
+                descFr: 'Villas avec piscine privée, rizières d\'Ubud, cascades secrètes et plages de sable blanc à Bali.',
+                descAr: 'فيلات راقية بمسبح خاص، حقول الأرز في أوبود، شلالات طبيعية مذهلة وشواطئ بالي الساحرة في إندونيسيا.',
+                inclusionsFr: ['Vols', 'Villas avec piscine', 'Chauffeur privé balinais', 'Excursions incluses'],
+                inclusionsAr: ['طيران دولي', 'فيلات فاخرة مع مسبح خاص', 'سائق خاص ومرافق', 'جولات وأنشطة سياحية']
+            },
+            'circuit-thailande': {
+                id: 'circuit-thailande',
+                category: 'voyage',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858817/TAYLAND_nmbahl.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20le%20Circuit%20Tha%C3%AFlande',
+                titleFr: 'Circuit paradisiaque en Thaïlande',
+                titleAr: 'رحلة تايلاند الساحرة',
+                datesFr: 'Bangkok, Phuket et îles Phi Phi',
+                datesAr: 'بانكوك، بوكيت وجزر بي بي',
+                descFr: 'Vivez le meilleur de la Thaïlande entre métropole animée, temples somptueux et îles aux eaux turquoise.',
+                descAr: 'أجواء استوائية ساحرة بين بانكوك العاصمة، شواطئ وجزر بوكيت وجولات القوارب السريعة في تايلاند.',
+                inclusionsFr: ['Vols internationaux et locaux', 'Hôtels 4★ et resorts', 'Tours des îles en speedboat'],
+                inclusionsAr: ['طيران دولي وداخلي', 'منتجعات وفنادق 4 نجوم', 'رحلات القوارب السريعة للجزر']
+            },
+            'circuit-srilanka': {
+                id: 'circuit-srilanka',
+                category: 'voyage',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858415/SRILANKA_e91f1o.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20le%20Circuit%20Sri%20Lanka',
+                titleFr: 'Voyage nature au Sri Lanka',
+                titleAr: 'سياحة الطبيعة وسفاري سريلانكا',
+                datesFr: 'Plantations de thé & Safaris',
+                datesAr: 'مزارع الشاي وجولات السفاري',
+                descFr: 'L\'île d\'émeraude : train panoramique d\'Ella, safari léopards et éléphants, et plages de l\'océan Indien.',
+                descAr: 'جزيرة الياقوت الساحرة: قطار إيلا البانورامي، رحلات السفاري للحيوانات البرية وشواطئ المحيط الهندي الخلابة.',
+                inclusionsFr: ['Vols', 'Hôtels avec vue panoramique', 'Safari 4x4', 'Chauffeur guide privé'],
+                inclusionsAr: ['تذاكر طيران', 'فنادق بإطلالات بانورامية', 'سفاري سيارات الدفع الرباعي', 'سائق ومرشد خاص']
+            },
+            'circuit-malaisie': {
+                id: 'circuit-malaisie',
+                category: 'voyage',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858372/MALIZYA_yannvd.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20le%20Voyage%20Malaisie',
+                titleFr: 'Circuit enchanteur en Malaisie',
+                titleAr: 'رحلة ماليزيا الرائعة',
+                datesFr: 'Kuala Lumpur, Penang & Langkawi',
+                datesAr: 'كوالالمبور، بينانغ وجزيرة لنكاوي',
+                descFr: 'Destination familiale par excellence : tours Petronas, shopping, téléphérique de Langkawi et nature tropicale.',
+                descAr: 'الوجهة العائلية المثالية للمغاربة: برجا بتروناس، تلفريك لنكاوي، شواطئ استوائية ومنتجعات عائلية راقية.',
+                inclusionsFr: ['Vols A/R et internes', 'Hôtels familiaux confort', 'Transferts et tours guidés'],
+                inclusionsAr: ['طيران دولي وداخلي', 'فنادق عائلية مريحة', 'تنقلات وجولات سياحية كاملة']
+            },
+            'billet-avion': {
+                id: 'billet-avion',
+                category: 'billet',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771094/HAJZ_cpo63j.jpg',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20un%20devis%20de%20Billet%20d\'avion',
+                titleFr: 'Billetterie d\'avion aux meilleurs tarifs',
+                titleAr: 'حجز تذاكر الطيران بأفضل الأسعار التنافسية',
+                datesFr: 'Comparaison en temps réel sur toutes les compagnies',
+                datesAr: 'مقارنة فورية لكافة خطوط الطيران العالمية',
+                descFr: 'Vols réguliers et low-cost vers l\'Arabie Saoudite, la Turquie, l\'Égypte, l\'Europe, l\'Asie et le Moyen-Orient au départ du Maroc.',
+                descAr: 'توفير تذاكر الطيران المباشرة والترانزيت إلى السعودية، تركيا، مصر، أوروبا ودول الخليج بأسعار تفضيلية مخفضة.',
+                inclusionsFr: ['Bagages inclus selon compagnie', 'Assistance modification & réémission', 'Paiement sécurisé'],
+                inclusionsAr: ['أمتعة مسجلة حسب خطوط الطيران', 'خدمة تعديل المواعيد ومتابعة الحجز', 'دفع آمن واستلام فوري للتذكرة']
+            },
+            'hotel-resa': {
+                id: 'hotel-resa',
+                category: 'billet',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1767003257/r%C3%A9servation_h%C3%B4tel_vgneua.png',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20r%C3%A9server%20un%20H%C3%B4tel',
+                titleFr: 'Réservation d\'hôtels à Makkah, Madinah et dans le monde',
+                titleAr: 'حجز فنادق في مكة والمدينة وحول العالم',
+                datesFr: 'Tarifs négociés directs de 3★ à 5★ Luxe',
+                datesAr: 'أسعار مباشرة ومخفضة من 3 إلى 5 نجوم فاخرة',
+                descFr: 'Sahab Voyages dispose de contrats directs avec les plus grands hôtels des Haramains et des capitales touristiques.',
+                descAr: 'عقود حصرية ومباشرة مع كبرى سلاسل الفنادق القريبة من الحرم المكي والحرم النبوي الشريف لضمان أفضل سعر وخدمة.',
+                inclusionsFr: ['Confirmation immédiate', 'Formules avec ou sans repas', 'Assistance sur place'],
+                inclusionsAr: ['تأكيد حجز فوري وموثوق', 'خيارات مع الإفطار أو بدونه', 'متابعة وتسكين سلس ومريح']
+            },
+            'visa-package': {
+                id: 'visa-package',
+                category: 'billet',
+                image: 'https://res.cloudinary.com/dkusr0hu1/image/upload/v1767003391/r%C3%A9servation_h%C3%B4tel_et_billet_pour_visa_wjjywh.png',
+                waUrl: 'https://wa.me/212623945729?text=Bonjour%20Sahab%20Voyages%2C%20je%20souhaite%20un%20dossier%20H%C3%B4tel%20%2B%20Billet%20pour%20demande%20de%20Visa',
+                titleFr: 'Réservation hôtel + billet pour demande de visa',
+                titleAr: 'حجز فندق وتذكرة طيران معتمدة لملف التأشيرة',
+                datesFr: 'Délivrance sous 2 heures • Conforme consulats',
+                datesAr: 'تسليم رسمي خلال ساعتين • معتمد لدى القنصليات',
+                descFr: 'Réservations confirmées et vérifiables nécessaires pour vos demandes de visas Schengen, Canada, Royaume-Uni, etc.',
+                descAr: 'حجوزات طيران وفنادق رسمية ومؤكدة قابلة للتحقق ومطابقة لجميع شروط قنصليات شنغن، كندا، بريطانيا وغيرها.',
+                inclusionsFr: ['Billet d\'avion confirmé pour visa', 'Voucher d\'hôtel officiel avec cachet', 'Délivrance rapide par WhatsApp ou agence'],
+                inclusionsAr: ['تذكرة طيران مؤكدة لملف التأشيرة', 'حجز فندقي رسمي ومختوم', 'تسليم فوري عبر واتساب أو بالوكالة']
+            }
+        };
+
+        function openOfferDetails(id) {
+            const offer = offersData[id];
+            if (!offer) return;
+            activeOfferId = id;
+            renderOfferDetails(id);
+            showSection('offer-details');
+            trackEvent(`view_offer_${id}`);
+        }
+
+        function renderOfferDetails(id) {
+            const offer = offersData[id];
+            if (!offer) return;
+
+            const isAr = currentLanguage === 'ar';
+            const title = isAr ? (offer.titleAr || offer.titleFr) : (offer.titleFr || offer.titleAr);
+            const dates = isAr ? (offer.datesAr || offer.datesFr) : (offer.datesFr || offer.datesAr);
+            const desc = isAr ? (offer.descAr || offer.descFr) : (offer.descFr || offer.descAr);
+            const inclusions = isAr ? (offer.inclusionsAr || offer.inclusionsFr || []) : (offer.inclusionsFr || offer.inclusionsAr || []);
+
+            const imgEl = document.getElementById('detailImg');
+            if (imgEl) {
+                imgEl.src = offer.image;
+                imgEl.alt = title;
+            }
+
+            const titleEl = document.getElementById('detailTitle');
+            if (titleEl) titleEl.textContent = title;
+
+            const breadcrumbEl = document.getElementById('detailBreadcrumbTitle');
+            if (breadcrumbEl) breadcrumbEl.textContent = title;
+
+            const datesEl = document.getElementById('detailDatesText');
+            if (datesEl) datesEl.textContent = dates;
+
+            const descEl = document.getElementById('detailDesc');
+            if (descEl) descEl.textContent = desc;
+
+            const badgeEl = document.getElementById('detailBadgeCat');
+            if (badgeEl) {
+                const catLabels = {
+                    omra: isAr ? 'عمرة وحج' : 'Omra & Hajj',
+                    visa: isAr ? 'تأشيرة رسمية' : 'Visa Touristique',
+                    voyage: isAr ? 'رحلة سياحية' : 'Circuit & Séjour',
+                    billet: isAr ? 'طيران وفنادق' : 'Billetterie & Hôtels'
+                };
+                badgeEl.textContent = catLabels[offer.category] || (isAr ? 'عرض خاص' : 'Offre Spéciale');
+            }
+
+            const inclusionsListEl = document.getElementById('detailInclusionsList');
+            if (inclusionsListEl) {
+                inclusionsListEl.innerHTML = inclusions.map(item => `
+                    <div class="flex items-start gap-2.5 py-1">
+                        <i class="fas fa-check-circle text-emerald-500 mt-1 shrink-0"></i>
+                        <span class="font-medium text-slate-700">${item}</span>
+                    </div>
+                `).join('');
+            }
+
+            const waBtn = document.getElementById('detailWaBtn');
+            if (waBtn) {
+                waBtn.href = offer.waUrl;
+            }
+        }
+
         // Scroll progress bar
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -3570,9 +4501,13 @@ const translations = {
             // Gestion de l'ancre d'URL
             if (window.location.hash) {
                 const targetId = window.location.hash.substring(1);
-                const targetSec = document.getElementById(targetId);
-                if (targetSec && targetSec.classList.contains('page-section')) {
-                    showSection(targetId);
+                if (typeof offersData !== 'undefined' && offersData[targetId]) {
+                    openOfferDetails(targetId);
+                } else {
+                    const targetSec = document.getElementById(targetId);
+                    if (targetSec && targetSec.classList.contains('page-section')) {
+                        showSection(targetId);
+                    }
                 }
             }
             
