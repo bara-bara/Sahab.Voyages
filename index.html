@@ -91,6 +91,46 @@
             "reviewCount": "127",
             "bestRating": "5",
             "worstRating": "1"
+          },
+          "subOrganization": [
+            {
+              "@type": "TravelAgency",
+              "name": "Sahab Voyages – Agence Ain Chock",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Kissariat Mosque Al Mossalla, N B1",
+                "addressLocality": "Casablanca",
+                "addressRegion": "Casablanca-Settat",
+                "addressCountry": "MA"
+              },
+              "telephone": "+212522508334"
+            }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Forfaits Omra, Hajj & Visas 2027",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Trip",
+                  "name": "Omra Ramadan 2027 (1448)",
+                  "description": "Forfait complet Omra Ramadan 2027 avec vols directs, hébergement de standing à Makkah et Madinah, visa électronique saoudien et accompagnement religieux."
+                },
+                "priceCurrency": "MAD",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Trip",
+                  "name": "Omra Chawwal 2027 (1448)",
+                  "description": "Programme Omra Chawwal 2027 au départ de Casablanca, hôtels proches des Harams, encadrement qualifié."
+                },
+                "priceCurrency": "MAD",
+                "availability": "https://schema.org/InStock"
+              }
+            ]
           }
         },
         {
@@ -119,17 +159,52 @@
               "position": 2,
               "name": "Omra 2027 Maroc",
               "item": "https://www.sahabvoyages.ma/#offers"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Guide & Valise du Pèlerin",
+              "item": "https://www.sahabvoyages.ma/#guide"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "FAQ Omra & Hajj",
+              "item": "https://www.sahabvoyages.ma/#faq"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Contact Casablanca",
+              "item": "https://www.sahabvoyages.ma/#contact"
             }
           ]
+        },
+        {
+          "@type": "Article",
+          "@id": "https://www.sahabvoyages.ma/#article-guide",
+          "headline": "الدليل الشامل للسفر في 2027: حجز العمرة والحج، التأشيرات، وأفضل الوجهات السياحية",
+          "description": "دليل إرشادي من خبراء وكالة أسفار سحاب بالدار البيضاء حول مناسك العمرة، شروط التأشيرات، وحجز الفنادق والطيران.",
+          "author": {
+            "@type": "Organization",
+            "name": "Sahab Voyages"
+          },
+          "publisher": {
+            "@id": "https://www.sahabvoyages.ma/#agency"
+          },
+          "datePublished": "2026-03-09",
+          "dateModified": "2026-09-24",
+          "image": "https://res.cloudinary.com/dkusr0hu1/image/upload/v1773095627/Omra_2026_Prix_Omra_Voyage_Omra_Agence_Omra-_Prix_Omra_2026_Prix_Omra_Omra_2026_wmyq3g.png",
+          "mainEntityOfPage": "https://www.sahabvoyages.ma/#blog"
         }
       ]
     }
     </script>
 
     <!-- Hreflang pour le multilinguisme SEO -->
-    <link rel="alternate" hreflang="fr" href="https://sahabvoyages.ma/fr">
-    <link rel="alternate" hreflang="ar" href="https://sahabvoyages.ma/ar">
-    <link rel="alternate" hreflang="x-default" href="https://sahabvoyages.ma">
+    <link rel="alternate" hreflang="fr" href="https://www.sahabvoyages.ma/?lang=fr">
+    <link rel="alternate" hreflang="ar" href="https://www.sahabvoyages.ma/?lang=ar">
+    <link rel="alternate" hreflang="x-default" href="https://www.sahabvoyages.ma/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -404,6 +479,103 @@
         [lang="ar"] .faq-item {
             border-right: none;
             border-left: 6px solid var(--sahab-blue);
+        }
+
+        /* ========== ESTIMATOR & CALCULATOR ========== */
+        .estimator-box {
+            background: linear-gradient(145deg, #ffffff 0%, #f0f6ff 100%);
+            border: 2px solid #dbeafe;
+            border-radius: 28px;
+            box-shadow: 0 15px 35px rgba(0, 74, 173, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .estimator-result-card {
+            background: linear-gradient(135deg, var(--sahab-blue) 0%, #002b66 100%);
+            color: white;
+            border-radius: 22px;
+            box-shadow: 0 12px 30px rgba(0, 74, 173, 0.25);
+        }
+        
+        /* ========== CHECKLIST INTERACTIVE ========== */
+        .checklist-item {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        .checklist-item:hover {
+            background-color: #f1f5f9;
+        }
+        .checklist-checkbox {
+            width: 22px;
+            height: 22px;
+            accent-color: var(--sahab-blue);
+            cursor: pointer;
+        }
+        .checklist-item.checked {
+            opacity: 0.7;
+            background-color: #f8fafc;
+        }
+        .checklist-item.checked .checklist-title {
+            text-decoration: line-through;
+            color: #64748b;
+        }
+
+        /* ========== FAQ ACCORDION ========== */
+        .faq-accordion-header {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-accordion-chevron {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.1rem;
+            color: var(--sahab-blue);
+        }
+        .faq-accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+        .faq-item.open .faq-accordion-body {
+            max-height: 600px;
+            opacity: 1;
+            margin-top: 14px;
+        }
+        .faq-item.open .faq-accordion-chevron {
+            transform: rotate(180deg);
+        }
+
+        /* ========== RITE STEP CARD ========== */
+        .rite-step-card {
+            background: white;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .rite-step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(0, 74, 173, 0.08);
+            border-color: #93c5fd;
+        }
+        .rite-step-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sahab-blue) 0%, #1e40af 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 74, 173, 0.3);
+            flex-shrink: 0;
         }
         
         /* ========== BLOG SECTION ========== */
@@ -733,6 +905,7 @@
                 <button onclick="showSection('home')" class="hover:text-blue-700 transition" data-i18n="nav.home">Accueil</button>
                 <button onclick="showSection('about')" class="hover:text-blue-700 transition" data-i18n="nav.about">À Propos</button>
                 <button onclick="showSection('offers')" class="hover:text-blue-700 transition" data-i18n="nav.offers">Nos Offres</button>
+                <button onclick="showSection('guide')" class="hover:text-blue-700 transition" data-i18n="nav.guide">Guide & Valise</button>
                 <button onclick="showSection('faq')" class="hover:text-blue-700 transition" data-i18n="nav.faq">FAQ</button>
                 <button onclick="showSection('blog')" class="hover:text-blue-700 transition" data-i18n="nav.blog">Blog</button>
                 <!-- NOUVEAU : Vlogs -->
@@ -772,6 +945,9 @@
                 </button>
                 <button onclick="showSection('offers')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-suitcase text-blue-600 w-6"></i> <span data-i18n="nav.offers">Nos Offres</span>
+                </button>
+                <button onclick="showSection('guide')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                    <i class="fas fa-clipboard-check text-blue-600 w-6"></i> <span data-i18n="nav.guide">Guide & Valise</span>
                 </button>
                 <button onclick="showSection('faq')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
                     <i class="fas fa-question-circle text-blue-600 w-6"></i> <span data-i18n="nav.faq">FAQ</span>
@@ -939,6 +1115,99 @@
                         <div class="relative flex items-center">
                             <i class="fas fa-search absolute left-4 text-gray-400 pointer-events-none"></i>
                             <input type="text" id="offerSearchInput" oninput="searchOffers(this.value)" placeholder="Rechercher une offre (ex: Ramadan, Visa, Dubaï...)" class="w-full pl-11 pr-4 py-3 rounded-full border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm text-gray-800 bg-white" aria-label="Rechercher une offre de voyage">
+                        </div>
+                    </div>
+
+                    <!-- Interactive Pilgrimage Cost Estimator (Simulateur de Devis Omra) -->
+                    <div class="estimator-box p-6 md:p-10 mb-16 text-left" id="omraEstimator">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 pb-6 border-b border-blue-100 gap-4">
+                            <div>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-black uppercase px-3 py-1 rounded-full inline-block mb-2" data-i18n="estimator.badge">Simulateur Interactif</span>
+                                <h3 class="text-2xl md:text-3xl font-black text-blue-900" data-i18n="estimator.title">حاسبة تكلفة باقة العمرة التقديرية 🕋 | Simulateur Devis Omra</h3>
+                                <p class="text-gray-600 text-sm md:text-base mt-1" data-i18n="estimator.subtitle">اختر رغباتك وسيقوم النظام بحساب التكلفة التقديرية بدقة وإرسالها مباشرة لواتساب للحجز الفوري.</p>
+                            </div>
+                            <span class="inline-flex items-center gap-2 bg-amber-100 text-amber-900 px-4 py-2 rounded-xl font-bold text-xs md:text-sm">
+                                <i class="fas fa-check-circle text-amber-600"></i> <span data-i18n="estimator.guarantee">أسعار شفافة وبدون رسوم خفية</span>
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                            <!-- Saison -->
+                            <div>
+                                <label class="block text-xs font-black uppercase text-gray-700 mb-2" data-i18n="estimator.label_season">الموسم / الفترة</label>
+                                <select id="estSeason" onchange="calculateEstimate()" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 font-bold text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                    <option value="ramadan" data-i18n="estimator.opt_ramadan">عمرة رمضان 2027 (1448)</option>
+                                    <option value="chawwal" data-i18n="estimator.opt_chawwal">عمرة شوال 2027 (1448)</option>
+                                    <option value="vacances" data-i18n="estimator.opt_vacances">العطل المدرسية / أكتوبر ونوفمبر</option>
+                                    <option value="standard" selected data-i18n="estimator.opt_standard">الأشهر العادية (اقتصادية)</option>
+                                </select>
+                            </div>
+
+                            <!-- Catégorie Hôtel -->
+                            <div>
+                                <label class="block text-xs font-black uppercase text-gray-700 mb-2" data-i18n="estimator.label_hotel">مستوى الإقامة</label>
+                                <select id="estHotel" onchange="calculateEstimate()" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 font-bold text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                    <option value="eco" selected data-i18n="estimator.opt_hotel_eco">اقتصادي (3 نجوم - 800م مع نقل)</option>
+                                    <option value="confort" data-i18n="estimator.opt_hotel_confort">متميز (4 نجوم - 350م مشياً)</option>
+                                    <option value="vip" data-i18n="estimator.opt_hotel_vip">فاخر VIP (5 نجوم مطل أو ساحة الحرم)</option>
+                                </select>
+                            </div>
+
+                            <!-- Chambre -->
+                            <div>
+                                <label class="block text-xs font-black uppercase text-gray-700 mb-2" data-i18n="estimator.label_room">نوع الغرفة</label>
+                                <select id="estRoom" onchange="calculateEstimate()" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 font-bold text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                    <option value="quad" selected data-i18n="estimator.opt_room_quad">غرفة رباعية (4 أفراد)</option>
+                                    <option value="triple" data-i18n="estimator.opt_room_triple">غرفة ثلاثية (3 أفراد)</option>
+                                    <option value="double" data-i18n="estimator.opt_room_double">غرفة ثنائية (زوجية / فردين)</option>
+                                </select>
+                            </div>
+
+                            <!-- Nombre de pèlerins & Ville -->
+                            <div>
+                                <label class="block text-xs font-black uppercase text-gray-700 mb-2" data-i18n="estimator.label_persons">عدد المعتمرين ومطار الإقلاع</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <select id="estPersons" onchange="calculateEstimate()" class="w-full bg-white border border-gray-200 rounded-xl px-3 py-3 font-bold text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                        <option value="1">1 فرد</option>
+                                        <option value="2" selected>2 أفراد</option>
+                                        <option value="3">3 أفراد</option>
+                                        <option value="4">4 أفراد</option>
+                                        <option value="5">5+ أفراد</option>
+                                    </select>
+                                    <select id="estCity" onchange="calculateEstimate()" class="w-full bg-white border border-gray-200 rounded-xl px-2 py-3 font-bold text-xs text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                        <option value="Casablanca" selected>الدار البيضاء (CMN)</option>
+                                        <option value="Rabat">الرباط (RBA)</option>
+                                        <option value="Marrakech">مراكش (RAK)</option>
+                                        <option value="Fes">فاس (FEZ)</option>
+                                        <option value="Tanger">طنجة (TNG)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Résultat de l'estimation -->
+                        <div class="estimator-result-card p-6 md:p-8 flex flex-col lg:flex-row items-center justify-between gap-6">
+                            <div class="space-y-2 text-center lg:text-left">
+                                <div class="flex items-center justify-center lg:justify-start gap-3">
+                                    <span class="text-xs font-bold text-amber-300 uppercase tracking-widest" data-i18n="estimator.est_price_title">التقدير التقريبي للباقة</span>
+                                    <span class="bg-blue-800/80 text-xs px-2.5 py-0.5 rounded-full text-blue-200" id="estDetailsSummary">فردين - اقتصادي</span>
+                                </div>
+                                <div class="flex items-baseline justify-center lg:justify-start gap-2">
+                                    <span class="text-3xl md:text-5xl font-black text-amber-400" id="estPriceDisplay">17,500</span>
+                                    <span class="text-lg font-bold text-white/90" data-i18n="estimator.mad_per_person">درهم مغربي / للفرد</span>
+                                </div>
+                                <p class="text-xs md:text-sm text-blue-100 flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
+                                    <span><i class="fas fa-plane mr-1 text-amber-400"></i> <span data-i18n="estimator.inc_flight">تذكرة طيران</span></span> • 
+                                    <span><i class="fas fa-passport mr-1 text-amber-400"></i> <span data-i18n="estimator.inc_visa">تأشيرة وتأمين</span></span> • 
+                                    <span><i class="fas fa-hotel mr-1 text-amber-400"></i> <span data-i18n="estimator.inc_hotel">فندق مكة والمدينة</span></span> • 
+                                    <span><i class="fas fa-bus mr-1 text-amber-400"></i> <span data-i18n="estimator.inc_transfers">تنقلات وتأطير</span></span>
+                                </p>
+                            </div>
+                            <div class="w-full lg:w-auto flex flex-col sm:flex-row gap-3">
+                                <button onclick="sendEstimateViaWhatsApp()" class="bg-green-500 hover:bg-green-600 text-white font-extrabold px-8 py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-3 text-base w-full sm:w-auto">
+                                    <i class="fab fa-whatsapp text-2xl"></i> <span data-i18n="estimator.cta_wa">تأكيد الحجز والاستفسار عبر واتساب</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1252,69 +1521,428 @@
             </div>
         </section>
 
-        <!-- ========== FAQ SECTION (INDÉPENDANTE) ========== -->
+        <!-- ========== GUIDE & VALISE DU PÈLERIN SECTION ========== -->
+        <section id="guide" class="page-section py-20 px-6 bg-slate-50">
+            <div class="max-w-6xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <span class="bg-blue-100 text-blue-900 text-xs md:text-sm font-black uppercase px-4 py-1.5 rounded-full inline-block mb-3" data-i18n="guide.badge">Espace Pèlerin & Conseils</span>
+                    <h2 class="text-4xl md:text-6xl font-black text-blue-900 mb-6" data-i18n="guide.title">دليل مناسك العمرة وحقيبة السفر التفاعلية</h2>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-medium" data-i18n="guide.subtitle">
+                        دليل شامل لمناسك العمرة خطوة بخطوة وفق هدي النبي ﷺ، مع أداة تفاعلية لتنظيم وتجهيز حقيبة سفرك بكل سهولة قبل الإقلاع من المغرب.
+                    </p>
+                    <div class="w-24 h-1.5 bg-amber-400 mx-auto mt-6 rounded-full"></div>
+                </div>
+
+                <!-- Navigation Tabs inside Guide -->
+                <div class="flex justify-center gap-3 mb-12 flex-wrap">
+                    <button onclick="switchGuideTab('rites')" id="btn-guide-rites" class="px-6 py-3 rounded-full font-black text-sm md:text-base transition bg-blue-900 text-white shadow-md flex items-center gap-2">
+                        <i class="fas fa-kaaba"></i> <span data-i18n="guide.tab_rites">مناسك العمرة خطوة بخطوة</span>
+                    </button>
+                    <button onclick="switchGuideTab('checklist')" id="btn-guide-checklist" class="px-6 py-3 rounded-full font-black text-sm md:text-base transition bg-white text-gray-700 hover:bg-gray-100 shadow-sm border border-gray-200 flex items-center gap-2">
+                        <i class="fas fa-clipboard-check text-green-600"></i> <span data-i18n="guide.tab_checklist">حقيبة المعتمر التفاعلية</span>
+                    </button>
+                    <button onclick="switchGuideTab('tips')" id="btn-guide-tips" class="px-6 py-3 rounded-full font-black text-sm md:text-base transition bg-white text-gray-700 hover:bg-gray-100 shadow-sm border border-gray-200 flex items-center gap-2">
+                        <i class="fas fa-lightbulb text-amber-500"></i> <span data-i18n="guide.tab_tips">إرشادات وتوجيهات عملية</span>
+                    </button>
+                </div>
+
+                <!-- SUBSECTION 1: MANASIK EL OMRA (RITES) -->
+                <div id="guide-tab-rites" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Étape 1: الإحرام -->
+                        <div class="rite-step-card p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="rite-step-badge">1</span>
+                                    <span class="text-xs font-black text-blue-700 bg-blue-50 px-3 py-1 rounded-full uppercase" data-i18n="guide.step1_tag">الميقات والإحرام</span>
+                                </div>
+                                <h3 class="text-xl font-black text-gray-900 mb-2" data-i18n="guide.step1_title">الإحرام من الميقات والنّيّة</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-4" data-i18n="guide.step1_desc">
+                                    الاغتسال والتطيب (في البدن فقط) ولبس ملابس الإحرام (إزار ورداء للرجال، وملابس شرعية عادية للنساء). ثم عقد النية والتلبية: "لَبَّيْكَ اللَّهُمَّ عُمْرَةً".
+                                </p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-xl text-xs text-blue-900 font-bold border-l-4 border-blue-600" data-i18n="guide.step1_dua">
+                                "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ..."
+                            </div>
+                        </div>
+
+                        <!-- Étape 2: الطواف -->
+                        <div class="rite-step-card p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="rite-step-badge">2</span>
+                                    <span class="text-xs font-black text-blue-700 bg-blue-50 px-3 py-1 rounded-full uppercase" data-i18n="guide.step2_tag">البيت الحرام</span>
+                                </div>
+                                <h3 class="text-xl font-black text-gray-900 mb-2" data-i18n="guide.step2_title">طواف العمرة (7 أشواط)</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-4" data-i18n="guide.step2_desc">
+                                    دخول المسجد الحرام بالقدم اليمنى، ثم ابتداء الطواف من محاذاة الحجر الأسود جاعلاً الكعبة عن يسارك، وتكرار 7 أشواط كاملة مع الذكر والدعاء بما تيسر.
+                                </p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-xl text-xs text-blue-900 font-bold border-l-4 border-blue-600" data-i18n="guide.step2_dua">
+                                بين الركن اليماني والحجر الأسود: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ".
+                            </div>
+                        </div>
+
+                        <!-- Étape 3: ركعتا الطواف وزمزم -->
+                        <div class="rite-step-card p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="rite-step-badge">3</span>
+                                    <span class="text-xs font-black text-blue-700 bg-blue-50 px-3 py-1 rounded-full uppercase" data-i18n="guide.step3_tag">مقام إبراهيم</span>
+                                </div>
+                                <h3 class="text-xl font-black text-gray-900 mb-2" data-i18n="guide.step3_title">ركعتا الطواف والشرب من زمزم</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-4" data-i18n="guide.step3_desc">
+                                    صلاة ركعتين خفيفتين خلف مقام إبراهيم إن تيسر أو في أي مكان من الحرم (سورة الكافرون في الأولى، والإخلاص في الثانية)، ثم الشرب والتضلع من ماء زمزم المبارك.
+                                </p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-xl text-xs text-blue-900 font-bold border-l-4 border-blue-600" data-i18n="guide.step3_dua">
+                                الدعاء عند شرب زمزم: "اللهم إني أسألك علماً نافعاً، ورزقاً واسعاً، وشفاءً من كل داء".
+                            </div>
+                        </div>
+
+                        <!-- Étape 4: السعي -->
+                        <div class="rite-step-card p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="rite-step-badge">4</span>
+                                    <span class="text-xs font-black text-blue-700 bg-blue-50 px-3 py-1 rounded-full uppercase" data-i18n="guide.step4_tag">المسعى</span>
+                                </div>
+                                <h3 class="text-xl font-black text-gray-900 mb-2" data-i18n="guide.step4_title">السعي بين الصفا والمروة (7 أشواط)</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-4" data-i18n="guide.step4_desc">
+                                    التوجه إلى الصفا وتلاوة: "إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ..."، ثم السعي 7 أشواط؛ الذهاب من الصفا إلى المروة شوط، والرجوع إلى الصفا شوط ثانٍ، حتى ينتهي الشوط السابع عند المروة.
+                                </p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-xl text-xs text-blue-900 font-bold border-l-4 border-blue-600" data-i18n="guide.step4_dua">
+                                الإكثار من التكبير والتهليل والدعاء الصادق للوالدين والأسرة وأهل المغرب عامة.
+                            </div>
+                        </div>
+
+                        <!-- Étape 5: الحلق أو التقصير -->
+                        <div class="rite-step-card p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="rite-step-badge">5</span>
+                                    <span class="text-xs font-black text-blue-700 bg-blue-50 px-3 py-1 rounded-full uppercase" data-i18n="guide.step5_tag">التحلل التام</span>
+                                </div>
+                                <h3 class="text-xl font-black text-gray-900 mb-2" data-i18n="guide.step5_title">الحلق أو التقصير والتحلل</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-4" data-i18n="guide.step5_desc">
+                                    حلق شعر الرأس كاملاً أو تقصيره من كافة جوانب الرأس للرجال (والحلق أفضل)، وتقصير قيد أُنملة من أطراف الشعر للنساء. وبذلك تتم العمرة ويحل للمعتمر كل محظورات الإحرام.
+                                </p>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-xl text-xs text-green-900 font-bold border-l-4 border-green-600" data-i18n="guide.step5_dua">
+                                تقبل الله عمرتكم وطاعتكم وجعلها عمرة مبرورة وسعياً مشكوراً وذنباً مغفوراً.
+                            </div>
+                        </div>
+
+                        <!-- Étape Support: المواكبة والتأطير -->
+                        <div class="rite-step-card p-6 flex flex-col justify-between bg-gradient-to-br from-blue-900 to-blue-950 text-white border-0">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="w-10 h-10 rounded-full bg-amber-400 text-blue-950 font-black flex items-center justify-center text-lg"><i class="fas fa-headset"></i></span>
+                                    <span class="text-xs font-black text-amber-300 bg-white/10 px-3 py-1 rounded-full uppercase" data-i18n="guide.support_tag">مرافقة سحاب</span>
+                                </div>
+                                <h3 class="text-xl font-black text-white mb-2" data-i18n="guide.support_title">تأطير وإرشاد ديني مستمر</h3>
+                                <p class="text-blue-100 text-sm leading-relaxed mb-4" data-i18n="guide.support_desc">
+                                    يرافقكم مرشدون وعلماء دين متخصصون من وكالة أسفار سحاب طوال مراحل رحلتكم لشرح المناسك والإجابة عن الفتاوى والاستفسارات في مكة والمدينة.
+                                </p>
+                            </div>
+                            <a href="https://wa.me/212623945729" target="_blank" class="bg-amber-400 hover:bg-amber-500 text-blue-950 font-black text-center py-2.5 rounded-xl transition text-sm">
+                                <span data-i18n="guide.support_btn">استفسر عن المرشدين الدينيين</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUBSECTION 2: CHECKLIST INTERACTIVE DE LA VALISE -->
+                <div id="guide-tab-checklist" class="hidden">
+                    <div class="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-gray-100">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 pb-6 border-b gap-4">
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-black text-blue-900" data-i18n="checklist.title">قائمة حقيبة المعتمر التفاعلية (Checklist)</h3>
+                                <p class="text-gray-600 text-sm mt-1" data-i18n="checklist.subtitle">ضع علامة (✓) على كل عنصر جهزته في حقيبتك. يتم حفظ تقدمك تلقائياً في متصفحك.</p>
+                            </div>
+                            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                                <div class="text-right">
+                                    <span class="text-xs text-gray-500 font-bold" data-i18n="checklist.progress_label">نسبة الإنجاز:</span>
+                                    <span class="text-lg font-black text-blue-700 ml-2" id="checklistProgressText">0 / 16 (0%)</span>
+                                </div>
+                                <button onclick="resetChecklist()" class="text-xs text-red-600 hover:text-red-800 font-bold border border-red-200 px-3 py-1.5 rounded-lg hover:bg-red-50 transition" data-i18n="checklist.reset">إعادة ضبط</button>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden mb-10">
+                            <div id="checklistProgressBar" class="bg-gradient-to-r from-blue-600 to-green-500 h-full rounded-full transition-all duration-500" style="width: 0%;"></div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <!-- Catégorie 1: الوثائق الرسمية -->
+                            <div class="space-y-3">
+                                <h4 class="font-black text-blue-900 text-base flex items-center gap-2 border-b pb-2">
+                                    <i class="fas fa-passport text-blue-600"></i> <span data-i18n="checklist.cat_docs">الوثائق والتذاكر</span>
+                                </h4>
+                                <div class="space-y-2">
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="doc_passport" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.doc_passport">جواز السفر (صالح لأكثر من 6 أشهر)</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="doc_visa" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.doc_visa">نسخة مطبوعة من التأشيرة الإلكترونية</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="doc_tickets" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.doc_tickets">تذاكر الطيران وتأكيد حجز الفنادق</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="doc_photos" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.doc_photos">دفتر التلقيح وبطاقة الهوية الوطنية</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Catégorie 2: ملابس الإحرام -->
+                            <div class="space-y-3">
+                                <h4 class="font-black text-blue-900 text-base flex items-center gap-2 border-b pb-2">
+                                    <i class="fas fa-tshirt text-amber-600"></i> <span data-i18n="checklist.cat_clothes">ملابس الإحرام والمستلزمات</span>
+                                </h4>
+                                <div class="space-y-2">
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="cloth_ihram" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.cloth_ihram">إحرامان أبيضان من القطن الممتاز للرجال</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="cloth_belt" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.cloth_belt">حزام محفظة لوضع النقود والهاتف</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="cloth_shoes" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.cloth_shoes">حذاء أو نعل مريح بدون خياطة للطواف</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="cloth_abaya" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.cloth_abaya">عباءات فضفاضة خفيفة ومريحة للنساء</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Catégorie 3: الصحة والأدوية -->
+                            <div class="space-y-3">
+                                <h4 class="font-black text-blue-900 text-base flex items-center gap-2 border-b pb-2">
+                                    <i class="fas fa-medkit text-red-600"></i> <span data-i18n="checklist.cat_health">الحقيبة الصحية والنظافة</span>
+                                </h4>
+                                <div class="space-y-2">
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="health_cream" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.health_cream">فازلين وكريم مرطب بدون رائحة/عطر</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="health_meds" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.health_meds">مسكنات، باراسيتامول وأدويتك المزمنة</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="health_bandages" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.health_bandages">ضمادات للأقدام ضد الاحتكاك ومقص صغير</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="health_soap" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.health_soap">صابون غير معطر ومعقم يدين بدون كحول</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Catégorie 4: الروحيات والإلكترونيات -->
+                            <div class="space-y-3">
+                                <h4 class="font-black text-blue-900 text-base flex items-center gap-2 border-b pb-2">
+                                    <i class="fas fa-quran text-green-600"></i> <span data-i18n="checklist.cat_spiritual">الروحيات والأجهزة</span>
+                                </h4>
+                                <div class="space-y-2">
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="sp_book" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.sp_book">كتيب حصن المسلم وأدعية الطواف والسعي</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="sp_mat" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.sp_mat">سجادة صلاة خفيفة وقابلة للطي</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="sp_powerbank" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.sp_powerbank">بنك طاقة محمول (Powerbank) وشاحن</span>
+                                    </label>
+                                    <label class="checklist-item flex items-start gap-3 p-2.5 rounded-xl border border-gray-100">
+                                        <input type="checkbox" class="checklist-checkbox mt-1" data-item="sp_bag" onchange="toggleChecklistItem(this)">
+                                        <span class="checklist-title text-sm font-semibold text-gray-800" data-i18n="checklist.sp_bag">حقيبة ظهر خفيفة لحمل الحذاء وماء زمزم</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUBSECTION 3: CONSEILS PRATIQUES POUR LE MAROCAIN -->
+                <div id="guide-tab-tips" class="hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex items-start gap-5">
+                            <div class="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-700 text-2xl">
+                                <i class="fas fa-train"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-black text-blue-900 mb-2" data-i18n="tips.tgv_title">قطار الحرمين السريع (TGV Haramain)</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed" data-i18n="tips.tgv_desc">
+                                    يربط بين مكة المكرمة والمدينة المنورة في ساعتين فقط وبأعلى درجات الراحة والتكييف. توفر وكالة أسفار سحاب حجوزات قطار الحرمين مسبقاً مع مقاعد متجاورة للعائلات.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex items-start gap-5">
+                            <div class="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center flex-shrink-0 text-green-700 text-2xl">
+                                <i class="fas fa-sim-card"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-black text-blue-900 mb-2" data-i18n="tips.sim_title">شريحة الهاتف والإنترنت في السعودية</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed" data-i18n="tips.sim_desc">
+                                    فور وصولك إلى مطار جدة أو المدينة المنورة، تتوفر أكشاك شركات الاتصالات (STC, Mobily, Zain). يمكنك اقتناء باقة إنترنت وبيانات خاصة بالحج والعمرة بأسعار مناسبة بواسطة جواز سفرك.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex items-start gap-5">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center flex-shrink-0 text-amber-700 text-2xl">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-black text-blue-900 mb-2" data-i18n="tips.money_title">الريال السعودي واستخدام البطاقة البنكية</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed" data-i18n="tips.money_desc">
+                                    تُقبل البطاقات البنكية المغربية الدولية (Visa و Mastercard) في جميع المتاجر والفنادق بالمملكة. ننصح بتفعيل مخصصات السياحة (Dotation touristique) قبل السفر، وصرف مبلغ نقدي بالريال السعودي للمصاريف اليومية.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex items-start gap-5">
+                            <div class="w-14 h-14 rounded-2xl bg-cyan-100 flex items-center justify-center flex-shrink-0 text-cyan-700 text-2xl">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-black text-blue-900 mb-2" data-i18n="tips.zamzam_title">شحن مياه زمزم إلى المغرب</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed" data-i18n="tips.zamzam_desc">
+                                    يُسمح لكل معتمر قادم إلى المغرب بحمل عبوة رسمية واحدة من ماء زمزم سعة 5 لتر مغلفة ومختومة، وتُشترى من نقط البيع الرسمية المخصصة في مطار جدة أو المدينة المنورة لشحنها ضمن الأمتعة.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assistance CTA -->
+                <div class="mt-14 text-center">
+                    <a href="https://wa.me/212623945729" target="_blank" class="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-950 text-white font-black px-10 py-4 rounded-full text-lg shadow-xl transition" onclick="trackEvent('guide_whatsapp_cta')">
+                        <i class="fab fa-whatsapp text-2xl text-green-400"></i> <span data-i18n="guide.cta_wa">احصل على استشارة دينية ولوجستية مجانية</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FAQ SECTION (INDÉPENDANTE ET INTERACTIVE) ========== -->
         <section id="faq" class="page-section py-20 px-6 bg-white">
             <div class="max-w-4xl mx-auto">
                 <!-- Titre principal de la FAQ -->
                 <h2 class="text-4xl md:text-5xl font-black text-center text-blue-900 mb-4" data-i18n="faq.main_title">أسئلة وأجوبة عن العمرة والحج 2027 والتأشيرات والسفر</h2>
-                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="faq.intro">
+                <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto" data-i18n="faq.intro">
                     نسعى في وكالة سفريات لتقديم خدمات متكاملة تلبي جميع احتياجات سفرك. سواء كنت تخطط لأداء مناسك العمرة أو الحج في 2027، أو تحتاج تأشيرة لزيارة أوروبا، أفريقيا، أو آسيا، أو تبحث عن رحلة سياحية متكاملة مع تذاكر الطيران والفنادق، نحن هنا لخدمتك.
                 </p>
 
+                <!-- FAQ Search Input -->
+                <div class="max-w-md mx-auto mb-12">
+                    <div class="relative flex items-center">
+                        <i class="fas fa-search absolute left-4 text-gray-400 pointer-events-none"></i>
+                        <input type="text" id="faqSearchInput" oninput="filterFaqQuestions(this.value)" placeholder="ابحث في الأسئلة الشائعة (عمرة، فيزا، حجز...)" class="w-full pl-11 pr-4 py-3 rounded-full border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm text-gray-800 bg-slate-50" aria-label="Rechercher dans la FAQ">
+                    </div>
+                </div>
+
                 <!-- Catégorie : Omra & Hajj 2027 -->
-                <div class="mb-12">
+                <div class="mb-12 faq-category">
                     <h3 class="text-3xl font-black text-blue-800 mb-6 border-r-8 border-blue-600 pr-4" data-i18n="faq.cat_omra">🕋 العمرة والحج 2027: كل ما تريد معرفته</h3>
                     
-                    <div class="faq-item">
-                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.omra.q1">ما هي باقات العمرة المتوفرة لعام 2027، وما هي الأسعار المتوقعة؟</h4>
-                        <p class="text-gray-700" data-i18n="faq.omra.a1">
-                            يسعدنا في وكالة سفريات الإعلان عن باقات العمرة المتنوعة لعام 2027، المصممة لتناسب جميع الميزانيات والاحتياجات. تختلف الأسعار حسب عدة عوامل: موسم السفر (رمضان، العطل المدرسية)، مستوى الفنادق (اقتصادي، فاخر، VIP)، مدة الإقامة، وسيلة النقل، والخدمات الإضافية. للاستفسار عن العروض والأسعار الدقيقة، يرجى التواصل معنا عبر الواتساب.
-                        </p>
+                    <div class="faq-item open">
+                        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+                            <h4 class="text-xl font-black text-blue-800" data-i18n="faq.omra.q1">ما هي باقات العمرة المتوفرة لعام 2027، وما هي الأسعار المتوقعة؟</h4>
+                            <i class="fas fa-chevron-down faq-accordion-chevron"></i>
+                        </div>
+                        <div class="faq-accordion-body">
+                            <p class="text-gray-700" data-i18n="faq.omra.a1">
+                                يسعدنا في وكالة سفريات الإعلان عن باقات العمرة المتنوعة لعام 2027، المصممة لتناسب جميع الميزانيات والاحتياجات. تختلف الأسعار حسب عدة عوامل: موسم السفر (رمضان، العطل المدرسية)، مستوى الفنادق (اقتصادي، فاخر، VIP)، مدة الإقامة، وسيلة النقل، والخدمات الإضافية. للاستفسار عن العروض والأسعار الدقيقة، يرجى التواصل معنا عبر الواتساب.
+                            </p>
+                        </div>
                     </div>
                     
                     <div class="faq-item">
-                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.omra.q2">متى يبدأ التسجيل لحج 2027، وما هي الشروط؟</h4>
-                        <p class="text-gray-700" data-i18n="faq.omra.a2">
-                            من المتوقع أن تبدأ إجراءات التسجيل المبكر لحج 2027 (1447 هـ - 1448 هـ) في النصف الثاني من عام 2025 أو بداية 2027 حسب التعليمات الرسمية. الشروط الأساسية: أن يكون المتقدم مسلماً بالغاً عاقلاً، جواز سفر صالح لمدة 6 أشهر، استكمال التطعيمات المطلوبة، دفع التكاليف المقررة. ننصح بالتسجيل المبكر لضمان المقعد.
-                        </p>
+                        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+                            <h4 class="text-xl font-black text-blue-800" data-i18n="faq.omra.q2">متى يبدأ التسجيل لحج 2027، وما هي الشروط؟</h4>
+                            <i class="fas fa-chevron-down faq-accordion-chevron"></i>
+                        </div>
+                        <div class="faq-accordion-body">
+                            <p class="text-gray-700" data-i18n="faq.omra.a2">
+                                من المتوقع أن تبدأ إجراءات التسجيل المبكر لحج 2027 (1447 هـ - 1448 هـ) في النصف الثاني من عام 2025 أو بداية 2027 حسب التعليمات الرسمية. الشروط الأساسية: أن يكون المتقدم مسلماً بالغاً عاقلاً، جواز سفر صالح لمدة 6 أشهر، استكمال التطعيمات المطلوبة، دفع التكاليف المقررة. ننصح بالتسجيل المبكر لضمان المقعد.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Catégorie : Visas -->
-                <div class="mb-12">
+                <div class="mb-12 faq-category">
                     <h3 class="text-3xl font-black text-blue-800 mb-6 border-r-8 border-blue-600 pr-4" data-i18n="faq.cat_visa">🛂 التأشيرات: أوروبا، أفريقيا، آسيا</h3>
                     
                     <div class="faq-item">
-                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.visa.q1">وكالتكم تقدم تأشيرات لأي دول؟ وكيف يمكنني التقديم؟</h4>
-                        <p class="text-gray-700" data-i18n="faq.visa.a1">
-                            نعم، نقدم خدمات التقديم والتوجيه للحصول على التأشيرات السياحية لعدد كبير من الدول: أوروبا (شنغن)، أفريقيا (مصر، تونس، نيجيريا...)، آسيا (السعودية، الإمارات، قطر، ماليزيا...). للبدء، تواصل معنا لتزويدنا بجواز سفرك، صور شخصية، وأي وثائق إضافية حسب الدولة المستهدفة.
-                        </p>
+                        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+                            <h4 class="text-xl font-black text-blue-800" data-i18n="faq.visa.q1">وكالتكم تقدم تأشيرات لأي دول؟ وكيف يمكنني التقديم؟</h4>
+                            <i class="fas fa-chevron-down faq-accordion-chevron"></i>
+                        </div>
+                        <div class="faq-accordion-body">
+                            <p class="text-gray-700" data-i18n="faq.visa.a1">
+                                نعم، نقدم خدمات التقديم والتوجيه للحصول على التأشيرات السياحية لعدد كبير من الدول: أوروبا (شنغن)، أفريقيا (مصر، تونس، نيجيريا...)، آسيا (السعودية، الإمارات، قطر، ماليزيا...). للبدء، تواصل معنا لتزويدنا بجواز سفرك، صور شخصية، وأي وثائق إضافية حسب الدولة المستهدفة.
+                            </p>
+                        </div>
                     </div>
                     
                     <div class="faq-item">
-                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.visa.q2">ما هي المستندات الأساسية المطلوبة لتأشيرة شنغن (أوروبا) من المغرب؟</h4>
-                        <p class="text-gray-700" data-i18n="faq.visa.a2">
-                            المستندات الأساسية: استمارة طلب التأشيرة، جواز سفر صالح، صور شخصية، تأمين صحي للسفر، حجوزات الطيران والفنادق (وهمية أو مؤكدة)، إثبات الوسائل المالية (كشوف حساب بنكي)، إثبات العودة (خطاب عمل، عقد كراء). نحن نساعدك في تجهيز ملف متكامل.
-                        </p>
+                        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+                            <h4 class="text-xl font-black text-blue-800" data-i18n="faq.visa.q2">ما هي المستندات الأساسية المطلوبة لتأشيرة شنغن (أوروبا) من المغرب؟</h4>
+                            <i class="fas fa-chevron-down faq-accordion-chevron"></i>
+                        </div>
+                        <div class="faq-accordion-body">
+                            <p class="text-gray-700" data-i18n="faq.visa.a2">
+                                المستندات الأساسية: استمارة طلب التأشيرة، جواز سفر صالح، صور شخصية، تأمين صحي للسفر، حجوزات الطيران والفنادق (وهمية أو مؤكدة)، إثبات الوسائل المالية (كشوف حساب بنكي)، إثبات العودة (خطاب عمل، عقد كراء). نحن نساعدك في تجهيز ملف متكامل.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Catégorie : Billets & Hôtels -->
-                <div class="mb-12">
+                <div class="mb-12 faq-category">
                     <h3 class="text-3xl font-black text-blue-800 mb-6 border-r-8 border-blue-600 pr-4" data-i18n="faq.cat_travel">✈️ تذاكر الطيران والفنادق والرحلات السياحية</h3>
                     
                     <div class="faq-item">
-                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.travel.q1">كيف يمكنني حجز تذكرة طيران رخيصة وفندق مناسب من خلالكم؟</h4>
-                        <p class="text-gray-700" data-i18n="faq.travel.a1">
-                            تواصل معنا عبر الهاتف أو الواتساب، أخبرنا بوجهتك، تواريخ سفرك، عدد المسافرين. سيقوم فريقنا بالبحث في أنظمة الحجز العالمية ومقارنة الأسعار لتقديم أفضل العروض المتاحة التي تناسب ميزانيتك.
-                        </p>
+                        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+                            <h4 class="text-xl font-black text-blue-800" data-i18n="faq.travel.q1">كيف يمكنني حجز تذكرة طيران رخيصة وفندق مناسب من خلالكم؟</h4>
+                            <i class="fas fa-chevron-down faq-accordion-chevron"></i>
+                        </div>
+                        <div class="faq-accordion-body">
+                            <p class="text-gray-700" data-i18n="faq.travel.a1">
+                                تواصل معنا عبر الهاتف أو الواتساب، أخبرنا بوجهتك، تواريخ سفرك، عدد المسافرين. سيقوم فريقنا بالبحث في أنظمة الحجز العالمية ومقارنة الأسعار لتقديم أفضل العروض المتاحة التي تناسب ميزانيتك.
+                            </p>
+                        </div>
                     </div>
                     
                     <div class="faq-item">
-                        <h4 class="text-xl font-black text-blue-800 mb-3" data-i18n="faq.travel.q2">ما هي أنواع الرحلات السياحية التي تنظمونها؟</h4>
-                        <p class="text-gray-700" data-i18n="faq.travel.a2">
-                            نقدم برامج سياحية متنوعة: رحلات عائلية، رحلات شهر العسل، رحلات ثقافية، مغامرات، سياحة دينية. اتصل بنا لتصميم رحلة أحلامك.
-                        </p>
+                        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+                            <h4 class="text-xl font-black text-blue-800" data-i18n="faq.travel.q2">ما هي أنواع الرحلات السياحية التي تنظمونها؟</h4>
+                            <i class="fas fa-chevron-down faq-accordion-chevron"></i>
+                        </div>
+                        <div class="faq-accordion-body">
+                            <p class="text-gray-700" data-i18n="faq.travel.a2">
+                                نقدم برامج سياحية متنوعة: رحلات عائلية، رحلات شهر العسل، رحلات ثقافية، مغامرات، سياحة دينية. اتصل بنا لتصميم رحلة أحلامك.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -2228,7 +2856,100 @@ const translations = {
         'footer.whatsapp_short': 'WhatsApp',
         'footer.facebook': 'FB',
         'footer.copyright': '2027 SAHAB VOYAGES. TOUS DROITS RÉSERVÉS.',
-        'visa.qatar': 'Visa touriste Qatar' // clé utilisée dans une offre
+        'visa.qatar': 'Visa touriste Qatar',
+        'nav.guide': 'Guide & Valise',
+        // Estimator
+        'estimator.badge': 'Simulateur Interactif',
+        'estimator.title': 'Simulateur de Devis Omra 2027 🕋 | حاسبة تكلفة العمرة',
+        'estimator.subtitle': 'Sélectionnez vos critères et obtenez un devis instantané avec réservation directe sur WhatsApp.',
+        'estimator.guarantee': 'Tarifs transparents sans frais cachés',
+        'estimator.label_season': 'Saison / Période',
+        'estimator.opt_ramadan': 'Omra Ramadan 2027 (1448)',
+        'estimator.opt_chawwal': 'Omra Chawwal 2027 (1448)',
+        'estimator.opt_vacances': 'Vacances scolaires / Oct-Nov',
+        'estimator.opt_standard': 'Période standard (économique)',
+        'estimator.label_hotel': "Catégorie d'hôtel",
+        'estimator.opt_hotel_eco': 'Économique (3★ à 800m avec navette)',
+        'estimator.opt_hotel_confort': 'Confort (4★ à 350m à pied)',
+        'estimator.opt_hotel_vip': "Luxe VIP (5★ sur l'esplanade du Haram)",
+        'estimator.label_room': 'Type de chambre',
+        'estimator.opt_room_quad': 'Chambre Quadruple (4 pers.)',
+        'estimator.opt_room_triple': 'Chambre Triple (3 pers.)',
+        'estimator.opt_room_double': 'Chambre Double (2 pers.)',
+        'estimator.label_persons': 'Nombre de pèlerins & Départ',
+        'estimator.est_price_title': 'Estimation indicative du forfait',
+        'estimator.mad_per_person': 'درهم مغربي / للفرد',
+        'estimator.inc_flight': "Billet d'avion A/R",
+        'estimator.inc_visa': 'Visa & Assurance',
+        'estimator.inc_hotel': 'Hôtel Makkah & Madinah',
+        'estimator.inc_transfers': 'Transferts & Encadrement',
+        'estimator.cta_wa': 'Valider et réserver sur WhatsApp',
+        // Guide
+        'guide.badge': 'Espace Pèlerin & Conseils',
+        'guide.title': 'Guide des Rites de la Omra et Valise Interactive',
+        'guide.subtitle': 'Guide complet des rites pas à pas selon la Sunnah, et outil interactif pour préparer vos bagages sans rien oublier.',
+        'guide.tab_rites': 'Rites de la Omra étape par étape',
+        'guide.tab_checklist': 'Valise Interactive du Pèlerin',
+        'guide.tab_tips': 'Conseils Pratiques Marocains',
+        'guide.step1_tag': 'Miqat & Ihram',
+        'guide.step1_title': "L'Ihram depuis le Miqat et l'Intention",
+        'guide.step1_desc': "Grandes ablutions, parfum (sur le corps uniquement) et port des vêtements d'Ihram (Izar et Rida pour hommes, tenue décente pour femmes). Formuler l'intention et la Talbiyah : Labbaika Allahoumma 'Omrah.",
+        'guide.step1_dua': 'Labbaik Allahoumma Labbaik, Labbaika la Charika laka Labbaik...',
+        'guide.step2_tag': 'Maison Sacrée',
+        'guide.step2_title': 'Le Tawaf (7 tours autour de la Kaaba)',
+        'guide.step2_desc': "Entrer dans la Mosquée sacrée du pied droit, débuter le Tawaf à hauteur de la Pierre Noire en gardant la Kaaba à sa gauche, et accomplir 7 tours complets avec invocations sincères.",
+        'guide.step2_dua': 'Entre le Coin Yéménite et la Pierre Noire : Rabbana atina fid-dounya hassanatan wa fil akhirati hassanatan wa qina adhaba an-nar.',
+        'guide.step3_tag': 'Maqam Ibrahim',
+        'guide.step3_title': 'Deux rakats de prière et eau de Zamzam',
+        'guide.step3_desc': "Prier deux rak'ats légères derrière le Maqam Ibrahim si possible (Al-Kafiroun puis Al-Ikhlas), puis boire abondamment de l'eau bénite de Zamzam en formulant des dou'as.",
+        'guide.step3_dua': 'Invocation de Zamzam : Allahoumma inni as-alouka ilman nafi’an, wa rizqan wasi’an, wa chifa-an min koulli da.',
+        'guide.step4_tag': 'Al-Mas’a',
+        'guide.step4_title': 'Le Sa’i entre Safa et Marwah (7 trajets)',
+        'guide.step4_desc': "Monter sur Safa et réciter le verset, puis effectuer 7 trajets (de Safa à Marwah compte pour 1, retour à Safa compte pour 2, jusqu'au 7ème trajet achevé à Marwah).",
+        'guide.step4_dua': 'Multiplier les invocations, le Takbir et prier pour ses parents, ses proches et tous les musulmans.',
+        'guide.step5_tag': 'Désacralisation',
+        'guide.step5_title': 'Le rasage ou la coupe des cheveux (At-Tahallul)',
+        'guide.step5_desc': "Rasage complet ou raccourcissement des cheveux pour les hommes (le rasage est plus méritoire), et coupe de l'extrémité des cheveux (la taille d'une phalange) pour les femmes.",
+        'guide.step5_dua': "Qu'Allah accepte votre Omra et vous accorde une récompense immense.",
+        'guide.support_tag': 'Encadrement Sahab',
+        'guide.support_title': 'Accompagnement religieux continu',
+        'guide.support_desc': 'Des guides et érudits certifiés vous accompagnent tout au long de votre séjour à La Mecque et Médine pour répondre à vos questions religieuses.',
+        'guide.support_btn': 'En savoir plus sur nos guides',
+        'guide.cta_wa': 'Obtenir un conseil religieux ou logistique gratuit',
+        // Checklist
+        'checklist.title': 'Checklist Interactive de la Valise du Pèlerin',
+        'checklist.subtitle': 'Cochez chaque élément préparé. Votre progression est enregistrée automatiquement.',
+        'checklist.progress_label': 'Progression :',
+        'checklist.reset': 'Réinitialiser',
+        'checklist.cat_docs': 'الوثائق والتذاكر / Documents',
+        'checklist.doc_passport': 'Passeport valide (> 6 mois)',
+        'checklist.doc_visa': 'Copie imprimée du e-Visa saoudien',
+        'checklist.doc_tickets': 'Billets avion et réservations hôtel',
+        'checklist.doc_photos': 'Carnet de vaccination et CIN marocaine',
+        'checklist.cat_clothes': 'Vêtements & Ihram',
+        'checklist.cloth_ihram': '2 tenues d’Ihram blanches en coton (hommes)',
+        'checklist.cloth_belt': 'Ceinture sacoche pour téléphone et argent',
+        'checklist.cloth_shoes': 'Sandales sans coutures confortables',
+        'checklist.cloth_abaya': 'Abayas amples et légères (femmes)',
+        'checklist.cat_health': 'Trousse de Santé & Hygiène',
+        'checklist.health_cream': 'Vaseline & crème hydratante sans parfum',
+        'checklist.health_meds': 'Paracétamol, vitamines et traitements réguliers',
+        'checklist.health_bandages': 'Pansements anti-ampoules et ciseaux',
+        'checklist.health_soap': 'Savon sans parfum et gel désinfectant',
+        'checklist.cat_spiritual': 'Spiritualité & Électronique',
+        'checklist.sp_book': 'Recueil d’invocations (Hisn Al Muslim)',
+        'checklist.sp_mat': 'Tapis de prière léger pliable',
+        'checklist.sp_powerbank': 'Batterie externe (Powerbank) & câbles',
+        'checklist.sp_bag': 'Petit sac à dos léger pour sandales & Zamzam',
+        // Tips
+        'tips.tgv_title': 'TGV Haramain Express',
+        'tips.tgv_desc': 'Relie La Mecque et Médine en seulement 2h dans un confort optimal et climatisé. Sahab Voyages organise vos billets TGV en amont.',
+        'tips.sim_title': 'Carte SIM & Internet en Arabie',
+        'tips.sim_desc': 'Des guichets STC, Mobily et Zain sont présents à l’aéroport de Djeddah et Médine pour obtenir un forfait data Omra avec votre passeport.',
+        'tips.money_title': 'Riyals & Cartes Bancaires',
+        'tips.money_desc': 'Les cartes bancaires marocaines internationales (Visa, Mastercard) fonctionnent partout. Pensez à activer la dotation touristique avant le départ.',
+        'tips.zamzam_title': 'Eau de Zamzam vers le Maroc',
+        'tips.zamzam_desc': 'Un bidon officiel de 5 litres scellé par pèlerin est autorisé et acheté aux points officiels des aéroports saoudiens pour l’enregistrement bagages.'
     },
     ar: {
         // 🎁
@@ -2403,7 +3124,100 @@ const translations = {
         'footer.whatsapp_short': 'واتساب',
         'footer.facebook': 'فيسبوك',
         'footer.copyright': '2027 أسفار سحاب. جميع الحقوق محفوظة.',
-        'visa.qatar': 'تأشيرة قطر السياحية'
+        'visa.qatar': 'تأشيرة قطر السياحية',
+        'nav.guide': 'دليل المعتمر',
+        // Estimator
+        'estimator.badge': 'حاسبة تفاعلية',
+        'estimator.title': 'حاسبة تكلفة باقة العمرة التقديرية 🕋 | Simulateur Devis Omra',
+        'estimator.subtitle': 'اختر رغباتك وسيقوم النظام بحساب التكلفة التقديرية بدقة وإرسالها مباشرة لواتساب للحجز الفوري.',
+        'estimator.guarantee': 'أسعار شفافة وبدون رسوم خفية',
+        'estimator.label_season': 'الموسم / الفترة',
+        'estimator.opt_ramadan': 'عمرة رمضان 2027 (1448)',
+        'estimator.opt_chawwal': 'عمرة شوال 2027 (1448)',
+        'estimator.opt_vacances': 'العطل المدرسية / أكتوبر ونوفمبر',
+        'estimator.opt_standard': 'الأشهر العادية (اقتصادية)',
+        'estimator.label_hotel': 'مستوى الإقامة',
+        'estimator.opt_hotel_eco': 'اقتصادي (3 نجوم - 800م مع نقل)',
+        'estimator.opt_hotel_confort': 'متميز (4 نجوم - 350م مشياً)',
+        'estimator.opt_hotel_vip': 'فاخر VIP (5 نجوم مطل أو ساحة الحرم)',
+        'estimator.label_room': 'نوع الغرفة',
+        'estimator.opt_room_quad': 'غرفة رباعية (4 أفراد)',
+        'estimator.opt_room_triple': 'غرفة ثلاثية (3 أفراد)',
+        'estimator.opt_room_double': 'غرفة ثنائية (زوجية / فردين)',
+        'estimator.label_persons': 'عدد المعتمرين ومطار الإقلاع',
+        'estimator.est_price_title': 'التقدير التقريبي للباقة',
+        'estimator.mad_per_person': 'درهم مغربي / للفرد',
+        'estimator.inc_flight': 'تذكرة طيران',
+        'estimator.inc_visa': 'تأشيرة وتأمين',
+        'estimator.inc_hotel': 'فندق مكة والمدينة',
+        'estimator.inc_transfers': 'تنقلات وتأطير',
+        'estimator.cta_wa': 'تأكيد الحجز والاستفسار عبر واتساب',
+        // Guide
+        'guide.badge': 'دليل المعتمر وإرشادات',
+        'guide.title': 'دليل مناسك العمرة وحقيبة السفر التفاعلية',
+        'guide.subtitle': 'دليل شامل لمناسك العمرة خطوة بخطوة وفق هدي النبي ﷺ، مع أداة تفاعلية لتنظيم وتجهيز حقيبة سفرك بكل سهولة قبل الإقلاع من المغرب.',
+        'guide.tab_rites': 'مناسك العمرة خطوة بخطوة',
+        'guide.tab_checklist': 'حقيبة المعتمر التفاعلية',
+        'guide.tab_tips': 'إرشادات وتوجيهات عملية',
+        'guide.step1_tag': 'الميقات والإحرام',
+        'guide.step1_title': 'الإحرام من الميقات والنّيّة',
+        'guide.step1_desc': 'الاغتسال والتطيب (في البدن فقط) ولبس ملابس الإحرام (إزار ورداء للرجال، وملابس شرعية عادية للنساء). ثم عقد النية والتلبية: "لَبَّيْكَ اللَّهُمَّ عُمْرَةً".',
+        'guide.step1_dua': '"لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ..."',
+        'guide.step2_tag': 'البيت الحرام',
+        'guide.step2_title': 'طواف العمرة (7 أشواط)',
+        'guide.step2_desc': 'دخول المسجد الحرام بالقدم اليمنى، ثم ابتداء الطواف من محاذاة الحجر الأسود جاعلاً الكعبة عن يسارك، وتكرار 7 أشواط كاملة مع الذكر والدعاء بما تيسر.',
+        'guide.step2_dua': 'بين الركن اليماني والحجر الأسود: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ".',
+        'guide.step3_tag': 'مقام إبراهيم',
+        'guide.step3_title': 'ركعتا الطواف والشرب من زمزم',
+        'guide.step3_desc': 'صلاة ركعتين خفيفتين خلف مقام إبراهيم إن تيسر أو في أي مكان من الحرم (سورة الكافرون في الأولى، والإخلاص في الثانية)، ثم الشرب والتضلع من ماء زمزم المبارك.',
+        'guide.step3_dua': 'الدعاء عند شرب زمزم: "اللهم إني أسألك علماً نافعاً، ورزقاً واسعاً، وشفاءً من كل داء".',
+        'guide.step4_tag': 'المسعى',
+        'guide.step4_title': 'السعي بين الصفا والمروة (7 أشواط)',
+        'guide.step4_desc': 'التوجه إلى الصفا وتلاوة: "إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ..."، ثم السعي 7 أشواط؛ الذهاب من الصفا إلى المروة شوط، والرجوع إلى الصفا شوط ثانٍ حتى المروة.',
+        'guide.step4_dua': 'الإكثار من التكبير والتهليل والدعاء الصادق للوالدين والأسرة وأهل المغرب عامة.',
+        'guide.step5_tag': 'التحلل التام',
+        'guide.step5_title': 'الحلق أو التقصير والتحلل',
+        'guide.step5_desc': 'حلق شعر الرأس كاملاً أو تقصيره من كافة جوانب الرأس للرجال (والحلق أفضل)، وتقصير قيد أُنملة من أطراف الشعر للنساء. وبذلك تتم العمرة ويحل للمعتمر كل محظورات الإحرام.',
+        'guide.step5_dua': 'تقبل الله عمرتكم وطاعتكم وجعلها عمرة مبرورة وسعياً مشكوراً وذنباً مغفوراً.',
+        'guide.support_tag': 'مرافقة سحاب',
+        'guide.support_title': 'تأطير وإرشاد ديني مستمر',
+        'guide.support_desc': 'يرافقكم مرشدون وعلماء دين متخصصون من وكالة أسفار سحاب طوال مراحل رحلتكم لشرح المناسك والإجابة عن الفتاوى والاستفسارات في مكة والمدينة.',
+        'guide.support_btn': 'استفسر عن المرشدين الدينيين',
+        'guide.cta_wa': 'احصل على استشارة دينية ولوجستية مجانية',
+        // Checklist
+        'checklist.title': 'قائمة حقيبة المعتمر التفاعلية (Checklist)',
+        'checklist.subtitle': 'ضع علامة (✓) على كل عنصر جهزته في حقيبتك. يتم حفظ تقدمك تلقائياً في متصفحك.',
+        'checklist.progress_label': 'نسبة الإنجاز:',
+        'checklist.reset': 'إعادة ضبط',
+        'checklist.cat_docs': 'الوثائق والتذاكر',
+        'checklist.doc_passport': 'جواز السفر (صالح لأكثر من 6 أشهر)',
+        'checklist.doc_visa': 'نسخة مطبوعة من التأشيرة الإلكترونية',
+        'checklist.doc_tickets': 'تذاكر الطيران وتأكيد حجز الفنادق',
+        'checklist.doc_photos': 'دفتر التلقيح وبطاقة الهوية الوطنية',
+        'checklist.cat_clothes': 'ملابس الإحرام والمستلزمات',
+        'checklist.cloth_ihram': 'إحرامان أبيضان من القطن الممتاز للرجال',
+        'checklist.cloth_belt': 'حزام محفظة لوضع النقود والهاتف',
+        'checklist.cloth_shoes': 'حذاء أو نعل مريح بدون خياطة للطواف',
+        'checklist.cloth_abaya': 'عباءات فضفاضة خفيفة ومريحة للنساء',
+        'checklist.cat_health': 'الحقيبة الصحية والنظافة',
+        'checklist.health_cream': 'فازلين وكريم مرطب بدون رائحة/عطر',
+        'checklist.health_meds': 'مسكنات، باراسيتامول وأدويتك المزمنة',
+        'checklist.health_bandages': 'ضمادات للأقدام ضد الاحتكاك ومقص صغير',
+        'checklist.health_soap': 'صابون غير معطر ومعقم يدين بدون كحول',
+        'checklist.cat_spiritual': 'الروحيات والأجهزة',
+        'checklist.sp_book': 'كتيب حصن المسلم وأدعية الطواف والسعي',
+        'checklist.sp_mat': 'سجادة صلاة خفيفة وقابلة للطي',
+        'checklist.sp_powerbank': 'بنك طاقة محمول (Powerbank) وشاحن',
+        'checklist.sp_bag': 'حقيبة ظهر خفيفة لحمل الحذاء وماء زمزم',
+        // Tips
+        'tips.tgv_title': 'قطار الحرمين السريع (TGV Haramain)',
+        'tips.tgv_desc': 'يربط بين مكة المكرمة والمدينة المنورة في ساعتين فقط وبأعلى درجات الراحة والتكييف. توفر وكالة أسفار سحاب حجوزات قطار الحرمين مسبقاً مع مقاعد متجاورة للعائلات.',
+        'tips.sim_title': 'شريحة الهاتف والإنترنت في السعودية',
+        'tips.sim_desc': 'فور وصولك إلى مطار جدة أو المدينة المنورة، تتوفر أكشاك شركات الاتصالات (STC, Mobily, Zain). يمكنك اقتناء باقة إنترنت وبيانات خاصة بالحج والعمرة بأسعار مناسبة بواسطة جواز سفرك.',
+        'tips.money_title': 'الريال السعودي واستخدام البطاقة البنكية',
+        'tips.money_desc': 'تُقبل البطاقات البنكية المغربية الدولية (Visa و Mastercard) في جميع المتاجر والفنادق بالمملكة. ننصح بتفعيل مخصصات السياحة (Dotation touristique) قبل السفر، وصرف مبلغ نقدي بالريال السعودي للمصاريف اليومية.',
+        'tips.zamzam_title': 'شحن مياه زمزم إلى المغرب',
+        'tips.zamzam_desc': 'يُسمح لكل معتمر قادم إلى المغرب بحمل عبوة رسمية واحدة من ماء زمزم سعة 5 لتر مغلفة ومختومة، وتُشترى من نقط البيع الرسمية المخصصة في مطار جدة أو المدينة المنورة لشحنها ضمن الأمتعة.'
     }
 };
 
@@ -2509,15 +3323,206 @@ const translations = {
                     : 'ابحث عن عرض (مثال: رمضان، شوال، تأشيرة، دبي...)';
             }
 
+            const faqSearchInput = document.getElementById('faqSearchInput');
+            if (faqSearchInput) {
+                faqSearchInput.placeholder = currentLanguage === 'fr'
+                    ? 'Rechercher dans la FAQ (Omra, visa, vol...)'
+                    : 'ابحث في الأسئلة الشائعة (عمرة، فيزا، حجز...)';
+            }
+
             // Mettre à jour le titre de la page
             document.title = currentLanguage === 'fr' 
                 ? 'Omra 2027 Maroc | Prix Omra & Hajj - Agence Sahab Voyages Casablanca' 
                 : 'عمرة 2027 المغرب | أسعار العمرة والحج - وكالة أسفار سحاب الدار البيضاء';
+
+            // Mettre à jour les calculs de l'estimateur
+            calculateEstimate();
         }
 
         // Basculer entre français et arabe
         function toggleLanguage() {
             setLanguage(currentLanguage === 'fr' ? 'ar' : 'fr');
+        }
+
+        // ========== ESTIMATOR & CALCULATOR LOGIC ==========
+        function calculateEstimate() {
+            const season = document.getElementById('estSeason')?.value || 'standard';
+            const hotel = document.getElementById('estHotel')?.value || 'eco';
+            const room = document.getElementById('estRoom')?.value || 'quad';
+            const persons = parseInt(document.getElementById('estPersons')?.value || '2', 10);
+            const city = document.getElementById('estCity')?.value || 'Casablanca';
+
+            // Base price table per person in MAD
+            let base = 15500;
+            if (season === 'ramadan') base = 28500;
+            else if (season === 'chawwal') base = 19500;
+            else if (season === 'vacances') base = 17500;
+            else base = 15500;
+
+            // Hotel multiplier/add-on
+            if (hotel === 'confort') base += 3500;
+            else if (hotel === 'vip') base += 8500;
+
+            // Room type multiplier/add-on
+            if (room === 'triple') base += 1200;
+            else if (room === 'double') base += 2800;
+
+            const formattedPrice = base.toLocaleString('fr-FR');
+            const displayEl = document.getElementById('estPriceDisplay');
+            if (displayEl) displayEl.textContent = formattedPrice;
+
+            const summaryEl = document.getElementById('estDetailsSummary');
+            if (summaryEl) {
+                summaryEl.textContent = currentLanguage === 'ar'
+                    ? `${persons} أفراد • ${city} • ${hotel === 'eco' ? 'اقتصادي' : hotel === 'confort' ? 'متميز' : 'فاخر VIP'}`
+                    : `${persons} pers. • ${city} • ${hotel.toUpperCase()}`;
+            }
+        }
+
+        function sendEstimateViaWhatsApp() {
+            const season = document.getElementById('estSeason')?.selectedOptions[0]?.text || '';
+            const hotel = document.getElementById('estHotel')?.selectedOptions[0]?.text || '';
+            const room = document.getElementById('estRoom')?.selectedOptions[0]?.text || '';
+            const persons = document.getElementById('estPersons')?.value || '2';
+            const city = document.getElementById('estCity')?.selectedOptions[0]?.text || 'Casablanca';
+            const price = document.getElementById('estPriceDisplay')?.textContent || '17,500';
+
+            const msg = currentLanguage === 'ar'
+                ? `السلام عليكم وكالة أسفار سحاب، قمت بحساب تقدير عمرة عبر الموقع وأرغب في تأكيد التفاصيل:\n` +
+                  `🕋 الموسم: ${season}\n` +
+                  `🏨 الفندق: ${hotel}\n` +
+                  `🛏️ نوع الغرفة: ${room}\n` +
+                  `👥 عدد المعتمرين: ${persons}\n` +
+                  `✈️ مطار الإقلاع: ${city}\n` +
+                  `💰 التكلفة المقدرة: ${price} درهم/للفرد\n` +
+                  `المرجو تزويدي بالبرنامج والمقاعد المتاحة. شكراً لكم.`
+                : `Bonjour Sahab Voyages, j'ai simulé un devis Omra sur votre site et je souhaite confirmer les disponibilités :\n` +
+                  `🕋 Période : ${season}\n` +
+                  `🏨 Formule : ${hotel}\n` +
+                  `🛏️ Chambre : ${room}\n` +
+                  `👥 Nombre de pèlerins : ${persons}\n` +
+                  `✈️ Départ : ${city}\n` +
+                  `💰 Estimation : ${price} MAD / personne\n` +
+                  `Pouvez-vous me transmettre le programme complet et les prochaines dates ? Merci.`;
+
+            const url = `https://wa.me/212623945729?text=${encodeURIComponent(msg)}`;
+            trackEvent('estimator_whatsapp_submit');
+            window.open(url, '_blank');
+        }
+
+        // ========== GUIDE TABS LOGIC ==========
+        function switchGuideTab(tab) {
+            ['rites', 'checklist', 'tips'].forEach(t => {
+                const section = document.getElementById(`guide-tab-${t}`);
+                const btn = document.getElementById(`btn-guide-${t}`);
+                if (t === tab) {
+                    if (section) section.classList.remove('hidden');
+                    if (btn) {
+                        btn.className = "px-6 py-3 rounded-full font-black text-sm md:text-base transition bg-blue-900 text-white shadow-md flex items-center gap-2";
+                    }
+                } else {
+                    if (section) section.classList.add('hidden');
+                    if (btn) {
+                        btn.className = "px-6 py-3 rounded-full font-black text-sm md:text-base transition bg-white text-gray-700 hover:bg-gray-100 shadow-sm border border-gray-200 flex items-center gap-2";
+                    }
+                }
+            });
+            trackEvent(`guide_tab_${tab}`);
+        }
+
+        // ========== CHECKLIST LOGIC ==========
+        function initChecklist() {
+            try {
+                const saved = JSON.parse(localStorage.getItem('sahab_checklist') || '{}');
+                document.querySelectorAll('.checklist-checkbox').forEach(cb => {
+                    const key = cb.getAttribute('data-item');
+                    if (key && saved[key]) {
+                        cb.checked = true;
+                        cb.closest('.checklist-item')?.classList.add('checked');
+                    }
+                });
+            } catch (e) {}
+            updateChecklistProgress();
+        }
+
+        function toggleChecklistItem(cb) {
+            const item = cb.closest('.checklist-item');
+            if (cb.checked) {
+                item?.classList.add('checked');
+            } else {
+                item?.classList.remove('checked');
+            }
+            saveChecklistState();
+            updateChecklistProgress();
+        }
+
+        function saveChecklistState() {
+            try {
+                const state = {};
+                document.querySelectorAll('.checklist-checkbox').forEach(cb => {
+                    const key = cb.getAttribute('data-item');
+                    if (key) state[key] = cb.checked;
+                });
+                localStorage.setItem('sahab_checklist', JSON.stringify(state));
+            } catch (e) {}
+        }
+
+        function updateChecklistProgress() {
+            const all = document.querySelectorAll('.checklist-checkbox');
+            if (!all.length) return;
+            let checkedCount = 0;
+            all.forEach(cb => { if (cb.checked) checkedCount++; });
+            const pct = Math.round((checkedCount / all.length) * 100);
+
+            const bar = document.getElementById('checklistProgressBar');
+            if (bar) bar.style.width = pct + '%';
+
+            const text = document.getElementById('checklistProgressText');
+            if (text) text.textContent = `${checkedCount} / ${all.length} (${pct}%)`;
+        }
+
+        function resetChecklist() {
+            const promptMsg = currentLanguage === 'ar' ? 'هل تريد حقاً إعادة ضبط قائمة حقيبة السفر؟' : 'Voulez-vous vraiment réinitialiser votre liste de bagages ?';
+            if (confirm(promptMsg)) {
+                try {
+                    localStorage.removeItem('sahab_checklist');
+                } catch (e) {}
+                document.querySelectorAll('.checklist-checkbox').forEach(cb => {
+                    cb.checked = false;
+                    cb.closest('.checklist-item')?.classList.remove('checked');
+                });
+                updateChecklistProgress();
+            }
+        }
+
+        // ========== FAQ ACCORDION & SEARCH LOGIC ==========
+        function toggleFaq(headerEl) {
+            const item = headerEl.closest('.faq-item');
+            if (!item) return;
+            const isOpen = item.classList.contains('open');
+            if (isOpen) {
+                item.classList.remove('open');
+            } else {
+                item.classList.add('open');
+            }
+            trackEvent('faq_toggle');
+        }
+
+        function filterFaqQuestions(query) {
+            const term = (query || '').trim().toLowerCase();
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (!term || text.includes(term)) {
+                    item.style.display = 'block';
+                    if (term) item.classList.add('open');
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            document.querySelectorAll('.faq-category').forEach(cat => {
+                const visible = cat.querySelectorAll('.faq-item:not([style*="display: none"])');
+                cat.style.display = visible.length > 0 ? 'block' : 'none';
+            });
         }
 
         // Scroll progress bar
@@ -2554,6 +3559,8 @@ const translations = {
             
             setLanguage(initialLang);
             filterOffers('all');
+            calculateEstimate();
+            initChecklist();
 
             // Enregistrement du Service Worker pour PWA et mise en cache rapide
             if ('serviceWorker' in navigator) {
