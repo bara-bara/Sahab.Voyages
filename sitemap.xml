@@ -1,9 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Page d'accueil principale -->
   <url>
     <loc>https://www.sahabvoyages.ma/</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sahabvoyages.ma/?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.sahabvoyages.ma/?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sahabvoyages.ma/" />
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    
+    <!-- Images Clés pour Google Images -->
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png</image:loc>
+      <image:title>Sahab Voyages Casablanca - Agence Omra et Hajj au Maroc</image:title>
+      <image:caption>Logo officiel Sahab Voyages - أسفار سحاب بالدار البيضاء</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dkusr0hu1/image/upload/v1773095627/Omra_2026_Prix_Omra_Voyage_Omra_Agence_Omra-_Prix_Omra_2026_Prix_Omra_Omra_2026_wmyq3g.png</image:loc>
+      <image:title>Omra 2027 Maroc Prix Omra - Sahab Voyages</image:title>
+      <image:caption>Meilleur prix Omra 2027 au départ du Maroc</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B1%D9%85%D8%B6%D8%A7%D9%86_%D9%85%D9%86_12_%D9%81%D8%A8%D8%B1%D8%A7%D9%8A%D8%B1_%D8%A7%D9%84%D9%89_23_%D9%85%D8%A7%D8%B1%D8%B3_2027.jpg</image:loc>
+      <image:title>عمرة رمضان 2027 المغرب - أسفار سحاب</image:title>
+      <image:caption>برنامج عمرة رمضان 2027 من المغرب أسعار مناسبة وفنادق قريبة من الحرم</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B4%D9%88%D8%A7%D9%84_2027-1448.jpg</image:loc>
+      <image:title>عمرة شوال 2027 من المغرب - وكالة أسفار سحاب</image:title>
+      <image:caption>عمرة شوال 1448 هـ بأفضل الأسعار والخدمات</image:caption>
+    </image:image>
+
+    <!-- Vidéos pour Google Videos Search -->
+    <video:video>
+      <video:thumbnail_loc>https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png</video:thumbnail_loc>
+      <video:title>وكالة أسفار سحاب بالبرنوصي الدار البيضاء - تعامل راقي وخدمات متميزة</video:title>
+      <video:description>شاهدوا جولة داخل وكالة أسفار سحاب بالبرنوصي وتعرفوا على خدمات العمرة والحج والتأشيرات.</video:description>
+      <video:content_loc>https://res.cloudinary.com/dkusr0hu1/video/upload/v1775205536/%D9%88%D9%83%D8%A7%D9%84%D8%A9_%D8%A3%D8%B3%D9%81%D8%A7%D8%B1_%D8%B3%D8%AD%D8%A7%D8%A8_%D8%A8%D8%A7%D9%84%D8%A8%D8%B1%D9%86%D9%88%D8%B5%D9%8A_%D9%85%D9%88%D8%AC%D9%88%D8%AF_%D9%85%D9%88%D9%82%D8%B9%D9%87%D9%85_%D8%A8%D8%A7%D9%84%D8%AE%D8%B1%D9%8A%D8%B7%D8%A9_%D8%AA%D8%B9%D8%A7%D9%85%D9%84%D9%87%D9%85_%D8%B1%D8%A7%D9%82%D9%8A_%D8%B3%D8%AD%D8%A7%D8%A8_zwdnzo.mp4</video:content_loc>
+      <video:publication_date>2026-04-01T08:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png</video:thumbnail_loc>
+      <video:title>حكم تكرار العمرة في السفرة الواحدة - نصائح وكالة أسفار سحاب</video:title>
+      <video:description>إرشادات شرعية وتنظيمية حول تكرار العمرة أثناء السفر مع وكالة أسفار سحاب.</video:description>
+      <video:content_loc>https://res.cloudinary.com/dkusr0hu1/video/upload/v1775206215/%D8%AA%D9%83%D8%B1%D8%A7%D8%B1_%D8%A7%D9%84%D8%B9%D9%85%D8%B1%D8%A9_%D8%B9%D9%85%D8%B1%D8%A9_%D8%A3%D9%83%D8%AA%D9%88%D8%A8%D8%B1_%D9%86%D9%88%D9%86%D8%A8%D8%B1_%D8%AF%D8%AC%D9%86%D8%A8%D8%B1_%D9%8A%D9%86%D8%A7%D9%8A%D8%B1_%D8%B4%D8%B9%D8%A8%D8%A7%D9%86_%D8%B1%D9%85%D8%B6%D8%A7%D9%862024-2025_mhvyft.mp4</video:content_loc>
+      <video:publication_date>2026-03-15T08:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
+
+  <!-- URL Version Arabe -->
+  <url>
+    <loc>https://www.sahabvoyages.ma/?lang=ar</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.sahabvoyages.ma/?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sahabvoyages.ma/?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sahabvoyages.ma/" />
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- URL Version Française -->
+  <url>
+    <loc>https://www.sahabvoyages.ma/?lang=fr</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sahabvoyages.ma/?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.sahabvoyages.ma/?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sahabvoyages.ma/" />
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
