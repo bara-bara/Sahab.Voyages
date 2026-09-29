@@ -10,11 +10,16 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.sahabvoyages.ma/?lang=fr" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.sahabvoyages.ma/?lang=ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sahabvoyages.ma/" />
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     
     <!-- Images Clés pour Google Images -->
+    <image:image>
+      <image:loc>https://res.cloudinary.com/cproxotd/image/upload/v1790705839/WhatsApp_Image_2026-09-29_at_10.40.37.jpg</image:loc>
+      <image:title>عمرة نونبر 2026 المغرب - وكالة أسفار سحاب رحلة مباشرة الخطوط السعودية</image:title>
+      <image:caption>برنامج وأسعار عمرة نونبر 2026 من 25 أكتوبر إلى 08 نونبر ابتداءً من 14200 درهم بالدار البيضاء</image:caption>
+    </image:image>
     <image:image>
       <image:loc>https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png</image:loc>
       <image:title>Sahab Voyages Casablanca - Agence Omra et Hajj au Maroc</image:title>
