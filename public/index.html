@@ -1094,9 +1094,9 @@
     <nav class="bg-white/95 backdrop-blur-md shadow-md fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-6 h-28 flex justify-between items-center">
             <!-- Logo -->
-            <a href="#home" class="flex items-center gap-4 cursor-pointer no-underline" onclick="navigateToSection(event, 'home')">
+            <a href="#home" class="flex items-center gap-4 cursor-pointer no-underline shrink-0" onclick="navigateToSection(event, 'home')">
                 <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png" alt="Sahab Logo" class="nav-logo" width="110" height="110">
-            </div>
+            </a>
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex gap-6 lg:gap-8 font-bold items-center text-base lg:text-lg">
@@ -5130,6 +5130,8 @@ const translations = {
                     const saved = localStorage.getItem('sahab_lang');
                     if (saved === 'ar' || saved === 'fr') {
                         initialLang = saved;
+                    } else if (navigator.language && navigator.language.toLowerCase().startsWith('ar')) {
+                        initialLang = 'ar';
                     }
                 } catch (e) {}
             }
