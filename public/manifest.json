@@ -1,0 +1,21 @@
+{
+  "name": "Sahab Voyages - Omra & Hajj Maroc",
+  "short_name": "Sahab Voyages",
+  "description": "Agence de voyage spécialisée Omra, Hajj, visas touristiques et voyages organisés au Maroc.",
+  "start_url": "/?source=pwa",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#004aad",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

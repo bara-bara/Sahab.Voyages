@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      // Defensive fix for browser extensions and iframe environments where window.fetch has only a getter
+      (function() {
+        try {
+          var _origFetch = (typeof window !== 'undefined' && window.fetch) ? window.fetch.bind(window) : undefined;
+          var fetchDescriptor = {
+            configurable: true,
+            enumerable: true,
+            get: function() { return _origFetch; },
+            set: function(fn) { _origFetch = fn; }
+          };
+          try { Object.defineProperty(window, 'fetch', fetchDescriptor); } catch (e) {}
+          try {
+            if (typeof Window !== 'undefined' && Window.prototype) {
+              Object.defineProperty(Window.prototype, 'fetch', fetchDescriptor);
+            }
+          } catch (e) {}
+        } catch (err) {}
+      })();
+    </script>
     
     <title>Omra Maroc 2026 - 2027 | Prix & Programmes dès 14 200 DH - Sahab Voyages Casablanca</title>
     <meta name="description" content="Agence officielle Sahab Voyages Casablanca : Forfaits Omra 2026-2027 dès 14 200 DH en vol direct الخطوط السعودية, hôtels proches du Haram Makkah & Madinah, visa & encadrement. Devis WhatsApp immédiat.">
@@ -389,6 +409,58 @@
         }
         
         /* ========== NAVIGATION ========== */
+        
+        /* Navigation active indicator */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0.25rem;
+            transition: color 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        .nav-link.active-link {
+            color: var(--sahab-blue) !important;
+            font-weight: 900 !important;
+        }
+        .nav-link.active-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sahab-blue), var(--sahab-gold));
+            border-radius: 9999px;
+        }
+        .mobile-nav-link {
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .mobile-nav-link.active-link {
+            background-color: #eff6ff !important;
+            color: var(--sahab-blue) !important;
+            font-weight: 900 !important;
+            border-left: 4px solid var(--sahab-blue);
+        }
+        [dir="rtl"] .mobile-nav-link.active-link {
+            border-left: none;
+            border-right: 4px solid var(--sahab-blue);
+        }
+        .btn-copy-card-link {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-copy-card-link:hover {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            transform: scale(1.05);
+        }
+        /* Toast notification */
+        #toastNotification {
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         .nav-logo { 
             height: 110px; 
             width: auto; 
@@ -1022,21 +1094,20 @@
     <nav class="bg-white/95 backdrop-blur-md shadow-md fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-6 h-28 flex justify-between items-center">
             <!-- Logo -->
-            <div class="flex items-center gap-4 cursor-pointer" onclick="showSection('home')">
+            <a href="#home" class="flex items-center gap-4 cursor-pointer no-underline" onclick="navigateToSection(event, 'home')">
                 <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png" alt="Sahab Logo" class="nav-logo" width="110" height="110">
             </div>
             
             <!-- Desktop Menu -->
-            <div class="hidden md:flex gap-8 font-bold items-center text-lg">
-                <button onclick="showSection('home')" class="hover:text-blue-700 transition" data-i18n="nav.home">Accueil</button>
-                <button onclick="showSection('about')" class="hover:text-blue-700 transition" data-i18n="nav.about">À Propos</button>
-                <button onclick="showSection('offers')" class="hover:text-blue-700 transition" data-i18n="nav.offers">Nos Offres</button>
-                <button onclick="showSection('guide')" class="hover:text-blue-700 transition" data-i18n="nav.guide">Guide & Valise</button>
-                <button onclick="showSection('faq')" class="hover:text-blue-700 transition" data-i18n="nav.faq">FAQ</button>
-                <button onclick="showSection('blog')" class="hover:text-blue-700 transition" data-i18n="nav.blog">Blog</button>
-                <!-- NOUVEAU : Vlogs -->
-                <button onclick="showSection('vlogs')" class="hover:text-blue-700 transition" data-i18n="nav.vlogs">Vlogs</button>
-                <button onclick="showSection('contact')" class="hover:text-blue-700 transition" data-i18n="nav.contact">Contact</button>
+            <div class="hidden md:flex gap-6 lg:gap-8 font-bold items-center text-base lg:text-lg">
+                <a href="#home" onclick="navigateToSection(event, 'home')" class="nav-link hover:text-blue-700 transition" data-nav="home" data-i18n="nav.home">Accueil</a>
+                <a href="#about" onclick="navigateToSection(event, 'about')" class="nav-link hover:text-blue-700 transition" data-nav="about" data-i18n="nav.about">À Propos</a>
+                <a href="#offers" onclick="navigateToSection(event, 'offers')" class="nav-link hover:text-blue-700 transition" data-nav="offers" data-i18n="nav.offers">Nos Offres</a>
+                <a href="#guide" onclick="navigateToSection(event, 'guide')" class="nav-link hover:text-blue-700 transition" data-nav="guide" data-i18n="nav.guide">Guide & Valise</a>
+                <a href="#faq" onclick="navigateToSection(event, 'faq')" class="nav-link hover:text-blue-700 transition" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+                <a href="#blog" onclick="navigateToSection(event, 'blog')" class="nav-link hover:text-blue-700 transition" data-nav="blog" data-i18n="nav.blog">Blog</a>
+                <a href="#vlogs" onclick="navigateToSection(event, 'vlogs')" class="nav-link hover:text-blue-700 transition" data-nav="vlogs" data-i18n="nav.vlogs">Vlogs</a>
+                <a href="#contact" onclick="navigateToSection(event, 'contact')" class="nav-link hover:text-blue-700 transition" data-nav="contact" data-i18n="nav.contact">Contact</a>
                 
                 <!-- Language Switcher -->
                 <button class="lang-switcher" onclick="toggleLanguage()">
@@ -1062,39 +1133,38 @@
         
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden bg-white border-t p-6 shadow-xl">
-            <div class="flex flex-col gap-4">
-                <button onclick="showSection('home')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+            <div class="flex flex-col gap-2">
+                <a href="#home" onclick="navigateToSection(event, 'home')" class="mobile-nav-link text-left font-bold text-lg py-2.5 px-3 rounded-xl hover:bg-blue-50 hover:text-blue-700 flex items-center gap-3 transition" data-nav="home">
                     <i class="fas fa-home text-blue-600 w-6"></i> <span data-i18n="nav.home">Accueil</span>
-                </button>
-                <button onclick="showSection('about')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                </a>
+                <a href="#about" onclick="navigateToSection(event, 'about')" class="mobile-nav-link text-left font-bold text-lg py-2.5 px-3 rounded-xl hover:bg-blue-50 hover:text-blue-700 flex items-center gap-3 transition" data-nav="about">
                     <i class="fas fa-info-circle text-blue-600 w-6"></i> <span data-i18n="nav.about">À Propos</span>
-                </button>
-                <button onclick="showSection('offers')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                </a>
+                <a href="#offers" onclick="navigateToSection(event, 'offers')" class="mobile-nav-link text-left font-bold text-lg py-2.5 px-3 rounded-xl hover:bg-blue-50 hover:text-blue-700 flex items-center gap-3 transition" data-nav="offers">
                     <i class="fas fa-suitcase text-blue-600 w-6"></i> <span data-i18n="nav.offers">Nos Offres</span>
-                </button>
-                <button onclick="showSection('guide')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                </a>
+                <a href="#guide" onclick="navigateToSection(event, 'guide')" class="mobile-nav-link text-left font-bold text-lg py-2.5 px-3 rounded-xl hover:bg-blue-50 hover:text-blue-700 flex items-center gap-3 transition" data-nav="guide">
                     <i class="fas fa-clipboard-check text-blue-600 w-6"></i> <span data-i18n="nav.guide">Guide & Valise</span>
-                </button>
-                <button onclick="showSection('faq')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                </a>
+                <a href="#faq" onclick="navigateToSection(event, 'faq')" class="mobile-nav-link text-left font-bold text-lg py-2.5 px-3 rounded-xl hover:bg-blue-50 hover:text-blue-700 flex items-center gap-3 transition" data-nav="faq">
                     <i class="fas fa-question-circle text-blue-600 w-6"></i> <span data-i18n="nav.faq">FAQ</span>
-                </button>
-                <button onclick="showSection('blog')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                </a>
+                <a href="#blog" onclick="navigateToSection(event, 'blog')" class="mobile-nav-link text-left font-bold text-lg py-2.5 px-3 rounded-xl hover:bg-blue-50 hover:text-blue-700 flex items-center gap-3 transition" data-nav="blog">
                     <i class="fas fa-blog text-blue-600 w-6"></i> <span data-i18n="nav.blog">Blog</span>
-                </button>
-                <!-- NOUVEAU : Vlogs mobile -->
-                <button onclick="showSection('vlogs')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                </a>
+                <a href="#vlogs" onclick="navigateToSection(event, 'vlogs')" class="mobile-nav-link text-left font-bold text-lg py-2.5 px-3 rounded-xl hover:bg-blue-50 hover:text-blue-700 flex items-center gap-3 transition" data-nav="vlogs">
                     <i class="fas fa-video text-blue-600 w-6"></i> <span data-i18n="nav.vlogs">Vlogs</span>
-                </button>
-                <button onclick="showSection('contact')" class="text-left font-bold text-lg py-2 hover:text-blue-700 flex items-center gap-3">
+                </a>
+                <a href="#contact" onclick="navigateToSection(event, 'contact')" class="mobile-nav-link text-left font-bold text-lg py-2.5 px-3 rounded-xl hover:bg-blue-50 hover:text-blue-700 flex items-center gap-3 transition" data-nav="contact">
                     <i class="fas fa-address-book text-blue-600 w-6"></i> <span data-i18n="nav.contact">Contact</span>
-                </button>
+                </a>
                 
-                <div class="border-t border-gray-200 my-3"></div>
+                <div class="border-t border-gray-200 my-2"></div>
                 
                 <!-- Service Categories -->
                 <p class="font-black text-blue-900 text-lg mb-2" data-i18n="nav.services">Services</p>
                 
-                <button onclick="filterFromMenu('omra')" class="text-left py-3 px-4 rounded-lg hover:bg-blue-50 transition border border-gray-100 flex items-center gap-3">
+                <a href="#offers?cat=omra" onclick="filterFromMenu('omra', event)" class="text-left py-3 px-4 rounded-xl hover:bg-blue-50 transition border border-gray-100 flex items-center gap-3 no-underline">
                     <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
                         <i class="fas fa-kaaba text-white"></i>
                     </div>
@@ -1102,9 +1172,9 @@
                         <p class="font-bold text-gray-800" data-i18n="services.omra">Omra & Hajj 2027</p>
                         <p class="text-sm text-gray-500" data-i18n="services.omra_desc">Forfaits Omra pas chers</p>
                     </div>
-                </button>
+                </a>
                 
-                <button onclick="filterFromMenu('visa')" class="text-left py-3 px-4 rounded-lg hover:bg-blue-50 transition border border-gray-100 flex items-center gap-3">
+                <a href="#offers?cat=visa" onclick="filterFromMenu('visa', event)" class="text-left py-3 px-4 rounded-xl hover:bg-blue-50 transition border border-gray-100 flex items-center gap-3 no-underline">
                     <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                         <i class="fas fa-passport text-white"></i>
                     </div>
@@ -1112,9 +1182,9 @@
                         <p class="font-bold text-gray-800" data-i18n="services.visa">Visa Touristique</p>
                         <p class="text-sm text-gray-500" data-i18n="services.visa_desc">Arabie, Qatar, Dubaï...</p>
                     </div>
-                </button>
+                </a>
                 
-                <button onclick="filterFromMenu('voyage')" class="text-left py-3 px-4 rounded-lg hover:bg-blue-50 transition border border-gray-100 flex items-center gap-3">
+                <a href="#offers?cat=voyage" onclick="filterFromMenu('voyage', event)" class="text-left py-3 px-4 rounded-xl hover:bg-blue-50 transition border border-gray-100 flex items-center gap-3 no-underline">
                     <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center">
                         <i class="fas fa-globe-africa text-white"></i>
                     </div>
@@ -1122,9 +1192,9 @@
                         <p class="font-bold text-gray-800" data-i18n="services.travel">Circuits & Séjours</p>
                         <p class="text-sm text-gray-500" data-i18n="services.travel_desc">Égypte, Turquie, Asie</p>
                     </div>
-                </button>
+                </a>
                 
-                <button onclick="filterFromMenu('billet')" class="text-left py-3 px-4 rounded-lg hover:bg-blue-50 transition border border-gray-100 flex items-center gap-3">
+                <a href="#offers?cat=billet" onclick="filterFromMenu('billet', event)" class="text-left py-3 px-4 rounded-xl hover:bg-blue-50 transition border border-gray-100 flex items-center gap-3 no-underline">
                     <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
                         <i class="fas fa-plane text-white"></i>
                     </div>
@@ -1132,7 +1202,7 @@
                         <p class="font-bold text-gray-800" data-i18n="services.tickets">Billetterie</p>
                         <p class="text-sm text-gray-500" data-i18n="services.tickets_desc">Vols pas chers</p>
                     </div>
-                </button>
+                </a>
                 
                 <a href="https://wa.me/212623945729" target="_blank" class="mt-4 bg-gradient-to-r from-green-500 to-green-600 text-white text-center py-3 rounded-lg font-bold hover:shadow-lg transition flex items-center justify-center gap-2" onclick="trackEvent('click_whatsapp_mobile')">
                     <i class="fab fa-whatsapp text-xl"></i> <span data-i18n="nav.whatsapp">Contact WhatsApp</span>
@@ -1156,7 +1226,7 @@
                 <div class="relative z-10 text-center px-4">
                     <h1 class="text-4xl md:text-8xl font-black text-white drop-shadow-2xl mb-4" data-i18n="hero.title">Omra 2027 & Hajj 2027 au départ du Maroc – Prix Omra et Voyages tout compris</h1>
                     <p class="text-sm md:text-xl text-white font-semibold mb-8" data-i18n="hero.subtitle">Agence de confiance pour Omra 2027, Hajj 2027, visa touristique, circuits et séjours.Découvrez nos forfaits Omra tout compris, billets d’avion et hôtels au départ du Maroc.</p>
-                    <button onclick="showSection('offers'); trackEvent('cta_hero_discover')" class="bg-white text-blue-900 px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition shadow-2xl" data-i18n="hero.button">Découvrir nos offres</button>
+                    <a href="#offers" onclick="navigateToSection(event, 'offers'); trackEvent('cta_hero_discover')" class="inline-block bg-white text-blue-900 px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition shadow-2xl no-underline" data-i18n="hero.button">Découvrir nos offres</a>
                 </div>
             </div>
 
@@ -1344,35 +1414,45 @@
                     
                     <!-- OMRA CARDS -->
                     <!-- 1. Omra Septembre & Octobre 2026 -->
-                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-sept-oct')">
+                    <div class="offer-card group" id="card-offre-omra-sept-oct" data-cat="omra" data-offer-id="omra-sept-oct" onclick="openOfferDetails('omra-sept-oct')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/cproxotd/image/upload/v1790267213/OMRA_SEPTEMBRE_OCTOBRE_2026.png" alt="Omra Septembre et Octobre 2026" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Omra Septembre & Octobre 2026</h3>
                             <p class="text-blue-600 font-bold mb-6">Du 25 septembre au 07 octobre 2026</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-sept-oct')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/omra-sept-oct" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('omra-sept-oct');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'omra-sept-oct')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 2. Omra Vacances scolaires Octobre 2026 -->
-                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-vacances-octobre')">
+                    <div class="offer-card group" id="card-offre-omra-vacances-octobre" data-cat="omra" data-offer-id="omra-vacances-octobre" onclick="openOfferDetails('omra-vacances-octobre')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/cproxotd/image/upload/v1790267436/OMRA_PENDANT_LES_VACANCES_SCOLAIRES_D_OCTOBRE_2026.png" alt="Omra Vacances scolaires d'Octobre 2026" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Omra Vacances scolaires d’Octobre 2026</h3>
                             <p class="text-blue-600 font-bold mb-6">Du 19 octobre au 01 novembre 2026</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-vacances-octobre')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/omra-vacances-octobre" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('omra-vacances-octobre');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'omra-vacances-octobre')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 3. Omra Novembre 2026 -->
-                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-novembre')">
+                    <div class="offer-card group" id="card-offre-omra-novembre" data-cat="omra" data-offer-id="omra-novembre" onclick="openOfferDetails('omra-novembre')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/cproxotd/image/upload/v1790705839/WhatsApp_Image_2026-09-29_at_10.40.37.jpg" alt="Omra Novembre 2026 Vol direct الخطوط السعودية" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
@@ -1386,354 +1466,489 @@
                             </div>
                             <h3 class="text-xl font-black mb-1">Omra Novembre 2026</h3>
                             <p class="text-blue-600 font-bold mb-6 text-sm">Du 25 octobre au 08 novembre 2026</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-novembre')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/omra-novembre" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('omra-novembre');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'omra-novembre')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 4. Omra Décembre 2026 -->
-                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-decembre')">
+                    <div class="offer-card group" id="card-offre-omra-decembre" data-cat="omra" data-offer-id="omra-decembre" onclick="openOfferDetails('omra-decembre')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%AF%D8%AC%D9%86%D8%A8%D8%B1_2026.jpg" alt="Omra Décembre 2026" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Omra Décembre 2026</h3>
                             <p class="text-blue-600 font-bold mb-6">Du 14 au 26 décembre 2026</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-decembre')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/omra-decembre" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('omra-decembre');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'omra-decembre')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 5. Omra de Chaabane avec Ramadan (20 jours) -->
-                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-chaabane')">
+                    <div class="offer-card group" id="card-offre-omra-chaabane" data-cat="omra" data-offer-id="omra-chaabane" onclick="openOfferDetails('omra-chaabane')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B4%D8%B9%D8%A8%D8%A7%D9%86_%D9%85%D8%B9_%D8%B1%D9%85%D8%B6%D8%A7%D9%86_20_%D9%8A%D9%88%D9%85.jpg" alt="Omra de Chaabane avec Ramadan (20 jours)" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Omra de Chaabane avec Ramadan (20 jours)</h3>
                             <p class="text-blue-600 font-bold mb-6">20 jours | شعبان وبداية رمضان</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-chaabane')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/omra-chaabane" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('omra-chaabane');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'omra-chaabane')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 6. Omra Ramadan 2027 -->
-                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-ramadan')">
+                    <div class="offer-card group" id="card-offre-omra-ramadan" data-cat="omra" data-offer-id="omra-ramadan" onclick="openOfferDetails('omra-ramadan')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B1%D9%85%D8%B6%D8%A7%D9%86_%D9%85%D9%86_12_%D9%81%D8%A8%D8%B1%D8%A7%D9%8A%D8%B1_%D8%A7%D9%84%D9%89_23_%D9%85%D8%A7%D8%B1%D8%B3_2027.jpg" alt="Omra Ramadan 2027" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Omra Ramadan 2027 (1448)</h3>
                             <p class="text-blue-600 font-bold mb-6">Du 12 février au 23 mars 2027</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-ramadan')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/omra-ramadan" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('omra-ramadan');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'omra-ramadan')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 7. Omra Chawwal 2027 -->
-                    <div class="offer-card" data-cat="omra" onclick="openOfferDetails('omra-chawwal')">
+                    <div class="offer-card group" id="card-offre-omra-chawwal" data-cat="omra" data-offer-id="omra-chawwal" onclick="openOfferDetails('omra-chawwal')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/cproxotd/image/upload/v1789987959/%D8%B9%D9%85%D8%B1%D8%A9_%D8%B4%D9%88%D8%A7%D9%84_2027-1448.jpg" alt="Omra Chawwal 2027" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Omra Chawwal 2027 (1448)</h3>
                             <p class="text-blue-600 font-bold mb-6">Du 15 au 28 mars 2027</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('omra-chawwal')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/omra-chawwal" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('omra-chawwal');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'omra-chawwal')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- VISA CARDS -->
-                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-qatar')">
+                    <div class="offer-card group" id="card-offre-visa-qatar" data-cat="visa" data-offer-id="visa-qatar" onclick="openOfferDetails('visa-qatar')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766870009/VISA-QATAR_sawtsc.png" alt="Visa Qatar" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2" data-i18n="visa.qatar">Visa touriste Qatar</h3>
                             <p class="text-sm text-gray-500 mb-6">Délivrance rapide en ligne pour ressortissants marocains</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-qatar')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/visa-qatar" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('visa-qatar');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'visa-qatar')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-saudi')">
+                    <div class="offer-card group" id="card-offre-visa-saudi" data-cat="visa" data-offer-id="visa-saudi" onclick="openOfferDetails('visa-saudi')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766759766/Visa_Saudi_pu1rai.jpg" alt="Visa Arabie Saoudite" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Arabie Saoudite e-visa</h3>
                             <p class="text-sm text-gray-500 mb-6">Traitement agréé sous 4 jours ouvrés</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-saudi')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/visa-saudi" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('visa-saudi');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'visa-saudi')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-oman')">
+                    <div class="offer-card group" id="card-offre-visa-oman" data-cat="visa" data-offer-id="visa-oman" onclick="openOfferDetails('visa-oman')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766870464/VISA-OMAN_vm0igd.png" alt="Visa Oman" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Oman</h3>
                             <p class="text-sm text-gray-500 mb-6">Visa touristique électronique officiel</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-oman')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/visa-oman" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('visa-oman');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'visa-oman')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-bahrein')">
+                    <div class="offer-card group" id="card-offre-visa-bahrein" data-cat="visa" data-offer-id="visa-bahrein" onclick="openOfferDetails('visa-bahrein')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1768417599/VISA-BAHRINE_oike4r.jpg" alt="Visa Bahreïn" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Bahreïn en ligne</h3>
                             <p class="text-sm text-gray-500 mb-6">Démarches complètes et rapides</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-bahrein')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/visa-bahrein" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('visa-bahrein');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'visa-bahrein')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-saudi-multi')">
+                    <div class="offer-card group" id="card-offre-visa-saudi-multi" data-cat="visa" data-offer-id="visa-saudi-multi" onclick="openOfferDetails('visa-saudi-multi')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766871324/VISA-SAUDI_m7suk7.png" alt="Visa Arabie multiple" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Arabie Saoudite (1 an, entrées multiples)</h3>
                             <p class="text-sm text-gray-500 mb-6">Idéal pour tourisme et Omra multiple</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-saudi-multi')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/visa-saudi-multi" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('visa-saudi-multi');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'visa-saudi-multi')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-golf')">
+                    <div class="offer-card group" id="card-offre-visa-golf" data-cat="visa" data-offer-id="visa-golf" onclick="openOfferDetails('visa-golf')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766759766/Qatar_-_Saudi_-_Bahrain_-_.._vu9tgy.jpg" alt="Visa combiné Golf" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa combiné Golf</h3>
                             <p class="text-sm text-gray-500 mb-6">EAU, Arabie, Qatar, Bahreïn, Oman</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-golf')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/visa-golf" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('visa-golf');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'visa-golf')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-dubai')">
+                    <div class="offer-card group" id="card-offre-visa-dubai" data-cat="visa" data-offer-id="visa-dubai" onclick="openOfferDetails('visa-dubai')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766918912/VISA-Emarate_jkuqau.png" alt="Visa Dubaï" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Dubaï et EAU</h3>
                             <p class="text-sm text-gray-500 mb-6">Traitement express sous 24h à 48h</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-dubai')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/visa-dubai" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('visa-dubai');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'visa-dubai')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="visa" onclick="openOfferDetails('visa-egypt')">
+                    <div class="offer-card group" id="card-offre-visa-egypt" data-cat="visa" data-offer-id="visa-egypt" onclick="openOfferDetails('visa-egypt')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1768417484/VISA-EGYPTE_ca42pj.jpg" alt="Visa Égypte" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Visa Égypte</h3>
                             <p class="text-sm text-gray-500 mb-6">Assistance visa touristique et dossiers</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-egypt')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/visa-egypt" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('visa-egypt');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'visa-egypt')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- VOYAGE CARDS -->
-                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-maroc')">
+                    <div class="offer-card group" id="card-offre-circuit-maroc" data-cat="voyage" data-offer-id="circuit-maroc" onclick="openOfferDetails('circuit-maroc')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858375/MOROCCO_2_okdxll.jpg" alt="Circuit Maroc" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Circuit touristique au Maroc</h3>
                             <p class="text-sm text-gray-500 mb-6">Atlas, Sahara, villes impériales et circuits sur mesure</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-maroc')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/circuit-maroc" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('circuit-maroc');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'circuit-maroc')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-egypt')">
+                    <div class="offer-card group" id="card-offre-circuit-egypt" data-cat="voyage" data-offer-id="circuit-egypt" onclick="openOfferDetails('circuit-egypt')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858373/EGYPT_z4ofdu.jpg" alt="Circuit Égypte" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Circuit en Égypte</h3>
                             <p class="text-sm text-gray-500 mb-6">Pyramides, croisière sur le Nil et Le Caire historique</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-egypt')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/circuit-egypt" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('circuit-egypt');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'circuit-egypt')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-dubai')">
+                    <div class="offer-card group" id="card-offre-circuit-dubai" data-cat="voyage" data-offer-id="circuit-dubai" onclick="openOfferDetails('circuit-dubai')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858372/EMARATE_uxuwuk.jpg" alt="Voyage Dubaï" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Séjour de luxe à Dubaï</h3>
                             <p class="text-sm text-gray-500 mb-6">Hôtels 5 étoiles, safari désert et attractions</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-dubai')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/circuit-dubai" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('circuit-dubai');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'circuit-dubai')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-bahrein')">
+                    <div class="offer-card group" id="card-offre-circuit-bahrein" data-cat="voyage" data-offer-id="circuit-bahrein" onclick="openOfferDetails('circuit-bahrein')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858283/BAHRAIN_jfazqq.jpg" alt="Voyage Bahreïn" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Découverte de Bahreïn</h3>
                             <p class="text-sm text-gray-500 mb-6">Séjour culturel et balnéaire dans le Golfe</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-bahrein')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/circuit-bahrein" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('circuit-bahrein');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'circuit-bahrein')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-qatar')">
+                    <div class="offer-card group" id="card-offre-circuit-qatar" data-cat="voyage" data-offer-id="circuit-qatar" onclick="openOfferDetails('circuit-qatar')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858374/QATAR_x4kerr.jpg" alt="Voyage Qatar" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Séjour moderne au Qatar</h3>
                             <p class="text-sm text-gray-500 mb-6">Doha, Souq Waqif, musées et îles artificielles</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-qatar')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/circuit-qatar" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('circuit-qatar');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'circuit-qatar')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-vietnam')">
+                    <div class="offer-card group" id="card-offre-circuit-vietnam" data-cat="voyage" data-offer-id="circuit-vietnam" onclick="openOfferDetails('circuit-vietnam')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858823/VITNAM_oush4e.jpg" alt="Voyage Vietnam" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Circuit authentique au Vietnam</h3>
                             <p class="text-sm text-gray-500 mb-6">Baie d'Halong, Hanoï, rizières et traditions</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-vietnam')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/circuit-vietnam" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('circuit-vietnam');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'circuit-vietnam')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-singapour')">
+                    <div class="offer-card group" id="card-offre-circuit-singapour" data-cat="voyage" data-offer-id="circuit-singapour" onclick="openOfferDetails('circuit-singapour')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858379/SANGAFORA_qzofa1.jpg" alt="Voyage Singapour" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Escales à Singapour</h3>
                             <p class="text-sm text-gray-500 mb-6">Marina Bay, Gardens by the Bay et modernité</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-singapour')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/circuit-singapour" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('circuit-singapour');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'circuit-singapour')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-bali')">
+                    <div class="offer-card group" id="card-offre-circuit-bali" data-cat="voyage" data-offer-id="circuit-bali" onclick="openOfferDetails('circuit-bali')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858373/INDONISIA_m2enha.jpg" alt="Voyage Indonésie" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Vacances de rêve à Bali</h3>
                             <p class="text-sm text-gray-500 mb-6">Plages paradisiaques, cascades et villas privées</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-bali')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/circuit-bali" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('circuit-bali');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'circuit-bali')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-thailande')">
+                    <div class="offer-card group" id="card-offre-circuit-thailande" data-cat="voyage" data-offer-id="circuit-thailande" onclick="openOfferDetails('circuit-thailande')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858817/TAYLAND_nmbahl.jpg" alt="Voyage Thaïlande" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Circuit en Thaïlande</h3>
                             <p class="text-sm text-gray-500 mb-6">Bangkok, Phuket et îles paradisiaques</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-thailande')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/circuit-thailande" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('circuit-thailande');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'circuit-thailande')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-srilanka')">
+                    <div class="offer-card group" id="card-offre-circuit-srilanka" data-cat="voyage" data-offer-id="circuit-srilanka" onclick="openOfferDetails('circuit-srilanka')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858415/SRILANKA_e91f1o.jpg" alt="Voyage Sri Lanka" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Voyage au Sri Lanka</h3>
                             <p class="text-sm text-gray-500 mb-6">Plantations de thé, safaris et océan Indien</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-srilanka')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/circuit-srilanka" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('circuit-srilanka');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'circuit-srilanka')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="voyage" onclick="openOfferDetails('circuit-malaisie')">
+                    <div class="offer-card group" id="card-offre-circuit-malaisie" data-cat="voyage" data-offer-id="circuit-malaisie" onclick="openOfferDetails('circuit-malaisie')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766858372/MALIZYA_yannvd.jpg" alt="Voyage Malaisie" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Circuit en Malaisie</h3>
                             <p class="text-sm text-gray-500 mb-6">Kuala Lumpur, Tours Petronas et îles tropicales</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('circuit-malaisie')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/circuit-malaisie" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('circuit-malaisie');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'circuit-malaisie')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- BILLETTERIE CARDS -->
-                    <div class="offer-card" data-cat="billet" onclick="openOfferDetails('billet-avion')">
+                    <div class="offer-card group" id="card-offre-billet-avion" data-cat="billet" data-offer-id="billet-avion" onclick="openOfferDetails('billet-avion')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766771094/HAJZ_cpo63j.jpg" alt="Billet avion" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Billet d'avion pas cher</h3>
                             <p class="text-sm text-gray-500 mb-6">Le Caire, Dubaï, Doha, Istanbul, Jeddah, Médine</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('billet-avion')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/billet-avion" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('billet-avion');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'billet-avion')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="billet" onclick="openOfferDetails('hotel-resa')">
+                    <div class="offer-card group" id="card-offre-hotel-resa" data-cat="billet" data-offer-id="hotel-resa" onclick="openOfferDetails('hotel-resa')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1767003257/r%C3%A9servation_h%C3%B4tel_vgneua.png" alt="Réservation hôtel" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Réservation d'hôtels</h3>
                             <p class="text-sm text-gray-500 mb-6">Tarifs négociés directs à Makkah, Madinah et dans le monde</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('hotel-resa')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/hotel-resa" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('hotel-resa');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'hotel-resa')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="offer-card" data-cat="billet" onclick="openOfferDetails('visa-package')">
+                    <div class="offer-card group" id="card-offre-visa-package" data-cat="billet" data-offer-id="visa-package" onclick="openOfferDetails('visa-package')">
                         <div class="image-container skeleton">
                             <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1767003391/r%C3%A9servation_h%C3%B4tel_et_billet_pour_visa_wjjywh.png" alt="Réservation pour visa" loading="lazy" width="400" height="300" decoding="async" onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-black mb-2">Réservation hôtel + billet pour visa</h3>
                             <p class="text-sm text-gray-500 mb-6">Dossier certifié pour demandes de visas consulaires</p>
-                            <button type="button" class="btn-action" onclick="event.stopPropagation(); openOfferDetails('visa-package')">
-                                <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
-                            </button>
+                            <div class="flex items-center gap-2 mt-2">
+                                <a href="#offre/visa-package" class="btn-action flex-1 flex items-center justify-center gap-2 text-center no-underline" onclick="event.stopPropagation(); openOfferDetails('visa-package');">
+                                    <i class="fas fa-eye"></i> <span data-i18n="btn.details">Voir le programme & détails</span>
+                                </a>
+                                <button type="button" class="btn-copy-card-link p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 text-gray-600 hover:text-blue-700 transition flex items-center justify-center shadow-xs cursor-pointer shrink-0" onclick="event.stopPropagation(); copyOfferDirectLink(event, 'visa-package')" title="Copier le lien direct de cette offre" aria-label="Copier le lien direct">
+                                    <i class="fas fa-link text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1746,21 +1961,21 @@
                 <!-- Navigation / Breadcrumbs -->
                 <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
                     <nav class="flex items-center gap-2 text-sm text-gray-500 font-bold">
-                        <button onclick="showSection('home')" class="hover:text-blue-700 transition flex items-center gap-1 cursor-pointer">
+                        <a href="#home" onclick="navigateToSection(event, 'home')" class="hover:text-blue-700 transition flex items-center gap-1 cursor-pointer no-underline">
                             <i class="fas fa-home"></i> <span data-i18n="nav.home">Accueil</span>
-                        </button>
+                        </a>
                         <span>/</span>
-                        <button onclick="showSection('offers')" class="hover:text-blue-700 transition cursor-pointer">
+                        <a href="#offers" onclick="navigateToSection(event, 'offers')" class="hover:text-blue-700 transition cursor-pointer no-underline">
                             <span data-i18n="nav.offers">Nos Offres</span>
-                        </button>
+                        </a>
                         <span>/</span>
                         <span id="detailBreadcrumbTitle" class="text-blue-900 font-black truncate max-w-[200px] md:max-w-md"></span>
                     </nav>
 
-                    <button onclick="showSection('offers')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-300 bg-white hover:bg-gray-100 text-gray-700 font-extrabold text-sm transition shadow-sm cursor-pointer min-h-[44px]">
+                    <a href="#offers" onclick="navigateToSection(event, 'offers')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-300 bg-white hover:bg-gray-100 text-gray-700 font-extrabold text-sm transition shadow-sm cursor-pointer min-h-[44px] no-underline">
                         <i class="fas fa-arrow-left rtl:rotate-180"></i>
                         <span data-i18n="detail.back_btn">Retour à la liste des offres</span>
-                    </button>
+                    </a>
                 </div>
 
                 <!-- Main Card Showcase -->
@@ -1874,10 +2089,32 @@
                                         <i class="fas fa-phone-alt"></i>
                                         <span data-i18n="detail.call_cta">Appeler (+212 623 94 57 29)</span>
                                     </a>
-                                    <button onclick="showSection('offers')" class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-sm transition cursor-pointer min-h-[48px]">
+                                    <a href="#offers" onclick="navigateToSection(event, 'offers')" class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-sm transition cursor-pointer min-h-[48px] no-underline">
                                         <i class="fas fa-th-large"></i>
                                         <span data-i18n="detail.all_offers_btn">Voir d'autres offres</span>
-                                    </button>
+                                    </a>
+                                </div>
+
+                                
+                                <!-- Direct Offer Link & Share Box -->
+                                <div class="mt-4 p-4 rounded-2xl bg-blue-50/90 border border-blue-200 shadow-xs">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-xs font-black uppercase text-blue-900 flex items-center gap-2">
+                                            <i class="fas fa-share-alt text-blue-600"></i>
+                                            <span data-i18n="detail.share_title">Lien direct de cette offre</span>
+                                        </span>
+                                        <span class="text-[11px] font-bold text-gray-500" data-i18n="detail.share_subtitle">Partagez ce forfait</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <input id="detailOfferUrlInput" type="text" readonly class="flex-1 bg-white border border-gray-300 text-gray-700 text-xs rounded-xl px-3 py-2.5 font-mono select-all focus:outline-none focus:ring-2 focus:ring-blue-500" value="">
+                                        <button type="button" onclick="copyDetailOfferLink()" class="px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-extrabold text-xs rounded-xl transition flex items-center gap-1.5 shadow-sm whitespace-nowrap cursor-pointer">
+                                            <i class="fas fa-copy"></i>
+                                            <span id="copyBtnText" data-i18n="detail.copy_link_btn">Copier</span>
+                                        </button>
+                                        <button type="button" onclick="shareDetailOfferWhatsApp()" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs rounded-xl transition flex items-center gap-1.5 shadow-sm whitespace-nowrap cursor-pointer" title="Partager sur WhatsApp">
+                                            <i class="fab fa-whatsapp text-sm"></i>
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <div class="text-center pt-2">
@@ -2871,82 +3108,84 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="bg-gray-950 text-white py-20 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
-            <!-- Logo -->
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 items-start">
+            <!-- Logo & Présentation -->
             <div class="flex flex-col items-center md:items-start">
-                <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png" alt="Sahab Logo" class="h-32 mb-6 brightness-125" loading="lazy" width="128" height="128">
-                <p class="text-gray-400 font-semibold text-center md:text-left" data-i18n="footer.tagline">L'excellence au service de vos voyages</p>
-                <div class="mt-4 text-gray-400 text-sm space-y-1">
-                    <p class="font-bold text-white">Sahab Voyages – أسفار سحاب</p>
-                    <p>Billets d'avion & bateau</p>
+                <a href="#home" onclick="navigateToSection(event, 'home')" class="cursor-pointer">
+                    <img src="https://res.cloudinary.com/dkusr0hu1/image/upload/v1766748193/LOGO_SAHAB_cr3qjr.png" alt="Sahab Logo" class="h-28 mb-4 brightness-125 hover:opacity-90 transition" loading="lazy" width="112" height="112">
+                </a>
+                <p class="text-gray-400 font-semibold text-center md:text-left text-sm" data-i18n="footer.tagline">L'excellence au service de vos voyages</p>
+                <div class="mt-4 text-gray-400 text-xs space-y-1">
+                    <p class="font-bold text-white text-sm">Sahab Voyages – أسفار سحاب</p>
+                    <p>Billets d'avion & Hôtels Makkah / Madinah</p>
                     <p>Voyages organisés | Hajj & Omra</p>
-                    <p>Hôtels | Visa | Transport touristique</p>
+                    <p>Visas Touristiques & Circuits Séjours</p>
                 </div>
             </div>
-            
-            <!-- Adresses -->
-            <div class="flex flex-col items-center md:items-start md:col-span-2">
-                <h4 class="text-xl font-black mb-8 border-b-2 border-blue-600 pb-2" data-i18n="footer.addresses_title">Nos Adresses</h4>
-                <div class="space-y-6 text-gray-400 w-full">
-                    
-                    <!-- Casablanca Siège -->
-                    <div class="bg-gray-900 p-4 rounded-lg border-l-4 border-blue-500">
-                        <p class="text-sm font-black text-white mb-2">🏢 Siège principal – Casablanca</p>
-                        <p class="text-xs mb-2">AMAL 4, Rue 27, N°44 – Bernoussi, Casablanca</p>
-                        <div class="space-y-1">
-                            <a href="tel:0522759167" class="flex gap-2 hover:text-blue-400 transition text-xs">
-                                <i class="fas fa-phone text-blue-500"></i> Fix : 05 22 75 91 67
-                            </a>
-                            <a href="https://wa.me/212666123893" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs" onclick="trackEvent('footer_wa_casa1')">
-                                <i class="fab fa-whatsapp text-green-500"></i> Mobile : 06 66 12 38 93
-                            </a>
-                            <a href="https://wa.me/212666429978" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs" onclick="trackEvent('footer_wa_casa2')">
-                                <i class="fab fa-whatsapp text-green-500"></i> +212 666 42 99 78
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Casablanca Ain Chock -->
-                    <div class="bg-gray-900 p-4 rounded-lg border-l-4 border-purple-500">
-                        <p class="text-sm font-black text-white mb-2">🏢 Agence Ain Chock – Casablanca</p>
-                        <p class="text-xs mb-2">Kissariat Mosque Al Mossalla, N B1 – Casablanca</p>
-                        <div class="space-y-1">
-                            <a href="tel:0522508334" class="flex gap-2 hover:text-blue-400 transition text-xs">
-                                <i class="fas fa-phone text-blue-500"></i> Fix : 05 22 50 83 34
-                            </a>
-                            <a href="https://wa.me/212623945729" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs" onclick="trackEvent('footer_wa_ainchock1')">
-                                <i class="fab fa-whatsapp text-green-500"></i> Mobile : 06 23 94 57 29
-                            </a>
-                            <a href="https://wa.me/212666313357" target="_blank" class="flex gap-2 hover:text-green-400 transition text-xs" onclick="trackEvent('footer_wa_ainchock2')">
-                                <i class="fab fa-whatsapp text-green-500"></i> Mobile : 06 66 31 33 57
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Email -->
-                    <a href="mailto:agencesahab@gmail.com" class="flex gap-3 hover:text-white transition">
-                        <i class="fas fa-envelope text-red-500"></i>
-                        <span data-i18n="footer.email">Email: agencesahab@gmail.com</span>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Horaires + Réseaux sociaux -->
+
+            <!-- Navigation Rapide -->
             <div class="flex flex-col items-center md:items-start">
-                <h4 class="text-xl font-black mb-8 border-b-2 border-blue-600 pb-2" data-i18n="footer.hours_title">Horaires</h4>
-                <div class="grid gap-2 w-full text-sm text-gray-400 mb-10">
-                    <div class="flex justify-between border-b border-white/10 pb-1"><span data-i18n="footer.days1">Lun - Jeu</span> <span>09:00 – 18:30</span></div>
-                    <div class="flex justify-between border-b border-white/10 pb-1"><span data-i18n="footer.days2">Ven</span> <span>09:00 – 18:30</span></div>
-                    <div class="flex justify-between border-b border-white/10 pb-1"><span data-i18n="footer.days3">Sam</span> <span>09:00 – 13:00</span></div>
-                    <div class="flex justify-between text-red-400 font-bold"><span data-i18n="footer.days4">Dim</span> <span data-i18n="footer.closed">Fermé</span></div>
-                </div>
-                
-                <h4 class="text-xl font-black mb-4" data-i18n="footer.follow_title">Suivez-nous</h4>
-                <div class="grid grid-cols-2 gap-4">
-                    <a href="https://www.tiktok.com/@sahab_voyages" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-black transition"><i class="fab fa-tiktok"></i> <span class="text-xs font-bold" data-i18n="footer.tiktok">TikTok</span></a>
-                    <a href="https://www.instagram.com/sahabvoyages" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-pink-600 transition"><i class="fab fa-instagram"></i> <span class="text-xs font-bold" data-i18n="footer.instagram">Insta</span></a>
-                    <a href="https://wa.me/212623945729" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-green-600 transition" onclick="trackEvent('footer_wa_social')"><i class="fab fa-whatsapp"></i> <span class="text-xs font-bold" data-i18n="footer.whatsapp_short">WhatsApp</span></a>
-                    <a href="https://www.facebook.com/sahabvoyages" target="_blank" class="flex items-center gap-2 bg-gray-900 p-2 rounded hover:bg-white hover:text-blue-600 transition"><i class="fab fa-facebook"></i> <span class="text-xs font-bold" data-i18n="footer.facebook">FB</span></a>
+                <h4 class="text-lg font-black mb-6 border-b-2 border-blue-600 pb-2 text-white flex items-center gap-2">
+                    <i class="fas fa-compass text-blue-500"></i>
+                    <span data-i18n="footer.quick_nav">Navigation</span>
+                </h4>
+                <ul class="space-y-2.5 text-sm text-gray-400 font-semibold">
+                    <li><a href="#home" onclick="navigateToSection(event, 'home')" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500 rtl:rotate-180"></i> <span data-i18n="nav.home">Accueil</span></a></li>
+                    <li><a href="#about" onclick="navigateToSection(event, 'about')" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500 rtl:rotate-180"></i> <span data-i18n="nav.about">À Propos</span></a></li>
+                    <li><a href="#offers" onclick="navigateToSection(event, 'offers')" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500 rtl:rotate-180"></i> <span data-i18n="nav.offers">Nos Offres</span></a></li>
+                    <li><a href="#guide" onclick="navigateToSection(event, 'guide')" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500 rtl:rotate-180"></i> <span data-i18n="nav.guide">Guide & Valise</span></a></li>
+                    <li><a href="#faq" onclick="navigateToSection(event, 'faq')" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500 rtl:rotate-180"></i> <span data-i18n="nav.faq">FAQ</span></a></li>
+                    <li><a href="#blog" onclick="navigateToSection(event, 'blog')" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500 rtl:rotate-180"></i> <span data-i18n="nav.blog">Blog</span></a></li>
+                    <li><a href="#vlogs" onclick="navigateToSection(event, 'vlogs')" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500 rtl:rotate-180"></i> <span data-i18n="nav.vlogs">Vlogs</span></a></li>
+                    <li><a href="#contact" onclick="navigateToSection(event, 'contact')" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500 rtl:rotate-180"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Top Offres direct links -->
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-lg font-black mb-6 border-b-2 border-amber-500 pb-2 text-white flex items-center gap-2">
+                    <i class="fas fa-star text-amber-500"></i>
+                    <span data-i18n="footer.top_offers">Nos Meilleures Offres</span>
+                </h4>
+                <ul class="space-y-2.5 text-sm text-gray-400 font-semibold">
+                    <li><a href="#offre/omra-novembre" onclick="openOfferDetails('omra-novembre'); event.preventDefault();" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fas fa-kaaba text-xs text-amber-400"></i> Omra Novembre 2026</a></li>
+                    <li><a href="#offre/omra-decembre" onclick="openOfferDetails('omra-decembre'); event.preventDefault();" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fas fa-kaaba text-xs text-amber-400"></i> Omra Décembre 2026</a></li>
+                    <li><a href="#offre/omra-chaabane" onclick="openOfferDetails('omra-chaabane'); event.preventDefault();" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fas fa-kaaba text-xs text-amber-400"></i> Omra Chaabane 2027</a></li>
+                    <li><a href="#offre/omra-ramadan" onclick="openOfferDetails('omra-ramadan'); event.preventDefault();" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fas fa-kaaba text-xs text-amber-400"></i> Omra Ramadan 2027</a></li>
+                    <li><a href="#offers?cat=visa" onclick="filterFromMenu('visa', event)" class="hover:text-blue-400 transition flex items-center gap-2"><i class="fas fa-passport text-xs text-blue-400"></i> Visas Touristiques</a></li>
+                    <li><a href="#offers?cat=voyage" onclick="filterFromMenu('voyage', event)" class="hover:text-blue-400 transition flex items-center gap-2"><i class="fas fa-plane text-xs text-purple-400"></i> Circuits & Séjours</a></li>
+                </ul>
+            </div>
+
+            <!-- Adresses, Horaires & Réseaux sociaux -->
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-lg font-black mb-6 border-b-2 border-emerald-500 pb-2 text-white flex items-center gap-2">
+                    <i class="fas fa-map-marker-alt text-emerald-500"></i>
+                    <span data-i18n="footer.addresses_title">Nos Adresses & Contact</span>
+                </h4>
+                <div class="space-y-4 text-gray-400 w-full text-xs">
+                    <div class="bg-gray-900 p-3.5 rounded-xl border-l-4 border-blue-500">
+                        <p class="font-black text-white text-xs mb-1">🏢 Siège Bernoussi – Casablanca</p>
+                        <p class="text-[11px] mb-2 text-gray-400">AMAL 4, Rue 27, N°44 – Bernoussi</p>
+                        <div class="space-y-1">
+                            <a href="tel:0522759167" class="flex gap-2 hover:text-blue-400 transition"><i class="fas fa-phone text-blue-500"></i> 05 22 75 91 67</a>
+                            <a href="https://wa.me/212666123893" target="_blank" class="flex gap-2 hover:text-green-400 transition"><i class="fab fa-whatsapp text-green-500"></i> 06 66 12 38 93</a>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900 p-3.5 rounded-xl border-l-4 border-purple-500">
+                        <p class="font-black text-white text-xs mb-1">🏢 Agence Ain Chock – Casablanca</p>
+                        <p class="text-[11px] mb-2 text-gray-400">Kissariat Mosque Al Mossalla, N B1</p>
+                        <div class="space-y-1">
+                            <a href="tel:0522508334" class="flex gap-2 hover:text-blue-400 transition"><i class="fas fa-phone text-blue-500"></i> 05 22 50 83 34</a>
+                            <a href="https://wa.me/212623945729" target="_blank" class="flex gap-2 hover:text-green-400 transition"><i class="fab fa-whatsapp text-green-500"></i> 06 23 94 57 29</a>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 pt-2">
+                        <a href="https://www.tiktok.com/@sahab_voyages" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 hover:bg-white hover:text-black flex items-center justify-center transition" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/sahabvoyages" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 hover:bg-white hover:text-pink-600 flex items-center justify-center transition" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/212623945729" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 hover:bg-white hover:text-green-600 flex items-center justify-center transition" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/sahabvoyages" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 hover:bg-white hover:text-blue-600 flex items-center justify-center transition" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3062,6 +3301,14 @@ const translations = {
 'exit_modal.text': 'Profitez de -10% sur votre premier devis Omra ou voyage. Offre limitée.',
 'exit_modal.button': 'Obtenir -10% sur WhatsApp',
         // Navigation
+        // Navigation & Share
+        'footer.quick_nav': 'Navigation',
+        'footer.top_offers': 'Nos Meilleures Offres',
+        'detail.share_title': 'Lien direct de cette offre',
+        'detail.share_subtitle': 'Partagez ce forfait avec vos proches',
+        'detail.copy_link_btn': 'Copier le lien',
+        'detail.link_copied': 'Lien copié dans le presse-papier !',
+        'toast.link_copied': 'Lien de l\'offre copié avec succès !',
         'nav.home': 'Accueil',
         'nav.about': 'À Propos',
         'nav.offers': 'Nos Offres',
@@ -3348,6 +3595,14 @@ const translations = {
 'exit_modal.text': 'استفد من خصم -10% على أول طلب عمرة أو رحلة. عرض محدود.',
 'exit_modal.button': 'احصل على -10% عبر واتساب',
         // Navigation
+        // Navigation & Share
+        'footer.quick_nav': 'صفحات الموقع',
+        'footer.top_offers': 'أبرز عروضنا',
+        'detail.share_title': 'الرابط المباشر لهذا العرض',
+        'detail.share_subtitle': 'شارك هذا العرض مع عائلتك وأصدقائك',
+        'detail.copy_link_btn': 'نسخ الرابط',
+        'detail.link_copied': 'تم نسخ رابط العرض بنجاح!',
+        'toast.link_copied': 'تم نسخ رابط العرض بنجاح!',
         'nav.home': 'الرئيسية',
         'nav.about': 'من نحن',
         'nav.offers': 'عروضنا',
@@ -3634,12 +3889,48 @@ const translations = {
 
         // ========== FONCTIONS PRINCIPALES ==========
         
-        // Afficher une section
-        function showSection(id) {
+        
+
+        // Afficher une section avec mise à jour du lien d'URL et indicateur actif
+        function showSection(id, pushHash = true) {
+            const sec = document.getElementById(id);
+            if (!sec) return;
+            
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-section'));
-            document.getElementById(id).classList.add('active-section');
-            document.getElementById('mobileMenu').classList.add('hidden');
+            sec.classList.add('active-section');
+            
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu) mobileMenu.classList.add('hidden');
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Highlight active nav links in desktop and mobile
+            document.querySelectorAll('[data-nav]').forEach(el => {
+                const isCurrent = el.getAttribute('data-nav') === id;
+                if (isCurrent) {
+                    el.classList.add('active-link');
+                } else {
+                    el.classList.remove('active-link');
+                }
+            });
+
+            // Update URL hash cleanly
+            if (pushHash) {
+                const newHash = id === 'home' ? '#home' : '#' + id;
+                if (window.location.hash !== newHash) {
+                    try {
+                        history.pushState({ section: id }, '', newHash);
+                    } catch (e) {
+                        window.location.hash = newHash;
+                    }
+                }
+            }
+        }
+
+        // Navigation via lien de menu ou bouton
+        function navigateToSection(e, id) {
+            if (e && e.preventDefault) e.preventDefault();
+            showSection(id, true);
         }
 
         // Basculer le menu mobile
@@ -3685,17 +3976,22 @@ const translations = {
             });
         }
 
-        // Filtrer depuis le menu mobile
-        function filterFromMenu(cat) {
-            document.getElementById('mobileMenu').classList.add('hidden');
-            showSection('offers');
+        // Filtrer depuis le menu mobile ou le footer
+        function filterFromMenu(cat, e) {
+            if (e && e.preventDefault) e.preventDefault();
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu) mobileMenu.classList.add('hidden');
+            showSection('offers', true);
             
             setTimeout(() => {
                 filterOffers(cat);
-                document.getElementById('offers').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
-                });
+                const offersSec = document.getElementById('offers');
+                if (offersSec) {
+                    offersSec.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
             }, 100);
         }
 
@@ -4515,14 +4811,194 @@ const translations = {
             }
         };
 
-        function openOfferDetails(id) {
+        function openOfferDetails(id, pushHash = true) {
             const offer = offersData[id];
             if (!offer) return;
             activeOfferId = id;
             renderOfferDetails(id);
-            showSection('offer-details');
+            showSection('offer-details', false);
+            
+            // Mettre à jour le titre du document
+            const isAr = currentLanguage === 'ar';
+            const title = isAr ? (offer.titleAr || offer.titleFr) : (offer.titleFr || offer.titleAr);
+            document.title = `${title} | Sahab Voyages Casablanca`;
+            
+            // Mettre à jour le champ du lien direct
+            const fullUrl = window.location.origin + window.location.pathname + '#offre/' + id;
+            const urlInput = document.getElementById('detailOfferUrlInput');
+            if (urlInput) {
+                urlInput.value = fullUrl;
+            }
+            
+            if (pushHash) {
+                const newHash = '#offre/' + id;
+                if (window.location.hash !== newHash) {
+                    try {
+                        history.pushState({ offer: id }, '', newHash);
+                    } catch (e) {
+                        window.location.hash = newHash;
+                    }
+                }
+            }
             trackEvent(`view_offer_${id}`);
         }
+
+        function copyOfferDirectLink(e, id) {
+            if (e && e.stopPropagation) e.stopPropagation();
+            if (e && e.preventDefault) e.preventDefault();
+            const isAr = currentLanguage === 'ar';
+            const fullUrl = window.location.origin + window.location.pathname + '#offre/' + id;
+            
+            copyTextToClipboard(fullUrl, () => {
+                showToast(isAr ? 'تم نسخ رابط العرض بنجاح!' : 'Lien de l\'offre copié avec succès !', 'fas fa-link text-emerald-400');
+            });
+        }
+
+        function copyDetailOfferLink() {
+            const input = document.getElementById('detailOfferUrlInput');
+            const isAr = currentLanguage === 'ar';
+            const btnText = document.getElementById('copyBtnText');
+            const url = (input && input.value) ? input.value : (window.location.origin + window.location.pathname + '#offre/' + (activeOfferId || ''));
+            
+            copyTextToClipboard(url, () => {
+                if (btnText) {
+                    const original = btnText.textContent;
+                    btnText.textContent = isAr ? 'تم النسخ!' : 'Copié !';
+                    setTimeout(() => { btnText.textContent = original; }, 2500);
+                }
+                showToast(isAr ? 'تم نسخ رابط العرض إلى الحافظة!' : 'Lien de l\'offre copié dans le presse-papier !', 'fas fa-check-circle text-emerald-400');
+            });
+        }
+
+        function shareDetailOfferWhatsApp() {
+            if (!activeOfferId || !offersData[activeOfferId]) return;
+            const offer = offersData[activeOfferId];
+            const isAr = currentLanguage === 'ar';
+            const title = isAr ? (offer.titleAr || offer.titleFr) : (offer.titleFr || offer.titleAr);
+            const fullUrl = window.location.origin + window.location.pathname + '#offre/' + activeOfferId;
+            const message = isAr 
+                ? `السلام عليكم ورحمة الله، أود الاستفسار والحجز لعرض: ${title}\nرابط العرض: ${fullUrl}`
+                : `Bonjour Sahab Voyages, je souhaite avoir des informations et réserver pour le forfait : ${title}\nLien direct : ${fullUrl}`;
+            
+            window.open(`https://wa.me/212623945729?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function copyTextToClipboard(text, onSuccess) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(onSuccess).catch(() => fallbackCopy(text, onSuccess));
+            } else {
+                fallbackCopy(text, onSuccess);
+            }
+        }
+
+        function fallbackCopy(text, onSuccess) {
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.focus();
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                if (onSuccess) onSuccess();
+            } catch (e) {
+                prompt('Copiez ce lien :', text);
+            }
+        }
+
+        function showToast(msg, icon = 'fas fa-check-circle text-emerald-400') {
+            const toast = document.getElementById('toastNotification');
+            const msgEl = document.getElementById('toastMessage');
+            const iconEl = document.getElementById('toastIcon');
+            if (!toast || !msgEl) return;
+            
+            msgEl.textContent = msg;
+            if (iconEl) iconEl.className = icon + ' text-lg';
+            
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            if (window._toastTimeout) clearTimeout(window._toastTimeout);
+            window._toastTimeout = setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 3000);
+        }
+
+        // Router d'URLs et de liens personnalisés
+        function handleRoute() {
+            const rawHash = window.location.hash || '';
+            const hash = rawHash.replace(/^#\/?/, '').trim();
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Vérification si query param ?offre=id
+            const queryOffer = urlParams.get('offre');
+            if (queryOffer && offersData[queryOffer]) {
+                openOfferDetails(queryOffer, false);
+                return;
+            }
+
+            if (!hash || hash === 'home' || hash === 'accueil') {
+                showSection('home', false);
+                return;
+            }
+            
+            // Lien vers une offre spécifique : #offre/id ou #offre-id
+            if (hash.startsWith('offre/') || hash.startsWith('offre-')) {
+                const offerId = hash.replace(/^offre[\/-]/, '');
+                if (offersData[offerId]) {
+                    openOfferDetails(offerId, false);
+                    return;
+                }
+            }
+            
+            // Identifiant direct d'une offre : #omra-novembre
+            if (offersData[hash]) {
+                openOfferDetails(hash, false);
+                return;
+            }
+            
+            // Section Nos Offres avec filtre optionnel : #offers?cat=visa ou #offers
+            if (hash.startsWith('offers') || hash.startsWith('offres') || hash.startsWith('nos-offres')) {
+                showSection('offers', false);
+                const catMatch = hash.match(/cat=([a-zA-Z0-9_-]+)/);
+                if (catMatch && catMatch[1]) {
+                    filterOffers(catMatch[1]);
+                }
+                return;
+            }
+            
+            const sectionAliases = {
+                'about': 'about',
+                'a-propos': 'about',
+                'apropos': 'about',
+                'guide': 'guide',
+                'guide-valise': 'guide',
+                'valise': 'guide',
+                'faq': 'faq',
+                'blog': 'blog',
+                'vlogs': 'vlogs',
+                'vlog': 'vlogs',
+                'contact': 'contact'
+            };
+            
+            if (sectionAliases[hash]) {
+                showSection(sectionAliases[hash], false);
+                return;
+            }
+            
+            const targetEl = document.getElementById(hash);
+            if (targetEl && targetEl.classList.contains('page-section')) {
+                showSection(hash, false);
+            } else {
+                showSection('home', false);
+            }
+        }
+
+        window.addEventListener('hashchange', handleRoute);
+        window.addEventListener('popstate', handleRoute);
 
         function renderOfferDetails(id) {
             const offer = offersData[id];
@@ -4619,6 +5095,11 @@ const translations = {
             if (waBtn) {
                 waBtn.href = offer.waUrl;
             }
+            const fullUrl = window.location.origin + window.location.pathname + '#offre/' + id;
+            const urlInput = document.getElementById('detailOfferUrlInput');
+            if (urlInput) {
+                urlInput.value = fullUrl;
+            }
         }
 
         // Scroll progress bar
@@ -4663,38 +5144,20 @@ const translations = {
                 navigator.serviceWorker.register('/sw.js').catch(() => {});
             }
 
-            // Gestion de l'ancre d'URL
-            if (window.location.hash) {
-                const targetId = window.location.hash.substring(1);
-                if (typeof offersData !== 'undefined' && offersData[targetId]) {
-                    openOfferDetails(targetId);
-                } else {
-                    const targetSec = document.getElementById(targetId);
-                    if (targetSec && targetSec.classList.contains('page-section')) {
-                        showSection(targetId);
-                    }
-                }
-            }
-            
-            // Écouteurs pour les ancres internes
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId && targetId !== '#') {
-                        const targetSectionId = targetId.substring(1);
-                        const sec = document.getElementById(targetSectionId);
-                        if (sec && sec.classList.contains('page-section')) {
-                            e.preventDefault();
-                            showSection(targetSectionId);
-                        }
-                    }
-                });
-            });
+            // Exécution du routeur d'URL initial (sections et offres individuelles)
+            handleRoute();
 
             // Chargement paresseux des images
             const images = document.querySelectorAll('img:not([loading])');
             images.forEach(img => img.setAttribute('loading', 'lazy'));
         });
     </script>
+
+    <!-- Toast Notification Container -->
+    <div id="toastNotification" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] bg-gray-900/95 backdrop-blur-md text-white px-6 py-3.5 rounded-full shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none transform translate-y-4 border border-white/10">
+        <i id="toastIcon" class="fas fa-check-circle text-emerald-400 text-lg"></i>
+        <span id="toastMessage" class="text-sm font-bold tracking-wide"></span>
+    </div>
+
 </body>
 </html>
